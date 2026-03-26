@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 3: Core Nouns I — People, Time & Place — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html">D2</a> <a href="day03.html" class="active">D3</a> <a href="day04.html">D4</a> <a href="day05.html">D5</a> <a href="day06.html">D6</a> <a href="day07.html">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html">D12</a> <a href="day13.html">D13</a> <a href="day14.html">D14</a> <a href="day15.html">D15</a> <a href="day16.html">D16</a> <a href="day17.html">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 3</span>
+    <span class="day-theme">Core Nouns I — People, Time & Place</span>
+    <span class="day-stats">Words 101–151 · 51 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">people</span>
+        <span class="phonetic">/ˈpiːpəl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Human beings in general; a group of persons.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love spending time with the people I care about.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We surveyed over 500 people to gather this market data.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">time</span>
+        <span class="phonetic">/taɪm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The ongoing sequence of events; a measured period.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I never seem to have enough time to read for pleasure.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Time is our most limited resource on this project.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">year</span>
+        <span class="phonetic">/jɪr/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A period of twelve months.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We travel to the coast every year during summer.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Revenue grew by 18% compared to the same period last year.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">day</span>
+        <span class="phonetic">/deɪ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A period of 24 hours; the hours of daylight.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I start each day with a glass of water and a stretch.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Can we schedule the review meeting for a day next week?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">way</span>
+        <span class="phonetic">/weɪ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A method or manner of doing something; a route or path.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> What's the best way to get to the train station from here?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Is there a more efficient way to handle this approval process?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">man</span>
+        <span class="phonetic">/mæn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An adult male human being.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A kind man helped me pick up the things I'd dropped.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> He's the right man to lead the negotiations with that client.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">woman</span>
+        <span class="phonetic">/ˈwʊmən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An adult female human being.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The woman at the front desk was extremely helpful.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> She's an experienced woman in senior leadership at a global firm.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">child</span>
+        <span class="phonetic">/tʃaɪld/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A young person between birth and puberty.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Every child in the neighborhood was invited to the birthday party.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We designed this app to be simple enough for a child to navigate.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">family</span>
+        <span class="phonetic">/ˈfæmɪli/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A group of people related by blood, marriage, or strong bonds.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My family always eats dinner together on Sunday evenings.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Work-life balance is important so employees can spend time with their families.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">life</span>
+        <span class="phonetic">/laɪf/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The existence of a living being; a way of living.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Life in the countryside feels slower and more peaceful.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This product will change the daily life of millions of users.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">world</span>
+        <span class="phonetic">/wɜːrld/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The earth and all the people and things on it.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'd love to travel the world some day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are a world-class team delivering world-class results.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">hand</span>
+        <span class="phonetic">/hænd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The part of the body at the end of the arm.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She raised her hand to ask the teacher a question.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I need all hands on deck for the product launch next Friday.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">place</span>
+        <span class="phonetic">/pleɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A particular location, area, or position.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This café is my favorite place to work on weekday mornings.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Is this a good place to introduce the new pricing model?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">case</span>
+        <span class="phonetic">/keɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A situation or example of something; a legal matter.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> In most cases, the early bird gets the best seats.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let me walk you through a business case for this investment.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">week</span>
+        <span class="phonetic">/wiːk/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A period of seven consecutive days.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I meal-prep every Sunday to save time during the week.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to finalize the report by the end of this week.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">night</span>
+        <span class="phonetic">/naɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The period of darkness between sunset and sunrise.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love the sound of rain at night.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The team worked through the night to meet the launch deadline.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">home</span>
+        <span class="phonetic">/hoʊm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The place where you live; a sense of belonging.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> There's no place like home after a long trip.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are introducing a work-from-home policy three days a week.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">area</span>
+        <span class="phonetic">/ˈeərɪə/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A part of a place, region, or subject.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I live in a quiet area just outside the city center.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We identified three key areas for improvement in the process audit.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">story</span>
+        <span class="phonetic">/ˈstɔːri/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An account of events; a narrative; a floor of a building.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She told me a wonderful story about her childhood in Italy.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's use a customer success story to open the presentation.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">fact</span>
+        <span class="phonetic">/fækt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Something that is known to be true or has happened.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The fact that he finished the marathon is truly inspiring.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let me share a few key facts to support this recommendation.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">month</span>
+        <span class="phonetic">/mʌnθ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">One of the twelve divisions of the calendar year.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I visit my grandparents at least once a month.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We will review progress at the end of each month.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">study</span>
+        <span class="phonetic">/ˈstʌdi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The activity of learning; a piece of research; a room for work.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I set aside an hour of study every evening after dinner.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> A recent study shows that flexible hours increase productivity.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">book</span>
+        <span class="phonetic">/bʊk/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A set of written or printed pages bound together.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I always keep a book in my bag for commuting.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please book a meeting room for our three o'clock session.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">eye</span>
+        <span class="phonetic">/aɪ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The organ of sight; close attention.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She has the most striking blue eyes.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to keep an eye on the budget as we scale.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">job</span>
+        <span class="phonetic">/dʒɒb/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A paid position of regular employment; a task.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She landed her dream job at a technology company.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Everyone did an excellent job on this quarter's deliverables.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">word</span>
+        <span class="phonetic">/wɜːrd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A unit of language; a promise or commitment.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm trying to learn a new word in English every day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I give you my word that the report will be ready by Friday.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">friend</span>
+        <span class="phonetic">/frend/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A person you know well, trust, and like.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm meeting an old friend for lunch this weekend.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Building a strong network means being a good friend to your colleagues.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">power</span>
+        <span class="phonetic">/ˈpaʊər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The ability to do something; authority or control.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The power went out during the storm last night.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The final decision-making power rests with the executive committee.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">hour</span>
+        <span class="phonetic">/aʊər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A period of sixty minutes.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I spend about an hour at the gym every morning.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The kickoff call will last no more than one hour.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">thing</span>
+        <span class="phonetic">/θɪŋ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An object, idea, situation, or matter.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The best thing about weekends is sleeping in.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> One important thing to note is the change in the approval workflow.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">group</span>
+        <span class="phonetic">/ɡruːp/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A number of people or things that are together.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We meet as a group for book club every two weeks.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd like the group to break into smaller teams for this exercise.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">country</span>
+        <span class="phonetic">/ˈkʌntri/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A nation with its own land and government.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She has visited more than thirty countries in her lifetime.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are expanding our operations into three new countries next year.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">school</span>
+        <span class="phonetic">/skuːl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A place for teaching and learning; an institution of education.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My daughter loves her new school and has made many friends.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to treat this onboarding like a first day of school.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">body</span>
+        <span class="phonetic">/ˈbɒdi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The physical structure of a person or animal; a group or organization.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Regular exercise is great for both the body and the mind.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> A regulatory body must review this change before it takes effect.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">mind</span>
+        <span class="phonetic">/maɪnd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The thinking, reasoning, and feeling part of a person.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Reading is one of the best ways to keep your mind sharp.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Keep in mind that our Q2 targets are extremely ambitious.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">plan</span>
+        <span class="phonetic">/plæn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A decision about how to do something; a detailed scheme.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We have a plan to travel to Japan next spring.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need a clear plan before we begin any development work.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">reason</span>
+        <span class="phonetic">/ˈriːzən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A cause or explanation for something; logical thinking.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The main reason I moved to this city was the job opportunity.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> For this reason, I recommend we delay the launch by two weeks.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">result</span>
+        <span class="phonetic">/rɪˈzʌlt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Something that happens as a consequence of an action.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The results of the blood test came back perfectly normal.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The results of our A/B test clearly favor the new design.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">problem</span>
+        <span class="phonetic">/ˈprɒbləm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A situation that is difficult, harmful, or needs to be solved.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The problem with this neighborhood is the lack of parking.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We've identified the root problem and have a fix ready to deploy.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">idea</span>
+        <span class="phonetic">/aɪˈdɪə/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A thought or suggestion formed in the mind.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Whose idea was it to have dinner at this amazing restaurant?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd like to share a few ideas for streamlining our current workflow.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">face</span>
+        <span class="phonetic">/feɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The front part of the head; a surface; to deal with something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She had a big smile on her face when she opened the gift.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to face these challenges head-on rather than avoid them.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">game</span>
+        <span class="phonetic">/ɡeɪm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An activity done for fun or competition with rules.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We played a board game after dinner and laughed all evening.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Winning this contract is a long game — we need to be patient.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">city</span>
+        <span class="phonetic">/ˈsɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A large and important town.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love exploring new cities when I travel.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are considering opening a new office in a major Asia-Pacific city.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">experience</span>
+        <span class="phonetic">/ɪkˈspɪərɪəns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Knowledge or skill gained from doing things; an event one lives through.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Traveling alone was the most transformative experience of my life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need someone with at least five years of relevant experience.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">student</span>
+        <span class="phonetic">/ˈstjuːdənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A person who is studying at a school or university.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She was the best student in her engineering program.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We should approach this new system as if we were students learning it.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">value</span>
+        <span class="phonetic">/ˈvæljuː/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The importance or usefulness of something; a belief or principle.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Family is the thing I value most in life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This initiative will deliver significant value to our customers.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">community</span>
+        <span class="phonetic">/kəˈmjuːnɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A group of people living in the same area or sharing interests.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Our neighborhood has a very strong and supportive community.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We want to build a thriving community around our product.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">question</span>
+        <span class="phonetic">/ˈkwestʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A sentence or phrase used to ask for information.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Do you have a question for the author after the talk?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Great question — I'll address that in the next slide.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">answer</span>
+        <span class="phonetic">/ˈænsər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A response to a question; a solution to a problem.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I didn't know the answer to the last quiz question.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Unfortunately, I don't have a definitive answer right now, but I'll follow up.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">name</span>
+        <span class="phonetic">/neɪm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A word or phrase used to identify a person, place, or thing.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> What's the name of that song playing in the background?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please make sure your full name is on the registration form.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">point</span>
+        <span class="phonetic">/pɔɪnt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A specific idea or argument; the purpose of something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> That's a really good point — I hadn't thought of it that way.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> That's an excellent point. Let's add it to the agenda for next time.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 3 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 3</button>
+  <a class="print-btn" href="day02.html">← Day 2</a>
+  <a class="print-btn" href="day04.html">Day 4 →</a>
+</div>
+</body>
+</html>

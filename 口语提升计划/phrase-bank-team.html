@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team Communication Phrase Bank + Scripts — Software Development</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.65}
+@media screen{
+ .top-nav{position:sticky;top:0;z-index:100;background:#1e3a7a;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:9pt}
+ .top-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px}
+ .top-nav a:hover{background:#2e4a9f}
+ .nav-title{font-weight:bold;font-size:11pt;margin-right:8px}
+}
+@media print{.top-nav,.print-btn,.section-nav{display:none}}
+.container{max-width:1050px;margin:0 auto;padding:22px}
+h1{font-size:20pt;color:#1e3a7a;margin-bottom:4px;font-family:Arial,sans-serif}
+.subtitle{color:#555;font-size:9.5pt;margin-bottom:18px;font-style:italic}
+h2{font-size:13pt;color:#fff;font-family:Arial,sans-serif;padding:9px 14px;border-radius:5px 5px 0 0}
+.section{margin-bottom:20px;border:1px solid #c8d0e8;border-radius:6px;overflow:hidden}
+.s1 h2{background:#1e5f3a} .s2 h2{background:#1e3a7a} .s3 h2{background:#5a1e5f}
+.s4 h2{background:#7a3a10} .s5 h2{background:#1e5f5f} .s6 h2{background:#5f4a1e}
+.s7 h2{background:#3a1e5f} .script-sec h2{background:#0d2040}
+.phrase-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:700px){.phrase-grid{grid-template-columns:1fr}}
+.phrase-item{padding:9px 13px;border-bottom:1px solid #e0e8f6;border-right:1px solid #e0e8f6;background:#fff}
+.phrase-item:nth-child(even){background:#f8fbff;border-right:none}
+.phrase-en{font-size:10pt;color:#0d2040;font-weight:bold;margin-bottom:3px;line-height:1.4}
+.phrase-cn{font-size:8.5pt;color:#555;font-style:italic;margin-bottom:3px}
+.phrase-usage{font-size:8.5pt;color:#3a5a3a;margin-top:3px;line-height:1.4;font-style:italic}
+.phrase-usage::before{content:"e.g. "}
+.phrase-note{font-size:8pt;color:#888;background:#f0f4fb;padding:2px 6px;border-radius:3px;display:inline-block}
+.intro-tip{background:#e8f0ff;border:1px solid #b0c4e8;border-radius:6px;padding:12px 16px;margin-bottom:18px;font-size:9.5pt}
+.section-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.section-nav a{background:#f0f4fb;border:1px solid #c0d0e8;border-radius:4px;padding:5px 10px;text-decoration:none;color:#1e3a7a;font-size:8.5pt;font-family:Arial,sans-serif}
+.print-btn{display:inline-block;background:#1e3a7a;color:#fff;padding:8px 18px;border-radius:5px;text-decoration:none;font-size:9pt;cursor:pointer;border:none;font-family:Arial,sans-serif;margin-bottom:14px}
+/* Scripts */
+.script-block{background:#fafcff;border:1px solid #c8d8f0;border-radius:6px;margin:12px 0;padding:14px 16px}
+.scene-note{font-size:8.5pt;color:#666;font-style:italic;background:#f0f4ff;padding:6px 10px;border-radius:4px;border-left:3px solid #3a6ea5;margin:8px 0}
+.dialogue-line{display:grid;grid-template-columns:100px 1fr;gap:8px;margin-bottom:7px;align-items:start}
+.speaker{font-family:Arial,sans-serif;font-size:8.5pt;font-weight:bold;padding-top:2px;white-space:nowrap}
+.sp-lead{color:#1e5f3a} .sp-dev{color:#1e3a7a} .sp-qa{color:#5a1e5f} .sp-pm{color:#7a3a10} .sp-senior{color:#0d2040}
+.utter{font-size:10pt;line-height:1.6}
+.kp{background:#fff8cc;border-radius:2px;padding:1px 3px;font-weight:bold;color:#5a4000}
+.tip{background:#f0fff0;border-left:3px solid #2d7a2d;padding:6px 10px;margin:8px 0;font-size:8.5pt;color:#1a4a1a;border-radius:0 4px 4px 0}
+.ai-box{background:#f5eeff;border:1px solid #c0a0e0;border-radius:6px;padding:12px 14px;margin:12px 0;font-size:9pt}
+.ai-box strong{color:#3a1e5f;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">👥 Team Phrase Bank</span>
+  <a href="60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="phrase-bank.html">📋 Client Phrases</a>
+  <a href="pronunciation-guide.html">🔊 Pronunciation</a>
+  <a href="email-templates.html">✉️ Email</a>
+  <a href="shadowing-scripts.html">🎙 Scripts</a>
+</nav>
+
+<div class="container">
+  <h1>Team Communication Phrase Bank</h1>
+  <p class="subtitle">7 Internal Team Scenarios · 200+ Phrases · Daily Standup · Code Review · Technical Discussion · 3 Shadowing Scripts</p>
+
+  <div class="intro-tip"><strong>Internal vs. Client language:</strong> Team communication is more direct, more casual, and uses more technical jargon. Don't be overly formal with colleagues — that sounds unnatural and creates distance. These phrases reflect how real engineering teams actually talk.</div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print</button>
+
+  <div class="section-nav">
+    <a href="#s1">1. Greetings &amp; Small Talk</a>
+    <a href="#s2">2. Expressing Opinions</a>
+    <a href="#s3">3. Asking for Help</a>
+    <a href="#s4">4. Daily Standup</a>
+    <a href="#s5">5. Code Review</a>
+    <a href="#s6">6. Technical Proposals</a>
+    <a href="#s7">7. Praising &amp; Motivating</a>
+    <a href="#scripts">Shadowing Scripts (A, B, C)</a>
+  </div>
+
+<!-- ── Section 1 ─────────────────────────────────────────────────────── -->
+<div id="s1" class="section s1">
+  <h2>1 — Daily Greetings &amp; Small Talk</h2>
+  <div class="phrase-grid">
+    <div class="phrase-item"><div class="phrase-en">Hey, how's it going?</div><div class="phrase-cn">嘿，最近怎么样？</div><div class="phrase-note">Very common informal greeting</div></div>
+    <div class="phrase-item"><div class="phrase-en">Not bad, keeping busy! / Pretty good, thanks.</div><div class="phrase-cn">还不错，一直很忙！/ 挺好的，谢谢。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Morning! Ready for another fun-filled day?</div><div class="phrase-cn">早上好！又是充实的一天？（带点幽默）</div></div>
+    <div class="phrase-item"><div class="phrase-en">How was your weekend?</div><div class="phrase-cn">周末过得怎么样？</div><div class="phrase-usage">How was your weekend? Did you manage to get some rest?</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">It was good / quiet / packed. I [went hiking / stayed home / visited family].</div><div class="phrase-cn">很好/安静/充实。我去爬山了/待在家里/去看家人了。</div></div>
+    <div class="phrase-item"><div class="phrase-en">How are you holding up? It's been a crazy sprint.</div><div class="phrase-cn">你还好吧？这次冲刺真的很疯狂。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Tell me about it! I feel like I haven't stopped all week.</div><div class="phrase-cn">可不是嘛！感觉整周都没停下来。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Did you catch the game / news / that show?</div><div class="phrase-cn">你有看那场比赛/新闻/那个节目吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">No, I missed it — any good?</div><div class="phrase-cn">没有，我错过了——好看吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Are you heading to lunch? Mind if I join you?</div><div class="phrase-cn">你去吃午饭吗？我能一起去吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'm absolutely swamped today — let's catch up later?</div><div class="phrase-cn">我今天真的忙得不可开交，等下再聊？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Quick question — do you have two minutes?</div><div class="phrase-cn">快速问一下——你有两分钟吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Heads up — the meeting got moved to 3 PM.</div><div class="phrase-cn">提前告知——会议改到下午3点了。</div><div class="phrase-note">"Heads up" = informal early warning</div></div>
+    <div class="phrase-item"><div class="phrase-en">Just FYI — [the build is broken / the deploy went through / there's an outage].</div><div class="phrase-cn">仅供参考——[构建失败了/部署成功了/系统故障了]。</div><div class="phrase-note">FYI = For Your Information</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'm grabbing coffee — want anything?</div><div class="phrase-cn">我去拿咖啡，你要什么吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Good job on [X] — that was a tough one!</div><div class="phrase-cn">X做得很好——那个确实挺难的！</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I really appreciate you staying late to fix that yesterday.</div><div class="phrase-cn">真的很感激你昨天加班修复了那个问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Happy Friday! Ready for the weekend?</div><div class="phrase-cn">周五快乐！准备好迎接周末了吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Have a good one! / Enjoy your evening!</div><div class="phrase-cn">祝你愉快！/ 享受你的夜晚！</div></div>
+    <div class="phrase-item"><div class="phrase-en">See you tomorrow / Monday / in the standup!</div><div class="phrase-cn">明天见/周一见/站会见！</div></div>
+  </div>
+</div>
+
+<!-- ── Section 2 ─────────────────────────────────────────────────────── -->
+<div id="s2" class="section s2">
+  <h2>2 — Expressing Opinions &amp; Disagreeing Constructively</h2>
+  <div class="phrase-grid">
+    <div class="phrase-item"><div class="phrase-en">I think / I feel like / In my view, [X] would work better here.</div><div class="phrase-cn">我认为/我感觉/我的观点是，X在这里会更好。</div></div>
+    <div class="phrase-item"><div class="phrase-en">My gut says [X], but I'm open to other perspectives.</div><div class="phrase-cn">我直觉认为X，但我也愿意听其他观点。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'm not sure I agree — can I share why?</div><div class="phrase-cn">我不确定我同意——我可以说说原因吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">I see where you're coming from, but have you considered [X]?</div><div class="phrase-cn">我理解你的出发点，但你考虑过X吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">That's a solid point. Building on that — what if we also [X]?</div><div class="phrase-cn">这是个好观点。在此基础上——如果我们也X呢？</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'm a bit hesitant about [X] because [reason].</div><div class="phrase-cn">我对X有点犹豫，因为[原因]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I think we should push back on this — it could create problems downstream.</div><div class="phrase-cn">我认为我们应该反对这个——它可能会在后续造成问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Could we explore an alternative before committing to this approach?</div><div class="phrase-cn">在确定这个方案之前，我们能探索一下替代方案吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I think there's a simpler way to do this. Let me show you.</div><div class="phrase-cn">我觉得有个更简单的方法，让我演示给你看。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I totally agree — let's go with that.</div><div class="phrase-cn">我完全同意——就这样吧。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">That makes a lot of sense. I hadn't thought of it that way.</div><div class="phrase-cn">这很有道理。我之前没有这样想过。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Fair point — you've convinced me.</div><div class="phrase-cn">说得对——你说服我了。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Let's agree to disagree on this one and escalate to the team.</div><div class="phrase-cn">这个问题我们意见不一，我们可以升级给团队讨论。</div></div>
+    <div class="phrase-item"><div class="phrase-en">What does the rest of the team think?</div><div class="phrase-cn">团队其他人怎么看？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want to flag a concern before we move forward.</div><div class="phrase-cn">在我们继续之前，我想提出一个顾虑。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Can we time-box this discussion? We've been on it for 20 minutes.</div><div class="phrase-cn">我们能给这个讨论设个时间限制吗？我们已经讨论20分钟了。</div></div>
+  </div>
+</div>
+
+<!-- ── Section 3 ─────────────────────────────────────────────────────── -->
+<div id="s3" class="section s3">
+  <h2>3 — Asking for Help &amp; Clarification</h2>
+  <div class="phrase-grid">
+    <div class="phrase-item"><div class="phrase-en">Hey, do you have a minute? I'm stuck on something.</div><div class="phrase-cn">嘿，你有一分钟吗？我在某个地方卡住了。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Could you take a look at this when you get a chance?</div><div class="phrase-cn">你有空的时候能帮我看一下这个吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I've been banging my head against this for two hours — fresh eyes would help.</div><div class="phrase-cn">我在这个问题上纠结了两个小时了——换双眼睛看看会有帮助。</div></div>
+    <div class="phrase-item"><div class="phrase-en">What's your take on [X]? I want a second opinion.</div><div class="phrase-cn">你对X有什么看法？我想听听第二意见。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Sorry to bother you, but I'm not sure how to approach [X].</div><div class="phrase-cn">抱歉打扰你，但我不确定如何处理X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Can you walk me through how you solved this in [previous project]?</div><div class="phrase-cn">你能带我了解一下你在[之前项目]中是如何解决这个问题的吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'm not 100% clear on the requirement — can you clarify?</div><div class="phrase-cn">我对需求不是100%清楚——你能澄清一下吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Just to check — you mean [X], right? Not [Y]?</div><div class="phrase-cn">确认一下——你是指X，对吧？不是Y？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Am I on the right track with this approach?</div><div class="phrase-cn">我的这个方法方向对吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">What would you do differently if you were me?</div><div class="phrase-cn">如果你是我，你会有什么不同的做法？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I think I'm missing something here — what am I not seeing?</div><div class="phrase-cn">我觉得我在这里遗漏了什么——我忽略了什么？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Can we do a quick pair session on this? 30 minutes max.</div><div class="phrase-cn">我们能做个快速配对会话吗？最多30分钟。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Is there any documentation on this, or are you the expert?</div><div class="phrase-cn">有关于这个的文档吗，还是说你就是专家？</div></div>
+    <div class="phrase-item"><div class="phrase-en">No worries if you're busy — I can try to figure it out myself first.</div><div class="phrase-cn">如果你忙的话没关系——我可以先自己试着解决。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Thanks for your help — that really unblocked me!</div><div class="phrase-cn">谢谢你的帮助——这真的帮我突破了卡点！</div></div>
+    <div class="phrase-item"><div class="phrase-en">That makes total sense now. I was overcomplicating it.</div><div class="phrase-cn">现在完全明白了。我之前想复杂了。</div></div>
+  </div>
+</div>
+
+<!-- ── Section 4 ─────────────────────────────────────────────────────── -->
+<div id="s4" class="section s4">
+  <h2>4 — Daily Standup Meeting</h2>
+  <div class="phrase-grid">
+    <div class="phrase-item"><div class="phrase-en">Yesterday I worked on [X]. Today I'm continuing with [Y]. No blockers.</div><div class="phrase-cn">昨天我处理了X。今天我继续做Y。没有阻碍。</div><div class="phrase-note">The classic standup format</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'm currently blocked on [X]. I need [help / access / a decision] to move forward.</div><div class="phrase-cn">我目前被X阻碍了，需要[帮助/权限/决定]才能继续推进。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I finished [X] yesterday — it's in review. Today I'm picking up [Y].</div><div class="phrase-cn">昨天我完成了X，已在审查中。今天我开始做Y。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Still working on [X] — it's more complex than estimated. Should be done by [time].</div><div class="phrase-cn">仍在处理X——比预期更复杂。应该在[时间]前完成。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I merged the PR yesterday. All tests are passing. Moving on to [next task].</div><div class="phrase-cn">昨天我合并了PR，所有测试都通过了。继续做[下一个任务]。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Quick update: I resolved the [bug / issue] from yesterday. Root cause was [X].</div><div class="phrase-cn">快速更新：我解决了昨天的[缺陷/问题]，根本原因是X。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I have a blocker I want to flag — [brief description]. Can we discuss after standup?</div><div class="phrase-cn">我有个阻碍想提出来——[简短描述]。我们能在站会后讨论吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Nothing to report for today — I'll be in meetings all morning. Back to coding this afternoon.</div><div class="phrase-cn">今天没有什么要汇报的——我上午都在开会。下午回来写代码。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">[Facilitating] Let's keep it brief — who wants to go first?</div><div class="phrase-cn">【主持】我们尽量简短——谁先来？</div></div>
+    <div class="phrase-item"><div class="phrase-en">[Facilitating] Let's take that discussion offline — it'll go into the parking lot.</div><div class="phrase-cn">【主持】我们把那个讨论放到会后——先放到待议事项。</div><div class="phrase-note">"Parking lot" = topics to discuss later</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">[Facilitating] Anyone need help with their blockers before we wrap up?</div><div class="phrase-cn">【主持】在结束之前，有人需要帮助解决阻碍吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll need [Name]'s help this afternoon with the authentication module — [Name], is that okay?</div><div class="phrase-cn">我今天下午需要[姓名]帮我处理认证模块——[姓名]，可以吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'm on track for the sprint goal. No concerns from my side.</div><div class="phrase-cn">我的冲刺目标进展顺利，我这边没有问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I might need to re-estimate [task] — the complexity is higher than I initially thought.</div><div class="phrase-cn">我可能需要重新估算[任务]——复杂度比我最初预想的要高。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">That's all from me. Short and sweet!</div><div class="phrase-cn">我就这些。简短精炼！</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'm available if anyone needs a second pair of eyes on anything today.</div><div class="phrase-cn">如果今天有人需要帮忙看看代码，我有空。</div></div>
+  </div>
+</div>
+
+<!-- ── Section 5 ─────────────────────────────────────────────────────── -->
+<div id="s5" class="section s5">
+  <h2>5 — Code Review Communication</h2>
+  <div class="phrase-grid">
+    <div class="phrase-item"><div class="phrase-en">This looks good overall. Just a couple of minor comments.</div><div class="phrase-cn">整体看起来不错，只有几个小意见。</div><div class="phrase-note">Always start positively</div></div>
+    <div class="phrase-item"><div class="phrase-en">Nice work! The logic here is clean and easy to follow.</div><div class="phrase-cn">干得漂亮！这里的逻辑清晰易懂。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I have a question about [X] — is this intentional, or could it cause [issue]?</div><div class="phrase-cn">我对X有个疑问——这是有意为之，还是可能导致[问题]？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Nit: could you rename this variable to something more descriptive?</div><div class="phrase-cn">小建议：这个变量能不能改个更有描述性的名字？</div><div class="phrase-note">"Nit" = minor nitpick, not blocking</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This should be blocking — [X] could cause a production issue if left this way.</div><div class="phrase-cn">这个应该阻止合并——如果保持这样，X可能会导致生产问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Could you add a test case for the edge case where [X]?</div><div class="phrase-cn">你能为X这个边缘情况添加一个测试用例吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I think there might be a more efficient way to do this — see my suggestion below.</div><div class="phrase-cn">我觉得可能有更高效的方法——参见我下面的建议。</div></div>
+    <div class="phrase-item"><div class="phrase-en">This is a bit hard to follow — could we break this function into smaller pieces?</div><div class="phrase-cn">这个有点难以理解——我们能把这个函数拆分成更小的部分吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Optional: you could also handle [X] here, but it's not critical for this PR.</div><div class="phrase-cn">可选：你也可以在这里处理X，但对于这个PR来说不是关键。</div></div>
+    <div class="phrase-item"><div class="phrase-en">LGTM — looks good to me! Approved.</div><div class="phrase-cn">LGTM——我觉得没问题！批准。</div><div class="phrase-note">LGTM = "Looks Good To Me" — very common</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Approved with minor comments — feel free to merge after addressing them.</div><div class="phrase-cn">批准，有几个小意见——处理后随时可以合并。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Could you run this past [Name] as well? They have more context on this module.</div><div class="phrase-cn">你能也让[姓名]看看吗？他们对这个模块有更多背景。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">[Responding to feedback] Good catch — fixing it now.</div><div class="phrase-cn">【回应反馈】好眼力——我现在去修。</div></div>
+    <div class="phrase-item"><div class="phrase-en">[Responding to feedback] I thought about this, and here's why I went with this approach: [reason]. Happy to discuss.</div><div class="phrase-cn">【回应反馈】我考虑过这个，以下是我选择这种方式的原因：[原因]。可以讨论。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">[Responding to feedback] That's a valid concern — I'll refactor this before merging.</div><div class="phrase-cn">【回应反馈】这是个合理的顾虑，我会在合并前重构这部分。</div></div>
+    <div class="phrase-item"><div class="phrase-en">[Responding to feedback] Done — I've addressed all the comments. Please re-review when you get a chance.</div><div class="phrase-cn">【回应反馈】完成了——我已经处理了所有意见。有空的话请重新审查。</div></div>
+  </div>
+</div>
+
+<!-- ── Section 6 ─────────────────────────────────────────────────────── -->
+<div id="s6" class="section s6">
+  <h2>6 — Technical Proposals &amp; Architecture Discussion</h2>
+  <div class="phrase-grid">
+    <div class="phrase-item"><div class="phrase-en">I've been thinking about [X] and I want to propose a different approach.</div><div class="phrase-cn">我一直在思考X，我想提出一个不同的方案。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The current approach has a few limitations — here's what I'm seeing.</div><div class="phrase-cn">当前方案有几个局限性——以下是我的观察。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">What if we used [technology/pattern] instead? Here's my reasoning.</div><div class="phrase-cn">如果我们改用[技术/模式]会怎样？以下是我的理由。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The trade-off is [X vs Y]. In the long term, I think [X] wins because [reason].</div><div class="phrase-cn">权衡是X还是Y。长远来看，我认为X更好，因为[原因]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">My concern with the current design is scalability — it won't hold up under heavy load.</div><div class="phrase-cn">我对当前设计的顾虑是可扩展性——在高负载下它撑不住。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I've prototyped this and it works — want to see a quick demo?</div><div class="phrase-cn">我已经做了原型，它是可行的——想看个快速演示吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The downside is added complexity, but the performance gain is worth it.</div><div class="phrase-cn">缺点是增加了复杂性，但性能提升是值得的。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I think we're over-engineering this. Let's keep it simple for now and optimize later.</div><div class="phrase-cn">我觉得我们过度设计了。现在保持简单，之后再优化。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">What's the expected data volume in year one vs year three? That changes the answer.</div><div class="phrase-cn">第一年和第三年的预期数据量是多少？这会影响答案。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'd like to do a spike on this before we commit — maybe one day of investigation?</div><div class="phrase-cn">在我们承诺之前，我想做个技术调研——也许一天的调研时间？</div><div class="phrase-note">"Spike" = timeboxed exploration/research</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We should document this decision and the reasoning behind it for future reference.</div><div class="phrase-cn">我们应该记录这个决定及其背后的推理，以备将来参考。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Has anyone done something similar before? I'd rather not reinvent the wheel.</div><div class="phrase-cn">有人之前做过类似的事情吗？我宁愿不重新发明轮子。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'm not sold on this yet — can you show me some data or benchmarks?</div><div class="phrase-cn">我还没被说服——你能给我看一些数据或基准测试吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let's put this in an RFC and get the whole team's input.</div><div class="phrase-cn">我们把这个写成RFC，获取整个团队的意见。</div><div class="phrase-note">RFC = Request for Comments</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">That's an interesting approach. What's the risk if it doesn't work out?</div><div class="phrase-cn">这是个有趣的方法。如果行不通，风险是什么？</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll write up a one-pager and share it before the next architecture review.</div><div class="phrase-cn">我会写一个一页纸的总结，在下次架构评审前分享。</div></div>
+  </div>
+</div>
+
+<!-- ── Section 7 ─────────────────────────────────────────────────────── -->
+<div id="s7" class="section s7">
+  <h2>7 — Praising, Motivating &amp; Team Building</h2>
+  <div class="phrase-grid">
+    <div class="phrase-item"><div class="phrase-en">That was a really elegant solution — well done!</div><div class="phrase-cn">这是个非常优雅的解决方案——干得好！</div></div>
+    <div class="phrase-item"><div class="phrase-en">I learned something from reading your code today — thanks for that.</div><div class="phrase-cn">今天读你的代码我学到了东西，谢谢。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">You handled that really well under pressure. Seriously impressive.</div><div class="phrase-cn">你在压力下处理得非常好，真的令人印象深刻。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I want to call out [Name] for going above and beyond this sprint.</div><div class="phrase-cn">我想特别表扬[姓名]，这次冲刺他/她超出了预期。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Your attention to detail on [X] saved us from a potential issue. Good eye!</div><div class="phrase-cn">你对X的细心避免了一个潜在问题，好眼力！</div></div>
+    <div class="phrase-item"><div class="phrase-en">We couldn't have shipped this without your contribution. Thank you.</div><div class="phrase-cn">没有你的贡献我们不可能交付这个。谢谢你。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I know this sprint was brutal. Let's make sure we take a breath after this release.</div><div class="phrase-cn">我知道这次冲刺很艰难，发布后我们一定要喘口气。</div></div>
+    <div class="phrase-item"><div class="phrase-en">You've grown so much in the past few months — I've really noticed it.</div><div class="phrase-cn">这几个月你成长了很多，我真的注意到了。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Don't be too hard on yourself — this was a tough one for everyone.</div><div class="phrase-cn">不要对自己太苛刻——这对每个人来说都很困难。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're a strong team. We'll get through this.</div><div class="phrase-cn">我们是个强大的团队，我们会克服这个的。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Great thinking! That's exactly the kind of proactive approach we need.</div><div class="phrase-cn">想得很好！这正是我们需要的那种主动性。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I really value having you on this team — your perspective is always useful.</div><div class="phrase-cn">我真的很珍视有你在这个团队——你的观点总是很有价值。</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════ SHADOWING SCRIPTS ═══════════════════════════════ -->
+<div id="scripts">
+<div class="section script-sec">
+  <h2>Script A — Daily Standup (15 developers, remote)</h2>
+  <div class="phrase-grid" style="display:block;padding:14px 16px">
+
+    <div class="scene-note">📍 Remote video standup. Team Lead (TL) facilitates. 4 developers: Dev (backend), QA (testing), PM (product), Senior (senior engineer).</div>
+
+    <div class="script-block">
+      <div class="dialogue-line"><span class="speaker sp-lead">Team Lead:</span><span class="utter"><span class="kp">Morning, everyone! Let's keep it crisp — we have a hard stop at 9:15.</span> Who wants to kick us off?</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Dev:</span><span class="utter">I'll go. Yesterday I finished the user profile API — <span class="kp">it's in review.</span> Today I'm starting on the notification service. <span class="kp">No blockers on my end.</span></span></div>
+      <div class="dialogue-line"><span class="speaker sp-qa">QA:</span><span class="utter"><span class="kp">Yesterday I worked on</span> regression testing for the payment flow. Found two bugs — logged them both with reproduction steps. Today I'm continuing with the checkout flow tests. One blocker — <span class="kp">I'm blocked on</span> getting access to the staging environment. Can someone help with that after standup?</span></div>
+      <div class="dialogue-line"><span class="speaker sp-lead">Team Lead:</span><span class="utter">Sure — let's sort that out right after this. <span class="kp">Next?</span></span></div>
+      <div class="dialogue-line"><span class="speaker sp-pm">PM:</span><span class="utter"><span class="kp">Quick update from my side</span> — I had calls with the client yesterday and got sign-off on the revised wireframes. Today I'll be updating the backlog and running the sprint planning prep. <span class="kp">No blockers.</span></span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Senior Dev:</span><span class="utter"><span class="kp">Still working on</span> the database migration script — it's <span class="kp">more complex than I estimated.</span> I should finish by end of day today. <span class="kp">One thing I want to flag</span> — I found a data inconsistency in the legacy records. It's not blocking me, but someone should know. <span class="kp">Can we discuss after standup?</span></span></div>
+      <div class="dialogue-line"><span class="speaker sp-lead">Team Lead:</span><span class="utter">Yep — let's put that in the parking lot and come back to it. <span class="kp">Anything else from anyone?</span> ... Good. <span class="kp">Let's wrap up</span> — great work everyone, see you in the channel. [Name], ping me and we'll sort out that staging access now.</span></div>
+    </div>
+
+    <div class="tip">💡 <strong>Practice tip:</strong> Shadow the Team Lead's role — short, energetic sentences. Then shadow the Senior Dev's role — notice how they flag issues while keeping it brief. The standup should feel fast and focused.</div>
+
+    <div class="ai-box">
+      <strong>🤖 AI Practice Prompt:</strong><br>
+      "Run a 5-person standup meeting with me. Play 4 team members — a backend dev, a QA engineer, a product manager, and a senior developer. I'll play the team lead facilitating. Each team member should have realistic updates, one should have a blocker, and one should try to start a long discussion that I need to redirect to the parking lot."
+    </div>
+
+  </div>
+</div>
+
+<div class="section script-sec" style="margin-top:16px">
+  <h2>Script B — Code Review Discussion (Giving &amp; Receiving Feedback)</h2>
+  <div class="phrase-grid" style="display:block;padding:14px 16px">
+
+    <div class="scene-note">📍 Video call between a Junior Developer (JD) and Senior Developer (SD) reviewing a pull request for a new authentication feature.</div>
+
+    <div class="script-block">
+      <div class="dialogue-line"><span class="speaker sp-senior">Senior Dev:</span><span class="utter"><span class="kp">Hey, I went through your PR — overall this is really solid work.</span> The structure is clean and I can see you've put thought into the error handling. <span class="kp">I have a couple of comments I wanted to walk through with you</span> rather than just leaving them as text.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Junior Dev:</span><span class="utter">Of course — please go ahead. I'm happy to hear the feedback.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Senior Dev:</span><span class="utter">So the first thing — <span class="kp">I noticed</span> the token validation logic is being repeated in two places. In <code>authMiddleware.js</code> and also in the controller. <span class="kp">My suggestion would be</span> to extract this into a shared utility function. It'll reduce duplication and make it easier to update in the future.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Junior Dev:</span><span class="utter"><span class="kp">That's a good point — I didn't notice the duplication.</span> I'll refactor that now. <span class="kp">Would it make sense to put that in the <code>utils/auth</code> folder?</span></span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Senior Dev:</span><span class="utter">Exactly — that's the right place. Second point — <span class="kp">I want to flag</span> the JWT expiry time. It's set to 7 days, but our security policy requires a maximum of 24 hours. <span class="kp">This one is blocking</span> — we can't merge until that's changed.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Junior Dev:</span><span class="utter"><span class="kp">Good catch — I must have missed that in the security guidelines.</span> I'll fix it right away. Should I also add a test for the expiry scenario?</span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Senior Dev:</span><span class="utter"><span class="kp">Yes, definitely</span> — that's exactly the kind of edge case we should be testing. <span class="kp">Last thing — this is just a nit</span> — the variable name <code>tkn</code> isn't very readable. <code>accessToken</code> would be clearer. But that's minor — not blocking at all.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Junior Dev:</span><span class="utter"><span class="kp">Makes sense.</span> I'll rename it for clarity. <span class="kp">So to confirm</span> — refactor the token validation, fix the expiry time, add a test, and rename the variable. Anything else?</span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Senior Dev:</span><span class="utter">That's it! <span class="kp">Once those are addressed, I'm happy to approve.</span> Good PR — keep it up.</span></div>
+    </div>
+
+    <div class="tip">💡 <strong>Practice tip:</strong> Shadow the Senior Dev's role first — notice how every piece of critical feedback comes with a clear reason and a specific suggestion. Feedback without reasoning sounds harsh; feedback with reasoning is constructive.</div>
+
+    <div class="ai-box">
+      <strong>🤖 AI Practice Prompt:</strong><br>
+      "Play a junior developer whose PR I'm reviewing. The PR has: (1) a duplicated function, (2) missing error handling for null inputs, (3) one excellent piece of clean refactoring I should praise. I'll play the senior reviewer. Respond to my feedback naturally — sometimes push back with good reasoning."
+    </div>
+
+  </div>
+</div>
+
+<div class="section script-sec" style="margin-top:16px">
+  <h2>Script C — Technical Architecture Debate (Microservices vs. Monolith)</h2>
+  <div class="phrase-grid" style="display:block;padding:14px 16px">
+
+    <div class="scene-note">📍 Architecture review meeting. The team is deciding whether to split a growing monolith into microservices. PM facilitates. Two senior developers disagree.</div>
+
+    <div class="script-block">
+      <div class="dialogue-line"><span class="speaker sp-pm">PM:</span><span class="utter"><span class="kp">Okay, let's dig into this.</span> We've been discussing whether to start the microservices migration this quarter. I want to hear both sides. Alex, you're in favor — can you make the case?</span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Alex (Senior):</span><span class="utter"><span class="kp">Sure. My argument is</span> that the monolith is already showing scaling issues. The payment service and the user service are tightly coupled, which means a spike in one affects the other. <span class="kp">If we break them apart now, while the codebase is still manageable,</span> we get independent scaling, independent deployment, and we reduce the blast radius of failures.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Sam (Dev):</span><span class="utter"><span class="kp">I hear you, but I'm not convinced</span> the pain is bad enough to justify the migration cost right now. Microservices introduce real overhead — service discovery, distributed tracing, network latency, and a whole new operations burden. <span class="kp">I think we'd be trading one set of problems for a much harder set of problems.</span></span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Alex:</span><span class="utter"><span class="kp">That's a fair concern</span>, but we're not talking about going full microservices overnight. <span class="kp">What I'm proposing</span> is a strangler fig pattern — we start extracting just the payment service, learn from that, and proceed gradually.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Sam:</span><span class="utter"><span class="kp">Okay, that changes things a bit.</span> Extracting one service is less risky. But <span class="kp">my concern is</span> — do we have the operational maturity for it? We don't have a mature CI/CD pipeline, we don't have distributed tracing set up. Those need to come first.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-pm">PM:</span><span class="utter"><span class="kp">Let me jump in here</span> — it sounds like you agree on the direction but disagree on the sequencing. Is that fair?</span></div>
+      <div class="dialogue-line"><span class="speaker sp-senior">Alex:</span><span class="utter"><span class="kp">That's actually a good way to put it.</span> I'm not saying do it without preparation. I'm saying let's start the preparation now, so we're ready in Q2.</span></div>
+      <div class="dialogue-line"><span class="speaker sp-dev">Sam:</span><span class="utter"><span class="kp">Then I think we're more aligned than I thought.</span> Let's invest in the infrastructure first — observability, CI/CD — and then revisit the extraction in Q2. <span class="kp">I can get behind that plan.</span></span></div>
+      <div class="dialogue-line"><span class="speaker sp-pm">PM:</span><span class="utter"><span class="kp">Great — so our decision is</span>: Q1 we invest in the platform foundation. Q2 we begin the payment service extraction using the strangler pattern. I'll document this and share it for comment. <span class="kp">Does that capture what we've agreed?</span></span></div>
+    </div>
+
+    <div class="tip">💡 <strong>Practice tip:</strong> This script is the most advanced. Shadow the PM role — notice how they reframe the disagreement as alignment at a higher level. This is a crucial facilitation skill. Also shadow Alex's role — proposing ideas confidently but staying open to pushback.</div>
+
+    <div class="ai-box">
+      <strong>🤖 AI Practice Prompt:</strong><br>
+      "You are a skeptical senior developer in an architecture review. I'll propose we migrate to microservices. Challenge me with real technical concerns (operational complexity, team maturity, distributed systems challenges). I need to defend my proposal with reasoning, acknowledge valid concerns, and find a middle ground we can both agree on."
+    </div>
+
+  </div>
+</div>
+</div><!-- end scripts -->
+
+  <div style="text-align:center;margin:20px 0">
+    <a class="print-btn" href="60day-master-plan.html">← Master Plan</a>
+    <a class="print-btn" href="pronunciation-guide.html">🔊 Pronunciation →</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print All</button>
+  </div>
+  <p style="text-align:right;font-size:8pt;color:#bbb;font-family:Arial,sans-serif">Team Communication Phrase Bank · 200+ Phrases · 3 Shadowing Scripts · Software Development Context</p>
+</div>
+</body>
+</html>

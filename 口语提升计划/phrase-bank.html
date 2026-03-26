@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phrase Bank — Software Development Client Meetings</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.6}
+@media screen{
+  .top-nav{position:sticky;top:0;z-index:100;background:#1e3a5f;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:9pt}
+  .top-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px}
+  .top-nav a:hover{background:#2e5a8f}
+  .nav-title{font-weight:bold;font-size:11pt;margin-right:8px}
+}
+@media print{.top-nav,.print-btn,.section-nav{display:none} .section{page-break-inside:avoid}}
+.container{max-width:1050px;margin:0 auto;padding:22px}
+h1{font-size:20pt;color:#1e3a5f;margin-bottom:4px;font-family:Arial,sans-serif}
+.subtitle{color:#555;font-size:9.5pt;margin-bottom:18px;font-style:italic}
+h2{font-size:13pt;color:#fff;font-family:Arial,sans-serif;padding:9px 14px;border-radius:5px 5px 0 0;margin:0}
+.section{margin-bottom:22px;border:1px solid #ccd8ec;border-radius:6px;overflow:hidden}
+.section-head{display:flex;align-items:center;justify-content:space-between}
+.section-num{background:rgba(255,255,255,0.25);border-radius:3px;padding:2px 8px;font-size:9pt;font-family:Arial,sans-serif}
+.phrase-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:700px){.phrase-grid{grid-template-columns:1fr}}
+.phrase-item{padding:9px 13px;border-bottom:1px solid #e0e8f6;border-right:1px solid #e0e8f6;background:#fff}
+.phrase-item:nth-child(even){background:#f8fbff;border-right:none}
+.phrase-item:last-child,.phrase-item:nth-last-child(2):nth-child(odd){border-bottom:1px solid #e0e8f6}
+.phrase-en{font-size:10pt;color:#0d2b52;font-weight:bold;margin-bottom:3px;line-height:1.4}
+.phrase-cn{font-size:8.5pt;color:#555;font-style:italic;margin-bottom:3px}
+.phrase-note{font-size:8pt;color:#888;background:#f0f4fb;padding:2px 6px;border-radius:3px;display:inline-block;margin-top:1px}
+.phrase-usage{font-size:8.5pt;color:#3a5a3a;margin-top:4px;line-height:1.4;font-style:italic}
+.phrase-usage::before{content:"e.g. "}
+/* Section colors */
+.s1 h2{background:#1e5f3a} .s1 .section-num{background:rgba(255,255,255,.2)}
+.s2 h2{background:#1e3a5f}
+.s3 h2{background:#5a1e5f}
+.s4 h2{background:#7a4010}
+.s5 h2{background:#5f1e1e}
+.s6 h2{background:#1e4a5f}
+.s7 h2{background:#3a5f1e}
+.s8 h2{background:#5f4a1e}
+.s9 h2{background:#1e5f5a}
+.s10 h2{background:#3a1e5f}
+.intro-tip{background:#fffbe6;border:1px solid #e0c840;border-radius:6px;padding:12px 16px;margin-bottom:18px;font-size:9.5pt}
+.intro-tip strong{color:#7a5a00}
+.section-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.section-nav a{background:#f0f4fb;border:1px solid #c0d0e8;border-radius:4px;padding:5px 10px;text-decoration:none;color:#1e3a5f;font-size:8.5pt;font-family:Arial,sans-serif}
+.section-nav a:hover{background:#dde8f8}
+.print-btn{display:inline-block;background:#1e3a5f;color:#fff;padding:8px 18px;border-radius:5px;text-decoration:none;font-size:9pt;cursor:pointer;border:none;font-family:Arial,sans-serif;margin-bottom:14px}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">📋 Phrase Bank</span>
+  <a href="speaking-plan.html">📅 30-Day Plan</a>
+  <a href="shadowing-scripts.html">🎙 Scripts</a>
+  <a href="../html-学习页面/index.html">📚 NGSL</a>
+</nav>
+
+<div class="container">
+  <h1>Software Development Client Meeting — Phrase Bank</h1>
+  <p class="subtitle">10 Scenarios · 320+ Phrases · Organized by Meeting Situation · With Usage Examples</p>
+
+  <div class="intro-tip">
+    <strong>How to use this:</strong> Don't try to memorize everything at once. Study one section per day. For each phrase: (1) say it aloud 5×, (2) vary the stress, (3) write one sentence using it in your own context, (4) use it in a real meeting within 48 hours.
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print Phrase Bank</button>
+
+  <div class="section-nav">
+    <a href="#s1">1. Opening &amp; Agenda</a>
+    <a href="#s2">2. Status Updates</a>
+    <a href="#s3">3. Requirements</a>
+    <a href="#s4">4. Demo Presentation</a>
+    <a href="#s5">5. Questions &amp; Pushback</a>
+    <a href="#s6">6. Bugs &amp; Issues</a>
+    <a href="#s7">7. Timeline &amp; Delivery</a>
+    <a href="#s8">8. Risk &amp; Challenges</a>
+    <a href="#s9">9. Closing &amp; Next Steps</a>
+    <a href="#s10">10. Technical Explanation</a>
+  </div>
+
+<!-- ═══ SECTION 1 ═══════════════════════════════════════════════════════════ -->
+<div id="s1" class="section s1">
+  <div class="section-head"><h2>1 — Opening &amp; Agenda Setting</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">32 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">Good morning / afternoon, everyone. Thanks for joining today.</div><div class="phrase-cn">大家早上好/下午好，感谢今天出席。</div><div class="phrase-usage">Good morning, everyone. Thanks for joining today — I know you have a busy schedule.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let's get started. We have a lot to cover today.</div><div class="phrase-cn">我们开始吧，今天有很多内容要讲。</div><div class="phrase-usage">Let's get started. We have a lot to cover today and I want to make sure we leave time for Q&amp;A.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'd like to quickly run through today's agenda.</div><div class="phrase-cn">我先简单过一遍今天的议程。</div><div class="phrase-usage">Before we dive in, I'd like to quickly run through today's agenda so we're all aligned.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We have three items on the agenda today.</div><div class="phrase-cn">今天议程有三个事项。</div><div class="phrase-usage">We have three items on the agenda today: the sprint review, the deployment plan, and a quick Q&amp;A.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Our goal for today's meeting is to [align on / decide / review] ...</div><div class="phrase-cn">今天会议的目标是…</div><div class="phrase-usage">Our goal for today's meeting is to align on the revised timeline and get your approval to proceed.</div></div>
+    <div class="phrase-item"><div class="phrase-en">This should take about [30 / 45 / 60] minutes.</div><div class="phrase-cn">大约需要30/45/60分钟。</div><div class="phrase-usage">This should take about 45 minutes, and I'll make sure we wrap up on time.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Before we start, does anyone have anything to add to the agenda?</div><div class="phrase-cn">开始前，有人需要补充议程吗？</div><div class="phrase-usage">Before we start, does anyone have anything urgent to add to the agenda?</div></div>
+    <div class="phrase-item"><div class="phrase-en">Can everyone see my screen / the presentation?</div><div class="phrase-cn">大家都能看到我的屏幕/演示文稿吗？</div><div class="phrase-usage">Can everyone see my screen clearly? I'll be sharing some charts in a moment.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Let me introduce the team members on our side.</div><div class="phrase-cn">让我介绍一下我们这边的团队成员。</div><div class="phrase-usage">Let me introduce the team members on our side: Jane is our lead developer, and Mark handles QA.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Is everyone able to hear me clearly?</div><div class="phrase-cn">大家都能听清楚我的声音吗？</div><div class="phrase-usage">Is everyone able to hear me clearly? Someone mentioned earlier there might be an audio issue.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll send the meeting notes to everyone after the call.</div><div class="phrase-cn">会后我将把会议记录发给大家。</div><div class="phrase-usage">I'll send the meeting notes to everyone after the call, including all the action items we agree on today.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Please feel free to ask questions at any time / Please hold questions until the end.</div><div class="phrase-cn">随时可以提问 / 请在最后提问。</div><div class="phrase-usage">Please feel free to interrupt and ask questions at any time — this is an open discussion.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Shall we begin with [the status update / a brief recap]?</div><div class="phrase-cn">我们先从…开始好吗？</div><div class="phrase-usage">Shall we begin with a brief recap of where we left off last week?</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll be presenting on behalf of the team today.</div><div class="phrase-cn">今天我代表团队来做汇报。</div><div class="phrase-usage">I'll be presenting on behalf of the team today. If there are technical questions, I can loop in our architect.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Just to set the context before we dive in ...</div><div class="phrase-cn">在我们深入讨论之前，先介绍一下背景…</div><div class="phrase-usage">Just to set the context before we dive in — we've made some significant changes since our last call.</div></div>
+    <div class="phrase-item"><div class="phrase-en">I want to make sure we make the most of our time today.</div><div class="phrase-cn">我想确保我们能充分利用今天的时间。</div><div class="phrase-usage">I want to make sure we make the most of our time today, so let's try to park any off-topic items.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Quick housekeeping — if you can please mute when not speaking, that would be great.</div><div class="phrase-cn">小提示——不发言时请静音。</div><div class="phrase-usage">Quick housekeeping — if you can please mute when not speaking, that would help with the audio quality.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're recording this session — is everyone okay with that?</div><div class="phrase-cn">我们将录制这次会议，大家都同意吗？</div><div class="phrase-usage">We're recording this session for anyone who couldn't make it — is everyone okay with that?</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Last time, we agreed on [X]. Today, I'd like to follow up on that.</div><div class="phrase-cn">上次我们商定了X。今天我想跟进一下。</div><div class="phrase-usage">Last time, we agreed on a revised scope. Today, I'd like to follow up on that and show you what we've built.</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'd like to kick things off with a quick update.</div><div class="phrase-cn">我想先做一个简短的进度更新。</div><div class="phrase-usage">I'd like to kick things off with a quick update on where we are, then move into the demo.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">There are a couple of things I'd like your input on today.</div><div class="phrase-cn">今天有几个事项需要您的意见。</div><div class="phrase-usage">There are a couple of things I'd like your input on today, particularly around priorities for Q4.</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll try to keep things concise — I know your time is valuable.</div><div class="phrase-cn">我会尽量简洁，我知道您的时间很宝贵。</div><div class="phrase-usage">I'll try to keep things concise — I know your time is valuable and we want to respect that.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Before we close today, I want to make sure we leave with clear next steps.</div><div class="phrase-cn">今天结束前，我希望我们能明确下一步行动。</div><div class="phrase-usage">Before we close today, I want to make sure we leave with clear next steps and assigned owners.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We'll need a decision on [X] by end of this meeting.</div><div class="phrase-cn">我们需要在本次会议结束前就X做出决定。</div><div class="phrase-usage">We'll need a decision on the database architecture by end of this meeting to keep the project on track.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I've shared the agenda in the calendar invite — please let me know if anything needs adjusting.</div><div class="phrase-cn">我已在日历邀请中发了议程，有需要调整的请告知。</div><div class="phrase-note">Use before the meeting via email</div></div>
+    <div class="phrase-item"><div class="phrase-en">Welcome, [Name]! Glad you could join us today.</div><div class="phrase-cn">欢迎，[姓名]！很高兴您今天能参加。</div><div class="phrase-usage">Welcome, Sarah! Glad you could join us — we've been looking forward to this session.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">If it's okay with everyone, I'll keep my camera on for the duration.</div><div class="phrase-cn">如果大家同意，我会全程开摄像头。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let's move through this efficiently so we have time for everything.</div><div class="phrase-cn">我们尽量高效地推进，确保所有内容都有时间。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll pass it over to [Name] to walk us through [section].</div><div class="phrase-cn">我把话筒交给[姓名]来介绍[部分]。</div><div class="phrase-usage">I'll pass it over to David to walk us through the technical architecture diagram.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We'll have time for Q&amp;A at the end of each section.</div><div class="phrase-cn">每个部分结束后会有问答时间。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Thanks for being so flexible with the scheduling.</div><div class="phrase-cn">感谢您在时间安排上如此灵活。</div><div class="phrase-usage">Thanks for being so flexible with the scheduling — I know we rescheduled twice this week.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Sorry for the delayed start — let's make sure we finish on time.</div><div class="phrase-cn">抱歉开始晚了，我们会确保准时结束。</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 2 ═══════════════════════════════════════════════════════════ -->
+<div id="s2" class="section s2">
+  <div class="section-head"><h2>2 — Project Status Updates</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">32 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">I'm happy to report that we're on track to deliver [X] by [date].</div><div class="phrase-cn">我很高兴地报告，我们有望按时完成X。</div><div class="phrase-usage">I'm happy to report that we're on track to deliver the MVP by the end of the month.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Overall, the project is progressing well / ahead of schedule.</div><div class="phrase-cn">总体而言，项目进展顺利/超前于计划。</div><div class="phrase-usage">Overall, the project is progressing well. We've completed 70% of the planned features.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We've completed [X]% of the planned work for this sprint / phase.</div><div class="phrase-cn">本次冲刺/阶段计划工作已完成X%。</div><div class="phrase-usage">We've completed 85% of the planned work for this sprint, with two items still in progress.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Since our last meeting, we've made significant progress on [X].</div><div class="phrase-cn">自上次会议以来，我们在X方面取得了重大进展。</div><div class="phrase-usage">Since our last meeting, we've made significant progress on the payment integration module.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I need to flag that we're slightly behind on [X].</div><div class="phrase-cn">我需要指出，我们在X方面略有落后。</div><div class="phrase-usage">I need to flag that we're slightly behind on the reporting module — about three days behind schedule.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're currently running [X days / X weeks] behind the original plan.</div><div class="phrase-cn">我们目前比原计划落后X天/X周。</div><div class="phrase-usage">We're currently running about one week behind the original plan, and here's our recovery approach.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The main reason for the delay is [X]. Here's what we're doing about it.</div><div class="phrase-cn">延误的主要原因是X。以下是我们的应对措施。</div><div class="phrase-usage">The main reason for the delay is an unexpected technical dependency. Here's what we're doing about it.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've successfully delivered [X] and it's now live / ready for testing.</div><div class="phrase-cn">我们已成功交付X，现已上线/可供测试。</div><div class="phrase-usage">We've successfully delivered the authentication module and it's now ready for your team's testing.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The key milestones we've hit since last time are: [1, 2, 3].</div><div class="phrase-cn">自上次以来，我们达成的关键里程碑有：1、2、3。</div><div class="phrase-usage">The key milestones we've hit since last time are: API completion, database migration, and UI testing.</div></div>
+    <div class="phrase-item"><div class="phrase-en">The remaining work includes [X], which we expect to complete by [date].</div><div class="phrase-cn">剩余工作包括X，预计在[日期]前完成。</div><div class="phrase-usage">The remaining work includes two integration tests and final security scanning, due by Friday.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We're on target for the [date] deadline, but I want to flag a potential risk.</div><div class="phrase-cn">我们正朝着[日期]的截止日期推进，但我想提示一个潜在风险。</div></div>
+    <div class="phrase-item"><div class="phrase-en">In terms of quality, all unit tests are passing and we've had zero critical bugs this week.</div><div class="phrase-cn">在质量方面，所有单元测试均通过，本周零关键缺陷。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The development team is currently focused on [X].</div><div class="phrase-cn">开发团队目前专注于X。</div><div class="phrase-usage">The development team is currently focused on performance optimization for the dashboard.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've resolved [X] issues from the last testing cycle.</div><div class="phrase-cn">我们已解决上次测试周期中的X个问题。</div><div class="phrase-usage">We've resolved 12 out of 14 issues from the last testing cycle — the remaining two are in progress.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The blockers we're currently dealing with are [X].</div><div class="phrase-cn">我们目前面临的阻碍是X。</div><div class="phrase-usage">The blockers we're currently dealing with are the third-party API rate limits and the pending security review.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We need your input / sign-off on [X] to move forward.</div><div class="phrase-cn">我们需要您对X的意见/批准才能继续推进。</div><div class="phrase-usage">We need your sign-off on the revised wireframes to move forward with frontend development.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Let me walk you through the progress dashboard.</div><div class="phrase-cn">让我带您看一下进度仪表板。</div><div class="phrase-usage">Let me walk you through the progress dashboard — you can see each feature and its current status.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Green means complete, yellow means in progress, and red means blocked.</div><div class="phrase-cn">绿色代表完成，黄色代表进行中，红色代表受阻。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want to be transparent with you about where we stand.</div><div class="phrase-cn">我想如实告知您我们目前的状况。</div><div class="phrase-usage">I want to be transparent with you about where we stand — there are some challenges I need to share.</div></div>
+    <div class="phrase-item"><div class="phrase-en">The good news is [X]. The challenge is [Y].</div><div class="phrase-cn">好消息是X，挑战是Y。</div><div class="phrase-usage">The good news is the core features are done. The challenge is that performance testing revealed some bottlenecks.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We're confident we can recover the delay by [strategy].</div><div class="phrase-cn">我们有信心通过[策略]弥补延误。</div><div class="phrase-usage">We're confident we can recover the delay by adding one additional developer to the sprint team.</div></div>
+    <div class="phrase-item"><div class="phrase-en">This is slightly ahead of where we projected at this point in the project.</div><div class="phrase-cn">这比项目这个阶段的预期略有超前。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The scope for this sprint was [X features]. We've delivered [Y] and [Z] is still in progress.</div><div class="phrase-cn">本次冲刺范围是X功能，已交付Y，Z仍在进行中。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll send a detailed written update after this call with the full metrics.</div><div class="phrase-cn">通话后我将发送包含完整指标的详细书面更新。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">From a quality perspective, we've maintained a bug escape rate of under 2%.</div><div class="phrase-cn">从质量角度来看，我们将缺陷泄露率控制在2%以下。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're working in two-week sprints, and we're currently in Sprint [X].</div><div class="phrase-cn">我们采用两周一次的冲刺，目前处于第X次冲刺。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The team has been working incredibly hard — I want to acknowledge that.</div><div class="phrase-cn">团队一直在非常努力地工作，我想对此表示肯定。</div></div>
+    <div class="phrase-item"><div class="phrase-en">To summarize: we're [on track / slightly delayed / ahead], and our focus next week is [X].</div><div class="phrase-cn">总结一下：我们[按计划/略有延迟/超前]，下周重点是X。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'd like to share our velocity data for the last three sprints.</div><div class="phrase-cn">我想分享过去三次冲刺的速度数据。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Any questions before I move on to the next topic?</div><div class="phrase-cn">在进入下一个话题之前，有什么问题吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I know this isn't the update you were hoping for, but I want to be upfront.</div><div class="phrase-cn">我知道这不是您希望听到的进展，但我想坦诚相告。</div><div class="phrase-usage">I know this isn't the update you were hoping for, but I want to be upfront about the challenges we're facing.</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're tracking well against our KPIs for this phase.</div><div class="phrase-cn">我们的各项KPI在此阶段的跟踪情况良好。</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 3 ═══════════════════════════════════════════════════════════ -->
+<div id="s3" class="section s3">
+  <div class="section-head"><h2>3 — Discussing Requirements</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">30 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">Could you help me understand the requirement in more detail?</div><div class="phrase-cn">您能帮我更详细地理解这个需求吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Just to make sure I understand correctly — you're saying that [X]?</div><div class="phrase-cn">为了确认我理解正确——您是说X？</div><div class="phrase-usage">Just to make sure I understand correctly — you're saying that the upload limit should be 50MB per file?</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Can you walk me through the user journey for this feature?</div><div class="phrase-cn">您能带我过一下这个功能的用户流程吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">What's the expected behavior when [edge case / error condition]?</div><div class="phrase-cn">当[边缘情况/错误条件]发生时，预期行为是什么？</div><div class="phrase-usage">What's the expected behavior when the user loses their internet connection mid-upload?</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Is this a hard requirement, or is there flexibility?</div><div class="phrase-cn">这是硬性需求，还是有一定的灵活性？</div><div class="phrase-usage">Is the two-second load time a hard requirement, or is there flexibility if the data set is large?</div></div>
+    <div class="phrase-item"><div class="phrase-en">How should we handle [X] from a product perspective?</div><div class="phrase-cn">从产品角度来看，我们应该如何处理X？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Who is the primary user for this feature?</div><div class="phrase-cn">这个功能的主要用户是谁？</div><div class="phrase-usage">Who is the primary user for this feature — is it an end customer or an internal admin?</div></div>
+    <div class="phrase-item"><div class="phrase-en">What's the priority of this requirement relative to the others?</div><div class="phrase-cn">这个需求相对于其他需求的优先级如何？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We have two possible approaches. Let me explain the trade-offs.</div><div class="phrase-cn">我们有两种可能的方案，让我解释一下各自的权衡。</div><div class="phrase-usage">We have two possible approaches to this. Let me explain the trade-offs so you can make an informed decision.</div></div>
+    <div class="phrase-item"><div class="phrase-en">I want to flag that this requirement will have an impact on [timeline / scope / cost].</div><div class="phrase-cn">我想指出，这个需求将影响[时间线/范围/成本]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Would it be acceptable to defer [X] to a later phase?</div><div class="phrase-cn">将X推迟到后续阶段是否可以接受？</div><div class="phrase-usage">Would it be acceptable to defer the reporting dashboard to phase two so we can hit the current deadline?</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'd like to propose a slightly different interpretation of this requirement.</div><div class="phrase-cn">我想提出对这个需求的一种略有不同的理解。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">From a technical standpoint, the simplest solution would be [X].</div><div class="phrase-cn">从技术角度来看，最简单的解决方案是X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We need to be careful here — this could create complexity in [X] if we're not deliberate.</div><div class="phrase-cn">我们需要谨慎——如果不仔细，这可能会在X上造成复杂性。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Have you considered using [X] instead? It might be more scalable.</div><div class="phrase-cn">您是否考虑过用X来替代？它可能更具扩展性。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'd like to suggest we document this as a formal requirement with acceptance criteria.</div><div class="phrase-cn">我建议我们将其以正式需求的形式记录下来，并附上验收标准。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">To confirm — the acceptance criteria for this feature are [X, Y, Z]?</div><div class="phrase-cn">确认一下——这个功能的验收标准是X、Y、Z？</div></div>
+    <div class="phrase-item"><div class="phrase-en">This is a change from what was originally scoped. We'll need to assess the impact.</div><div class="phrase-cn">这与原来的范围有所不同，我们需要评估影响。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Can we get this in writing so we're aligned on the specifics?</div><div class="phrase-cn">我们能书面确认，以便在细节上保持一致吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll follow up with a requirements document after this call for your review.</div><div class="phrase-cn">通话后我将发送需求文档供您审阅。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">What does success look like for this feature from your perspective?</div><div class="phrase-cn">从您的角度来看，这个功能的成功标准是什么？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Are there any regulatory or compliance requirements we should be aware of?</div><div class="phrase-cn">有我们需要了解的监管或合规要求吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Let me take a note of that and include it in the next sprint planning.</div><div class="phrase-cn">让我记下来，并在下次冲刺计划中包含这一点。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Could you share a concrete example of what you have in mind?</div><div class="phrase-cn">您能举一个您所设想的具体例子吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want to make sure we're solving the right problem here.</div><div class="phrase-cn">我想确保我们在解决正确的问题。</div><div class="phrase-usage">Before we commit to this approach, I want to make sure we're solving the right problem here.</div></div>
+    <div class="phrase-item"><div class="phrase-en">What is the underlying need that this feature is trying to address?</div><div class="phrase-cn">这个功能试图解决的根本需求是什么？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We'll need to add a buffer for testing and review before the release.</div><div class="phrase-cn">在发布前，我们需要为测试和审查增加缓冲时间。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll put together a brief technical spec and share it with you for feedback.</div><div class="phrase-cn">我会整理一份简短的技术规格并发给您征求反馈。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Before we scope this, can you tell me how often this scenario actually occurs in practice?</div><div class="phrase-cn">在我们确定范围之前，您能告诉我这种场景实际发生的频率吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let me make sure I've captured everything correctly — [summary]. Does that sound right?</div><div class="phrase-cn">让我确认我是否正确记录了所有内容——[摘要]。这样对吗？</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 4 ═══════════════════════════════════════════════════════════ -->
+<div id="s4" class="section s4">
+  <div class="section-head"><h2>4 — Presenting a Demo</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">30 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">I'd like to walk you through what we've built.</div><div class="phrase-cn">我想带您了解我们构建的内容。</div><div class="phrase-usage">I'd like to walk you through what we've built this sprint — I think you'll be pleased with the progress.</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let me share my screen and show you the latest version.</div><div class="phrase-cn">让我共享屏幕，给您展示最新版本。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">What you're looking at here is [X]. This is the [main dashboard / login screen / checkout flow].</div><div class="phrase-cn">您现在看到的是X，这是[主仪表板/登录界面/结账流程]。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let me start from the beginning and take you through the full user flow.</div><div class="phrase-cn">让我从头开始，带您过完整的用户流程。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Notice how [X] — this was a specific request from your team in our last meeting.</div><div class="phrase-cn">注意[X]——这是上次会议中您团队的具体要求。</div><div class="phrase-usage">Notice how the data loads instantly — this was a specific performance requirement from your team.</div></div>
+    <div class="phrase-item"><div class="phrase-en">When the user clicks [X], it triggers [Y], and then [Z] happens.</div><div class="phrase-cn">当用户点击X时，会触发Y，然后发生Z。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This is a real-time preview — the data you're seeing is live.</div><div class="phrase-cn">这是实时预览——您看到的数据是真实的。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'm going to simulate a typical use case that one of your users might encounter.</div><div class="phrase-cn">我将模拟您的用户可能遇到的典型使用场景。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">As you can see, the response time is under [X] seconds — this meets the performance requirement.</div><div class="phrase-cn">如您所见，响应时间在X秒以内，满足了性能要求。</div></div>
+    <div class="phrase-item"><div class="phrase-en">This part of the flow is still in progress — I'll show you a mockup instead.</div><div class="phrase-cn">这部分流程仍在进行中，我将展示一个原型。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Let me zoom in on this section so you can see the details more clearly.</div><div class="phrase-cn">让我放大这个部分，这样您可以更清楚地看到细节。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll skip ahead to [X] — that's the part I really want to highlight today.</div><div class="phrase-cn">我跳过到X部分——那是我今天特别想展示的内容。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This is a significant improvement over the previous version — let me show you the difference.</div><div class="phrase-cn">这比之前的版本有了显著改进，让我展示一下差异。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I want to draw your attention to [X] — this addresses the feedback you gave us last month.</div><div class="phrase-cn">我想让您注意X——这解决了您上个月给出的反馈。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Feel free to stop me at any point if you have questions.</div><div class="phrase-cn">如有疑问，随时打断我。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let me show you what happens when things go wrong — our error handling looks like this.</div><div class="phrase-cn">让我展示出错时的情况——我们的错误处理是这样的。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Behind the scenes, this is powered by [X technology / API]. I can explain more if helpful.</div><div class="phrase-cn">幕后，这由X技术/API支持。如有需要我可以进一步解释。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll hand it over to [Name] to take you through the technical architecture.</div><div class="phrase-cn">我将把话筒交给[姓名]来带您了解技术架构。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This is the admin panel — only your IT team will have access to this view.</div><div class="phrase-cn">这是管理员面板，只有您的IT团队可以访问此视图。</div></div>
+    <div class="phrase-item"><div class="phrase-en">What we've built here is fully responsive — let me show you how it looks on mobile.</div><div class="phrase-cn">我们构建的内容完全支持响应式——让我展示在手机上的效果。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The data in this demo is sample data — in production, it will connect to your live system.</div><div class="phrase-cn">这个演示中的数据是样本数据——在生产环境中，它将连接到您的实时系统。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Overall, I'm really pleased with how this has come together.</div><div class="phrase-cn">总体而言，我对这个成果非常满意。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">That's the end of the demo — I'd love to hear your initial reactions.</div><div class="phrase-cn">演示到此结束，我很想听听您的初步反应。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Does this meet the requirements as you understood them?</div><div class="phrase-cn">这符合您所理解的需求吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Is there anything you'd like to see again or in more detail?</div><div class="phrase-cn">有什么您想再看一遍或更详细了解的吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">We'd welcome any feedback — even early impressions are very helpful for us.</div><div class="phrase-cn">我们欢迎任何反馈——即使是初步印象对我们也非常有帮助。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This feature is currently [80%] complete — the remaining work is [X].</div><div class="phrase-cn">这个功能目前完成了80%，剩余工作是X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let me pause here and check: is this what you envisioned?</div><div class="phrase-cn">我在这里暂停一下，确认一下：这是您所设想的吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I know this looks different from the mockup — let me explain the design decision.</div><div class="phrase-cn">我知道这看起来与原型不同，让我解释一下设计决策。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We can adjust [X] if it doesn't match your vision — just let us know.</div><div class="phrase-cn">如果X不符合您的设想，我们可以调整——请告知我们。</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 5 ═══════════════════════════════════════════════════════════ -->
+<div id="s5" class="section s5">
+  <div class="section-head"><h2>5 — Handling Questions &amp; Pushback</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">32 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">That's a great question. Let me address that directly.</div><div class="phrase-cn">这是个好问题，让我直接回答。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I understand your concern. Here's our perspective on that.</div><div class="phrase-cn">我理解您的顾虑，以下是我们对此的看法。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I can see why you'd feel that way. Let me give you some more context.</div><div class="phrase-cn">我理解您为什么会这样想，让我提供一些背景信息。</div></div>
+    <div class="phrase-item"><div class="phrase-en">You raise a fair point. I want to make sure I address it properly.</div><div class="phrase-cn">您提出了一个合理的观点，我想确保我能妥善回应。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I don't have that information to hand right now — can I get back to you on that?</div><div class="phrase-cn">我现在手头没有这些信息，我可以随后回复您吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let me make a note of that and follow up with a detailed answer after the call.</div><div class="phrase-cn">让我记下这一点，通话后我会给出详细答复。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'd like to push back slightly on that — here's my concern.</div><div class="phrase-cn">我想对此稍作反驳——我的顾虑是这样的。</div><div class="phrase-usage">I'd like to push back slightly on that timeline — here's my concern about the testing window.</div></div>
+    <div class="phrase-item"><div class="phrase-en">I hear you, and I want to be honest about the constraints we're working within.</div><div class="phrase-cn">我听到了，我想坦诚地说明我们面临的限制。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I think there might be a misunderstanding — let me clarify.</div><div class="phrase-cn">我认为可能存在误解，让我澄清一下。</div></div>
+    <div class="phrase-item"><div class="phrase-en">That's outside the current scope, but it's something we could consider for a future phase.</div><div class="phrase-cn">这超出了当前范围，但可以在未来阶段考虑。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">From a technical perspective, that approach would introduce risk because [X].</div><div class="phrase-cn">从技术角度来看，这种方式会引入风险，因为X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'm confident we can find a solution — let me think about that and propose some options.</div><div class="phrase-cn">我相信我们能找到解决方案，让我考虑一下并提出一些选项。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want to manage expectations here — that would require [significant additional time / resources].</div><div class="phrase-cn">我想管理好预期——这需要[大量额外时间/资源]。</div></div>
+    <div class="phrase-item"><div class="phrase-en">That's a valid concern and we're already looking into it.</div><div class="phrase-cn">这是一个合理的顾虑，我们已经在研究了。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Could you say a little more about what's driving that concern?</div><div class="phrase-cn">您能多说一点是什么驱动了这个顾虑吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">I want to make sure we're solving the right problem — can you help me understand the root issue?</div><div class="phrase-cn">我想确保我们在解决正确的问题——您能帮我理解根本问题吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I agree with you in principle. The question is how we get there given the constraints.</div><div class="phrase-cn">原则上我同意您的看法，问题是在约束条件下如何实现。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let's take that offline and set up a separate session to dig into it properly.</div><div class="phrase-cn">我们私下讨论这个，另外安排一次专门的会议深入研究。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I wouldn't want to commit to that without checking with the technical team first.</div><div class="phrase-cn">在没有先与技术团队确认的情况下，我不想做出承诺。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've tested that scenario — here's what the data shows.</div><div class="phrase-cn">我们已经测试了这种场景，以下是数据显示的结果。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">In our experience, the approach we're proposing tends to work better because [X].</div><div class="phrase-cn">根据我们的经验，我们提议的方案通常更有效，因为X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I respect your view on this. Can I share a slightly different perspective?</div><div class="phrase-cn">我尊重您的观点。我能分享一个略有不同的角度吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">That's a fair challenge — let me address the three points you raised.</div><div class="phrase-cn">这是一个合理的质疑，让我回应您提出的三点。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We take that feedback seriously and will factor it into our planning.</div><div class="phrase-cn">我们认真对待这个反馈，并将其纳入我们的计划。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I understand the urgency. Let me tell you what we can realistically do.</div><div class="phrase-cn">我理解紧迫性，让我告诉您我们实际上能做什么。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The data / evidence suggests that [X]. This is why we recommend [approach].</div><div class="phrase-cn">数据/证据表明X，这就是我们推荐[方法]的原因。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I completely understand your frustration and I appreciate your patience.</div><div class="phrase-cn">我完全理解您的沮丧，感谢您的耐心。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're absolutely committed to making this right.</div><div class="phrase-cn">我们绝对致力于把这件事做好。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Can we come back to that point after we've covered the main agenda items?</div><div class="phrase-cn">我们能在讲完主要议程后再回到这个问题吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">The short answer is yes / no, but let me give you the full picture.</div><div class="phrase-cn">简短的回答是是/否，但让我给您一个完整的情况。</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 6 ═══════════════════════════════════════════════════════════ -->
+<div id="s6" class="section s6">
+  <div class="section-head"><h2>6 — Discussing Bugs &amp; Issues</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">30 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">We've identified an issue that I need to make you aware of.</div><div class="phrase-cn">我们发现了一个需要让您了解的问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I want to be upfront about a bug that was discovered in [X].</div><div class="phrase-cn">我想坦诚告知您在X中发现的一个缺陷。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The issue is affecting [X users / X% of sessions] — we're treating this as a priority.</div><div class="phrase-cn">该问题影响了X用户/X%的会话，我们将其列为优先处理。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The root cause of the issue is [X]. Here's what happened.</div><div class="phrase-cn">该问题的根本原因是X。以下是发生的情况。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We've already put a temporary fix in place while we work on the permanent solution.</div><div class="phrase-cn">在我们开发永久解决方案的同时，我们已经实施了临时修复。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Our estimated time to resolution is [X hours / days].</div><div class="phrase-cn">我们预计的修复时间为X小时/天。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We've logged this as [critical / high / medium] severity.</div><div class="phrase-cn">我们将其记录为[严重/高/中]级别。</div></div>
+    <div class="phrase-item"><div class="phrase-en">This is a known issue that we're actively working to resolve.</div><div class="phrase-cn">这是一个已知问题，我们正在积极解决。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We take full responsibility for this and apologize for the inconvenience.</div><div class="phrase-cn">我们对此承担全部责任，并为带来的不便道歉。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've set up a dedicated task force to address this as quickly as possible.</div><div class="phrase-cn">我们已组建专项小组，以尽快解决这个问题。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Here's our action plan: [Step 1, Step 2, Step 3].</div><div class="phrase-cn">以下是我们的行动计划：步骤1、2、3。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We'll provide updates every [X hours] until this is fully resolved.</div><div class="phrase-cn">在问题完全解决之前，我们将每X小时提供一次更新。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Can you describe exactly what you see when the bug occurs?</div><div class="phrase-cn">您能描述一下出现该缺陷时看到的具体情况吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Is this happening consistently, or is it intermittent?</div><div class="phrase-cn">这是持续发生的，还是偶发性的？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Could you share the steps to reproduce the issue?</div><div class="phrase-cn">您能分享一下重现该问题的步骤吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">What environment are you on — production, staging, or your local setup?</div><div class="phrase-cn">您在什么环境中——生产、预发布还是本地配置？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We've reproduced the issue on our end and can confirm the bug.</div><div class="phrase-cn">我们已在我们这端重现了该问题，可以确认是一个缺陷。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The fix is ready and will be deployed in the next release window.</div><div class="phrase-cn">修复方案已准备好，将在下一个发布窗口部署。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">As a workaround in the meantime, users can [X].</div><div class="phrase-cn">作为临时解决方案，用户可以X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're doing a post-mortem on this to make sure it doesn't happen again.</div><div class="phrase-cn">我们正在进行事后分析，以确保不会再次发生。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll personally make sure this is escalated to the right people on our team.</div><div class="phrase-cn">我会亲自确保将此问题升级给我们团队的相关负责人。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've added this to our regression test suite to prevent future recurrence.</div><div class="phrase-cn">我们已将此添加到回归测试套件中，以防止未来再次发生。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The bug report has been filed and assigned to our senior developer.</div><div class="phrase-cn">缺陷报告已提交并分配给我们的高级开发人员。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I understand how disruptive this is and I appreciate your patience.</div><div class="phrase-cn">我理解这有多大的影响，感谢您的耐心。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This is not the experience we want to deliver. We'll do better.</div><div class="phrase-cn">这不是我们想要提供的体验，我们会做得更好。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've implemented a hotfix and it went live 20 minutes ago.</div><div class="phrase-cn">我们已实施热修复，20分钟前已上线。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Can you confirm on your end that the issue has been resolved?</div><div class="phrase-cn">您能在您那边确认问题已解决吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're monitoring the system closely now to make sure there are no further issues.</div><div class="phrase-cn">我们现在正在密切监控系统，以确保没有进一步的问题。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'd like to walk you through what we've learned from this incident.</div><div class="phrase-cn">我想带您了解我们从这次事故中学到的内容。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Going forward, we've put [process / monitoring / safeguard] in place to prevent this.</div><div class="phrase-cn">今后，我们已采取[流程/监控/保障措施]来防止此类情况发生。</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 7 ═══════════════════════════════════════════════════════════ -->
+<div id="s7" class="section s7">
+  <div class="section-head"><h2>7 — Timeline &amp; Delivery Discussions</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">30 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">Based on our current progress, we're confident we can deliver [X] by [date].</div><div class="phrase-cn">根据目前的进展，我们有信心在[日期]前交付X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I need to have an honest conversation with you about the timeline.</div><div class="phrase-cn">我需要就时间表与您进行一次坦诚的对话。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We've hit some unexpected complexity that's going to push the delivery date by [X days / weeks].</div><div class="phrase-cn">我们遇到了一些意外的复杂性，这将使交付日期推迟X天/周。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'd like to propose a revised timeline. Here's what I'm thinking.</div><div class="phrase-cn">我想提出一个修订后的时间表，以下是我的想法。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The original deadline was [date]. Given [change in scope / technical complexity], we're now targeting [new date].</div><div class="phrase-cn">原定截止日期是[日期]。鉴于[范围变更/技术复杂性]，我们现在的目标是[新日期]。</div></div>
+    <div class="phrase-item"><div class="phrase-en">If we want to hit the original date, we have three options: [reduce scope / add resources / accept higher risk].</div><div class="phrase-cn">如果我们想赶上原定日期，有三个选项：[缩减范围/增加资源/接受更高风险]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want to be realistic rather than give you a date I'm not confident in.</div><div class="phrase-cn">我想实事求是，而不是给您一个我没有把握的日期。</div></div>
+    <div class="phrase-item"><div class="phrase-en">What is the absolute latest we can deliver and still be acceptable to your business?</div><div class="phrase-cn">我们最晚能交付而仍能满足您业务需求的日期是什么？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Is there a hard deadline driven by a business event or client commitment on your end?</div><div class="phrase-cn">您这边是否有由商业活动或客户承诺驱动的硬性截止日期？</div></div>
+    <div class="phrase-item"><div class="phrase-en">We could do a phased delivery — launch [core features] first and follow with [additional features] in [X weeks].</div><div class="phrase-cn">我们可以分阶段交付——先推出[核心功能]，在X周内再跟进[附加功能]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">What are the must-haves for the first release? We can prioritize those.</div><div class="phrase-cn">第一次发布的必备功能是什么？我们可以优先安排。</div></div>
+    <div class="phrase-item"><div class="phrase-en">If we descope [X], we can comfortably hit the original date.</div><div class="phrase-cn">如果我们将X从范围中移除，就可以轻松赶上原定日期。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want to set a date I'm comfortable committing to, not one that creates more pressure.</div><div class="phrase-cn">我想设定一个我有把握承诺的日期，而不是增加更多压力的日期。</div></div>
+    <div class="phrase-item"><div class="phrase-en">To mitigate risk, I'd like to build in a one-week buffer before the final release.</div><div class="phrase-cn">为了降低风险，我希望在最终发布前留出一周的缓冲时间。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The dependencies that are outside our control include [X and Y].</div><div class="phrase-cn">不在我们控制范围内的依赖项包括X和Y。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've put together a detailed delivery plan — let me share the Gantt chart.</div><div class="phrase-cn">我们已制定了详细的交付计划，让我分享甘特图。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Our key upcoming milestones are: [date 1 — X], [date 2 — Y], [date 3 — Z].</div><div class="phrase-cn">我们即将到来的关键里程碑是：日期1—X，日期2—Y，日期3—Z。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're planning to freeze the code on [date] to allow sufficient testing time.</div><div class="phrase-cn">我们计划在[日期]冻结代码，以便有足够的测试时间。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The deployment window we're targeting is [specific date/time] during off-peak hours.</div><div class="phrase-cn">我们的目标部署窗口是[具体日期/时间]，在非高峰时段进行。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We'll need your team to complete [UAT / data migration / sign-off] by [date] for us to stay on track.</div><div class="phrase-cn">为了保持进度，我们需要您的团队在[日期]前完成[UAT/数据迁移/签字确认]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Can I confirm — is this a hard deadline or is there flexibility if needed?</div><div class="phrase-cn">我能确认一下——这是硬性截止日期，还是必要时可以灵活调整？</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're looking at a [2-week / 1-month] extension request — here's the justification.</div><div class="phrase-cn">我们正在申请[2周/1个月]的延期——以下是理由。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'd rather delay and deliver quality than rush and create more problems down the line.</div><div class="phrase-cn">我宁愿延迟交付高质量产品，也不愿仓促行事而造成更多后续问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The timeline is tight but achievable if [X condition is met].</div><div class="phrase-cn">时间很紧，但如果[满足X条件]是可以实现的。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Let's agree on a schedule and then I'll send a written confirmation after this call.</div><div class="phrase-cn">我们先确定一个时间表，然后我会在通话后发送书面确认。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'm optimistic about the timeline but want to stay transparent if things change.</div><div class="phrase-cn">我对时间表持乐观态度，但如果情况有变，我想保持透明。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The go-live is planned for [date] — this gives us [X] weeks of buffer post-UAT.</div><div class="phrase-cn">上线计划在[日期]——这给了我们UAT后X周的缓冲时间。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We'll send a weekly progress report so you have full visibility leading up to the launch.</div><div class="phrase-cn">我们将发送每周进度报告，让您在发布前能全面了解情况。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Thank you for your patience and flexibility on the timeline — we won't let you down.</div><div class="phrase-cn">感谢您在时间表上的耐心和灵活，我们不会让您失望的。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Do we have your agreement to proceed with this revised plan?</div><div class="phrase-cn">您同意按这个修订后的计划推进吗？</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 8 ═══════════════════════════════════════════════════════════ -->
+<div id="s8" class="section s8">
+  <div class="section-head"><h2>8 — Risk &amp; Challenges</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">26 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">I want to flag a potential risk before it becomes an issue.</div><div class="phrase-cn">我想在潜在风险变成问题之前提出来。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The main risk we're monitoring is [X]. Here's our mitigation plan.</div><div class="phrase-cn">我们正在监控的主要风险是X，以下是我们的缓解计划。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">If [X] happens, it could impact [timeline / quality / scope]. Here's how we'd respond.</div><div class="phrase-cn">如果X发生，它可能影响[时间表/质量/范围]，以下是我们的应对方式。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've assessed the risk as [high / medium / low] likelihood and [high / medium / low] impact.</div><div class="phrase-cn">我们将该风险评估为[高/中/低]可能性和[高/中/低]影响。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">There's a dependency on [X] that's outside our control — this is a risk we need to manage together.</div><div class="phrase-cn">有一个依赖于X的因素超出了我们的控制——这是我们需要共同管理的风险。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The challenge we're facing is [X]. We have a couple of options for how to address it.</div><div class="phrase-cn">我们面临的挑战是X，我们有几个解决方案可供选择。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This is a calculated risk — here's why we believe it's acceptable.</div><div class="phrase-cn">这是一个经过权衡的风险，以下是我们认为可以接受的原因。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Our contingency plan is [X] if the primary approach doesn't work out.</div><div class="phrase-cn">如果主要方案行不通，我们的应急计划是X。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want to be transparent: there's a chance [X] may not be achievable within the current plan.</div><div class="phrase-cn">我想坦诚地说：在当前计划内，X可能无法实现。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're monitoring [X] closely and will alert you immediately if anything changes.</div><div class="phrase-cn">我们正在密切监控X，如有任何变化会立即通知您。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The biggest technical challenge right now is [X]. We're evaluating two solutions.</div><div class="phrase-cn">目前最大的技术挑战是X，我们正在评估两个解决方案。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Can we discuss how to handle this risk if it materializes?</div><div class="phrase-cn">我们能讨论一下如果这个风险成真该如何应对吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I want your input on whether to accept this risk or invest in mitigating it.</div><div class="phrase-cn">我希望听听您的意见：是接受这个风险还是投入资源来缓解它？</div></div>
+    <div class="phrase-item"><div class="phrase-en">This is something we've encountered before — here's how we handled it then.</div><div class="phrase-cn">这是我们之前遇到过的情况，以下是我们当时的处理方式。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The risk has materialized — here's our immediate response plan.</div><div class="phrase-cn">风险已经成真，以下是我们的即时应对计划。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We've stress-tested the system under peak load conditions and identified some concerns.</div><div class="phrase-cn">我们已在峰值负载条件下对系统进行了压力测试，并发现了一些问题。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Proactively raising this gives us more options than waiting until it's a crisis.</div><div class="phrase-cn">主动提出这个问题比等到危机发生时有更多选择。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'd recommend we set up a risk review meeting to go through the full risk register.</div><div class="phrase-cn">我建议我们设置一次风险审查会议，逐一审查完整的风险登记册。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The worst-case scenario is [X]. We think the probability is low, but wanted you to know.</div><div class="phrase-cn">最坏的情况是X，我们认为概率较低，但希望您了解。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The team is experienced with this type of challenge — I'm confident we can navigate it.</div><div class="phrase-cn">团队在处理此类挑战方面经验丰富，我有信心我们能够应对。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">If we act now, we can avoid a much bigger problem three weeks down the line.</div><div class="phrase-cn">如果我们现在采取行动，可以避免三周后出现更大的问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll include a full risk assessment in the next status report.</div><div class="phrase-cn">我将在下一份状态报告中包含完整的风险评估。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We've put additional safeguards in place to protect against this risk.</div><div class="phrase-cn">我们已经设置了额外的保障措施来防范这个风险。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Your awareness of this risk is important — we need your support to address it effectively.</div><div class="phrase-cn">您了解这个风险很重要，我们需要您的支持来有效解决它。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">On balance, we believe the benefits outweigh the risks here.</div><div class="phrase-cn">综合考虑，我们认为这里的收益大于风险。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're prepared for multiple scenarios — let me walk you through our contingency options.</div><div class="phrase-cn">我们为多种情况做好了准备，让我带您了解我们的应急选项。</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 9 ═══════════════════════════════════════════════════════════ -->
+<div id="s9" class="section s9">
+  <div class="section-head"><h2>9 — Closing &amp; Next Steps</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">28 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">Let me quickly summarize what we've discussed today.</div><div class="phrase-cn">让我快速总结一下今天讨论的内容。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Before we close, let's confirm the action items and who owns each one.</div><div class="phrase-cn">在结束之前，让我们确认行动项目及各自的负责人。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The key decisions made today are: [1], [2], [3].</div><div class="phrase-cn">今天做出的关键决定是：1、2、3。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The action items are as follows. [Name] will [action] by [date].</div><div class="phrase-cn">行动项目如下：[姓名]将在[日期]前[行动]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Our next meeting is scheduled for [date and time]. I'll send a calendar invite.</div><div class="phrase-cn">我们的下次会议定于[日期和时间]，我会发送日历邀请。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll send the meeting minutes within [24 hours] of this call.</div><div class="phrase-cn">我将在本次通话后[24小时]内发送会议记录。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Is everyone clear on their next steps?</div><div class="phrase-cn">大家对各自的下一步行动清楚了吗？</div></div>
+    <div class="phrase-item"><div class="phrase-en">Are there any open questions before we sign off?</div><div class="phrase-cn">在我们结束之前还有什么未解决的问题吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll follow up on [X] and get back to you by [date].</div><div class="phrase-cn">我会跟进X并在[日期]前回复您。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Thank you all for your time and input today — it was a very productive session.</div><div class="phrase-cn">感谢大家今天的时间和意见，这是一次非常富有成效的会议。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll share the slides / recording / documents after this call.</div><div class="phrase-cn">通话后我会分享幻灯片/录制内容/文档。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Please feel free to reach out if you have any questions between now and our next meeting.</div><div class="phrase-cn">在现在和下次会议之间，如有任何问题请随时联系我。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We're on the same page — let's proceed as discussed.</div><div class="phrase-cn">我们已达成共识，按讨论的内容推进。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'm glad we could resolve [X] today. That's a key step forward for us.</div><div class="phrase-cn">我很高兴今天能解决X，这是我们前进的关键一步。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll put together a brief summary document and share it for your confirmation.</div><div class="phrase-cn">我会整理一份简短的摘要文件，发给您确认。</div></div>
+    <div class="phrase-item"><div class="phrase-en">If anything comes up before our next call, please don't hesitate to email / message me.</div><div class="phrase-cn">如果在下次通话前有任何问题，请随时给我发邮件/消息。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">We'll have [X] ready for your review by [date] — please confirm receipt when it arrives.</div><div class="phrase-cn">我们将在[日期]前准备好X供您审阅，收到后请确认。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I think we've covered everything. Does anyone have any final thoughts?</div><div class="phrase-cn">我认为我们已经涵盖了所有内容。有人有最后的想法吗？</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Looking forward to our next session — there's a lot of exciting progress to share.</div><div class="phrase-cn">期待我们的下次会议，有很多令人兴奋的进展可以分享。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Thank you for your partnership — we really value working together on this.</div><div class="phrase-cn">感谢您的合作，我们非常珍视共同推进这项工作。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The agreed next step is [X], owned by [Name], due by [date].</div><div class="phrase-cn">商定的下一步是X，由[姓名]负责，截止日期为[日期]。</div></div>
+    <div class="phrase-item"><div class="phrase-en">We're aligned on the path forward — let's make it happen.</div><div class="phrase-cn">我们对前进的道路达成了共识，让我们付诸行动。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll check in with you mid-week to make sure everything is on track.</div><div class="phrase-cn">我会在本周中期与您联系，确保一切进展顺利。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Enjoy the rest of your day / week — speak soon!</div><div class="phrase-cn">祝您今天/本周余下的时光愉快，再联系！</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I know we went slightly over time — thank you for your patience.</div><div class="phrase-cn">我知道我们稍微超时了，感谢您的耐心。</div></div>
+    <div class="phrase-item"><div class="phrase-en">That wraps up our meeting for today. I'll be in touch shortly.</div><div class="phrase-cn">今天的会议到此结束，我会尽快与您联系。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I really appreciate your trust and confidence in our team.</div><div class="phrase-cn">我非常感谢您对我们团队的信任和信心。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Let's book the next check-in now before we hang up.</div><div class="phrase-cn">在我们挂断之前，现在预约下次check-in吧。</div></div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 10 ══════════════════════════════════════════════════════════ -->
+<div id="s10" class="section s10">
+  <div class="section-head"><h2>10 — Explaining Technical Concepts to Non-Technical Clients</h2><span class="section-num" style="color:#fff;margin-right:10px;margin-top:8px">30 phrases</span></div>
+  <div class="phrase-grid">
+
+    <div class="phrase-item"><div class="phrase-en">Let me explain that in non-technical terms.</div><div class="phrase-cn">让我用非技术性的语言解释一下。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Think of it like [simple analogy] — it works in a similar way.</div><div class="phrase-cn">把它想象成[简单类比]——工作方式类似。</div><div class="phrase-usage">Think of it like a filing cabinet — the database organizes data so we can find it instantly.</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">At a high level, what's happening is [X].</div><div class="phrase-cn">从宏观层面来说，发生的是X。</div><div class="phrase-usage">At a high level, what's happening is that the two systems are now talking to each other automatically.</div></div>
+    <div class="phrase-item"><div class="phrase-en">I'll spare you the technical details — the bottom line is [X].</div><div class="phrase-cn">我不占用您太多时间讲技术细节，重点是X。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">From your perspective, what this means is [X].</div><div class="phrase-cn">从您的角度来看，这意味着X。</div><div class="phrase-usage">From your perspective, what this means is that your users will no longer need to log in twice.</div></div>
+    <div class="phrase-item"><div class="phrase-en">The practical impact for your users / your business is [X].</div><div class="phrase-cn">对您的用户/业务的实际影响是X。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Without getting too technical — the core issue is [X].</div><div class="phrase-cn">不深入技术细节——核心问题是X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">This is like the foundation of a building — you don't see it, but everything depends on it.</div><div class="phrase-cn">这就像建筑物的地基——您看不见它，但一切都依赖于它。</div><div class="phrase-note">Great analogy for explaining infrastructure/architecture</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The reason this matters from a business standpoint is [X].</div><div class="phrase-cn">从商业角度来看，这件事之所以重要是因为X。</div></div>
+    <div class="phrase-item"><div class="phrase-en">To put it simply: [straightforward explanation].</div><div class="phrase-cn">简单来说：[直接说明]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">An API is essentially a way for two systems to communicate — like a universal translator.</div><div class="phrase-cn">API本质上是两个系统通信的方式，就像通用翻译器一样。</div></div>
+    <div class="phrase-item"><div class="phrase-en">A microservice architecture means we've broken the system into smaller, independent pieces.</div><div class="phrase-cn">微服务架构意味着我们将系统拆分成更小、独立的部分。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Cloud hosting means your data and application live on remote servers — not on a physical machine in your office.</div><div class="phrase-cn">云托管意味着您的数据和应用程序存储在远程服务器上，而不是您办公室里的物理机器上。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Regression testing means we're checking that new changes haven't broken anything that already worked.</div><div class="phrase-cn">回归测试意味着我们在检查新更改是否破坏了原本正常运行的功能。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Technical debt is essentially shortcuts we've taken that we'll need to come back and fix properly later.</div><div class="phrase-cn">技术债务本质上是我们为了赶时间走的捷径，之后需要回头妥善修复。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Scalability means the system can grow to support more users without needing to rebuild it from scratch.</div><div class="phrase-cn">可扩展性意味着系统可以增长以支持更多用户，而无需从头重建。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Think of encryption like a lock on a safe — only someone with the right key can read the data.</div><div class="phrase-cn">把加密想象成保险箱上的锁，只有拥有正确密钥的人才能读取数据。</div></div>
+    <div class="phrase-item"><div class="phrase-en">A deployment is when we push new code from our development environment into the live product.</div><div class="phrase-cn">部署是指我们将新代码从开发环境推送到实时产品中。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Latency refers to the time delay — essentially, how long it takes for your action to get a response.</div><div class="phrase-cn">延迟是指时间延迟，本质上是您的操作获得响应所需的时间。</div></div>
+    <div class="phrase-item"><div class="phrase-en">Does that make sense? I'm happy to go into more detail if it would be helpful.</div><div class="phrase-cn">这有意义吗？如果有帮助的话，我很乐意深入介绍。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Let me draw a quick diagram to make this clearer.</div><div class="phrase-cn">让我快速画一个图来让这更清楚。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The way to think about this from a business perspective is [X].</div><div class="phrase-cn">从商业角度思考这个问题的方式是X。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">This is a relatively common technical challenge — most systems of this type face it.</div><div class="phrase-cn">这是一个相对常见的技术挑战，大多数此类系统都会遇到。</div></div>
+    <div class="phrase-item"><div class="phrase-en">The good news is that [X] is a well-understood problem with established solutions.</div><div class="phrase-cn">好消息是X是一个有成熟解决方案的已知问题。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">I'll send over a one-pager that explains this in plain language after the call.</div><div class="phrase-cn">通话后我会发一份用平易近人的语言解释这一点的单页文件。</div></div>
+    <div class="phrase-item"><div class="phrase-en">You don't need to understand the technical details — what matters to you is [business outcome].</div><div class="phrase-cn">您不需要了解技术细节——对您而言重要的是[业务成果]。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">Please feel free to ask if something isn't clear — there are no silly questions.</div><div class="phrase-cn">如有不清楚的地方请随时提问，没有愚蠢的问题。</div></div>
+    <div class="phrase-item"><div class="phrase-en">I appreciate your patience with the technical explanation — I know this isn't your area.</div><div class="phrase-cn">感谢您对技术解释的耐心，我知道这不是您的专业领域。</div></div>
+
+    <div class="phrase-item"><div class="phrase-en">The key takeaway is this: [one clear sentence].</div><div class="phrase-cn">核心要点是：[一句话清楚表达]。</div></div>
+    <div class="phrase-item"><div class="phrase-en">In summary — it's more complex behind the scenes, but from your side it should be seamless.</div><div class="phrase-cn">总结一下——幕后更复杂，但从您的角度来看应该是无缝的。</div></div>
+
+  </div>
+</div>
+
+  <div style="text-align:center; margin:20px 0">
+    <a class="print-btn" href="speaking-plan.html">← Back to Plan</a>
+    <a class="print-btn" href="shadowing-scripts.html">🎙 Shadowing Scripts →</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print All Phrases</button>
+  </div>
+  <p style="text-align:right;font-size:8pt;color:#bbb;font-family:Arial,sans-serif">Software Development Client Meeting Phrase Bank · 320+ phrases · 10 Scenarios</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 15: Society, Culture & Human Nouns — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html">D2</a> <a href="day03.html">D3</a> <a href="day04.html">D4</a> <a href="day05.html">D5</a> <a href="day06.html">D6</a> <a href="day07.html">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html">D12</a> <a href="day13.html">D13</a> <a href="day14.html">D14</a> <a href="day15.html" class="active">D15</a> <a href="day16.html">D16</a> <a href="day17.html">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 15</span>
+    <span class="day-theme">Society, Culture & Human Nouns</span>
+    <span class="day-stats">Words 701–746 · 46 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">society</span>
+        <span class="phonetic">/səˈsaɪəti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">People living together in an organized community.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We all have a role to play in making society fairer.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The impact of this technology on society must be carefully considered.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">culture</span>
+        <span class="phonetic">/ˈkʌltʃər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The ideas, customs, and behavior of a group of people.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Experiencing local culture is the highlight of every trip I take.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Building a positive team culture is essential for long-term success.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">tradition</span>
+        <span class="phonetic">/trəˈdɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A long-established custom or way of doing things.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Making pasta together on Sundays is a beloved family tradition.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We have a tradition of celebrating team wins with a team dinner.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">education</span>
+        <span class="phonetic">/ˌedʒuˈkeɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The process of teaching and learning.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Access to quality education changed the trajectory of her life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Ongoing education and training are key to retaining top talent.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">science</span>
+        <span class="phonetic">/ˈsaɪəns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The study of the physical and natural world through observation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She fell in love with science after a brilliant teacher sparked her curiosity.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our decisions should be grounded in science, not assumptions.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">politics</span>
+        <span class="phonetic">/ˈpɒlɪtɪks/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Activities related to government and public affairs.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I try to stay informed about politics without getting overwhelmed.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We should avoid taking political stances in our external communications.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">justice</span>
+        <span class="phonetic">/ˈdʒʌstɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Fair behavior or treatment; the legal system.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She dedicated her career to fighting for justice for marginalized communities.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Every employee deserves to be treated with fairness and justice.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">rights</span>
+        <span class="phonetic">/raɪts/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Legal or moral entitlements to do or have something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Everyone has the right to be heard and respected.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> All employees are entitled to know their rights under the company's HR policy.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">freedom</span>
+        <span class="phonetic">/ˈfriːdəm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The power or right to act or speak freely.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Freedom to explore new ideas is what I love most about my work.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We give our teams the freedom to choose how they work best.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">equality</span>
+        <span class="phonetic">/ɪˈkwɒlɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The state of being equal, especially in rights and status.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She is a passionate advocate for gender equality in the workplace.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our company is committed to equality of opportunity for all employees.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">responsibility</span>
+        <span class="phonetic">/rɪˌspɒnsɪˈbɪlɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The duty or obligation to deal with something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Having a pet teaches children about responsibility from an early age.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Clear accountability means each person knows their responsibility.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">population</span>
+        <span class="phonetic">/ˌpɒpjuˈleɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">All the people who live in a place.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The population of this city has doubled in the last decade.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our product currently serves only 5% of our addressable population.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">generation</span>
+        <span class="phonetic">/ˌdʒenəˈreɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">All people born around the same time; an era.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Each generation faces its own unique set of challenges.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Millennials and Gen Z make up the majority of our current user base.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">behavior</span>
+        <span class="phonetic">/bɪˈheɪvjər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The way a person or thing acts in a given situation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Positive behavior should always be recognized and rewarded.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The data shows a clear shift in consumer behavior toward mobile shopping.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">attitude</span>
+        <span class="phonetic">/ˈætɪtjuːd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A settled way of thinking about something; a feeling.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Her positive attitude in difficult situations is truly inspiring.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> A can-do attitude is one of the qualities we look for when hiring.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">belief</span>
+        <span class="phonetic">/bɪˈliːf/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Something accepted as true or real.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Her belief in the power of kindness is evident in everything she does.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our shared belief is that great design makes great products.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">principle</span>
+        <span class="phonetic">/ˈprɪnsɪpəl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A fundamental truth or rule guiding behavior.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I live by the principle of treating others as I want to be treated.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our design principles guide every product decision we make.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">norm</span>
+        <span class="phonetic">/nɔːrm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A standard or pattern of behavior considered typical.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Remote work has become the norm in many industries.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> It should be the norm to start every project with a clear scope document.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">practice</span>
+        <span class="phonetic">/ˈpræktɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The actual application of knowledge; a repeated activity.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Daily practice is the key to mastering any new skill.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This is considered best practice in the industry for this type of project.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">institution</span>
+        <span class="phonetic">/ˌɪnstɪˈtjuːʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An important organization or established practice in society.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The local library is a vital institution in every community.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are a well-established institution in the financial services industry.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">media</span>
+        <span class="phonetic">/ˈmiːdɪə/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The means of mass communication; news and broadcast organizations.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The media coverage of the event brought national attention.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need a clear media strategy ahead of the product announcement.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">language</span>
+        <span class="phonetic">/ˈlæŋɡwɪdʒ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A system of communication; the style of words used.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Learning a new language opens up an entirely new world.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The language in the contract is clear and leaves no room for ambiguity.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">knowledge</span>
+        <span class="phonetic">/ˈnɒlɪdʒ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Facts and information acquired through experience or education.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Reading widely is the best way to build broad general knowledge.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to capture and document institutional knowledge before people leave.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">skill</span>
+        <span class="phonetic">/skɪl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The ability to do something well through practice or training.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Cooking is a life skill that will serve you for the rest of your life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Strong communication skills are essential for this client-facing role.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">ability</span>
+        <span class="phonetic">/əˈbɪlɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The power or capacity to do something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Her ability to remain calm under pressure is remarkable.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to assess the team's ability to deliver this within the timeframe.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">talent</span>
+        <span class="phonetic">/ˈtælənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A natural aptitude or skill; gifted people.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She has an incredible talent for drawing portraits from memory.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Attracting and retaining top talent is our biggest competitive challenge.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">leadership</span>
+        <span class="phonetic">/ˈliːdərʃɪp/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The action of leading a group; the ability to lead.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Good leadership is about inspiring others to give their best.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Strong leadership from the project sponsor is critical to success.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">teamwork</span>
+        <span class="phonetic">/ˈtiːmwɜːrk/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The combined effort of a group.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The team's teamwork during the fundraiser was truly impressive.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Teamwork is at the heart of how we deliver excellent results here.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">collaboration</span>
+        <span class="phonetic">/kəˌlæbəˈreɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Working jointly with others on a project.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The garden was created through a beautiful collaboration of neighbors.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Cross-functional collaboration will be key to the success of this initiative.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">diversity</span>
+        <span class="phonetic">/daɪˈvɜːrsɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The range of different people or things in a group.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The diversity of food at the festival was extraordinary.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Diversity of thought leads to better problem-solving and innovation.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">inclusion</span>
+        <span class="phonetic">/ɪnˈkluːʒən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The practice of including all people in a group.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Creating a sense of inclusion in the classroom helps every child thrive.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our DEI strategy has inclusion as one of its three core pillars.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">respect</span>
+        <span class="phonetic">/rɪˈspekt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Admiration for someone's qualities; consideration for others.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My father is a man who commands respect in every room he enters.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> All team interactions should be grounded in mutual respect.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">trust</span>
+        <span class="phonetic">/trʌst/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Firm belief in the reliability or honesty of someone.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Trust is the foundation of any long and lasting friendship.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Building client trust takes time but can be lost in an instant.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">integrity</span>
+        <span class="phonetic">/ɪnˈteɡrɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The quality of being honest and having strong moral principles.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She is a person of remarkable integrity in everything she does.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Acting with integrity is non-negotiable for everyone on this team.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">commitment</span>
+        <span class="phonetic">/kəˈmɪtmənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The state of being dedicated to a cause or activity.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> His commitment to his community inspires everyone around him.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I want to thank the entire team for their commitment over the past six months.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">dedication</span>
+        <span class="phonetic">/ˌdedɪˈkeɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The quality of being committed to a task or purpose.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Her dedication to learning a new skill every year is inspiring.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The team's dedication is the reason this project was delivered on time.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">excellence</span>
+        <span class="phonetic">/ˈeksələns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The quality of being outstanding or extremely good.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She pursues excellence in everything she does, from cooking to running.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We strive for excellence, not just adequacy, in everything we deliver.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">achievement</span>
+        <span class="phonetic">/əˈtʃiːvmənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Something accomplished through effort and skill.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Completing the marathon was the greatest athletic achievement of my life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Recognize individual achievement during the team's monthly all-hands.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">progress</span>
+        <span class="phonetic">/ˈproʊɡres/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Forward movement toward a goal; development.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The progress she has made in just six months is astonishing.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are making steady progress toward all three of our annual OKRs.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">awareness</span>
+        <span class="phonetic">/əˈweənəs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Knowledge or understanding of a situation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Yoga has greatly improved my body awareness and posture.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Customer awareness of the new product is still low — we need to address this.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">understanding</span>
+        <span class="phonetic">/ˌʌndəˈstændɪŋ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The ability to comprehend; a mutual agreement.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A deep understanding of your audience makes you a better communicator.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need a shared understanding of the scope before development begins.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">perspective</span>
+        <span class="phonetic">/pərˈspektɪv/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A particular way of viewing something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Traveling always gives me a fresh perspective on my own life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd welcome different perspectives on this before we make a final call.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">judgment</span>
+        <span class="phonetic">/ˈdʒʌdʒmənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The ability to make considered decisions; an opinion formed.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Good parenting requires constant judgment calls in difficult moments.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Trust the judgment of the people you've hired — that's why they're here.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">choice</span>
+        <span class="phonetic">/tʃɔɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An act of selecting between alternatives; an option.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Choosing to live abroad was the best choice I ever made.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We have three viable options — the choice ultimately rests with the sponsor.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">option</span>
+        <span class="phonetic">/ˈɒpʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A thing available to choose; freedom to choose.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I always like to have options before making a big decision.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let me present three options and the trade-offs associated with each.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">preference</span>
+        <span class="phonetic">/ˈprefərəns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A greater liking for one alternative over another.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My preference is always for fresh, locally sourced ingredients.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> What is the client's preference between the two design directions?</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 15 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 15</button>
+  <a class="print-btn" href="day14.html">← Day 14</a>
+  <a class="print-btn" href="day16.html">Day 16 →</a>
+</div>
+</body>
+</html>

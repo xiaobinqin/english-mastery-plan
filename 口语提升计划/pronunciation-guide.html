@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pronunciation Training Guide — Chinese Speaker Edition</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.65}
+@media screen{
+ .top-nav{position:sticky;top:0;z-index:100;background:#1e5f5f;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:9pt}
+ .top-nav a{color:#a8f0f0;text-decoration:none;padding:3px 8px;border-radius:3px}
+ .top-nav a:hover{background:#2e8f8f}
+ .nav-title{font-weight:bold;font-size:11pt;margin-right:8px}
+}
+@media print{.top-nav,.print-btn,.section-nav{display:none} .unit{page-break-inside:avoid}}
+.container{max-width:1000px;margin:0 auto;padding:22px}
+h1{font-size:20pt;color:#1e5f5f;margin-bottom:4px;font-family:Arial,sans-serif}
+.subtitle{color:#555;font-size:9.5pt;margin-bottom:18px;font-style:italic}
+h2{font-size:13pt;font-family:Arial,sans-serif;padding:9px 14px;color:#fff;border-radius:5px 5px 0 0}
+h3{font-size:11pt;color:#1e5f5f;font-family:Arial,sans-serif;margin:12px 0 7px}
+h4{font-size:10pt;font-family:Arial,sans-serif;color:#444;margin:8px 0 5px}
+.unit{border:1px solid #b0d8d8;border-radius:7px;margin-bottom:20px;overflow:hidden}
+.u1 h2{background:#1e5f3a} .u2 h2{background:#1e3a7a} .u3 h2{background:#5a1e5f}
+.u4 h2{background:#7a3a10} .u5 h2{background:#1e5f5f} .u6 h2{background:#0d2040}
+.unit-body{padding:14px 16px}
+.why-box{background:#fff8e0;border-left:3px solid #d0a820;padding:8px 12px;margin-bottom:12px;font-size:9pt;border-radius:0 4px 4px 0}
+.mouth-box{background:#f0f8f0;border:1px solid #80c080;border-radius:5px;padding:10px 14px;margin-bottom:12px}
+.mouth-box strong{color:#1e5f3a;font-family:Arial,sans-serif;font-size:9.5pt}
+/* Minimal pairs table */
+.pair-table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:9.5pt}
+.pair-table th{background:#1e5f5f;color:#fff;padding:6px 10px;text-align:left;font-family:Arial,sans-serif;font-size:9pt}
+.pair-table td{padding:7px 10px;border-bottom:1px solid #d0e8e8;vertical-align:top}
+.pair-table tr:nth-child(even) td{background:#f0fafa}
+.pair-table .sound{font-size:15pt;font-weight:bold;color:#1e3a7a;font-family:Arial,sans-serif}
+.pair-table .wrong{color:#a00000;font-size:8.5pt}
+/* Drill box */
+.drill-box{background:#f5f0ff;border:1px solid #c0a8e8;border-radius:5px;padding:10px 14px;margin:10px 0}
+.drill-box h4{color:#3a1e5f}
+.drill-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:7px}
+@media(max-width:600px){.drill-row{grid-template-columns:1fr}}
+.drill-word{background:#fff;border:1px solid #d0c0f0;border-radius:4px;padding:6px 10px;font-size:10.5pt}
+.drill-word .dw{font-weight:bold;font-family:Arial,sans-serif;color:#0d2040;font-size:12pt}
+.drill-word .ph{color:#888;font-size:9pt;font-family:Arial,sans-serif}
+.drill-word .ex{font-size:8.5pt;color:#555;margin-top:3px;font-style:italic}
+/* Sentence drills */
+.sentence-drill{margin:10px 0}
+.sdrill-item{display:flex;gap:10px;margin-bottom:6px;align-items:baseline;font-size:9.5pt}
+.sdrill-num{font-family:Arial,sans-serif;font-weight:bold;color:#1e5f5f;flex-shrink:0;width:20px}
+.stress-word{text-decoration:underline;text-underline-offset:3px;font-weight:bold;color:#0d2040}
+.link-mark{color:#c07000;font-style:italic}
+/* Connected speech examples */
+.connected{font-size:11pt;line-height:2;margin:10px 0}
+.cs-before{color:#888;display:block;font-size:9pt}
+.cs-after{color:#0d2040;font-weight:bold;display:block}
+/* Progress tracker */
+.tracker{border:1px solid #c8d8e8;border-radius:6px;padding:12px 16px;margin:12px 0}
+.track-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:9.5pt}
+.track-box{width:16px;height:16px;border:1.5px solid #1e5f5f;border-radius:3px;flex-shrink:0}
+.intro-banner{background:linear-gradient(135deg,#1e5f3a,#1e5f5f);color:#fff;border-radius:8px;padding:16px 20px;margin-bottom:20px;font-size:9.5pt;line-height:1.7}
+.intro-banner h2{background:none;padding:0;color:#fff;font-size:15pt;margin-bottom:6px}
+.section-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.section-nav a{background:#e0f4f4;border:1px solid #80d0d0;border-radius:4px;padding:5px 10px;text-decoration:none;color:#1e5f5f;font-size:8.5pt;font-family:Arial,sans-serif}
+.print-btn{display:inline-block;background:#1e5f5f;color:#fff;padding:8px 18px;border-radius:5px;text-decoration:none;font-size:9pt;cursor:pointer;border:none;font-family:Arial,sans-serif;margin-bottom:14px}
+.ipa{font-family:'Lucida Sans Unicode','Noto Serif',serif;color:#555}
+.badge-daily{display:inline-block;font-size:7.5pt;background:#e0f0e0;color:#1a6a1a;padding:1px 5px;border-radius:3px;font-family:Arial,sans-serif;margin-left:5px}
+.badge-meeting{display:inline-block;font-size:7.5pt;background:#e0e8f8;color:#1a3a8a;padding:1px 5px;border-radius:3px;font-family:Arial,sans-serif;margin-left:5px}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">🔊 Pronunciation Guide</span>
+  <a href="60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="phrase-bank-team.html">👥 Team Phrases</a>
+  <a href="phrase-bank.html">📋 Client Phrases</a>
+  <a href="email-templates.html">✉️ Email</a>
+  <a href="shadowing-scripts.html">🎙 Scripts</a>
+</nav>
+
+<div class="container">
+  <h1>Pronunciation Training Guide</h1>
+  <p class="subtitle">6 Units · Targeted for Chinese-English Speakers · Minimal Pairs · Sentence Drills · Software Context Examples</p>
+
+  <div class="intro-banner">
+    <h2>Why Pronunciation Matters More Than Vocabulary</h2>
+    <p>You can know 10,000 English words perfectly, but if your pronunciation makes people strain to understand you, the communication breaks down. The good news: you don't need a perfect accent. You need <strong>clear, intelligible speech</strong>. These 6 units address the specific sounds that Chinese-English speakers most commonly mispronounce, causing real-world misunderstandings in meetings.</p>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print All</button>
+
+  <div class="section-nav">
+    <a href="#u1">Unit 1: /θ/ and /ð/ (th sounds)</a>
+    <a href="#u2">Unit 2: /v/, /w/, /r/, /l/</a>
+    <a href="#u3">Unit 3: Word-Final Consonants</a>
+    <a href="#u4">Unit 4: Word Stress</a>
+    <a href="#u5">Unit 5: Sentence Stress</a>
+    <a href="#u6">Unit 6: Connected Speech</a>
+  </div>
+
+<!-- ═══ UNIT 1 ══════════════════════════════════════════════════════════ -->
+<div id="u1" class="unit u1">
+  <h2>Unit 1 — The /θ/ and /ð/ Sounds (th)</h2>
+  <div class="unit-body">
+    <div class="why-box">⚠️ <strong>Why this matters:</strong> Chinese has no /th/ sound. Speakers typically replace it with /s/, /z/, /d/, or /t/. "Think" sounds like "sink", "the" sounds like "de", "three" like "slee". In meetings: "the team" → "de team", "three weeks" → "tree weeks". Clients and colleagues notice this.</div>
+
+    <div class="mouth-box">
+      <strong>🫦 How to produce /θ/ (voiceless th — think, three, through):</strong><br>
+      Place the tip of your tongue <em>lightly between your upper and lower teeth</em>. Push air out gently. Your tongue tip should barely be visible. Do NOT make a sound in your throat — just air. It's a "breathy" sound.
+      <br><br>
+      <strong>🫦 How to produce /ð/ (voiced th — the, this, that, they, there):</strong><br>
+      Same tongue position, but now <em>add voice</em> — vibrate your vocal cords. If you put your hand on your throat, you should feel vibration. This is the most common th sound in English.
+    </div>
+
+    <h3>Minimal Pairs Drill</h3>
+    <table class="pair-table">
+      <tr><th>Wrong sound</th><th>Wrong word</th><th>Correct th word</th><th>IPA</th><th>In a sentence</th></tr>
+      <tr><td>/s/</td><td>sink, sick, sank</td><td><strong>think, thick, thank</strong></td><td class="ipa">/θɪŋk/, /θɪk/, /θæŋk/</td><td>I <em>think</em> we should <em>thank</em> the client.</td></tr>
+      <tr><td>/t/</td><td>tree, true, tray</td><td><strong>three, through, they</strong></td><td class="ipa">/θriː/, /θruː/, /ðeɪ/</td><td>We have <em>three</em> weeks <em>through</em> the end of the sprint.</td></tr>
+      <tr><td>/d/</td><td>den, dare, dose</td><td><strong>then, there, those</strong></td><td class="ipa">/ðen/, /ðer/, /ðoʊz/</td><td><em>There</em> are <em>those</em> issues we discussed <em>then</em>.</td></tr>
+      <tr><td>/z/</td><td>ze, zey, zem</td><td><strong>the, they, them</strong></td><td class="ipa">/ðə/, /ðeɪ/, /ðem/</td><td><em>They</em> told us <em>the</em> deadline for <em>them</em>.</td></tr>
+    </table>
+
+    <div class="drill-box">
+      <h4>🔁 Sentence Drills — Say each 5× aloud</h4>
+      <div class="sentence-drill">
+        <div class="sdrill-item"><span class="sdrill-num">1</span><span>I think <em>the</em> timeline needs to be discussed with <em>the</em> client <em>this</em> Thursday.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">2</span><span>We have <em>three</em> outstanding issues that need to go through the review process.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">3</span><span>Thank you for that feedback. I think there's a valid point there.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">4</span><span>The team confirmed that they'll deliver the feature by the end of this month.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">5</span><span>Those three bugs were identified through thorough testing.</span></div>
+      </div>
+    </div>
+    <div class="tracker"><strong>Daily Practice (Week 1–2):</strong>
+      <div class="track-row"><span class="track-box"></span>Say /θ/ sound 30× (tongue between teeth, no voice)</div>
+      <div class="track-row"><span class="track-box"></span>Say /ð/ sound 30× (tongue between teeth, with voice)</div>
+      <div class="track-row"><span class="track-box"></span>Read the 5 sentence drills aloud</div>
+      <div class="track-row"><span class="track-box"></span>Record yourself saying "I think the timeline is three weeks" — listen back</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ UNIT 2 ══════════════════════════════════════════════════════════ -->
+<div id="u2" class="unit u2">
+  <h2>Unit 2 — /v/ vs /w/ and /r/ vs /l/</h2>
+  <div class="unit-body">
+    <div class="why-box">⚠️ <strong>Why this matters:</strong> /v/ and /w/ are two completely different sounds but often confused. "Version" becomes "wersion", "value" becomes "walue". For /r/ and /l/ — "release" vs "rerese", "client" vs "cient". In tech context: "version", "value", "release", "load", "review" all have these sounds.</div>
+
+    <div class="mouth-box">
+      <strong>🫦 /v/ (as in version, value, verify):</strong> Upper front teeth rest gently on your <em>lower lip</em>. Blow air through the gap while vibrating your vocal cords. Your lips should NOT come together. Feel the gentle friction between teeth and lip.
+      <br><br>
+      <strong>🫦 /w/ (as in work, what, we):</strong> Round your lips into a tight <em>circle</em> (like you're about to whistle or say "oo"). Then quickly open them as you say the word. No teeth involved.
+      <br><br>
+      <strong>🫦 /r/ (as in release, review, requirements):</strong> Curl the tip of your tongue <em>back and up</em> — it should NOT touch anything. Round your lips slightly. It's a smooth sound, never trilled in American/British English.
+      <br><br>
+      <strong>🫦 /l/ (as in load, login, level):</strong> Touch the tip of your tongue to the ridge just <em>behind your upper front teeth</em>. Air flows around the sides of the tongue.
+    </div>
+
+    <h3>Minimal Pairs — /v/ vs /w/</h3>
+    <div class="drill-row">
+      <div class="drill-word"><div class="dw">vet / wet</div><div class="ph">/vet/ vs /wet/</div><div class="ex">The vet checked the animal. / The road was wet after the rain.</div></div>
+      <div class="drill-word"><div class="dw">vine / wine</div><div class="ph">/vaɪn/ vs /waɪn/</div></div>
+      <div class="drill-word"><div class="dw">vest / west</div><div class="ph">/vest/ vs /west/</div><div class="ex">Go west. / Wear a vest.</div></div>
+      <div class="drill-word"><div class="dw">version / worsion</div><div class="ph">/ˈvɜːrʒən/</div><div class="ex">Which version of the API are you using?</div></div>
+    </div>
+
+    <h3 style="margin-top:12px">Minimal Pairs — /r/ vs /l/</h3>
+    <div class="drill-row">
+      <div class="drill-word"><div class="dw">release / (no match)</div><div class="ph">/rɪˈliːs/</div><div class="ex">When is the next release?</div></div>
+      <div class="drill-word"><div class="dw">right / light</div><div class="ph">/raɪt/ vs /laɪt/</div><div class="ex">That's right. / Turn off the light.</div></div>
+      <div class="drill-word"><div class="dw">road / load</div><div class="ph">/roʊd/ vs /loʊd/</div><div class="ex">Reduce the load on the server.</div></div>
+      <div class="drill-word"><div class="dw">review / (no match)</div><div class="ph">/rɪˈvjuː/</div><div class="ex">I'll do a code review tomorrow.</div></div>
+    </div>
+
+    <div class="drill-box">
+      <h4>🔁 Tech Context Sentence Drills</h4>
+      <div class="sentence-drill">
+        <div class="sdrill-item"><span class="sdrill-num">1</span><span>The <em>value</em> of the <em>variable</em> is <em>verified</em> at <em>runtime</em>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">2</span><span>We'll <em>review</em> the <em>release</em> notes before the <em>deployment</em>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">3</span><span>The <em>workflow</em> requires a <em>valid</em> token on every <em>request</em>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">4</span><span>We're working on a <em>version</em> that <em>will</em> reduce server <em>load</em>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">5</span><span>The <em>client</em> wants us to <em>revise</em> the <em>level</em> of <em>logging</em>.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ UNIT 3 ══════════════════════════════════════════════════════════ -->
+<div id="u3" class="unit u3">
+  <h2>Unit 3 — Word-Final Consonants (Endings That Disappear)</h2>
+  <div class="unit-body">
+    <div class="why-box">⚠️ <strong>Why this matters:</strong> Chinese syllables almost always end in a vowel sound. So Chinese-English speakers frequently drop or weaken word-final consonants. "Fixed" sounds like "fixe", "blocked" like "blocke", "tests" like "tes". This completely changes meaning: "build" ≠ "built" ≠ "builds". Crucial for communicating past/present/future and plurals.</div>
+
+    <h3>The Most Commonly Dropped Endings in Software Context</h3>
+    <table class="pair-table">
+      <tr><th>Ending</th><th>Common words</th><th>How to practice</th></tr>
+      <tr><td><strong>-ed</strong> /d/ or /t/</td><td>fixed, blocked, merged, deployed, tested, failed, <strong>pushed</strong>, reviewed</td><td>After a voiced sound → /d/. After unvoiced → /t/. Feel your tongue tip tap the roof of your mouth then STOP. Don't add a vowel: "fixed" NOT "fix-ed".</td></tr>
+      <tr><td><strong>-s / -es</strong></td><td>bugs, tests, builds, commits, services, branches, releases</td><td>After a voiced sound → /z/. After unvoiced → /s/. After s/z/sh → /ɪz/. Always complete the final sound — don't let it disappear.</td></tr>
+      <tr><td><strong>-t</strong></td><td>request, commit, rollout, sprint, input, output, submit, prompt</td><td>Touch tongue to upper ridge and create a tiny "pop". Don't let it become a glottal stop or disappear.</td></tr>
+      <tr><td><strong>-k</strong></td><td>check, stack, track, block, mock, click, hook, work</td><td>The back of your tongue touches the soft palate and releases with a tiny pop. "Check" NOT "cheh".</td></tr>
+      <tr><td><strong>-p</strong></td><td>stop, step, loop, group, app, wrap, map</td><td>Lips come together and release — a tiny burst of air. "Stop" NOT "stoh".</td></tr>
+    </table>
+
+    <div class="drill-box">
+      <h4>🔁 Ending Awareness Drills — Say slowly, then at normal speed</h4>
+      <div class="sentence-drill">
+        <div class="sdrill-item"><span class="sdrill-num">1</span><span>We <em>fixed</em> three <em>bugs</em> and <em>merged</em> two <em>commits</em> yesterday.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">2</span><span>All <em>tests</em> passed and the <em>build</em> was <em>deployed</em> to the <em>staging</em> environment.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">3</span><span>Please <em>check</em> the <em>stack</em> trace and <em>submit</em> a <em>bug</em> report.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">4</span><span>The <em>request</em> was <em>blocked</em> because the <em>token</em> had <em>expired</em>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">5</span><span>I've <em>reviewed</em> the <em>specs</em> and <em>tracked</em> down the <em>root</em> cause.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ UNIT 4 ══════════════════════════════════════════════════════════ -->
+<div id="u4" class="unit u4">
+  <h2>Unit 4 — Word Stress (Which Syllable Gets the Beat)</h2>
+  <div class="unit-body">
+    <div class="why-box">⚠️ <strong>Why this matters:</strong> English is a stress-timed language — the wrong syllable stress makes words unrecognizable even if every sound is correct. "DEvelop" vs "deLOP" — native speakers might not recognize the word. In tech: "REcord" (noun) vs "reCORD" (verb) is a real distinction that changes meaning.</div>
+
+    <h3>The Golden Rule: Stressed syllables are LOUDER, LONGER, and HIGHER in pitch</h3>
+
+    <div class="drill-box">
+      <h4>🔁 Tech Vocabulary — Stress Marked with CAPS</h4>
+      <div class="drill-row">
+        <div class="drill-word"><div class="dw">de-VEL-op-ment</div><div class="ph">not DEV-el-op-ment</div><div class="ex">software <em>deVELopment</em> lifecycle</div></div>
+        <div class="drill-word"><div class="dw">re-QUIRE-ments</div><div class="ph">not RE-quire-ments</div><div class="ex">gathering <em>reQUIREments</em> from the client</div></div>
+        <div class="drill-word"><div class="dw">im-PLE-men-ta-tion</div><div class="ph">4 beats: im-PLEM-en-TAY-tion</div><div class="ex">full <em>imPLEmenTAtion</em> by Q3</div></div>
+        <div class="drill-word"><div class="dw">au-TOM-a-tion</div><div class="ph">not AU-to-ma-tion</div><div class="ex">test <em>auTOmation</em> pipeline</div></div>
+        <div class="drill-word"><div class="dw">ar-CHI-tec-ture</div><div class="ph">not ar-chi-TEC-ture</div><div class="ex"><em>arCHItecture</em> review meeting</div></div>
+        <div class="drill-word"><div class="dw">per-FORM-ance</div><div class="ph">not PER-form-ance</div><div class="ex"><em>perFORmance</em> optimization</div></div>
+        <div class="drill-word"><div class="dw">in-TE-gra-tion</div><div class="ph">not IN-te-gra-tion</div><div class="ex">API <em>inTEgration</em> testing</div></div>
+        <div class="drill-word"><div class="dw">de-PLOY-ment</div><div class="ph">not DE-ploy-ment</div><div class="ex">production <em>dePLOYment</em> schedule</div></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:12px">Noun vs. Verb Stress (Same Spelling, Different Stress)</h3>
+    <table class="pair-table">
+      <tr><th>Word</th><th>Noun (stress on 1st syllable)</th><th>Verb (stress on 2nd syllable)</th></tr>
+      <tr><td><strong>record</strong></td><td>RECord — "the record shows"</td><td>reCORD — "to record the meeting"</td></tr>
+      <tr><td><strong>update</strong></td><td>UPdate — "send an update"</td><td>upDATE — "I'll update the doc"</td></tr>
+      <tr><td><strong>project</strong></td><td>PROject — "the project timeline"</td><td>proJECT — "we project 20% growth"</td></tr>
+      <tr><td><strong>export</strong></td><td>EXport — "run an export"</td><td>exPORT — "export the data to CSV"</td></tr>
+      <tr><td><strong>release</strong></td><td>RELease — "the release date"</td><td>reLEASE — "when will you release it?"</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ UNIT 5 ══════════════════════════════════════════════════════════ -->
+<div id="u5" class="unit u5">
+  <h2>Unit 5 — Sentence Stress (What to Emphasize in Meetings)</h2>
+  <div class="unit-body">
+    <div class="why-box">⚠️ <strong>Why this matters:</strong> In English sentences, only the most important words receive stress — verbs, nouns, adjectives. Articles, prepositions, and auxiliaries ("a, the, is, can, will") are typically reduced and unstressed. Chinese speakers often stress every word equally, which sounds robotic and makes it harder for listeners to identify the key information.</div>
+
+    <h3>Rule: Stress the CONTENT words. Reduce the FUNCTION words.</h3>
+
+    <div class="drill-box">
+      <h4>🔁 Meeting Sentence Drills (underlined = stressed)</h4>
+      <p style="font-size:8.5pt;color:#666;margin-bottom:8px">Stressed words are shown in bold underlined. Say the unstressed words quickly and lightly.</p>
+      <div class="sentence-drill">
+        <div class="sdrill-item"><span class="sdrill-num">1</span><span>We need to <span class="stress-word">finish</span> the <span class="stress-word">API</span> by <span class="stress-word">Friday</span>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">2</span><span>The <span class="stress-word">client</span> wants a <span class="stress-word">demo</span> on <span class="stress-word">Thursday</span> <span class="stress-word">morning</span>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">3</span><span>I've <span class="stress-word">identified</span> the <span class="stress-word">root cause</span> — it's a <span class="stress-word">race condition</span>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">4</span><span>We're <span class="stress-word">on track</span>, but there's a <span class="stress-word">risk</span> around the <span class="stress-word">database migration</span>.</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">5</span><span>The <span class="stress-word">tests</span> are <span class="stress-word">passing</span>, but the <span class="stress-word">performance</span> is still <span class="stress-word">below</span> the target.</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:12px">Changing Meaning by Changing Stress</h3>
+    <p style="font-size:9.5pt;margin-bottom:8px">The same sentence means different things depending on which word you stress:</p>
+    <table class="pair-table">
+      <tr><th>Sentence</th><th>Meaning</th></tr>
+      <tr><td><strong>I</strong> didn't say the deadline changed.</td><td>Someone else said it, not me.</td></tr>
+      <tr><td>I didn't <strong>say</strong> the deadline changed.</td><td>I implied it, but didn't explicitly say it.</td></tr>
+      <tr><td>I didn't say the <strong>deadline</strong> changed.</td><td>Something else changed, not the deadline.</td></tr>
+      <tr><td>I didn't say the deadline <strong>changed</strong>.</td><td>I said it might change, not that it definitely did.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ UNIT 6 ══════════════════════════════════════════════════════════ -->
+<div id="u6" class="unit u6">
+  <h2>Unit 6 — Connected Speech (Sounding Natural, Not Word-by-Word)</h2>
+  <div class="unit-body">
+    <div class="why-box">⚠️ <strong>Why this matters:</strong> Native speakers never say words one-by-one in isolation. They link sounds together in streams. "Did you eat?" becomes "Didja eat?" — this is not lazy pronunciation; it's how fluent English sounds. When you understand these patterns, you'll understand native speakers much better AND sound more natural yourself.</div>
+
+    <h3>Pattern 1: Linking (consonant + vowel connect)</h3>
+    <p style="font-size:9.5pt;margin-bottom:8px">When a word ends in a consonant and the next word starts with a vowel, they link together.</p>
+    <div class="drill-box">
+      <div class="sentence-drill">
+        <div class="sdrill-item"><span class="sdrill-num">1</span><span>Written: "check it" → Spoken: "<span class="link-mark">check_it</span>" (checki-t)</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">2</span><span>Written: "log out" → Spoken: "<span class="link-mark">log_out</span>" (logout)</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">3</span><span>Written: "talk about it" → Spoken: "<span class="link-mark">talk_about_it</span>" (talka-bou-dit)</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">4</span><span>Written: "work on it" → Spoken: "<span class="link-mark">work_on_it</span>" (worko-nit)</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">5</span><span>Written: "ship it" → Spoken: "<span class="link-mark">ship_it</span>" (shippit)</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:12px">Pattern 2: Reduction (unstressed words get shorter)</h3>
+    <table class="pair-table">
+      <tr><th>Written form</th><th>Spoken form</th><th>Example</th></tr>
+      <tr><td>can</td><td>/kən/ (not /kæn/)</td><td>"I <em>kən</em> review it tomorrow."</td></tr>
+      <tr><td>want to</td><td>"wanna" /ˈwɒnə/</td><td>"We <em>wanna</em> ship this by Friday."</td></tr>
+      <tr><td>going to</td><td>"gonna" /ˈɡɒnə/</td><td>"We're <em>gonna</em> need more time."</td></tr>
+      <tr><td>have to</td><td>"hafta" /ˈhæftə/</td><td>"We <em>hafta</em> fix this before the demo."</td></tr>
+      <tr><td>did you</td><td>"didja" /ˈdɪdʒə/</td><td>"<em>Didja</em> push the hotfix?"</td></tr>
+      <tr><td>and</td><td>/ən/ (not /ænd/)</td><td>"Testing <em>ən</em> deployment are done."</td></tr>
+    </table>
+    <p style="font-size:8.5pt;color:#888;margin-top:6px;font-style:italic">Note: These reductions are for normal conversational speed. In formal presentations, you may want to be slightly more explicit — but understanding them helps comprehension enormously.</p>
+
+    <div class="drill-box">
+      <h4>🔁 Natural Speed Practice — Read aloud, aiming for natural flow</h4>
+      <div class="sentence-drill">
+        <div class="sdrill-item"><span class="sdrill-num">1</span><span>"I'm gonna check it and let you know by end of day."</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">2</span><span>"Didja get a chance to look at the PR I submitted?"</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">3</span><span>"We hafta make sure all the tests pass before we ship it."</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">4</span><span>"I can take a look at that and get back to you this afternoon."</span></div>
+        <div class="sdrill-item"><span class="sdrill-num">5</span><span>"What do you wanna do about the performance issue? Leave it for now or tackle it this sprint?"</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Overall tracker -->
+<h3 style="margin-top:24px">Overall Pronunciation Progress Tracker</h3>
+<div class="tracker">
+  <table class="pair-table">
+    <tr><th>Unit</th><th>Target Sound</th><th>Week to Focus</th><th>Self-Score (1–5) — update weekly</th></tr>
+    <tr><td>1</td><td>/θ/ and /ð/ (th)</td><td>Weeks 1–2</td><td>Before: ___ / After: ___</td></tr>
+    <tr><td>2</td><td>/v/ vs /w/ and /r/ vs /l/</td><td>Weeks 2–3</td><td>Before: ___ / After: ___</td></tr>
+    <tr><td>3</td><td>Word-final consonants</td><td>Weeks 3–4</td><td>Before: ___ / After: ___</td></tr>
+    <tr><td>4</td><td>Word stress</td><td>Weeks 5–6</td><td>Before: ___ / After: ___</td></tr>
+    <tr><td>5</td><td>Sentence stress</td><td>Weeks 6–7</td><td>Before: ___ / After: ___</td></tr>
+    <tr><td>6</td><td>Connected speech</td><td>Weeks 7–8</td><td>Before: ___ / After: ___</td></tr>
+  </table>
+  <p style="font-size:9pt;color:#666;margin-top:8px">Rate yourself: 1 = Always wrong · 2 = Often wrong · 3 = Sometimes right · 4 = Usually right · 5 = Consistently correct</p>
+</div>
+
+  <div style="text-align:center;margin:20px 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+    <a class="print-btn" href="phrase-bank-team.html">← Team Phrases</a>
+    <a class="print-btn" href="email-templates.html">✉️ Email Templates →</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print All Units</button>
+  </div>
+  <p style="text-align:right;font-size:8pt;color:#bbb;font-family:Arial,sans-serif">Pronunciation Training Guide · 6 Units · Chinese-English Speaker Edition · Software Dev Context</p>
+</div>
+</body>
+</html>

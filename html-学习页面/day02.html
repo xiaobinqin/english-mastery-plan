@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 2: Core Verbs II — More Essential Verbs — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html" class="active">D2</a> <a href="day03.html">D3</a> <a href="day04.html">D4</a> <a href="day05.html">D5</a> <a href="day06.html">D6</a> <a href="day07.html">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html">D12</a> <a href="day13.html">D13</a> <a href="day14.html">D14</a> <a href="day15.html">D15</a> <a href="day16.html">D16</a> <a href="day17.html">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 2</span>
+    <span class="day-theme">Core Verbs II — More Essential Verbs</span>
+    <span class="day-stats">Words 51–101 · 51 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">understand</span>
+        <span class="phonetic">/ˌʌndərˈstænd/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To know the meaning of something; to grasp an idea fully.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I don't understand the instructions — could you explain again?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I want to make sure everyone understands the new approval process.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">watch</span>
+        <span class="phonetic">/wɒtʃ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To look at something carefully over a period of time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I watch the news every evening after dinner.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's watch the competitor's new product launch closely.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">follow</span>
+        <span class="phonetic">/ˈfɒloʊ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To go or come after; to obey; to pay attention to.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Follow the recipe exactly for the best results.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to follow the established procurement process.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">stop</span>
+        <span class="phonetic">/stɒp/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To no longer continue an action; to prevent from happening.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I decided to stop drinking soda to improve my health.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to stop adding scope without adjusting the timeline.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">create</span>
+        <span class="phonetic">/kriˈeɪt/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To make something new; to produce or design.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She loves to create handmade cards for her friends.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our goal this quarter is to create a better customer onboarding experience.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">speak</span>
+        <span class="phonetic">/spiːk/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To say words; to talk with someone; to give a speech.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I speak with my parents every Sunday evening.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'll speak to the budget constraints in my section of the presentation.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">read</span>
+        <span class="phonetic">/riːd/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To look at and understand written words.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I read for at least thirty minutes before bed every night.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please read through the proposal carefully before the review meeting.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">spend</span>
+        <span class="phonetic">/spend/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To use time or money for a purpose.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love to spend Sunday mornings at the local farmers' market.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to carefully consider how we spend the remaining budget.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">grow</span>
+        <span class="phonetic">/ɡroʊ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To increase in size, amount, or importance over time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The tomatoes in my garden are starting to grow quickly.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our aim is to grow the customer base by 20% this year.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">open</span>
+        <span class="phonetic">/ˈoʊpən/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To move so something is no longer closed; to start operating.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Open the window — it's stuffy in here.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We plan to open two new regional offices before Q4.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">walk</span>
+        <span class="phonetic">/wɔːk/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To move on foot at a normal pace.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I walk to the coffee shop every morning.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let me walk you through the key findings of the report.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">win</span>
+        <span class="phonetic">/wɪn/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To succeed in a competition or achieve a desired goal.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Did your team win the football match last weekend?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> To win this contract, we need a truly compelling proposal.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">offer</span>
+        <span class="phonetic">/ˈɒfər/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To present something for someone to accept or consider.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She offered to help me carry my groceries up the stairs.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We'd like to offer a revised timeline for your consideration.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">remember</span>
+        <span class="phonetic">/rɪˈmembər/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To have a memory of something from the past.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I can still remember my first day at primary school.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please remember to submit your expense reports by the end of the week.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">love</span>
+        <span class="phonetic">/lʌv/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To have a strong feeling of affection; to enjoy greatly.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love cooking new recipes on weekends.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The clients love the new interface design — great work, everyone.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">consider</span>
+        <span class="phonetic">/kənˈsɪdər/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To think carefully about something before deciding.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We're considering moving to a different neighborhood.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to consider all the risks before finalizing the plan.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">appear</span>
+        <span class="phonetic">/əˈpɪr/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To become visible; to seem to be a certain way.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A rainbow appeared after the rain stopped.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> It appears there's a discrepancy in the budget report.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">buy</span>
+        <span class="phonetic">/baɪ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To get something by paying money for it.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I need to buy a birthday present for my sister.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We're looking to buy additional server capacity to handle peak load.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">wait</span>
+        <span class="phonetic">/weɪt/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To stay in a place or do nothing until something happens.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I hate waiting in long queues at the supermarket.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We'll have to wait for the legal team's sign-off before proceeding.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">serve</span>
+        <span class="phonetic">/sɜːrv/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To help people; to provide a service; to work in a role.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This restaurant serves the best pasta in town.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our primary goal is to serve our customers better each quarter.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">die</span>
+        <span class="phonetic">/daɪ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To stop living; to cease to exist or function.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My phone battery dies by 3 PM every day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This initiative will die quickly without strong leadership support.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">send</span>
+        <span class="phonetic">/send/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To cause something to go to another place or person.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Send me a text when you arrive safely.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please send the updated report to all stakeholders by noon.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">expect</span>
+        <span class="phonetic">/ɪkˈspekt/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To think something will happen; to require as a standard.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I expect the package to arrive by Thursday.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We expect all teams to deliver their status reports on Monday.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">build</span>
+        <span class="phonetic">/bɪld/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To construct something from materials or parts.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My brother is building a treehouse for his kids.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are building a new internal tool to automate this process.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">stay</span>
+        <span class="phonetic">/steɪ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To remain in a place; to continue in a state.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I stayed at a wonderful hotel near the beach.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's stay focused on the agenda and keep questions for the end.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">fall</span>
+        <span class="phonetic">/fɔːl/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To drop down; to decrease in level or amount.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Be careful not to fall on the icy pavement.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Sales figures fell short of our targets in the last quarter.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">cut</span>
+        <span class="phonetic">/kʌt/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To divide with a sharp tool; to reduce or remove.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Can you cut the cake and serve everyone a piece?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to cut costs without compromising on product quality.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">reach</span>
+        <span class="phonetic">/riːtʃ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To arrive at a place; to achieve a goal; to extend to.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> It took us two hours to reach the summit.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We're on track to reach our annual revenue target.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">remain</span>
+        <span class="phonetic">/rɪˈmeɪn/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To continue to be; to stay after others have left.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A few guests remained after the party ended.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The budget constraints remain a significant challenge going forward.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">suggest</span>
+        <span class="phonetic">/səˈdʒest/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To mention an idea for someone to consider; to indicate.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I suggested trying the new pizza place on Oak Street.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd like to suggest we revisit this topic in next week's meeting.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">raise</span>
+        <span class="phonetic">/reɪz/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To lift or move upward; to increase; to bring up a subject.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Please raise your hand if you have a question.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I want to raise a concern about the project timeline.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">pass</span>
+        <span class="phonetic">/pæs/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To go by; to hand to someone; to succeed in a test.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Time passes so quickly when you're enjoying yourself.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The proposal passed the initial review and is moving forward.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">sell</span>
+        <span class="phonetic">/sel/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To exchange something for money.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She sells homemade jam at the weekend market.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our goal is to sell 10,000 units in the first month.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">require</span>
+        <span class="phonetic">/rɪˈkwaɪər/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To need something; to make something obligatory.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This recipe requires fresh herbs for the best flavor.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This process requires sign-off from both the finance and legal teams.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">report</span>
+        <span class="phonetic">/rɪˈpɔːrt/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To give an account of something; to inform formally.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I report my progress to my manager every Friday.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please report any issues immediately to the project lead.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">decide</span>
+        <span class="phonetic">/dɪˈsaɪd/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To choose between options after thinking carefully.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We decided to have a picnic instead of eating indoors.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to decide on a vendor by the end of this week.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">pull</span>
+        <span class="phonetic">/pʊl/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To use force to move something toward you; to attract.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Pull the door — it doesn't push open.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to pull together the latest data before the presentation.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">break</span>
+        <span class="phonetic">/breɪk/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To separate into pieces; to stop working; to rest briefly.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I accidentally broke my favorite coffee mug this morning.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's take a ten-minute break and reconvene at 3:15.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">return</span>
+        <span class="phonetic">/rɪˈtɜːrn/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To come back to a place; to give something back.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'll return the library books before the due date.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> She will return from maternity leave on the first of next month.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">receive</span>
+        <span class="phonetic">/rɪˈsiːv/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To be given, sent, or paid something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I received a lovely birthday card from an old friend.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Have you received the signed contract from the client yet?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">allow</span>
+        <span class="phonetic">/əˈlaʊ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To give permission for something; to make something possible.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The gym allows members to bring one guest per visit.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The updated policy allows managers to approve expenses up to $5,000.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">add</span>
+        <span class="phonetic">/æd/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To put something extra with something else; to increase.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Add a pinch of salt to improve the flavor.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Could we add a risk section to the final project report?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">manage</span>
+        <span class="phonetic">/ˈmænɪdʒ/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To be in charge of; to succeed in doing something difficult.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> How do you manage to stay so calm under pressure?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> She manages a cross-functional team of twelve people.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">develop</span>
+        <span class="phonetic">/dɪˈveləp/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To grow or cause to grow more advanced or complex.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm trying to develop a habit of reading every day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We plan to develop a new mobile feature in Q3.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">agree</span>
+        <span class="phonetic">/əˈɡriː/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To have the same opinion; to accept a proposal.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We all agreed to meet at the park at noon.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Can everyone agree on these key milestones before we move on?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">help</span>
+        <span class="phonetic">/help/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To make it easier for someone to do something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Could you help me carry these bags inside?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This new tool will help the team track progress more efficiently.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">support</span>
+        <span class="phonetic">/səˈpɔːrt/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To give assistance, encouragement, or resources to.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My family supports me in everything I do.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need the IT team to support the rollout of the new system.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">produce</span>
+        <span class="phonetic">/prəˈduːs/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To make or create; to cause or generate a result.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This farm produces the most delicious organic vegetables.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our team produced a 40-page report in just one week.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">reduce</span>
+        <span class="phonetic">/rɪˈduːs/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To make something smaller or less in amount or degree.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm trying to reduce my screen time before bed.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our objective is to reduce operational costs by 15% this fiscal year.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">increase</span>
+        <span class="phonetic">/ɪnˈkriːs/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To become or make greater in size, number, or amount.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My energy levels increased after I started exercising regularly.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We aim to increase customer satisfaction scores by Q4.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">improve</span>
+        <span class="phonetic">/ɪmˈpruːv/</span>
+        <span class="pos-badge">v.</span>
+      </div>
+      <div class="definition">To make or become better in quality or performance.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I've been working hard to improve my cooking skills.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The team's goal this quarter is to improve response time by 30%.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 2 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 2</button>
+  <a class="print-btn" href="day01.html">← Day 1</a>
+  <a class="print-btn" href="day03.html">Day 3 →</a>
+</div>
+</body>
+</html>

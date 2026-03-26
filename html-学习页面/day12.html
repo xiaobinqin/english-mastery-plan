@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 12: Technology & Project Nouns — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html">D2</a> <a href="day03.html">D3</a> <a href="day04.html">D4</a> <a href="day05.html">D5</a> <a href="day06.html">D6</a> <a href="day07.html">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html" class="active">D12</a> <a href="day13.html">D13</a> <a href="day14.html">D14</a> <a href="day15.html">D15</a> <a href="day16.html">D16</a> <a href="day17.html">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 12</span>
+    <span class="day-theme">Technology & Project Nouns</span>
+    <span class="day-stats">Words 551–599 · 49 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">technology</span>
+        <span class="phonetic">/tekˈnɒlədʒi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The application of scientific knowledge for practical purposes.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Modern technology has transformed the way families stay connected.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to invest in the right technology to support our long-term goals.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">software</span>
+        <span class="phonetic">/ˈsɒftweər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Programs and operating information used by a computer.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I use simple software to manage my household budget.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The new software will be rolled out to all users in phases.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">hardware</span>
+        <span class="phonetic">/ˈhɑːrdweər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Physical components of a computer or electronic system.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The hardware store had everything I needed for the renovation.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to upgrade the hardware in the regional offices by Q2.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">application</span>
+        <span class="phonetic">/ˌæplɪˈkeɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A program for a computer or phone; a formal request.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I use a meditation application every morning for ten minutes.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The mobile application needs to be tested thoroughly before launch.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">network</span>
+        <span class="phonetic">/ˈnetwɜːrk/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A group of connected people, computers, or organizations.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I have a wonderful network of friends from all over the world.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to secure the network before granting remote access to vendors.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">database</span>
+        <span class="phonetic">/ˈdeɪtəbeɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An organized collection of data stored on a computer.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The library's digital database makes finding old articles very easy.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The customer database must be migrated to the new platform by December.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">server</span>
+        <span class="phonetic">/ˈsɜːrvər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A computer that provides data to other computers.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I keep all my photos backed up on a home server.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The server downtime this morning affected thousands of active users.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">device</span>
+        <span class="phonetic">/dɪˈvaɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A machine or piece of equipment with a specific purpose.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My favorite device for reading is my e-reader.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The new app will be available across all major devices from day one.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">platform</span>
+        <span class="phonetic">/ˈplætfɔːrm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A system that other things are built on; a digital environment.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer using a single platform for all my note-taking and planning.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our platform currently supports over two million active monthly users.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">interface</span>
+        <span class="phonetic">/ˈɪntərfeɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A point of interaction between a user and a system.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The new interface of this app is much more intuitive than the old one.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The user interface needs to be simplified before the general release.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">function</span>
+        <span class="phonetic">/ˈfʌŋkʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The purpose or role of something; a computer operation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The main function of this tool is to filter and sort large datasets.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Each function in the codebase should have a single, well-defined purpose.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">algorithm</span>
+        <span class="phonetic">/ˈælɡərɪðəm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A set of rules followed by a computer to solve a problem.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Streaming services use an algorithm to recommend content based on habits.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our recommendation algorithm needs improvement before the Q4 launch.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">solution</span>
+        <span class="phonetic">/səˈluːʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A means of solving a problem; a mixture of substances.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A good walk is often the best solution when I'm feeling stressed.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I believe we have found a scalable solution to the authentication issue.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">tool</span>
+        <span class="phonetic">/tuːl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A device or piece of software used to do a specific task.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A sharp knife is the most important tool in any kitchen.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are evaluating a new project management tool for the entire team.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">method</span>
+        <span class="phonetic">/ˈmeθəd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A particular process or technique for achieving something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My preferred method of cooking rice is the absorption method.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Is there a better method for capturing these weekly metrics?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">analysis</span>
+        <span class="phonetic">/əˈnæləsɪs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A detailed examination to understand something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Her analysis of the novel's themes was both original and insightful.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The data analysis confirms our original hypothesis about user behavior.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">research</span>
+        <span class="phonetic">/rɪˈsɜːrtʃ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Systematic investigation to establish facts.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I always do research before visiting a new city.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The research phase must be completed before we begin design work.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">document</span>
+        <span class="phonetic">/ˈdɒkjumənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A written or stored piece of information.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I keep all important documents in a folder on my desk.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please review the document and add your comments by tomorrow noon.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">record</span>
+        <span class="phonetic">/ˈrekərd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A piece of evidence; the best result achieved.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The patient's medical record showed no history of allergies.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Keep a record of all decisions made in this project for future reference.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">format</span>
+        <span class="phonetic">/ˈfɔːrmæt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The way something is arranged or presented.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer the format of this magazine — it's clean and easy to read.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please ensure all reports follow the standard company format.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">version</span>
+        <span class="phonetic">/ˈvɜːrʒən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A particular form of something; an updated copy.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer the original version of this song over the remake.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are currently live with version 2.3 and will release 3.0 in Q1.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">model</span>
+        <span class="phonetic">/ˈmɒdəl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A representation or system used as an example.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She uses a sustainable living model to guide her daily choices.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our pricing model needs to be revised to reflect the new market realities.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">specification</span>
+        <span class="phonetic">/ˌspesɪfɪˈkeɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A detailed description of the design or requirements.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The furniture came with precise specifications to guide assembly.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please share the full technical specification before we estimate the effort.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">requirement</span>
+        <span class="phonetic">/rɪˈkwaɪərmənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Something that is necessary or obligatory.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The only requirement for the trip is a valid passport.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's review all functional requirements at the start of the sprint.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">feature</span>
+        <span class="phonetic">/ˈfiːtʃər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A distinctive aspect of a product; a notable quality.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The best feature of this coffee maker is its timer function.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Which feature should we prioritize for the next release cycle?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">milestone</span>
+        <span class="phonetic">/ˈmaɪlstoʊn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A significant event or stage in development.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Finishing my first marathon was a major personal milestone.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Completing the beta launch is the most critical milestone in Q3.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">deadline</span>
+        <span class="phonetic">/ˈdedlaɪn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A time or date by which something must be done.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I work best when I have a clear deadline to work toward.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The client deadline is firm — there is no room to negotiate an extension.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">timeline</span>
+        <span class="phonetic">/ˈtaɪmlaɪn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A schedule showing the order of events.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We created a timeline of family photos for the reunion slideshow.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please review the revised project timeline and confirm it works for your team.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">progress</span>
+        <span class="phonetic">/ˈproʊɡres/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Forward movement toward a goal; development or improvement.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I check in on my learning progress every Sunday evening.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'll give a brief progress update at the start of today's standup.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">issue</span>
+        <span class="phonetic">/ˈɪʃuː/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A problem or point of concern; an edition of something published.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The main issue with that apartment was the lack of storage.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please log the issue in the ticket system so we can track it properly.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">bug</span>
+        <span class="phonetic">/bʌɡ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An error in computer software; a small insect.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The kids spent the whole afternoon looking for bugs in the garden.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> There's a critical bug in the checkout flow that's causing payment failures.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">deployment</span>
+        <span class="phonetic">/dɪˈplɔɪmənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The act of releasing software or moving resources into position.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The deployment of new sensors has improved energy efficiency at home.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The production deployment is scheduled for this Friday at 11 PM.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">release</span>
+        <span class="phonetic">/rɪˈliːs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The action of making something available; a published version.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The new album release has been eagerly anticipated for two years.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The next major release includes ten highly requested features.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">security</span>
+        <span class="phonetic">/sɪˈkjʊərɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The state of being free from danger; protective measures.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The security at the airport was thorough but efficient.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to review our data security protocols before the audit.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">privacy</span>
+        <span class="phonetic">/ˈprɪvəsi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The right or freedom to keep personal matters to oneself.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I value my personal privacy and am selective about social media.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The new feature must be designed with user privacy as a core principle.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">access</span>
+        <span class="phonetic">/ˈækses/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The right or ability to enter or use something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The library offers free access to thousands of digital books.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please request access to the project repository before the kickoff.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">user</span>
+        <span class="phonetic">/ˈjuːzər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A person who uses a product, service, or resource.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The average user spends 28 minutes a day in the application.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to understand our target user better before designing the interface.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">account</span>
+        <span class="phonetic">/əˈkaʊnt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A record of financial dealings; a user profile on a system.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I check my bank account online every morning.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> All users will need to create a new account when the platform migrates.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">profile</span>
+        <span class="phonetic">/ˈproʊfaɪl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A description of a person's characteristics; an online identity.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I updated my professional profile with my latest certifications.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The customer profile data will help us personalize the experience.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">configuration</span>
+        <span class="phonetic">/kənˌfɪɡjəˈreɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The way elements of a system are arranged or set up.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The default configuration of the new router was easy to adjust.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> All environment configurations must be documented in the setup guide.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">installation</span>
+        <span class="phonetic">/ˌɪnstəˈleɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The process of setting up for use.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The installation of the new kitchen cabinets took a whole day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The installation guide is clear and should take less than 30 minutes.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">maintenance</span>
+        <span class="phonetic">/ˈmeɪntənəns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The work of keeping something in good condition.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Regular maintenance of your car helps avoid expensive repairs.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The system will be down for scheduled maintenance from 1 to 3 AM.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">backup</span>
+        <span class="phonetic">/ˈbækʌp/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A copy of data stored separately for safety.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I do a full backup of my laptop every Sunday night.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please ensure all database backups are completed before the migration.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">recovery</span>
+        <span class="phonetic">/rɪˈkʌvəri/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The process of returning to a normal state.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Her recovery from the injury was faster than the doctors predicted.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The disaster recovery plan must be tested before the platform goes live.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">performance</span>
+        <span class="phonetic">/pərˈfɔːrməns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">How well a system or person functions.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The new processor delivers significantly better performance.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to run performance testing before the launch to identify bottlenecks.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">capacity</span>
+        <span class="phonetic">/kəˈpæsɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The maximum amount or number that can be contained.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The stadium has a capacity of 60,000 fans.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Do we have the capacity to take on another major project this quarter?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">scalability</span>
+        <span class="phonetic">/ˌskeɪləˈbɪlɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The ability to grow or be easily expanded.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Scalability is why I chose a cloud service for my home media server.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The architecture must be designed with scalability in mind from day one.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">integration</span>
+        <span class="phonetic">/ˌɪntɪˈɡreɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The process of combining parts into a whole.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The seamless integration of apps on my phone saves me time daily.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The third-party integration must be completed before user acceptance testing.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">automation</span>
+        <span class="phonetic">/ˌɔːtəˈmeɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The use of technology to perform tasks without human input.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Home automation has made my daily routines much more convenient.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Test automation will significantly reduce our regression cycle time.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 12 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 12</button>
+  <a class="print-btn" href="day11.html">← Day 11</a>
+  <a class="print-btn" href="day13.html">Day 13 →</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 17: Health, Body & Wellbeing Nouns — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html">D2</a> <a href="day03.html">D3</a> <a href="day04.html">D4</a> <a href="day05.html">D5</a> <a href="day06.html">D6</a> <a href="day07.html">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html">D12</a> <a href="day13.html">D13</a> <a href="day14.html">D14</a> <a href="day15.html">D15</a> <a href="day16.html">D16</a> <a href="day17.html" class="active">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 17</span>
+    <span class="day-theme">Health, Body & Wellbeing Nouns</span>
+    <span class="day-stats">Words 801–841 · 41 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">health</span>
+        <span class="phonetic">/helθ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The state of being physically and mentally well.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Prioritizing my health has made me a better professional.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Employee health and wellbeing are core priorities in our company strategy.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">body</span>
+        <span class="phonetic">/ˈbɒdi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The physical structure of a person or animal.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Listening to your body is more important than following any strict plan.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The main body of the report is 40 pages, with a 5-page executive summary.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">heart</span>
+        <span class="phonetic">/hɑːrt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The organ that pumps blood; the center of emotion.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Daily walks are great for maintaining a healthy heart.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> At the heart of this issue is a misalignment of expectations.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">brain</span>
+        <span class="phonetic">/breɪn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The organ inside the head that controls thinking and feeling.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The brain processes more information during sleep than we realize.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The brains behind this project are the data science and product teams.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">blood</span>
+        <span class="phonetic">/blʌd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The red liquid that circulates in the bodies of humans and animals.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I donate blood every three months — it's a small act with a big impact.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We've had fresh blood on the team this quarter — four new hires.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">weight</span>
+        <span class="phonetic">/weɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The heaviness of a person or object; importance.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm not focused on the number on the scale — just on how I feel.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Give this risk appropriate weight in your project planning.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">age</span>
+        <span class="phonetic">/eɪdʒ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The length of time a person has lived; an era.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She doesn't look her age — she seems twenty years younger.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to adapt our communication style for different age groups.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">diet</span>
+        <span class="phonetic">/ˈdaɪət/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The food a person habitually eats; a restricted eating plan.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A balanced diet is the foundation of long-term good health.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our product's success in the health sector depends on regulatory diet guidelines.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">exercise</span>
+        <span class="phonetic">/ˈeksəsaɪz/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Physical activity to improve health; a training task.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Morning exercise sets a positive tone for my entire day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This brainstorming exercise will help us generate fresh ideas.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">treatment</span>
+        <span class="phonetic">/ˈtriːtmənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Medical care given to someone; the way someone is treated.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Early treatment significantly improves outcomes for most conditions.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> All employees deserve fair and equal treatment in every situation.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">medicine</span>
+        <span class="phonetic">/ˈmedɪsɪn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A substance used to treat illness; the science of treating disease.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Always take the full course of medicine even if you feel better.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our platform is being used in the fields of both medicine and education.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">condition</span>
+        <span class="phonetic">/kənˈdɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A state of health; a requirement.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> He manages his condition well with a combination of diet and exercise.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The contract is conditional on the completion of due diligence.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">disease</span>
+        <span class="phonetic">/dɪˈziːz/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A disorder of a living organism caused by infection or dysfunction.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Prevention is more effective than treating a disease after it develops.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The data shows a strong correlation between stress and chronic disease.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">pain</span>
+        <span class="phonetic">/peɪn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A physical or emotional feeling of discomfort or distress.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Regular stretching has eliminated most of my chronic back pain.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The pain point for our customers is the length of the onboarding process.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">stress</span>
+        <span class="phonetic">/stres/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Mental or emotional strain; emphasis on a syllable or word.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I use mindful breathing to manage stress during busy periods.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The team is under significant stress due to the compressed timeline.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">mental</span>
+        <span class="phonetic">/ˈmentəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to the mind or mental health.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Looking after your mental health is just as important as physical health.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We offer a mental health support program as part of our employee benefits.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">physical</span>
+        <span class="phonetic">/ˈfɪzɪkəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to the body; tangible and material.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Physical activity has a proven positive effect on mental wellbeing.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need both the digital and physical experience to be excellent.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">emotional</span>
+        <span class="phonetic">/ɪˈmoʊʃənəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to feelings and emotions.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> It's okay to have an emotional response to difficult news.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Emotional intelligence is one of the most valued competencies in our leaders.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">welfare</span>
+        <span class="phonetic">/ˈwelfeər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The health, happiness, and wellbeing of a person.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The welfare of every child in the school is the teacher's first priority.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Employee welfare is a core pillar of our human resources strategy.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">safety</span>
+        <span class="phonetic">/ˈseɪfti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The condition of being protected from danger or harm.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I always check the safety instructions on adventure activities.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Safety is always our first and most non-negotiable priority.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">prevention</span>
+        <span class="phonetic">/prɪˈvenʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The action of stopping something bad from happening.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Prevention is far better — and cheaper — than cure.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The risk assessment focuses on prevention of common project failure modes.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">protection</span>
+        <span class="phonetic">/prəˈtekʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The act of keeping someone or something safe.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Sunscreen provides essential protection against UV rays.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Data protection regulations require us to encrypt all personal information.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">care</span>
+        <span class="phonetic">/keər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The provision of what is needed; attention and concern.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She takes great care with everything she cooks.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We take great care to ensure all client communications are accurate.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">recovery</span>
+        <span class="phonetic">/rɪˈkʌvəri/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A return to a normal state of health or strength.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> His recovery after the surgery was faster than expected.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our system recovery time after last night's outage was under 20 minutes.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">lifestyle</span>
+        <span class="phonetic">/ˈlaɪfstaɪl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The way a person chooses to live.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Adopting a healthier lifestyle takes consistent effort but is so worth it.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our product is designed for people with an active, on-the-go lifestyle.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">nutrition</span>
+        <span class="phonetic">/njuˈtrɪʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The process of getting the right food for health.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Good nutrition is the foundation of sustained energy throughout the day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Nutrition is one of the key areas covered in our employee wellness program.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">sleep</span>
+        <span class="phonetic">/sliːp/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The natural resting state of the body and mind.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Seven to eight hours of quality sleep is optimal for most adults.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We invest in sleep-friendly workspaces to support team performance.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">energy</span>
+        <span class="phonetic">/ˈenədʒi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The strength to do things; power from physical resources.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A short walk after lunch restores my afternoon energy significantly.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's bring high energy to the final push before the product launch.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">strength</span>
+        <span class="phonetic">/streŋθ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The quality of being physically or mentally strong.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Her strength in the face of adversity is truly remarkable.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The team's greatest strength is its collaborative and creative culture.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">fitness</span>
+        <span class="phonetic">/ˈfɪtnəs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The condition of being physically healthy and strong.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Running has become the cornerstone of my fitness routine.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Fitness for purpose should be tested before any system goes live.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">activity</span>
+        <span class="phonetic">/ækˈtɪvɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Something done for pleasure or as part of a process.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Cycling is my favorite leisure activity on weekend mornings.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This is the highest-priority activity in the current project phase.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">habit</span>
+        <span class="phonetic">/ˈhæbɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A regular pattern of behavior performed automatically.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Reading before bed is a habit I've maintained for over ten years.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Building good documentation habits early prevents big problems later.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">routine</span>
+        <span class="phonetic">/ruːˈtiːn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A sequence of actions regularly followed.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My morning routine sets a productive tone for the entire day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We should establish a clear routine for sprint retrospectives.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">awareness</span>
+        <span class="phonetic">/əˈweənəs/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Knowledge and understanding of a situation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Mindfulness practice has dramatically improved my self-awareness.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Brand awareness in our target demographic needs to increase by Q4.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">management</span>
+        <span class="phonetic">/ˈmænɪdʒmənt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The process of managing; the people who control an organization.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Good time management is a skill that transforms your day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Senior management has approved the new organizational structure.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">control</span>
+        <span class="phonetic">/kənˈtroʊl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The power to manage or influence; a means of regulation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Getting back in control of my schedule has reduced my stress enormously.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The control group results show no significant change without the intervention.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">risk</span>
+        <span class="phonetic">/rɪsk/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The possibility of harm or loss.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Every adventure involves some level of risk — that's what makes it exciting.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The risk register should be updated before each sprint planning session.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">symptom</span>
+        <span class="phonetic">/ˈsɪmptəm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A sign of illness; an indication of a problem.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Fatigue is often the first symptom of overwork.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Poor communication is a common symptom of a dysfunctional team culture.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">support</span>
+        <span class="phonetic">/səˈpɔːrt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">Help or assistance given to someone.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The emotional support of my friends helped me through a difficult time.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We offer 24/7 technical support to all enterprise clients.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">guideline</span>
+        <span class="phonetic">/ˈɡaɪdlaɪn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">General advice or instructions for a particular situation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I follow dietary guidelines loosely — I don't believe in being too strict.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The project guidelines are clearly outlined in the kickoff document.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">policy</span>
+        <span class="phonetic">/ˈpɒlɪsi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A plan or set of rules adopted by an organization.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The school has a clear anti-bullying policy that everyone knows.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The expense policy has been updated — please review before submitting claims.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 17 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 17</button>
+  <a class="print-btn" href="day16.html">← Day 16</a>
+  <a class="print-btn" href="day18.html">Day 18 →</a>
+</div>
+</body>
+</html>

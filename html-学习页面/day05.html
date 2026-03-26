@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 5: Core Adjectives I — Describing the World — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html">D2</a> <a href="day03.html">D3</a> <a href="day04.html">D4</a> <a href="day05.html" class="active">D5</a> <a href="day06.html">D6</a> <a href="day07.html">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html">D12</a> <a href="day13.html">D13</a> <a href="day14.html">D14</a> <a href="day15.html">D15</a> <a href="day16.html">D16</a> <a href="day17.html">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 5</span>
+    <span class="day-theme">Core Adjectives I — Describing the World</span>
+    <span class="day-stats">Words 201–250 · 50 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">good</span>
+        <span class="phonetic">/ɡʊd/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Of high quality; pleasant; skilled; morally right.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This is the best cup of coffee I've had in a while.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The team has done a good job managing expectations with the client.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">new</span>
+        <span class="phonetic">/njuː/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Recently made, produced, or arrived; not existing before.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I bought a new pair of running shoes for the marathon.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let me introduce a new process for handling customer escalations.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">old</span>
+        <span class="phonetic">/oʊld/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Having existed for a long time; of a particular age.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I reconnected with an old friend from university last week.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Some of our old workflows are no longer efficient — it's time to update them.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">great</span>
+        <span class="phonetic">/ɡreɪt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Very large in size or amount; very good or impressive.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We had a great time at the outdoor concert on Saturday.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This is a great opportunity to expand into the enterprise market.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">own</span>
+        <span class="phonetic">/oʊn/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Belonging to a particular person.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I dream of owning my own home one day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Each team lead is responsible for managing their own department budget.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">other</span>
+        <span class="phonetic">/ˈʌðər/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Different from the one already mentioned; additional.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> On the other hand, I also enjoy quiet evenings at home.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Are there other options we haven't considered yet?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">right</span>
+        <span class="phonetic">/raɪt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Correct; most suitable; on the side opposite to left.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Make sure you take the right turn at the roundabout.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to make sure we're asking the right questions first.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">large</span>
+        <span class="phonetic">/lɑːrdʒ/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Big in size, number, or amount.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We need a large table for the family dinner this Sunday.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are serving a large and growing enterprise customer segment.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">high</span>
+        <span class="phonetic">/haɪ/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Far above the ground; great in amount or level.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> House prices in this area are extremely high.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to maintain high standards throughout the entire project.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">small</span>
+        <span class="phonetic">/smɔːl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Little in size, number, or amount.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The apartment is small but perfectly organized.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's start with a small pilot before rolling out to all users.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">long</span>
+        <span class="phonetic">/lɒŋ/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Measuring a great distance from end to end; lasting a long time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> It's been a long day — I'm ready for bed!</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This is a long-term investment that will pay off over time.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">big</span>
+        <span class="phonetic">/bɪɡ/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Large in size or importance; great in degree.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We're planning a big family celebration for my parents' anniversary.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This is a big decision that will affect the entire organization.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">important</span>
+        <span class="phonetic">/ɪmˈpɔːrtənt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Of great significance or value.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Getting enough sleep is incredibly important for your health.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The most important thing is that we deliver quality, not just speed.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">public</span>
+        <span class="phonetic">/ˈpʌblɪk/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to or involving all people in a community.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The park is open to the public every day from dawn to dusk.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We cannot share this information until there is a public announcement.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">real</span>
+        <span class="phonetic">/riːl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Actually existing, not imagined or pretend; genuine.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The real reason I was late was the traffic jam on the motorway.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to address the real root cause, not just the symptoms.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">best</span>
+        <span class="phonetic">/best/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Of the highest quality, most excellent.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This is the best pizza I've ever had in my life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> What's the best approach to solving this particular challenge?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">free</span>
+        <span class="phonetic">/friː/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Not costing anything; not restricted or controlled.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love exploring the city on free Sunday afternoons.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Feel free to reach out if you have any questions after the meeting.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">able</span>
+        <span class="phonetic">/ˈeɪbəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Having the skill or means to do something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm finally able to run 5km without stopping.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Are we able to deliver this by the end of next week?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">early</span>
+        <span class="phonetic">/ˈɜːrli/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Happening near the beginning of a period; before the expected time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer early morning flights to avoid the airport rush.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We're making an early decision to pivot before we invest further.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">late</span>
+        <span class="phonetic">/leɪt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">After the expected or usual time; near the end of a period.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I had a late lunch and now I'm not hungry for dinner.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are already two weeks late and need to accelerate delivery.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">hard</span>
+        <span class="phonetic">/hɑːrd/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Requiring a lot of effort; firm and solid to the touch.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Learning a new language is hard but so rewarding.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This has been a hard year, but the team has really stepped up.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">clear</span>
+        <span class="phonetic">/klɪr/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Easy to understand; transparent; free from obstruction.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The instructions were clear and easy to follow.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please make sure the requirements are clear before development starts.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">recent</span>
+        <span class="phonetic">/ˈriːsənt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Happening or appearing not long ago.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Have you seen his most recent exhibition at the art gallery?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Based on recent customer feedback, we need to improve the onboarding flow.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">young</span>
+        <span class="phonetic">/jʌŋ/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">In an early stage of life; having little experience.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She looks incredibly young for her age.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We're building a team of young, high-potential talent.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">national</span>
+        <span class="phonetic">/ˈnæʃənəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to or belonging to a nation as a whole.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The national holiday next week means the office will be closed.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are launching a national marketing campaign in Q3.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">open</span>
+        <span class="phonetic">/ˈoʊpən/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Not closed; available for use; honest and communicative.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The restaurant is open from 8 AM to 10 PM.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I encourage everyone to be open and honest in this retrospective.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">full</span>
+        <span class="phonetic">/fʊl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Containing as much as possible; complete; thorough.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm absolutely full after that three-course dinner.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please provide a full breakdown of costs in the financial section.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">possible</span>
+        <span class="phonetic">/ˈpɒsɪbəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Able to happen or be achieved; that may or may not be true.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Is it possible to get a table for four at short notice?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Is it possible to deliver the first version by end of this month?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">simple</span>
+        <span class="phonetic">/ˈsɪmpəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Easy to understand or do; not complex or complicated.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The recipe is really simple — anyone can make it.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's keep the message simple so all stakeholders can understand it.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">available</span>
+        <span class="phonetic">/əˈveɪləbəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Present and ready to be used; free to be met.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The book is available at your local library for free.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Are you available for a call on Thursday morning?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">local</span>
+        <span class="phonetic">/ˈloʊkəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Belonging to or relating to a particular area.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I always prefer to shop at the local market.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to comply with local regulations in each country we operate.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">social</span>
+        <span class="phonetic">/ˈsoʊʃəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to society or human interaction.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Social media has completely changed the way we communicate.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We should consider the social impact of this product feature.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">major</span>
+        <span class="phonetic">/ˈmeɪdʒər/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Very large, important, or serious; main or chief.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Moving to a new city was a major change in my life.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This is a major milestone for the entire company.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">main</span>
+        <span class="phonetic">/meɪn/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Most important; principal; chief.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The main reason I love this city is the food culture.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The main objective of today's meeting is to align on the roadmap.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">true</span>
+        <span class="phonetic">/truː/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">In accordance with fact or reality; genuine.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Is it true that you're moving to a new country?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> It's true that we are behind schedule, but we have a recovery plan.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">current</span>
+        <span class="phonetic">/ˈkɜːrənt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Belonging to or happening at the present time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The current state of the kitchen is a bit chaotic!</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> What is the current status of the project?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">strong</span>
+        <span class="phonetic">/strɒŋ/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Having great power; firm; intense.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She is one of the strongest people I've ever met.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We have a strong competitive advantage in this market segment.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">different</span>
+        <span class="phonetic">/ˈdɪfərənt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Not the same as another; distinct.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We tried a different route today and discovered a beautiful park.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd like to consider a different approach to this problem.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">personal</span>
+        <span class="phonetic">/ˈpɜːrsənəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to a specific person; private.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer to keep my personal and professional lives separate.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This is a personal matter and should not be discussed at work.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">special</span>
+        <span class="phonetic">/ˈspeʃəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Different from the ordinary; deserving particular attention.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We booked a special dinner to celebrate our anniversary.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> There is a special section in the report dedicated to risk analysis.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">human</span>
+        <span class="phonetic">/ˈhjuːmən/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to or characteristic of people.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> It's only human to make mistakes sometimes.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We must consider the human impact of any organizational changes.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">various</span>
+        <span class="phonetic">/ˈveərɪəs/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Of different kinds; more than one; several.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I enjoy cooking various cuisines from around the world.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> There are various options on the table — let's evaluate each one.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">dark</span>
+        <span class="phonetic">/dɑːrk/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">With little or no light; gloomy; of deep color.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I like to sleep in a completely dark room.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's not ignore the dark side of this proposal — there are real risks.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">light</span>
+        <span class="phonetic">/laɪt/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Not heavy; bright; pale in color.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer light meals in the morning.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need a light-touch approach to avoid disrupting current workflows.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">next</span>
+        <span class="phonetic">/nekst/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Coming immediately after; nearest in position.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm really looking forward to next weekend's camping trip.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The next step is to get stakeholder sign-off on the updated design.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">last</span>
+        <span class="phonetic">/lɑːst/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Coming after all others; most recent.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Last night's dinner was absolutely delicious.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> As I mentioned in last week's update, we are on track.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">total</span>
+        <span class="phonetic">/ˈtoʊtəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Including everything; complete and absolute.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The total bill came to more than we expected.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The total budget for this initiative is $2.4 million.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">political</span>
+        <span class="phonetic">/pəˈlɪtɪkəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to government, politics, or public affairs.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I try not to discuss political views at family dinners.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to be aware of the political context in each market we enter.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">economic</span>
+        <span class="phonetic">/ˌiːkəˈnɒmɪk/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Relating to money, trade, and industry.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The economic impact of the pandemic was felt globally.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's review the economic projections for the next fiscal year.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">general</span>
+        <span class="phonetic">/ˈdʒenərəl/</span>
+        <span class="pos-badge">adj.</span>
+      </div>
+      <div class="definition">Affecting or relating to most people or things; not specific.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The general feeling at the party was warm and celebratory.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd like to start with some general observations before diving into specifics.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 5 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 5</button>
+  <a class="print-btn" href="day04.html">← Day 4</a>
+  <a class="print-btn" href="day06.html">Day 6 →</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email &amp; Slack Templates — Software Development Communication</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.65}
+@media screen{
+ .top-nav{position:sticky;top:0;z-index:100;background:#7a3a10;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:9pt}
+ .top-nav a{color:#ffd0a8;text-decoration:none;padding:3px 8px;border-radius:3px}
+ .top-nav a:hover{background:#a05020}
+ .nav-title{font-weight:bold;font-size:11pt;margin-right:8px}
+}
+@media print{.top-nav,.print-btn,.section-nav{display:none} .tmpl-card{page-break-inside:avoid}}
+.container{max-width:1020px;margin:0 auto;padding:22px}
+h1{font-size:20pt;color:#7a3a10;margin-bottom:4px;font-family:Arial,sans-serif}
+.subtitle{color:#555;font-size:9.5pt;margin-bottom:18px;font-style:italic}
+h2{font-size:13pt;font-family:Arial,sans-serif;padding:9px 14px;color:#fff;border-radius:5px 5px 0 0}
+h3{font-size:11pt;color:#7a3a10;font-family:Arial,sans-serif;margin:12px 0 8px}
+.section{border:1px solid #e0d0c8;border-radius:7px;margin-bottom:22px;overflow:hidden}
+.sec-email h2{background:#7a3a10}
+.sec-slack h2{background:#3a1e5f}
+.sec-tips h2{background:#1e5f3a}
+.intro-banner{background:linear-gradient(135deg,#7a3a10,#5f2010);color:#fff;border-radius:8px;padding:16px 20px;margin-bottom:20px;font-size:9.5pt;line-height:1.7}
+.intro-banner h2{background:none;padding:0;color:#fff;font-size:15pt;margin-bottom:6px}
+.tmpl-card{background:#fafcff;border:1px solid #d0c8c0;border-radius:5px;margin:10px 0;padding:0;overflow:hidden}
+.tmpl-header{background:#f5f0e8;padding:8px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #d0c0b0}
+.tmpl-title{font-family:Arial,sans-serif;font-weight:bold;color:#5a2a05;font-size:10pt}
+.tmpl-tag{display:inline-block;font-size:7.5pt;padding:1px 6px;border-radius:3px;font-family:Arial,sans-serif;font-weight:bold}
+.tag-client{background:#ffe0d0;color:#7a2000}
+.tag-team{background:#d0e8ff;color:#0a2060}
+.tag-formal{background:#e0f0e0;color:#1a5a1a}
+.tag-casual{background:#fff0d0;color:#6a4000}
+.tmpl-body{padding:12px 16px}
+.email-block{background:#fff;border:1px solid #e0d8d0;border-radius:4px;padding:12px 16px;font-family:'Courier New',monospace;font-size:9.5pt;line-height:1.65;white-space:pre-wrap}
+.email-field{color:#888;font-size:8.5pt;font-family:Arial,sans-serif;margin-bottom:2px}
+.placeholder{background:#fff8cc;padding:0 2px;color:#7a5000;font-style:italic}
+.tmpl-note{font-size:8.5pt;color:#666;font-style:italic;margin-top:8px;padding-left:8px;border-left:2px solid #d0b08a}
+.section-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.section-nav a{background:#fdf0e8;border:1px solid #e0c0a8;border-radius:4px;padding:5px 10px;text-decoration:none;color:#7a3a10;font-size:8.5pt;font-family:Arial,sans-serif}
+.print-btn{display:inline-block;background:#7a3a10;color:#fff;padding:8px 18px;border-radius:5px;text-decoration:none;font-size:9pt;cursor:pointer;border:none;font-family:Arial,sans-serif;margin-bottom:14px;margin-right:5px}
+/* Slack templates */
+.slack-block{background:#3b0764;color:#fff;border-radius:6px;padding:12px 16px;font-family:'Courier New',monospace;font-size:9pt;line-height:1.7;white-space:pre-wrap}
+.slack-meta{font-size:8pt;color:#c0a0e0;font-family:Arial,sans-serif;margin-bottom:4px}
+.slack-bold{font-weight:bold}
+.slack-italic{font-style:italic;color:#d0c0f0}
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.tips-grid{grid-template-columns:1fr}}
+.tip-card{background:#f5fff5;border:1px solid #80d080;border-radius:5px;padding:10px 14px}
+.tip-card h4{color:#1e5f1e;font-family:Arial,sans-serif;font-size:10pt;margin-bottom:6px}
+.tip-card ul{padding-left:16px;font-size:9pt;line-height:1.7}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">✉️ Email &amp; Slack Templates</span>
+  <a href="60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="phrase-bank-team.html">👥 Team Phrases</a>
+  <a href="pronunciation-guide.html">🔊 Pronunciation</a>
+  <a href="phrase-bank.html">📋 Client Phrases</a>
+  <a href="shadowing-scripts.html">🎙 Scripts</a>
+</nav>
+
+<div class="container">
+  <h1>Email &amp; Slack Templates</h1>
+  <p class="subtitle">50+ Templates · Email + Slack · Client + Team · Software Development Scenarios · Fill-in-the-Blank Format</p>
+
+  <div class="intro-banner">
+    <h2>Why Written English Reinforces Spoken English</h2>
+    Writing and speaking are deeply connected. When you write an email after a meeting, you consolidate the vocabulary and phrases you just used. When you read a well-written email, you internalize professional English patterns. Use these templates as models — not just for communication, but as reading and writing practice. <strong>After every important meeting, write the follow-up in English using one of these templates.</strong>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print All Templates</button>
+
+  <div class="section-nav">
+    <a href="#proj-update">Project Status Update</a>
+    <a href="#meeting-followup">Meeting Follow-Up</a>
+    <a href="#bug-report">Bug / Incident Report</a>
+    <a href="#timeline">Timeline &amp; Delay</a>
+    <a href="#requirements">Requirements Clarification</a>
+    <a href="#onboarding">Introductions</a>
+    <a href="#review">Code Review (Email)</a>
+    <a href="#slack">Slack Messages</a>
+    <a href="#tips">Writing Tips</a>
+  </div>
+
+<!-- ════ SECTION: PROJECT STATUS ════════════════════════════════════════ -->
+<div id="proj-update" class="section sec-email">
+  <h2>Email — Project Status Update</h2>
+  <div style="padding:14px 16px">
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Weekly Status Update to Client</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-field">Subject:</div>
+        <div class="email-block">[Project Name] — Weekly Status Update — Week of <span class="placeholder">[Date]</span></div>
+        <div class="email-field" style="margin-top:10px">Body:</div>
+        <div class="email-block">Hi <span class="placeholder">[Client Name / Team]</span>,
+
+Hope you're having a good week. Here's the status update for <span class="placeholder">[Project Name]</span> for the week of <span class="placeholder">[Date]</span>.
+
+<span class="slack-bold">OVERALL STATUS: 🟢 On Track / 🟡 At Risk / 🔴 Delayed</span>
+
+<span class="slack-bold">Completed This Week:</span>
+• <span class="placeholder">[Task 1]</span> — completed and deployed to staging
+• <span class="placeholder">[Task 2]</span> — reviewed and merged
+• <span class="placeholder">[Task 3]</span> — testing completed, results attached
+
+<span class="slack-bold">In Progress:</span>
+• <span class="placeholder">[Task A]</span> — estimated completion: <span class="placeholder">[date]</span>
+• <span class="placeholder">[Task B]</span> — <span class="placeholder">[X]%</span> complete
+
+<span class="slack-bold">Upcoming (Next Week):</span>
+• <span class="placeholder">[Next task 1]</span>
+• <span class="placeholder">[Next task 2]</span>
+
+<span class="slack-bold">Risks &amp; Issues:</span>
+• <span class="placeholder">[Issue or risk, or "None to report this week"]</span>
+
+<span class="slack-bold">Action Items for Client:</span>
+• <span class="placeholder">[Any approvals, decisions, or inputs needed from the client side]</span>
+
+Please feel free to reply with any questions or comments. I'm also available for a quick call if needed.
+
+Best regards,
+<span class="placeholder">[Your Name]</span>
+<span class="placeholder">[Your Role]</span> | <span class="placeholder">[Company]</span></div>
+        <div class="tmpl-note">💡 Tip: "At Risk" or "Delayed" status should always be accompanied by a brief explanation and a recovery plan. Never just flag a problem — always bring a solution.</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Sprint Summary to Internal Team</span><span class="tmpl-tag tag-team">Team</span><span class="tmpl-tag tag-casual">Casual</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Hi team,
+
+Here's a quick wrap-up of Sprint <span class="placeholder">[N]</span>:
+
+✅ <span class="slack-bold">Completed:</span> <span class="placeholder">[X]</span> out of <span class="placeholder">[Y]</span> story points
+🔁 <span class="slack-bold">Carried over:</span> <span class="placeholder">[list or "none"]</span>
+🐛 <span class="slack-bold">Bugs fixed:</span> <span class="placeholder">[N]</span>
+🚀 <span class="slack-bold">Deployed to:</span> <span class="placeholder">[staging / production]</span>
+
+<span class="slack-bold">Highlights:</span>
+<span class="placeholder">[1–2 things the team did really well this sprint]</span>
+
+<span class="slack-bold">Retrospective items (to discuss in retro):</span>
+• <span class="placeholder">[What went well]</span>
+• <span class="placeholder">[What to improve]</span>
+
+Sprint <span class="placeholder">[N+1]</span> kicks off on <span class="placeholder">[date]</span>. Planning call at <span class="placeholder">[time]</span>. See you there!
+
+Cheers,
+<span class="placeholder">[Your Name]</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: MEETING FOLLOW-UP ════════════════════════════════════ -->
+<div id="meeting-followup" class="section sec-email">
+  <h2>Email — Meeting Follow-Up &amp; Action Items</h2>
+  <div style="padding:14px 16px">
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Post-Meeting Summary (Client)</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Meeting Summary &amp; Action Items — <span class="placeholder">[Meeting Topic]</span> — <span class="placeholder">[Date]</span>
+
+Hi <span class="placeholder">[Name]</span>,
+
+Thank you for joining today's call. As discussed, here's a summary of the key points and next steps.
+
+<span class="slack-bold">Meeting Summary:</span>
+• <span class="placeholder">[Key point 1]</span>
+• <span class="placeholder">[Key point 2]</span>
+• <span class="placeholder">[Key decision made]</span>
+
+<span class="slack-bold">Action Items:</span>
+| Action | Owner | Due Date |
+|--------|-------|----------|
+| <span class="placeholder">[Action 1]</span> | <span class="placeholder">[Your name]</span> | <span class="placeholder">[Date]</span> |
+| <span class="placeholder">[Action 2]</span> | <span class="placeholder">[Client name]</span> | <span class="placeholder">[Date]</span> |
+| <span class="placeholder">[Action 3]</span> | <span class="placeholder">[Name]</span> | <span class="placeholder">[Date]</span> |
+
+<span class="slack-bold">Next Meeting:</span> <span class="placeholder">[Date, Time, Format]</span>
+
+Please let me know if I've missed anything or if you'd like to clarify any points. I'll send a calendar invite for the next meeting shortly.
+
+Best,
+<span class="placeholder">[Your Name]</span></div>
+        <div class="tmpl-note">💡 Send this within 24 hours of the meeting while details are fresh. It demonstrates professionalism and ensures alignment.</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Post-Standup Async Update (Slack/Email)</span><span class="tmpl-tag tag-team">Team</span><span class="tmpl-tag tag-casual">Casual</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">For anyone who missed standup — quick update:
+
+⬛ <span class="slack-bold">Yesterday:</span> <span class="placeholder">[What you completed]</span>
+🔄 <span class="slack-bold">Today:</span> <span class="placeholder">[What you're working on]</span>
+🚧 <span class="slack-bold">Blockers:</span> <span class="placeholder">[Blockers, or "None"]</span>
+
+<span class="placeholder">[Any specific callouts — e.g., "need input from @Name on X"]</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: BUG / INCIDENT ════════════════════════════════════════ -->
+<div id="bug-report" class="section sec-email">
+  <h2>Email — Bug Report &amp; Incident Communication</h2>
+  <div style="padding:14px 16px">
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Initial Incident Notification (Client)</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: [URGENT] Service Disruption — <span class="placeholder">[System/Feature Name]</span> — Action Being Taken
+
+Hi <span class="placeholder">[Client Name]</span>,
+
+We are writing to inform you that we have identified an issue affecting <span class="placeholder">[describe the affected system or feature]</span>.
+
+<span class="slack-bold">Issue Summary:</span>
+• <span class="slack-bold">What is affected:</span> <span class="placeholder">[Feature / Users affected]</span>
+• <span class="slack-bold">When it started:</span> <span class="placeholder">[Time]</span>
+• <span class="slack-bold">Impact:</span> <span class="placeholder">[Describe user impact]</span>
+
+<span class="slack-bold">Current Status:</span>
+Our team has been engaged since <span class="placeholder">[time]</span> and is actively investigating the root cause.
+
+<span class="slack-bold">Immediate Actions Taken:</span>
+• <span class="placeholder">[Action 1 — e.g., rolled back the latest deployment]</span>
+• <span class="placeholder">[Action 2]</span>
+
+<span class="slack-bold">Next Update:</span>
+We will provide an update no later than <span class="placeholder">[time]</span>, or sooner if the issue is resolved.
+
+We sincerely apologize for any inconvenience this may cause and appreciate your patience as we work to resolve this as quickly as possible.
+
+<span class="placeholder">[Your Name]</span>
+<span class="placeholder">[Your Role]</span></div>
+        <div class="tmpl-note">💡 The key to incident emails: be fast, be transparent, and always state the next update time. Never go silent on the client during an incident.</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Post-Incident Report (Root Cause Analysis)</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Post-Incident Report — <span class="placeholder">[Issue Name]</span> — <span class="placeholder">[Date]</span>
+
+Hi <span class="placeholder">[Client Name]</span>,
+
+Following the service disruption on <span class="placeholder">[date]</span>, we would like to share a full post-incident report.
+
+<span class="slack-bold">Timeline:</span>
+• <span class="placeholder">[HH:MM]</span> — Issue first detected
+• <span class="placeholder">[HH:MM]</span> — Team notified and investigation began
+• <span class="placeholder">[HH:MM]</span> — Root cause identified
+• <span class="placeholder">[HH:MM]</span> — Fix applied
+• <span class="placeholder">[HH:MM]</span> — Service fully restored
+
+<span class="slack-bold">Root Cause:</span>
+<span class="placeholder">[Clear, non-technical explanation of what caused the issue]</span>
+
+<span class="slack-bold">Impact:</span>
+<span class="placeholder">[Number of users affected, duration, any data implications]</span>
+
+<span class="slack-bold">Resolution:</span>
+<span class="placeholder">[What was done to fix the issue]</span>
+
+<span class="slack-bold">Prevention Measures (to avoid recurrence):</span>
+1. <span class="placeholder">[Measure 1]</span> — Target: <span class="placeholder">[date]</span>
+2. <span class="placeholder">[Measure 2]</span> — Target: <span class="placeholder">[date]</span>
+3. <span class="placeholder">[Measure 3]</span> — Target: <span class="placeholder">[date]</span>
+
+We take full responsibility for this disruption and are committed to ensuring it does not happen again. Please don't hesitate to reach out with any questions.
+
+Sincerely,
+<span class="placeholder">[Your Name]</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: TIMELINE ══════════════════════════════════════════════ -->
+<div id="timeline" class="section sec-email">
+  <h2>Email — Timeline Changes &amp; Delay Communication</h2>
+  <div style="padding:14px 16px">
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Proactive Delay Notification</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Timeline Update — <span class="placeholder">[Feature/Milestone]</span>
+
+Hi <span class="placeholder">[Name]</span>,
+
+I'm writing to give you an early heads-up on a change to the timeline for <span class="placeholder">[feature/milestone]</span>.
+
+<span class="slack-bold">Original Target:</span> <span class="placeholder">[original date]</span>
+<span class="slack-bold">Revised Target:</span> <span class="placeholder">[new date]</span>
+<span class="slack-bold">Reason:</span> <span class="placeholder">[brief, honest explanation — e.g., "we discovered additional complexity in the third-party API integration that requires additional testing"]</span>
+
+We've taken the following steps to minimize the impact:
+• <span class="placeholder">[Step 1 — e.g., prioritized this task in the current sprint]</span>
+• <span class="placeholder">[Step 2]</span>
+
+This delay does not affect <span class="placeholder">[other milestones / the overall project timeline]</span>.
+
+I apologize for the change and appreciate your understanding. I'm happy to discuss this on a call if you prefer.
+
+Best,
+<span class="placeholder">[Your Name]</span></div>
+        <div class="tmpl-note">💡 Always notify proactively — never let the client discover a delay themselves. Proactive communication builds trust; surprise delays destroy it.</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Timeline Extension Request</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Request to Extend Delivery Timeline — <span class="placeholder">[Project/Feature]</span>
+
+Hi <span class="placeholder">[Name]</span>,
+
+Following our discussion about <span class="placeholder">[the scope change / technical challenge / resource constraint]</span>, we'd like to formally request an extension to the delivery date for <span class="placeholder">[feature/phase]</span>.
+
+<span class="slack-bold">Current delivery date:</span> <span class="placeholder">[date]</span>
+<span class="slack-bold">Requested new delivery date:</span> <span class="placeholder">[date]</span>
+<span class="slack-bold">Rationale:</span> <span class="placeholder">[Clear explanation. Reference any agreed scope changes or new requirements if relevant.]</span>
+
+To minimize the impact, we propose:
+• <span class="placeholder">[Partial delivery of X by original date]</span>
+• <span class="placeholder">[Remaining work by new date]</span>
+
+Please let us know if this works for your planning. If the original deadline is critical, we can also discuss adjusting scope to meet it — for example, <span class="placeholder">[suggest a specific trade-off]</span>.
+
+Thank you for your understanding.
+
+Best regards,
+<span class="placeholder">[Your Name]</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: REQUIREMENTS ════════════════════════════════════════ -->
+<div id="requirements" class="section sec-email">
+  <h2>Email — Requirements &amp; Clarification</h2>
+  <div style="padding:14px 16px">
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Requesting Requirements Clarification</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Clarification Needed — <span class="placeholder">[Feature/Story Name]</span>
+
+Hi <span class="placeholder">[Name]</span>,
+
+As we begin development on <span class="placeholder">[feature]</span>, we have a few questions we'd like to clarify to ensure we build exactly what you need.
+
+<span class="slack-bold">Question 1:</span> <span class="placeholder">[Specific question — e.g., "Should the search results be sorted by date or by relevance by default?"]</span>
+
+<span class="slack-bold">Question 2:</span> <span class="placeholder">[Question]</span>
+
+<span class="slack-bold">Question 3:</span> <span class="placeholder">[Question — or remove if not needed]</span>
+
+<span class="slack-bold">Our current assumption</span> (if we don't hear back by <span class="placeholder">[date]</span>) is: <span class="placeholder">[state your default assumption so the client knows what will happen if they don't respond]</span>.
+
+Please let us know your preferences at your earliest convenience, as this will impact our sprint planning for next week.
+
+Thank you!
+
+Best,
+<span class="placeholder">[Your Name]</span></div>
+        <div class="tmpl-note">💡 Always state a default assumption with a deadline. This prevents blockers and shows you're managing the project proactively.</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Sharing a Technical Proposal for Client Review</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Technical Proposal — <span class="placeholder">[Topic]</span> — Please Review
+
+Hi <span class="placeholder">[Name]</span>,
+
+Following our discussion on <span class="placeholder">[date/topic]</span>, I've put together a brief technical proposal for your review.
+
+<span class="slack-bold">Background:</span>
+<span class="placeholder">[1–2 sentences explaining the context and the problem being solved]</span>
+
+<span class="slack-bold">Proposed Approach:</span>
+<span class="placeholder">[Clear, non-jargon description of what you're proposing]</span>
+
+<span class="slack-bold">Benefits:</span>
+• <span class="placeholder">[Benefit 1]</span>
+• <span class="placeholder">[Benefit 2]</span>
+
+<span class="slack-bold">Trade-offs / Risks:</span>
+• <span class="placeholder">[Any downsides or risks the client should be aware of]</span>
+
+<span class="slack-bold">Estimated Effort:</span> <span class="placeholder">[X days / story points]</span>
+
+We'd appreciate your feedback by <span class="placeholder">[date]</span> so we can factor this into our planning.
+
+Let me know if you'd like to discuss this on a call.
+
+Best,
+<span class="placeholder">[Your Name]</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: INTRODUCTIONS ═════════════════════════════════════════ -->
+<div id="onboarding" class="section sec-email">
+  <h2>Email — Introductions &amp; Onboarding</h2>
+  <div style="padding:14px 16px">
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Introducing Yourself to a New Client</span><span class="tmpl-tag tag-client">Client</span><span class="tmpl-tag tag-formal">Formal</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Introduction — <span class="placeholder">[Your Name]</span>, <span class="placeholder">[Your Role]</span> on <span class="placeholder">[Project Name]</span>
+
+Hi <span class="placeholder">[Client Name]</span>,
+
+My name is <span class="placeholder">[Your Name]</span>, and I'll be serving as the <span class="placeholder">[Project Manager / Tech Lead / Developer]</span> on the <span class="placeholder">[Project Name]</span> engagement.
+
+A little about me: I have <span class="placeholder">[X]</span> years of experience in <span class="placeholder">[relevant area]</span>, and I've previously worked on <span class="placeholder">[relevant project or type of work]</span>. I'm looking forward to working with your team.
+
+You can reach me at this email address, or via phone at <span class="placeholder">[number]</span>. My working hours are <span class="placeholder">[hours and timezone]</span>.
+
+We have our kickoff call scheduled for <span class="placeholder">[date/time]</span>. Looking forward to it!
+
+Best regards,
+<span class="placeholder">[Your Name]</span>
+<span class="placeholder">[Role]</span> | <span class="placeholder">[Company]</span>
+<span class="placeholder">[Email]</span> | <span class="placeholder">[Phone]</span></div>
+      </div>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Welcoming a New Team Member</span><span class="tmpl-tag tag-team">Team</span><span class="tmpl-tag tag-casual">Casual</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Subject: Welcome to the Team, <span class="placeholder">[Name]</span>! 👋
+
+Hi <span class="placeholder">[Name]</span>,
+
+Welcome to the team! We're really glad to have you on board.
+
+Quick intro from my side: I'm <span class="placeholder">[Your Name]</span>, the <span class="placeholder">[Tech Lead / PM / Developer]</span> on <span class="placeholder">[project]</span>. Feel free to reach out anytime — my Slack handle is <span class="placeholder">[@yourhandle]</span>.
+
+A few things to help you get started:
+• <span class="placeholder">[Link to onboarding docs / wiki]</span>
+• <span class="placeholder">[Link to project overview]</span>
+• <span class="placeholder">[Any tools to set up: Jira, Slack channels to join, etc.]</span>
+
+We have standup every day at <span class="placeholder">[time]</span>. First one you'll join is <span class="placeholder">[date]</span>.
+
+Don't hesitate to ask questions — no question is too basic. Looking forward to working with you!
+
+Cheers,
+<span class="placeholder">[Your Name]</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: CODE REVIEW EMAIL ════════════════════════════════════ -->
+<div id="review" class="section sec-email">
+  <h2>Email — Code Review &amp; Technical Feedback</h2>
+  <div style="padding:14px 16px">
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Requesting a Code Review</span><span class="tmpl-tag tag-team">Team</span><span class="tmpl-tag tag-casual">Casual</span></div>
+      <div class="tmpl-body">
+        <div class="email-block">Hi <span class="placeholder">[Name]</span>,
+
+I'd love to get your eyes on this PR when you have a moment: <span class="placeholder">[link]</span>
+
+Here's a quick summary:
+• <span class="slack-bold">What it does:</span> <span class="placeholder">[One sentence]</span>
+• <span class="slack-bold">Key changes:</span> <span class="placeholder">[What changed and why]</span>
+• <span class="slack-bold">Areas I'd like feedback on:</span> <span class="placeholder">[e.g., the error handling logic in auth.js, the database query performance]</span>
+
+No rush — whenever works for you this week. Let me know if you'd prefer to walk through it together.
+
+Thanks,
+<span class="placeholder">[Your Name]</span></div>
+        <div class="tmpl-note">💡 Giving context in a review request = fewer back-and-forth questions = faster review cycle.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: SLACK ══════════════════════════════════════════════════ -->
+<div id="slack" class="section sec-slack">
+  <h2>Slack Messages — Team Communication</h2>
+  <div style="padding:14px 16px">
+
+    <h3 style="color:#fff;background:#3a1e5f;padding:6px 12px;border-radius:4px;margin-bottom:10px">Quick Slack Messages for Common Situations</h3>
+
+    <div class="tmpl-card">
+      <div class="tmpl-header"><span class="tmpl-title">Async standup in Slack</span><span class="tmpl-tag tag-team">Team</span></div>
+      <div class="tmpl-body">
+        <div class="slack-block"><span class="slack-meta">#standup · @yourname · 9:00 AM</span>
+🔲 <span class="slack-bold">Yesterday:</span> Finished the auth module refactor, opened PR #142
+🔄 <span class="slack-bold">Today:</span> Starting on user profile API, should have a draft by EOD
+🚧 <span class="slack-bold">Blockers:</span> None — though I may need @<span class="placeholder">DevName</span>'s input on the caching strategy later</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card" style="margin-top:10px">
+      <div class="tmpl-header"><span class="tmpl-title">Flagging a blocker</span><span class="tmpl-tag tag-team">Team</span></div>
+      <div class="tmpl-body">
+        <div class="slack-block"><span class="slack-meta">#engineering · @yourname</span>
+🚧 <span class="slack-bold">Blocker:</span> I can't progress on <span class="placeholder">[feature]</span> until I have access to the <span class="placeholder">[staging DB / API credentials / design spec]</span>.
+
+Tagging <span class="placeholder">@Name</span> — is this something you can help with? I've been blocked since <span class="placeholder">[time]</span> and it's starting to affect the sprint.</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card" style="margin-top:10px">
+      <div class="tmpl-header"><span class="tmpl-title">Reporting a bug quickly</span><span class="tmpl-tag tag-team">Team</span></div>
+      <div class="tmpl-body">
+        <div class="slack-block"><span class="slack-meta">#bugs · @yourname</span>
+🐛 <span class="slack-bold">Bug found in:</span> <span class="placeholder">[Feature / Module]</span>
+<span class="slack-bold">Severity:</span> <span class="placeholder">Critical / High / Medium / Low</span>
+<span class="slack-bold">What happens:</span> <span class="placeholder">[One sentence description]</span>
+<span class="slack-bold">Steps to reproduce:</span> <span class="placeholder">[Brief steps or link to Jira ticket]</span>
+<span class="slack-bold">Environment:</span> <span class="placeholder">[Staging / Production / Local]</span>
+<span class="slack-bold">Assigned to:</span> <span class="placeholder">@Name (or "Needs triage")</span></div>
+      </div>
+    </div>
+
+    <div class="tmpl-card" style="margin-top:10px">
+      <div class="tmpl-header"><span class="tmpl-title">Announcing a deployment</span><span class="tmpl-tag tag-team">Team</span></div>
+      <div class="tmpl-body">
+        <div class="slack-block"><span class="slack-meta">#deployments · @yourname</span>
+🚀 <span class="slack-bold">Deployed:</span> <span class="placeholder">[Feature / Fix name]</span> → <span class="placeholder">Staging / Production</span>
+<span class="slack-bold">Version:</span> <span class="placeholder">v1.2.3</span>
+<span class="slack-bold">Changes:</span> <span class="placeholder">[Brief description or link to release notes]</span>
+<span class="slack-bold">Status:</span> ✅ Successful / ⚠️ Partial / ❌ Failed — rollback in progress
+
+Please monitor for any unexpected behavior. QA team: staging is ready for testing.</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card" style="margin-top:10px">
+      <div class="tmpl-header"><span class="tmpl-title">Praising a colleague</span><span class="tmpl-tag tag-team">Team</span><span class="tmpl-tag tag-casual">Casual</span></div>
+      <div class="tmpl-body">
+        <div class="slack-block"><span class="slack-meta">#shoutouts · @yourname</span>
+🌟 Big shoutout to <span class="placeholder">@Name</span> for <span class="placeholder">[what they did — e.g., staying late to debug the production issue / the brilliant solution to the caching problem / consistently excellent PRs]</span>. That kind of dedication makes a real difference — thank you! 🙏</div>
+      </div>
+    </div>
+
+    <div class="tmpl-card" style="margin-top:10px">
+      <div class="tmpl-header"><span class="tmpl-title">Out-of-office / status update</span><span class="tmpl-tag tag-team">Team</span></div>
+      <div class="tmpl-body">
+        <div class="slack-block"><span class="slack-meta">Slack status message or #general</span>
+🟡 <span class="slack-bold">OOO</span> / In meetings all morning — back at <span class="placeholder">[time]</span>. Ping me on Slack and I'll respond when I'm back. Urgent: reach <span class="placeholder">@Name</span> instead.
+
+<span class="slack-italic">— OR —</span>
+
+🔴 Heads down on <span class="placeholder">[task]</span> until <span class="placeholder">[time]</span> — in DND mode. Will catch up on messages afterward.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ SECTION: WRITING TIPS ══════════════════════════════════════════ -->
+<div id="tips" class="section sec-tips">
+  <h2>Professional English Writing Tips for Non-Native Speakers</h2>
+  <div style="padding:14px 16px">
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4>✅ Subject Lines — Be Specific</h4>
+        <ul>
+          <li>❌ "Update" → ✅ "Weekly Status — Project Alpha — Week 12"</li>
+          <li>❌ "Problem" → ✅ "URGENT: Production Outage — Login Service Down"</li>
+          <li>❌ "Question" → ✅ "Clarification Needed on Search Feature — Due Friday"</li>
+          <li>Include: What, Which project, Urgency level, Deadline if relevant</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <h4>✅ Tone Adjustment</h4>
+        <ul>
+          <li><strong>To client, formal:</strong> "I would like to request..." / "Please be advised that..."</li>
+          <li><strong>To client, semi-formal:</strong> "Just wanted to flag..." / "Happy to jump on a call if useful"</li>
+          <li><strong>To team, casual:</strong> "Quick heads-up..." / "FYI..." / "Can someone help with...?"</li>
+          <li>When in doubt: slightly more formal is safer than too casual</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <h4>✅ Sentence Structure</h4>
+        <ul>
+          <li>One idea per sentence. Short sentences are clearer.</li>
+          <li>Start with the most important information, not background.</li>
+          <li>Use bullet points for lists — don't bury multiple items in one sentence.</li>
+          <li>Avoid: "Due to the reason that..." → Use: "Because..."</li>
+          <li>Avoid: "In order to..." → Use: "To..."</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <h4>✅ Softer Ways to Say Hard Things</h4>
+        <ul>
+          <li>We're late: "We're adjusting the timeline for X to [date] due to [reason]."</li>
+          <li>Client is wrong: "I'd like to revisit this requirement — here's what I'm seeing..."</li>
+          <li>I don't understand: "Could you help me clarify the expected behavior of...?"</li>
+          <li>This is your fault: "It looks like the issue originated from [X]. To avoid this in future..."</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <h4>✅ Opening &amp; Closing Phrases</h4>
+        <ul>
+          <li><strong>Openers:</strong> "I hope this finds you well." / "Thank you for your time on today's call." / "Following up on our conversation..."</li>
+          <li><strong>Closings:</strong> "Please let me know if you have any questions." / "Looking forward to hearing from you." / "Happy to discuss further."</li>
+          <li><strong>Sign-offs:</strong> Best regards / Best / Cheers (casual) / Thanks / Kind regards</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <h4>✅ Common Mistakes to Avoid</h4>
+        <ul>
+          <li>❌ "Please kindly..." → ✅ "Please..." (kindly is redundant)</li>
+          <li>❌ "I am writing to let you know..." → ✅ Just state the news directly</li>
+          <li>❌ "We regret to inform you..." (overly formal) → ✅ "I want to let you know that..."</li>
+          <li>❌ "ASAP" to clients → ✅ Give a specific date/time</li>
+          <li>❌ All caps = shouting → ✅ Use bold for emphasis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px">
+    <a class="print-btn" href="60day-master-plan.html">← Master Plan</a>
+    <a class="print-btn" href="pronunciation-guide.html">← Pronunciation</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print All Templates</button>
+  </div>
+  <p style="text-align:right;font-size:8pt;color:#bbb;font-family:Arial,sans-serif;margin-top:14px">Email &amp; Slack Templates · 50+ Templates · Software Development Communication · Client + Team</p>
+</div>
+</body>
+</html>

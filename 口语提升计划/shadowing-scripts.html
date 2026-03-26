@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shadowing Scripts — Software Development Client Meetings</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.7}
+@media screen{
+  .top-nav{position:sticky;top:0;z-index:100;background:#1e3a5f;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:9pt}
+  .top-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px}
+  .top-nav a:hover{background:#2e5a8f}
+  .nav-title{font-weight:bold;font-size:11pt;margin-right:8px}
+}
+@media print{.top-nav,.print-btn,.how-to-use,.script-nav{display:none} .script-block{page-break-before:always}}
+.container{max-width:900px;margin:0 auto;padding:22px}
+h1{font-size:20pt;color:#1e3a5f;margin-bottom:4px;font-family:Arial,sans-serif}
+.subtitle{color:#555;font-size:9.5pt;margin-bottom:18px;font-style:italic}
+/* Script block */
+.script-block{margin-bottom:40px;border:1px solid #c8d8f0;border-radius:8px;overflow:hidden}
+.script-header{padding:12px 18px;color:#fff}
+.s1-hdr{background:#1e5f3a}
+.s2-hdr{background:#1e3a5f}
+.s3-hdr{background:#5a1e5f}
+.s4-hdr{background:#7a3a10}
+.s5-hdr{background:#1e4a5a}
+.script-header h2{font-size:14pt;font-family:Arial,sans-serif;margin-bottom:3px}
+.script-header .s-meta{font-size:9pt;opacity:.85;font-style:italic}
+.script-body{padding:16px 20px}
+.how-box{background:#fffbe6;border:1px solid #e0c840;border-radius:6px;padding:11px 15px;margin-bottom:14px;font-size:9pt;line-height:1.6}
+.how-box strong{color:#7a5a00}
+/* Dialogue */
+.scene-note{font-size:8.5pt;color:#666;font-style:italic;margin:10px 0 6px;background:#f5f9ff;padding:6px 10px;border-radius:4px;border-left:3px solid #3a6ea5}
+.line{display:grid;grid-template-columns:120px 1fr;gap:10px;margin-bottom:8px;align-items:start}
+.speaker{font-family:Arial,sans-serif;font-size:8.5pt;font-weight:bold;padding-top:2px;white-space:nowrap}
+.sp-pm{color:#1e5f3a}
+.sp-client{color:#5f1e1e}
+.sp-dev{color:#1e3a7a}
+.sp-qa{color:#5f4a1e}
+.utterance{font-size:10pt;line-height:1.6;color:#1a1a1a}
+.key-phrase{background:#fff8cc;border-radius:2px;padding:1px 3px;font-weight:bold;color:#5a4000}
+.tip-note{background:#f0fff0;border-left:3px solid #2d7a2d;padding:6px 10px;margin:8px 0;font-size:8.5pt;color:#1a4a1a;border-radius:0 4px 4px 0}
+.pronunciation-note{font-size:8pt;color:#888;font-style:italic}
+.section-divider{border:none;border-top:1px dashed #c0d0e8;margin:14px 0}
+.annotation{font-size:8pt;color:#3a6ea5;font-style:italic;margin-left:4px}
+/* How-to panel */
+.how-to-use{background:#f0f4ff;border:1px solid #b0c4e8;border-radius:6px;padding:14px 18px;margin-bottom:20px;font-size:9.5pt}
+.step-row{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.step-num{background:#1e3a5f;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9pt;font-weight:bold;font-family:Arial,sans-serif;flex-shrink:0}
+.step-text{line-height:1.5;font-size:9pt}
+.script-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.script-nav a{background:#f0f4fb;border:1px solid #c0d0e8;border-radius:4px;padding:5px 10px;text-decoration:none;color:#1e3a5f;font-size:8.5pt;font-family:Arial,sans-serif}
+.script-nav a:hover{background:#dde8f8}
+.print-btn{display:inline-block;background:#1e3a5f;color:#fff;padding:8px 18px;border-radius:5px;text-decoration:none;font-size:9pt;cursor:pointer;border:none;font-family:Arial,sans-serif;margin:4px}
+.word-count{font-size:8pt;color:#aaa;font-family:Arial,sans-serif;margin-top:12px;text-align:right}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">🎙 Shadowing Scripts</span>
+  <a href="speaking-plan.html">📅 30-Day Plan</a>
+  <a href="phrase-bank.html">📋 Phrase Bank</a>
+  <a href="../html-学习页面/index.html">📚 NGSL</a>
+</nav>
+
+<div class="container">
+  <h1>Shadowing Scripts</h1>
+  <p class="subtitle">5 Realistic Client Meeting Dialogues · Software Development Context · Annotated with Key Phrases</p>
+
+  <div class="how-to-use">
+    <strong style="font-family:Arial,sans-serif;color:#1e3a5f">How to Use These Scripts for Shadowing:</strong>
+    <div style="margin-top:10px">
+      <div class="step-row"><div class="step-num">1</div><div class="step-text"><strong>Listen:</strong> Use macOS Text-to-Speech (select text → right-click → Speech → Start Speaking) or any TTS app. Just listen — don't speak.</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-text"><strong>Whisper along:</strong> Play the audio again. Whisper the words simultaneously, matching rhythm and stress. Focus on the <span class="key-phrase">highlighted phrases</span>.</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-text"><strong>Shadow aloud:</strong> Full volume. Speak simultaneously with the audio. It's okay if you fall behind — keep going.</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-text"><strong>From memory:</strong> Cover the text and speak the role you want to practice (PM or Client). Compare to the script.</div></div>
+      <div class="step-row"><div class="step-num">5</div><div class="step-text"><strong>Own it:</strong> Adapt the script to your real project — replace the project names, dates, and features with your own context.</div></div>
+    </div>
+  </div>
+
+  <div class="script-nav">
+    <a href="#s1">Script 1: Status Update</a>
+    <a href="#s2">Script 2: Requirements</a>
+    <a href="#s3">Script 3: Demo Presentation</a>
+    <a href="#s4">Script 4: Bug Discussion</a>
+    <a href="#s5">Script 5: Timeline Negotiation</a>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print All Scripts</button>
+
+<!-- ═══ SCRIPT 1 ══════════════════════════════════════════════════════════ -->
+<div id="s1" class="script-block">
+  <div class="script-header s1-hdr">
+    <h2>Script 1 — Weekly Project Status Update</h2>
+    <div class="s-meta">Scenario: PM reports to client · Topic: Sprint progress, one delay, recovery plan · Level: Essential</div>
+  </div>
+  <div class="script-body">
+    <div class="how-box"><strong>Practice focus:</strong> Opening formulas, delivering good and bad news professionally, using data to support your update, ending with a clear next step. Shadow the PM's lines first. Then try the Client's lines.</div>
+
+    <div class="scene-note">📍 Setting: Weekly video call. PM (Project Manager) and the Client's product owner join a 30-minute check-in.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Good afternoon, Sarah. Thanks for joining today.</span> I know your schedule is packed, so I'll keep this efficient. <span class="key-phrase">I'd like to quickly run through today's agenda</span> — a sprint update, a flag on one item, and then we'll wrap up with next steps. Does that work for you?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">That's perfect. Go ahead.</span>
+    </div>
+    <div class="tip-note">💡 <strong>Tone tip:</strong> The PM sounds confident and organized. No hesitation. The phrase "I know your schedule is packed" shows consideration for the client.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Since our last meeting, we've made significant progress.</span> The user authentication module is complete and passing all tests. The dashboard UI is 90% done — we're just finishing the data visualization components. And the API integration with your CRM is live in the staging environment.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">That's great to hear. And the mobile version?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">I want to be upfront about this one.</span> The mobile version is running about four days behind the original schedule. <span class="key-phrase">The main reason for the delay</span> is that we encountered some unexpected compatibility issues with older Android versions — specifically Android 9 and 10. It's a known ecosystem challenge and our team is working through it.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">I appreciate you being transparent. How are you planning to recover?</span>
+    </div>
+    <div class="tip-note">💡 <strong>Key skill:</strong> Notice how the PM delivers bad news directly but with context and without over-apologizing. This builds trust.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Here's our recovery plan.</span> We've reassigned one additional developer to the mobile team. We've also descoped the advanced filter feature from the initial release — we'll deliver that in the next sprint. <span class="key-phrase">We're confident</span> we can deliver the mobile version by the 22nd, which is three days later than planned but still well within your launch window.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">The 22nd works. As long as it's before the 25th, we're okay. What do you need from our side?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Actually, there is one thing. <span class="key-phrase">We need your sign-off on the revised wireframes</span> for the mobile dashboard — specifically the tablet layout. I'll send those over right after this call. If you can review them by Thursday, that keeps us on the new schedule.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Thursday is fine. Anything else?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">That's everything for today.</span> So to summarize: authentication done, dashboard nearly done, API live in staging, mobile delayed by four days with a clear recovery plan. <span class="key-phrase">Our next meeting is</span> next Tuesday at the same time — I'll send a calendar invite. And I'll follow up with a written summary of today's call within the hour.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Perfect. Thanks for the clear update. Speak then.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Thank you for your time, Sarah. Enjoy the rest of your day.</span></span>
+    </div>
+
+    <div class="word-count">~320 words · Estimated speaking time: 3–4 minutes · Key phrases highlighted in yellow</div>
+  </div>
+</div>
+
+<!-- ═══ SCRIPT 2 ══════════════════════════════════════════════════════════ -->
+<div id="s2" class="script-block">
+  <div class="script-header s2-hdr">
+    <h2>Script 2 — Requirements Discussion &amp; Scope Management</h2>
+    <div class="s-meta">Scenario: Client requests a new feature mid-project · PM must clarify, assess impact, and manage scope · Level: Intermediate</div>
+  </div>
+  <div class="script-body">
+    <div class="how-box"><strong>Practice focus:</strong> Asking clarifying questions, explaining trade-offs, managing scope without saying "no" directly, proposing options. This script has more back-and-forth — great for practicing responsiveness.</div>
+
+    <div class="scene-note">📍 Setting: The client has sent an email requesting a "real-time notification system" that wasn't in the original scope. The PM has called to discuss it.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Thanks for jumping on the call, James.</span> I got your email about the real-time notifications and I wanted to discuss it properly rather than just reply by email. <span class="key-phrase">Could you help me understand the requirement in more detail?</span> Specifically — which users need to receive notifications, and what events should trigger them?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Sure. We need to notify our admin team whenever a new order comes in — ideally in real time, via email and in-app alert. It's become a critical need for us since our order volume has increased.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">That's helpful context. <span class="key-phrase">Just to make sure I understand correctly</span> — you need a notification triggered by every new order, sent to your admin users by email and as a push notification inside the app? Are there any conditions — for example, only for orders above a certain value?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Good question. For now, every order. We can add filters later.</span>
+    </div>
+    <div class="tip-note">💡 <strong>Key skill:</strong> "Good question" is a great phrase to acknowledge the client while you think. Also notice how the PM breaks down the requirement precisely — this prevents misunderstandings later.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Got it. <span class="key-phrase">I want to be transparent with you</span> — this is outside the current scope, and it will have an impact on the timeline and cost. <span class="key-phrase">We have two options</span> and I'd like to walk you through the trade-offs.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Please, go ahead.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Option one: we add the notification system to the current scope. Our estimate is two to three weeks of additional development. <span class="key-phrase">This would push the delivery date</span> from the 30th to roughly mid-next month. The cost impact would be in the range of 15 to 20 thousand.<br><br>Option two: we proceed with the current scope and deliver on schedule, and we scope the notification system as a separate phase two project, starting immediately after launch. <span class="key-phrase">This means</span> you hit your original launch date, but your admins won't have real-time notifications at go-live.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Hmm. Is the launch date flexible? Could we shift it by two weeks?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">I'd need to check with the team</span> on a couple of dependencies before I commit to that. <span class="key-phrase">My initial feeling is</span> it's possible — but I want to give you a confident answer rather than a guess. Can I get back to you by tomorrow morning with a clear recommendation?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">That works. I appreciate you laying out the options clearly rather than just telling me no.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Of course. <span class="key-phrase">I want to find a solution that works for both sides.</span> I'll send you a written summary of the two options and a recommendation by 9 AM tomorrow. We can then make a joint decision. <span class="key-phrase">Does that sound reasonable?</span></span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Absolutely. Talk tomorrow.</span>
+    </div>
+
+    <div class="word-count">~380 words · Estimated speaking time: 4–5 minutes · Focus on the PM's ability to present options without being defensive</div>
+  </div>
+</div>
+
+<!-- ═══ SCRIPT 3 ══════════════════════════════════════════════════════════ -->
+<div id="s3" class="script-block">
+  <div class="script-header s3-hdr">
+    <h2>Script 3 — Product Demo to Client</h2>
+    <div class="s-meta">Scenario: PM and Developer present a working prototype · Client reacts and asks questions · Level: Intermediate–Advanced</div>
+  </div>
+  <div class="script-body">
+    <div class="how-box"><strong>Practice focus:</strong> Guiding a client through a demo, handling mid-demo questions gracefully, translating technical details into business language, responding to both positive and skeptical reactions.</div>
+
+    <div class="scene-note">📍 Setting: Video call with screen sharing. PM is presenting. Developer (Dev) is also on the call to handle technical questions.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">I'd like to walk you through what we've built</span> over the past three weeks. I think you'll be genuinely excited about the progress. I'll take you through the core user flow, and Mark — our lead developer — is here to answer any technical questions. <span class="key-phrase">Feel free to stop me at any point.</span></span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">We're ready. Let's see it.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">What you're looking at here is</span> the new supplier management portal. This is the main dashboard — you can see all active suppliers, their status, and recent activity at a glance. <span class="key-phrase">Notice how</span> the colour coding immediately shows you which suppliers have pending approvals — that was a specific request from your procurement team.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Oh yes, that's exactly what Lucy asked for. Can you click on one of those suppliers?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Sure. <span class="key-phrase">When the user clicks</span> on a supplier, it expands to a full profile view. You can see their contract history, active orders, and compliance documents — all in one place. No more switching between spreadsheets and email.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Wow, this is really clean. How fast does it load with real data? We have over 2,000 suppliers.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-dev">Developer:</span>
+      <span class="utterance">Great question. We've tested with a dataset of 5,000 suppliers and the load time is consistently under 1.2 seconds. We've implemented server-side pagination and caching, so performance stays strong regardless of scale.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">I don't know what that means exactly, but under 1.2 seconds sounds good!</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Let me put it in plain terms</span> — even with all 2,000 of your suppliers loaded, the system will feel fast and snappy. You won't notice any lag. <span class="key-phrase">The practical impact for your team is</span> they spend less time waiting and more time getting work done.</span>
+    </div>
+    <div class="tip-note">💡 <strong>Key skill:</strong> The PM bridges between the developer's technical answer and what it means for the business. This is an essential skill in client-facing roles.</div>
+
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">What about the approval workflow? That was really important to us.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">I'm glad you asked — let me show you that next.</span> When your team submits a new supplier, the system automatically routes it to the right approver based on the supplier's category and contract value. The approver gets an email notification and can approve directly from their inbox — or from here in the portal. <span class="key-phrase">I'm going to simulate a typical use case</span> now so you can see the full flow.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">This is really impressive. I have to say, it looks better than I expected at this stage.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">That's wonderful to hear. <span class="key-phrase">That's the end of the demo for today.</span> The reporting module isn't quite ready yet — we'll include that in the next demo in two weeks. <span class="key-phrase">I'd love to hear your initial reactions</span> and any feedback before we close.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Overall, very positive. Can you add an export-to-Excel button on the dashboard?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Let me make a note of that.</span> That's a relatively simple addition — Mark, can we confirm the effort on that?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-dev">Developer:</span>
+      <span class="utterance">Yes — about half a day's work. We can include it in the next sprint.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Perfect. <span class="key-phrase">We can accommodate that.</span> I'll add it to the sprint backlog and confirm in writing.</span>
+    </div>
+
+    <div class="word-count">~430 words · Estimated speaking time: 5 minutes · Practice the PM and Developer roles separately</div>
+  </div>
+</div>
+
+<!-- ═══ SCRIPT 4 ══════════════════════════════════════════════════════════ -->
+<div id="s4" class="script-block">
+  <div class="script-header s4-hdr">
+    <h2>Script 4 — Critical Bug Discussion &amp; Incident Response</h2>
+    <div class="s-meta">Scenario: A production bug is affecting users · PM must communicate transparently, manage the client's frustration, and present a clear action plan · Level: Advanced</div>
+  </div>
+  <div class="script-body">
+    <div class="how-box"><strong>Practice focus:</strong> Delivering bad news professionally, taking responsibility without panic, responding to an upset client calmly, and presenting an action plan under pressure. This is the most emotionally challenging scenario.</div>
+
+    <div class="scene-note">📍 Setting: Emergency call. A bug in the payment processing module is causing approximately 8% of transactions to fail. The client's operations team has noticed and escalated.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Thank you for getting on a call so quickly, David.</span> <span class="key-phrase">I want to be upfront about a bug</span> that was identified in the payment module approximately two hours ago. <span class="key-phrase">I want to be fully transparent with you</span> about what's happening, what we know, and exactly what we're doing about it.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">I'm listening. My team is already seeing failed transactions. How serious is this?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Here's what we know so far.</span> Approximately 8% of payment transactions are failing at the checkout stage. The issue appears to be related to a currency conversion edge case that only triggers for orders with specific regional tax codes. Customers see an error message, but importantly — no charges are being made incorrectly. No money has been taken without a successful transaction.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">8% is significant. How did this get through testing?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">That's a fair and important question. <span class="key-phrase">I take full responsibility</span> for this. Our test data didn't include the specific combination of regional tax code and currency that triggers the bug. It's a gap in our test coverage that we're addressing immediately. <span class="key-phrase">I'm not making excuses</span> — we should have caught this. What matters now is fixing it as fast as possible.</span>
+    </div>
+    <div class="tip-note">💡 <strong>Key skill:</strong> Taking responsibility clearly and without deflecting builds trust. Saying "I take full responsibility" is powerful. Don't over-explain or blame the client's data.</div>
+
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">How long to fix? Every minute this is live is costing us revenue.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">I understand the urgency completely.</span> <span class="key-phrase">Here's our action plan.</span> First, we've already deployed a temporary workaround that routes affected transactions through an alternative processing path — that's live as of ten minutes ago, so the failure rate should already be dropping. Second, our team is working on the permanent fix now. <span class="key-phrase">Our estimated time to resolution</span> for the full fix is four to six hours. We'll deploy it tonight during the lowest-traffic window, between 2 and 3 AM your time.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">The workaround — can you guarantee it's safe? We can't have incorrect charges.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">I can guarantee that. The workaround bypasses the currency conversion step and processes at a fixed rate — it's been tested and it's safe. No customer will be incorrectly charged. <span class="key-phrase">We're monitoring the system in real time</span> and I'll send you an update every hour until the permanent fix is deployed.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Hourly updates — yes, I need that. And I want a full post-mortem report explaining how this happened and what you're changing to prevent it.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Absolutely. <span class="key-phrase">We'll conduct a thorough post-mortem</span> and share the report with you within 48 hours of the fix. It will include the root cause analysis, what we've changed in our testing process, and what safeguards we're adding to prevent recurrence.<br><br><span class="key-phrase">I completely understand your frustration and I appreciate your patience.</span> <span class="key-phrase">This is not the experience we want to deliver</span> and we're committed to making this right.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Okay. Keep me updated. I'll have my team monitor the failure rate on our end as well.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Perfect. Please do. <span class="key-phrase">I'll send the first update in one hour</span>, and I'll personally make sure we're in constant contact until this is fully resolved. Thank you, David.</span>
+    </div>
+
+    <div class="word-count">~420 words · Estimated speaking time: 5 minutes · The most emotionally challenging script — practice staying calm and confident throughout</div>
+  </div>
+</div>
+
+<!-- ═══ SCRIPT 5 ══════════════════════════════════════════════════════════ -->
+<div id="s5" class="script-block">
+  <div class="script-header s5-hdr">
+    <h2>Script 5 — Timeline Negotiation (Full Meeting Simulation)</h2>
+    <div class="s-meta">Scenario: Complete meeting — status + timeline extension request + resolution · Most complex and complete · Level: Advanced</div>
+  </div>
+  <div class="script-body">
+    <div class="how-box"><strong>Practice focus:</strong> This is the most complete script — it covers opening, status, a difficult timeline conversation, handling pushback, proposing a phased solution, and closing with agreement. Shadow this after mastering Scripts 1–4. Aim to do the PM's entire role from memory.</div>
+
+    <div class="scene-note">📍 Setting: Monthly review meeting. PM needs to request a 2-week extension due to technical complexity. The client has a firm external deadline.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">Good morning, everyone. Thanks for making time today.</span> I have three items on the agenda: a sprint review, an important conversation about the timeline, and then we'll close with action items. <span class="key-phrase">I want to make sure we make the most of our time</span>, so let's get straight into it. Overall, the project is in good shape — but I need to have an honest conversation with you about the delivery schedule.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">You've got my attention. What's the situation?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Let me start with the good news. <span class="key-phrase">We've completed</span> the backend architecture, the user management system, and 70% of the frontend components — all on schedule and to a high standard. The technical foundation is solid and we're proud of the quality of what's been built.<br><br>The challenge is with the data migration component. When we began migrating your legacy data, we discovered that the data structure is significantly more inconsistent than the initial sample suggested. We're talking about nine different formats across different time periods, with a high proportion of records that need manual validation logic.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">How much of a delay are we looking at?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">I want to give you an honest answer rather than one I'm not confident in.</span> Based on our current assessment, we're looking at a two-week extension to complete the migration properly. Delivering in the original timeframe is technically possible, but it would mean cutting corners on data validation — and I'm not comfortable recommending that, because it would create data integrity issues post-launch that would be far more expensive to fix.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Two weeks is a big deal for us. We have a trade show on the 15th and we were planning to showcase this. Can you do it in one week instead?</span>
+    </div>
+    <div class="tip-note">💡 <strong>Key skill:</strong> The client is pushing back. The PM must hold the position professionally while exploring alternatives. Don't immediately cave — that creates a pattern of unreliable estimates.</div>
+
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">I understand — the trade show is an important context that changes things.</span> Let me think through what's possible. <span class="key-phrase">I'd like to propose a phased approach</span> that might give you what you need for the 15th.<br><br>Here's the idea: by the original deadline, we deliver the full application with a clean, curated set of your most recent data — say, the last 18 months. That gives you everything you need to demonstrate at the trade show. The full historical data migration would then complete over the two weeks following. Your users on the trade show floor would have a fully functional product — just without the older historical records visible yet.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Hmm. Would the product feel incomplete to people at the trade show?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Not at all — and this is the important point. <span class="key-phrase">From your perspective, what this means is</span> that every feature works exactly as designed. The only difference is that historical reports would show data from 2023 onwards, not from 2015. For a demo, that's more than sufficient. And we can set the date range filter as the default view, so visitors naturally see the most relevant recent data.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">That could actually work. What's your confidence level on hitting the original date with this approach?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">High. <span class="key-phrase">I'm confident we can hit the original date</span> with the phased data approach. I've already spoken with the team this morning and they're aligned on this plan. <span class="key-phrase">I'd rather give you a date I can stand behind</span> than overpromise and underdeliver.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">Okay. I think we can make that work. Can you send a written summary of this plan with specific dates?</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance">Absolutely. <span class="key-phrase">I'll have that to you by end of day today.</span> Let me confirm the key decisions: full application ready on the 13th with 18-month data set. Full historical migration complete by the 27th. I'll include a daily status update schedule for the final two weeks leading up to the 13th.<br><br><span class="key-phrase">Before we close</span> — are there any other concerns or questions on this? I want to make sure we're fully aligned.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-client">Client:</span>
+      <span class="utterance">No, I think we're good. I appreciate you coming in with a solution rather than just a problem.</span>
+    </div>
+    <div class="line">
+      <span class="speaker sp-pm">PM:</span>
+      <span class="utterance"><span class="key-phrase">That's our job.</span> I'll send the written plan this afternoon. <span class="key-phrase">Thank you for your flexibility and trust</span> — it means a great deal to the team. <span class="key-phrase">We will not let you down on this.</span> Have a great morning.</span>
+    </div>
+
+    <div class="word-count">~500 words · Estimated speaking time: 6–7 minutes · Master this script last — it combines all skills from Scripts 1–4</div>
+  </div>
+</div>
+
+  <!-- ═══ Practice Prompts ══════════════════════════════════════════════════ -->
+  <div style="background:#f5f9ff;border:1px solid #b0c8e8;border-radius:6px;padding:16px 20px;margin-bottom:20px">
+    <h3 style="color:#1e3a5f;font-family:Arial,sans-serif;margin-bottom:12px;font-size:11pt">🤖 AI Role-Play Prompts (Use with ChatGPT or Claude)</h3>
+    <p style="font-size:9.5pt;margin-bottom:12px;color:#333">After shadowing each script, use these prompts to practice responding in real time:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:5px;padding:10px 13px;font-size:9pt;color:#333">
+        <strong style="color:#1e5f3a">For Script 1:</strong><br>
+        "Play a software client receiving a project status update. The project is 5 days behind. React realistically and ask follow-up questions about the delay and recovery plan. Correct my English after each response."
+      </div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:5px;padding:10px 13px;font-size:9pt;color:#333">
+        <strong style="color:#1e3a5f">For Script 2:</strong><br>
+        "Play a client who wants to add a large new feature to a fixed-price project. Be persistent but reasonable. I am the project manager. Ask clarifying questions and push on the timeline."
+      </div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:5px;padding:10px 13px;font-size:9pt;color:#333">
+        <strong style="color:#5a1e5f">For Script 3:</strong><br>
+        "I'm presenting a software demo to you. Ask questions during my demo — some positive, some skeptical. Ask about performance, security, and whether it matches the original requirements."
+      </div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:5px;padding:10px 13px;font-size:9pt;color:#333">
+        <strong style="color:#7a3a10">For Script 4:</strong><br>
+        "A critical bug has been found in the system my team built. You are an upset but professional client. React to my explanation with frustration but listen if I communicate clearly and take responsibility."
+      </div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:5px;padding:10px 13px;font-size:9pt;color:#333">
+        <strong style="color:#1e4a5a">For Script 5:</strong><br>
+        "I need to tell you my software project needs a 2-week delay. You have a trade show in 3 weeks. Be resistant but open to creative solutions. Push me to find alternatives before accepting the delay."
+      </div>
+      <div style="background:#fff;border:1px solid #d0d8e8;border-radius:5px;padding:10px 13px;font-size:9pt;color:#333">
+        <strong style="color:#2d7a2d">Advanced:</strong><br>
+        "Combine all scenarios: start with status update → demo → I discover a bug mid-demo → we discuss timeline impact. Play a realistic client with mixed emotions throughout."
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin:16px 0">
+    <a class="print-btn" href="speaking-plan.html">← 30-Day Plan</a>
+    <a class="print-btn" href="phrase-bank.html">📋 Phrase Bank</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print Scripts</button>
+  </div>
+
+  <p style="text-align:right;font-size:8pt;color:#bbb;font-family:Arial,sans-serif;margin-top:10px">Shadowing Scripts · Software Development Client Meetings · 5 Scenarios · Advanced to Essential</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 14: Quantity, Measurement & Data Words — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html">D2</a> <a href="day03.html">D3</a> <a href="day04.html">D4</a> <a href="day05.html">D5</a> <a href="day06.html">D6</a> <a href="day07.html">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html">D12</a> <a href="day13.html">D13</a> <a href="day14.html" class="active">D14</a> <a href="day15.html">D15</a> <a href="day16.html">D16</a> <a href="day17.html">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 14</span>
+    <span class="day-theme">Quantity, Measurement & Data Words</span>
+    <span class="day-stats">Words 651–692 · 42 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">amount</span>
+        <span class="phonetic">/əˈmaʊnt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A quantity of something; the total.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I was surprised by the amount of food at the buffet!</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please confirm the exact amount we need to allocate from the reserve budget.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">total</span>
+        <span class="phonetic">/ˈtoʊtəl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The whole number or amount after everything is counted.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The total bill came to more than I had budgeted for.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The total development effort is estimated at 600 person-hours.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">average</span>
+        <span class="phonetic">/ˈævərɪdʒ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A number representing the typical value in a set.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> On average, I walk about 8,000 steps a day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The average resolution time for support tickets is currently 4.2 hours.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">percentage</span>
+        <span class="phonetic">/pərˈsentɪdʒ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A rate or proportion expressed as a fraction of 100.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> What percentage of your income do you save each month?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Conversion rate improved by a percentage of 12% after the redesign.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">rate</span>
+        <span class="phonetic">/reɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A measure of speed, frequency, or proportion.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The heart rate monitor shows my pulse during each workout.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our customer churn rate has decreased from 8% to 5% this year.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">ratio</span>
+        <span class="phonetic">/ˈreɪʃɪoʊ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The relationship between two amounts.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The golden ratio appears frequently in nature and architecture.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our cost-to-revenue ratio has improved considerably this quarter.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">level</span>
+        <span class="phonetic">/ˈlevəl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A position on a scale; a degree of intensity.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I try to maintain a consistent energy level throughout the day.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Customer satisfaction levels are at their highest point in three years.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">degree</span>
+        <span class="phonetic">/dɪˈɡriː/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A unit of temperature; a level or extent.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> It's 30 degrees outside — perfect weather for the beach.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The degree of complexity in this project was underestimated at the start.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">scale</span>
+        <span class="phonetic">/skeɪl/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A range of values; the relative size of something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> On a scale of one to ten, how would you rate your happiness?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are now operating at a global scale, which changes our risk profile.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">range</span>
+        <span class="phonetic">/reɪndʒ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The limits between which something varies; a variety.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The price range at this market suits every type of shopper.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We offer a full range of pricing options to suit different business sizes.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">maximum</span>
+        <span class="phonetic">/ˈmæksɪməm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The largest or highest amount possible.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The maximum number of passengers in this lift is eight.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The maximum budget for this initiative has been set at $500,000.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">minimum</span>
+        <span class="phonetic">/ˈmɪnɪməm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The smallest or lowest amount possible.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The minimum age for this activity is 18 years.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The minimum viable product must be delivered within eight weeks.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">limit</span>
+        <span class="phonetic">/ˈlɪmɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A point beyond which something does not continue.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> There is a weight limit on this zipline for safety reasons.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We have reached the limit of what this team can deliver without more resources.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">measure</span>
+        <span class="phonetic">/ˈmeʒər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A standard unit; a course of action; a ruler.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Adding a measure of vanilla extract makes all the difference.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> What measure will we use to determine if this initiative was successful?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">unit</span>
+        <span class="phonetic">/ˈjuːnɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A single item; a standard quantity used in measurement.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We sold every unit of the limited-edition product within the hour.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The target is to sell 50,000 units within the first 90 days of launch.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">quarter</span>
+        <span class="phonetic">/ˈkwɔːrtər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">One of four equal parts; a three-month business period.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We review our savings goals at the end of every quarter.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Results for Q3 will be presented to the board next Thursday morning.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">estimate</span>
+        <span class="phonetic">/ˈestɪmɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An approximate calculation of value or quantity.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The builder gave us a rough estimate for the kitchen renovation.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The time estimate for this feature is five to eight business days.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">forecast</span>
+        <span class="phonetic">/ˈfɔːrkæst/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A prediction of future events, especially weather or finance.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The weather forecast promises clear skies for the entire long weekend.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The updated sales forecast shows stronger growth than initially projected.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">trend</span>
+        <span class="phonetic">/trend/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A general direction of change over time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The trend toward plant-based eating shows no sign of slowing.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The data clearly shows a positive trend in user retention over Q3.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">figure</span>
+        <span class="phonetic">/ˈfɪɡər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A number or statistical value; an important person.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm not good at memorizing figures like phone numbers.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The figures on slide three clearly support our investment case.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">statistic</span>
+        <span class="phonetic">/stəˈtɪstɪk/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A fact or piece of data obtained from a study.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> That's a shocking statistic — I had no idea so many people face that issue.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> One striking statistic: 65% of customers abandon checkout at the final step.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">proportion</span>
+        <span class="phonetic">/prəˈpɔːrʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A part, share, or number in comparison to a whole.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> A large proportion of the guests traveled from overseas.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> A disproportionate proportion of our support tickets relate to login issues.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">volume</span>
+        <span class="phonetic">/ˈvɒljuːm/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The amount of space; a large quantity; a book.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Can you turn the volume down? I'm trying to concentrate.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The volume of customer inquiries has doubled since the last product update.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">frequency</span>
+        <span class="phonetic">/ˈfriːkwənsi/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The rate at which something occurs.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I've increased the frequency of my gym sessions to four times a week.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> What is the recommended frequency for these status check-ins?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">distribution</span>
+        <span class="phonetic">/ˌdɪstrɪˈbjuːʃən/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The way something is shared or spread; the process of delivery.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The uneven distribution of tasks caused some frustration in the team.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The distribution channel strategy must be finalized before the launch.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">variance</span>
+        <span class="phonetic">/ˈveərɪəns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The degree of difference from a standard; a statistical measure.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The variance in my commute time is huge depending on the traffic.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The budget variance report shows we are 8% over the original forecast.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">index</span>
+        <span class="phonetic">/ˈɪndeks/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A list or indicator showing changes in a standard value.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I found the book's index very useful for locating specific topics.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our customer satisfaction index has reached a record high this quarter.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">growth</span>
+        <span class="phonetic">/ɡroʊθ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The process of increasing in size or importance.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Watching a seedling grow into a plant is surprisingly satisfying.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Month-on-month growth of 8% puts us well ahead of our annual target.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">value</span>
+        <span class="phonetic">/ˈvæljuː/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The monetary worth; the importance or usefulness of something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer buying fewer things of higher value that will last longer.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The value we deliver to clients is our most powerful competitive advantage.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">cost</span>
+        <span class="phonetic">/kɒst/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The amount of money required; the loss or sacrifice made.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The real cost of convenience is often not obvious at first.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to drive down the cost per acquisition to improve our margins.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">benefit</span>
+        <span class="phonetic">/ˈbenɪfɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">An advantage or gain from something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> One benefit of working from home is saving two hours of commuting.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The key benefit of this approach is a 40% reduction in processing time.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">return</span>
+        <span class="phonetic">/rɪˈtɜːrn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A profit from an investment; the act of going back.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The return on this investment has exceeded all expectations.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> What is the expected return on investment for this marketing campaign?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">margin</span>
+        <span class="phonetic">/ˈmɑːrdʒɪn/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The difference between revenue and cost; a spare amount.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I write notes in the margins of every book I read.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our gross margin has improved from 32% to 39% over the last six months.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">share</span>
+        <span class="phonetic">/ʃeər/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">A portion belonging to someone; a unit of ownership.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I always offer to share my dessert when eating out.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Our market share in the premium segment has grown by 3 points.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">weight</span>
+        <span class="phonetic">/weɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The heaviness of an object; importance or influence.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I pack as light as possible when traveling with hand luggage only.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to give more weight to user feedback in our product decisions.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">size</span>
+        <span class="phonetic">/saɪz/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The extent or dimensions of something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The size of this kitchen is perfect for a family of four.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The size of the opportunity justifies the investment we're proposing.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">length</span>
+        <span class="phonetic">/leŋθ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The distance from one end to another; the duration.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The length of the film is three hours — bring snacks!</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The length of the onboarding process needs to be reduced significantly.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">width</span>
+        <span class="phonetic">/wɪdθ/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The measurement from side to side.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I measured the width of the door before ordering the furniture.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Ensure the table width fits within the conference room layout.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">height</span>
+        <span class="phonetic">/haɪt/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The distance from the bottom to the top.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The height of the ceiling makes this room feel incredibly spacious.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The project is now at its height — all teams are working at full capacity.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">speed</span>
+        <span class="phonetic">/spiːd/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The rate at which someone or something moves.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The speed of the internet connection here is impressive.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Delivery speed is the top factor cited by customers in our surveys.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">distance</span>
+        <span class="phonetic">/ˈdɪstəns/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The length of space between two points.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I prefer to live within walking distance of a good café.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are still some distance away from being fully compliant with the new standards.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">capacity</span>
+        <span class="phonetic">/kəˈpæsɪti/</span>
+        <span class="pos-badge">n.</span>
+      </div>
+      <div class="definition">The maximum amount or number; the ability to do something.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The venue has a capacity of 250 guests for a seated dinner.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to assess our team's capacity before committing to new projects.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 14 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 14</button>
+  <a class="print-btn" href="day13.html">← Day 13</a>
+  <a class="print-btn" href="day15.html">Day 15 →</a>
+</div>
+</body>
+</html>

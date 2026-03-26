@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Speaking Improvement Plan — Software Development Client Meetings</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.65}
+@media screen{
+  .top-nav{position:sticky;top:0;z-index:100;background:#1e3a5f;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:9pt}
+  .top-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px;white-space:nowrap}
+  .top-nav a:hover{background:#2e5a8f}
+  .nav-title{font-weight:bold;font-size:11pt;margin-right:8px}
+}
+@media print{.top-nav,.print-btn{display:none} .page-break{page-break-before:always}}
+.container{max-width:1050px;margin:0 auto;padding:24px 22px}
+h1{font-size:22pt;color:#1e3a5f;margin-bottom:6px;font-family:Arial,sans-serif}
+h2{font-size:14pt;color:#1e3a5f;font-family:Arial,sans-serif;margin:28px 0 10px;border-left:4px solid #1e3a5f;padding-left:12px}
+h3{font-size:11.5pt;color:#2d5a9f;font-family:Arial,sans-serif;margin:18px 0 8px}
+h4{font-size:10.5pt;color:#444;font-family:Arial,sans-serif;margin:12px 0 6px}
+.subtitle{color:#555;font-size:10.5pt;margin-bottom:20px;font-style:italic}
+.intro-box{background:#f0f6ff;border:1px solid #b0c8e8;border-radius:6px;padding:16px 20px;margin-bottom:24px}
+.intro-box p{margin-bottom:8px;font-size:10pt}
+.intro-box p:last-child{margin-bottom:0}
+/* Method cards */
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+@media(max-width:700px){.method-grid{grid-template-columns:1fr}}
+.method-card{border:1px solid #c8d8f0;border-radius:8px;padding:14px 16px;background:#fafcff}
+.method-card .m-num{font-size:22pt;font-weight:bold;color:#1e3a5f;font-family:Arial,sans-serif;line-height:1}
+.method-card .m-name{font-size:12pt;font-weight:bold;color:#1e3a5f;font-family:Arial,sans-serif;margin:4px 0}
+.method-card .m-tag{display:inline-block;background:#1e3a5f;color:#fff;font-size:7.5pt;padding:1px 7px;border-radius:3px;font-family:Arial,sans-serif;margin-bottom:6px}
+.method-card .m-why{font-size:9pt;color:#444;line-height:1.5;margin-bottom:8px}
+.method-card .m-how{font-size:9pt;color:#222;line-height:1.6}
+.method-card .m-how li{margin-left:16px;margin-bottom:2px}
+.method-card.highlight{background:#fff8e6;border-color:#e0a820}
+/* 30-day plan */
+.week-block{border:1px solid #d0d8e8;border-radius:8px;margin-bottom:16px;overflow:hidden}
+.week-header{background:#1e3a5f;color:#fff;padding:10px 16px;font-family:Arial,sans-serif;display:flex;align-items:baseline;gap:14px}
+.week-header .wk-num{font-size:14pt;font-weight:bold}
+.week-header .wk-theme{font-size:10pt;opacity:.85;font-style:italic}
+.week-body{padding:12px 16px}
+.day-row{display:grid;grid-template-columns:80px 1fr;gap:8px;margin-bottom:8px;align-items:start}
+.day-label{font-family:Arial,sans-serif;font-size:9pt;font-weight:bold;color:#1e3a5f;padding-top:1px}
+.day-tasks{font-size:9pt;color:#333;line-height:1.55}
+.day-tasks .task{margin-bottom:2px}
+.day-tasks .task::before{content:"▸ ";color:#3a6ea5}
+.week-tip{background:#fffbe6;border-left:3px solid #e0a820;padding:8px 12px;margin-top:8px;font-size:9pt;color:#555;border-radius:0 4px 4px 0}
+/* Daily schedule */
+.schedule-table{width:100%;border-collapse:collapse;font-size:9.5pt;margin-bottom:20px}
+.schedule-table th{background:#1e3a5f;color:#fff;padding:7px 10px;font-family:Arial,sans-serif;font-size:9pt;text-align:left}
+.schedule-table td{padding:7px 10px;border-bottom:1px solid #e0e8f0;vertical-align:top}
+.schedule-table tr:nth-child(even) td{background:#f5f9ff}
+.time-col{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;white-space:nowrap;width:100px}
+.act-badge{display:inline-block;padding:1px 7px;border-radius:3px;font-size:8pt;font-family:Arial,sans-serif;font-weight:bold;margin-right:4px}
+.badge-shadow{background:#2d7a2d;color:#fff}
+.badge-phrase{background:#3a6ea5;color:#fff}
+.badge-record{background:#a03020;color:#fff}
+.badge-ngsl{background:#5a3a8a;color:#fff}
+.badge-ai{background:#1e7a7a;color:#fff}
+.badge-script{background:#8a6000;color:#fff}
+/* Tools */
+.tools-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:700px){.tools-grid{grid-template-columns:1fr}}
+.tool-card{border:1px solid #d0d8e8;border-radius:6px;padding:11px 13px;background:#fafcff}
+.tool-card .t-name{font-weight:bold;font-family:Arial,sans-serif;font-size:10pt;color:#1e3a5f;margin-bottom:3px}
+.tool-card .t-type{font-size:8pt;color:#888;font-family:Arial,sans-serif;margin-bottom:5px}
+.tool-card .t-desc{font-size:9pt;color:#333;line-height:1.4}
+.tool-card .t-free{color:#2d7a2d;font-size:8pt;font-weight:bold;font-family:Arial,sans-serif}
+/* Progress */
+.progress-section{background:#f5f9ff;border:1px solid #b0c8e8;border-radius:6px;padding:16px 20px}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media(max-width:700px){.check-grid{grid-template-columns:1fr}}
+.check-item{font-size:9pt;color:#333;display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.check-box{width:14px;height:14px;border:1.5px solid #3a6ea5;border-radius:2px;flex-shrink:0;margin-top:1px}
+.print-btn{display:inline-block;background:#1e3a5f;color:#fff;padding:9px 20px;border-radius:5px;text-decoration:none;font-size:9.5pt;margin:4px;cursor:pointer;border:none;font-family:Arial,sans-serif}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">🗣 Speaking Plan</span>
+  <a href="phrase-bank.html">📋 Phrase Bank</a>
+  <a href="shadowing-scripts.html">🎙 Shadowing Scripts</a>
+  <a href="../html-学习页面/index.html">📚 NGSL Vocab</a>
+</nav>
+
+<div class="container">
+  <h1>English Speaking Improvement Plan</h1>
+  <p class="subtitle">Designed for Software Development Professionals · Client Meeting Focus · 30-Day Program</p>
+
+  <div class="intro-box">
+    <p><strong>Your situation:</strong> You work in software development and regularly hold client meetings in English — project updates, requirements discussions, demos, issue triage, and timeline negotiations.</p>
+    <p><strong>Your goal:</strong> Speak English confidently, fluently, and professionally in these high-stakes meetings — not just understand what's being said, but lead conversations and express complex technical ideas clearly.</p>
+    <p><strong>This plan:</strong> 5 proven methods + a 30-day structured program + three sets of ready-to-use materials. Total daily investment: <strong>45–60 minutes</strong>.</p>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print This Plan</button>
+
+  <!-- ═══════════════════════════════ METHODS ═══════════════════════════════ -->
+  <h2>Part 1 — The 5 Core Methods (方法论)</h2>
+
+  <div class="method-grid">
+
+    <div class="method-card highlight">
+      <div class="m-num">01</div>
+      <div class="m-name">Shadowing</div>
+      <div><span class="m-tag">⭐ Most Effective</span></div>
+      <div class="m-why">
+        <strong>What it is:</strong> You listen to native-speaker audio and simultaneously speak along, matching rhythm, stress, and intonation — like a shadow following its owner.<br><br>
+        <strong>Why it works:</strong> Research (Murphey, 2001; Hamada, 2016) shows shadowing builds fluency faster than any other technique because it trains your brain and mouth together. It wires the sounds of English directly into your speech output.
+      </div>
+      <div class="m-how"><strong>How to do it:</strong><ul>
+        <li>Use the 5 dialogue scripts in <em>shadowing-scripts.html</em></li>
+        <li>Step 1: Listen once without speaking</li>
+        <li>Step 2: Listen and whisper along</li>
+        <li>Step 3: Listen and speak at full volume simultaneously</li>
+        <li>Step 4: Speak from memory, then compare</li>
+        <li>10 minutes daily, same script for 3 days</li>
+      </ul></div>
+    </div>
+
+    <div class="method-card">
+      <div class="m-num">02</div>
+      <div class="m-name">Phrase Drilling</div>
+      <div><span class="m-tag">📋 High ROI</span></div>
+      <div class="m-why">
+        <strong>What it is:</strong> Instead of constructing sentences word-by-word, you learn complete, ready-made phrases (chunks) and insert them into conversations.<br><br>
+        <strong>Why it works:</strong> Native speakers don't build sentences from grammar rules — they retrieve pre-packaged phrases (Lewis, 1993). Knowing 200 key meeting phrases eliminates hesitation and frees your mind for content.
+      </div>
+      <div class="m-how"><strong>How to do it:</strong><ul>
+        <li>Open <em>phrase-bank.html</em> — 10 scenarios, 300+ phrases</li>
+        <li>Learn 5 new phrases per day (not memorize — internalize)</li>
+        <li>For each phrase: say it aloud 5× varying stress</li>
+        <li>Write one realistic sentence using the phrase</li>
+        <li>Use it in a real meeting within 48 hours</li>
+      </ul></div>
+    </div>
+
+    <div class="method-card">
+      <div class="m-num">03</div>
+      <div class="m-name">Self-Recording & Review</div>
+      <div><span class="m-tag">🎙 Accelerates Progress</span></div>
+      <div class="m-why">
+        <strong>What it is:</strong> You record yourself speaking for 2–3 minutes on a topic, then listen back critically and identify specific improvement points.<br><br>
+        <strong>Why it works:</strong> Hearing yourself is radically different from speaking. You instantly notice filler words ("um", "uh"), unclear pronunciation, and missing vocabulary that you never notice in real time.
+      </div>
+      <div class="m-how"><strong>How to do it:</strong><ul>
+        <li>Use your phone Voice Memos (free)</li>
+        <li>Topic: explain a recent project status to a client (2 min)</li>
+        <li>Listen back and note: filler words, hesitations, unclear phrases</li>
+        <li>Re-record the same topic, trying to improve one thing</li>
+        <li>Do this 3× per week, keep recordings to track progress</li>
+      </ul></div>
+    </div>
+
+    <div class="method-card">
+      <div class="m-num">04</div>
+      <div class="m-name">AI Role-Play Practice</div>
+      <div><span class="m-tag">🤖 Anytime Practice</span></div>
+      <div class="m-why">
+        <strong>What it is:</strong> Use ChatGPT or Claude to simulate a client meeting. The AI plays the client role; you respond in real time as the project manager or tech lead.<br><br>
+        <strong>Why it works:</strong> You get unlimited speaking practice in a low-stakes environment. The AI gives instant feedback on grammar, vocabulary, and clarity — and it never judges you for mistakes.
+      </div>
+      <div class="m-how"><strong>How to do it:</strong><ul>
+        <li>Prompt: <em>"Play a software client who wants a status update on a delayed project. Be realistic and ask follow-up questions. Correct my grammar after each of my responses."</em></li>
+        <li>Speak your response aloud, then type it (speaking is the practice)</li>
+        <li>Ask: <em>"What's a more natural way to say this?"</em></li>
+        <li>15–20 minutes per session, 3× per week</li>
+      </ul></div>
+    </div>
+
+    <div class="method-card">
+      <div class="m-num">05</div>
+      <div class="m-name">Pre-Meeting Preparation Ritual</div>
+      <div><span class="m-tag">💼 Immediate Impact</span></div>
+      <div class="m-why">
+        <strong>What it is:</strong> Before every real client meeting, spend 10 minutes doing a targeted speaking warm-up using specific phrases and your opening statement.<br><br>
+        <strong>Why it works:</strong> Preparation dramatically reduces anxiety. When you've already said the words aloud, your mouth knows the motor patterns. Confidence increases, filler words decrease.
+      </div>
+      <div class="m-how"><strong>How to do it:</strong><ul>
+        <li>Write your 3-sentence opening statement the night before</li>
+        <li>Say it aloud 5× (in the shower, on the commute)</li>
+        <li>Identify 2–3 technical topics you expect and practice the key phrases</li>
+        <li>Review the relevant section of the phrase bank</li>
+        <li>Record your opening and play it back once</li>
+      </ul></div>
+    </div>
+
+    <div class="method-card">
+      <div class="m-num">＋</div>
+      <div class="m-name">Bonus: Extensive Listening</div>
+      <div><span class="m-tag">🎧 Background Training</span></div>
+      <div class="m-why">
+        <strong>What it is:</strong> Passive exposure to native-speed English speech about software and business topics — during commute, exercise, lunch.<br><br>
+        <strong>Why it works:</strong> Your brain builds mental models of natural English rhythm. Over weeks, you start "thinking in English" and your output speed increases.
+      </div>
+      <div class="m-how"><strong>Recommended sources:</strong><ul>
+        <li><strong>Podcasts:</strong> "Software Engineering Daily", "The Changelog", "Hidden Brain"</li>
+        <li><strong>YouTube:</strong> Google I/O talks, WWDC sessions, TED Talks on tech</li>
+        <li><strong>Meetings:</strong> Watch recorded client meetings on YouTube (many SaaS companies publish these)</li>
+        <li>15–30 min daily during other activities</li>
+      </ul></div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════ 30-DAY PLAN ═══════════════════════════ -->
+  <h2 class="page-break">Part 2 — 30-Day Implementation Plan (30天执行计划)</h2>
+
+  <p style="margin-bottom:16px; font-size:9.5pt; color:#444;">Each day has a clear primary focus. The schedule is designed to build skills in layers — foundation first, then scenario practice, then live application and refinement.</p>
+
+  <!-- Week 1 -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="wk-num">Week 1</span>
+      <span class="wk-theme">Foundation — Building the Toolkit · Days 1–7</span>
+    </div>
+    <div class="week-body">
+      <div class="day-row"><div class="day-label">Day 1</div><div class="day-tasks">
+        <div class="task">Read the full Phrase Bank (phrase-bank.html) — don't memorize, just read for familiarity (20 min)</div>
+        <div class="task">Read and listen to Script #1 (Status Update) in shadowing-scripts.html (15 min)</div>
+        <div class="task">Record yourself: "Describe what you are currently working on" (2 min recording)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 2</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #1</strong> — all 3 steps: whisper → full volume → from memory (10 min)</div>
+        <div class="task">Drill Phrase Bank — Section 1 "Opening & Agenda": say each phrase aloud 3× (10 min)</div>
+        <div class="task">NGSL study: Day 8 or Day 9 (work-related verbs) — reinforce vocabulary base (15 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 3</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #1</strong> again — focus on stress and intonation (10 min)</div>
+        <div class="task">AI Role-Play: "You're opening a client status call. The project is 1 week behind." (15 min)</div>
+        <div class="task">Write down 5 phrases you found hardest to say naturally; practice them 10× each</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 4</div><div class="day-tasks">
+        <div class="task">Read and listen to <strong>Script #2</strong> (Requirements Discussion) — read aloud once (15 min)</div>
+        <div class="task">Drill Phrase Bank — Section 2 "Project Status Updates" (10 min)</div>
+        <div class="task">Pre-meeting ritual practice: write and rehearse your standard meeting opener (10 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 5</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #2</strong> — all 3 steps (10 min)</div>
+        <div class="task">Self-recording: "Explain a recent technical challenge and how you solved it" (3 min recording, listen back, re-record)</div>
+        <div class="task">Drill Phrase Bank — Section 3 "Discussing Requirements" (10 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 6</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #2</strong> again — focus on client's questions, mimic concern/curiosity in tone</div>
+        <div class="task">AI Role-Play: "The client wants to add a major feature. Manage their expectations." (15 min)</div>
+        <div class="task">NGSL + listening: 30 min podcast (Software Engineering Daily or similar)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 7</div><div class="day-tasks">
+        <div class="task"><strong>Weekly review:</strong> Re-record the Day 1 topic — compare to Day 1 recording. Note improvement.</div>
+        <div class="task">Review all phrases drilled so far — test yourself: cover the English, recall from the Chinese situation</div>
+        <div class="task">Rest day option: 20 min extensive listening only (podcast/YouTube)</div>
+      </div></div>
+      <div class="week-tip">💡 <strong>Week 1 Goal:</strong> Be able to open a client meeting confidently and deliver a 2-minute status update without hesitating for more than 2 seconds.</div>
+    </div>
+  </div>
+
+  <!-- Week 2 -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="wk-num">Week 2</span>
+      <span class="wk-theme">Scenarios — Meeting Situations in Depth · Days 8–14</span>
+    </div>
+    <div class="week-body">
+      <div class="day-row"><div class="day-label">Day 8</div><div class="day-tasks">
+        <div class="task">Read and listen to <strong>Script #3</strong> (Demo Presentation) — read aloud section by section (15 min)</div>
+        <div class="task">Drill Phrase Bank — Section 4 "Presenting a Demo" (10 min)</div>
+        <div class="task">Write your own 3-minute demo script for your current or most recent real project</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 9</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #3</strong> — all 3 steps, focus on the presenter's pacing and hand-off phrases (10 min)</div>
+        <div class="task">Read your own demo script aloud and record it — listen back critically (10 min)</div>
+        <div class="task">AI Role-Play: "Present a feature demo. The client asks unexpected questions." (15 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 10</div><div class="day-tasks">
+        <div class="task">Drill Phrase Bank — Section 5 "Handling Questions &amp; Pushback" — this is critical! (15 min)</div>
+        <div class="task"><strong>Shadow Script #3</strong> again — now focus on the client's skeptical questions; mimic the tone</div>
+        <div class="task">Self-recording: "Answer a client who just asked why the deadline changed" (3 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 11</div><div class="day-tasks">
+        <div class="task">Read and listen to <strong>Script #4</strong> (Bug &amp; Issue Discussion) (15 min)</div>
+        <div class="task">Drill Phrase Bank — Section 6 "Discussing Bugs &amp; Issues" (10 min)</div>
+        <div class="task">AI Role-Play: "A critical production bug has occurred. Call the client and explain." (15 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 12</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #4</strong> — all 3 steps, focus on apologetic but confident tone in bug discussion (10 min)</div>
+        <div class="task">Drill Phrase Bank — Section 7 "Timeline &amp; Delivery" (10 min)</div>
+        <div class="task">NGSL study: Days 11–13 (business nouns, tech terms) — relate to your actual work context</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 13</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #4</strong> again — try to do it entirely from memory</div>
+        <div class="task">AI Role-Play: "Negotiate a two-week deadline extension with a client who is resistant." (15 min)</div>
+        <div class="task">Drill Phrase Bank — Section 8 "Risk &amp; Risk Mitigation" (10 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 14</div><div class="day-tasks">
+        <div class="task"><strong>Weekly review:</strong> Pick your weakest area (opening? handling pushback? demos?) — focus shadow session on it</div>
+        <div class="task">Self-recording: simulate a complete 3-minute client meeting — opening + update + handle one question + close</div>
+        <div class="task">Listen to the recording and score yourself on: fluency, phrase use, filler words, confidence</div>
+      </div></div>
+      <div class="week-tip">💡 <strong>Week 2 Goal:</strong> Be able to present a demo, discuss a bug, and propose a timeline change without reaching for Chinese words or pausing awkwardly.</div>
+    </div>
+  </div>
+
+  <!-- Week 3 -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="wk-num">Week 3</span>
+      <span class="wk-theme">Integration — Full Meeting Simulations · Days 15–21</span>
+    </div>
+    <div class="week-body">
+      <div class="day-row"><div class="day-label">Day 15</div><div class="day-tasks">
+        <div class="task">Read and listen to <strong>Script #5</strong> (Timeline Negotiation) — the hardest, most complete scenario (15 min)</div>
+        <div class="task">Drill Phrase Bank — Section 9 "Closing &amp; Next Steps" (10 min)</div>
+        <div class="task">Shadow Script #5 — Step 1 only (listen and whisper along)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 16</div><div class="day-tasks">
+        <div class="task"><strong>Shadow Script #5</strong> — Steps 2 &amp; 3 (full volume and memory) (15 min)</div>
+        <div class="task">Full AI Role-Play simulation (30 min): "You are the tech lead on a delayed project. The client meeting has three agenda items: status update, a demo of partial work, and timeline discussion."</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 17</div><div class="day-tasks">
+        <div class="task">Self-recording: full 5-minute mock meeting — record without stopping, as if real (very important)</div>
+        <div class="task">Listen back with fresh ears — list 3 specific improvements for next session</div>
+        <div class="task">Drill any phrase sections you've neglected</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 18</div><div class="day-tasks">
+        <div class="task">Shadow all 5 scripts consecutively — rapid fire, 2 min each (10 min total warm-up)</div>
+        <div class="task">AI Role-Play: "Respond to a client complaint about slow response times on a support issue." (20 min)</div>
+        <div class="task">Drill Phrase Bank — Section 10 "Technical Explanation" (10 min)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 19</div><div class="day-tasks">
+        <div class="task">Write your own custom meeting script based on a real upcoming client meeting (30 min)</div>
+        <div class="task">Read your custom script aloud 3× — shadow yourself (practice YOUR words, not just the templates)</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 20</div><div class="day-tasks">
+        <div class="task">AI Role-Play with your custom script — let the AI respond as the client (20 min)</div>
+        <div class="task">Identify any gaps in the phrase bank for your specific work — add them to a personal phrase list</div>
+        <div class="task">NGSL review: re-study Days 1–5 words as spaced repetition</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Day 21</div><div class="day-tasks">
+        <div class="task"><strong>Weekly review:</strong> Re-record the Day 14 topic — full 3-minute mock meeting. Compare to Day 14 recording.</div>
+        <div class="task">Apply <strong>Pre-Meeting Ritual</strong> to your next real client meeting this week</div>
+      </div></div>
+      <div class="week-tip">💡 <strong>Week 3 Goal:</strong> Complete a 5-minute mock meeting with no more than 2 "um/uh" per minute and no long pauses. Lead the conversation, don't just react.</div>
+    </div>
+  </div>
+
+  <!-- Week 4 -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="wk-num">Week 4</span>
+      <span class="wk-theme">Refinement — Real Application & Advanced Polish · Days 22–30</span>
+    </div>
+    <div class="week-body">
+      <div class="day-row"><div class="day-label">Days 22–24</div><div class="day-tasks">
+        <div class="task">Apply the <strong>Pre-Meeting Ritual</strong> before every real meeting this week (10 min preparation)</div>
+        <div class="task">After each real meeting, write a 5-minute "debrief": what phrases worked? What did you struggle to say?</div>
+        <div class="task">Shadow any script where you feel least confident (10 min daily)</div>
+        <div class="task">Drill any phrase bank section that came up in real meetings</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Days 25–27</div><div class="day-tasks">
+        <div class="task">Advanced AI Role-Play: complex scenarios (client escalation, scope reduction conversation, pushing back on unrealistic demands)</div>
+        <div class="task">Record and review: full 5-minute meeting simulation, focus on confidence and pace — not just correctness</div>
+        <div class="task">Start building your <strong>Personal Phrase List</strong>: 20 phrases that are specifically useful for YOUR meetings</div>
+      </div></div>
+      <div class="day-row"><div class="day-label">Days 28–30</div><div class="day-tasks">
+        <div class="task"><strong>Final assessment:</strong> Record a complete 7-minute mock client meeting — opening, status, demo snippet, issue discussion, timeline, close</div>
+        <div class="task">Compare to Day 1 recording — measure the improvement concretely</div>
+        <div class="task">Plan your ongoing maintenance routine: 20 min/day shadowing + phrase drilling + weekly recording</div>
+      </div></div>
+      <div class="week-tip">💡 <strong>Week 4 Goal:</strong> Lead a real client meeting in English with genuine confidence. You should feel that English is a tool that serves you — not a barrier that limits you.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ DAILY SCHEDULE ════════════════════════ -->
+  <h2 class="page-break">Part 3 — Daily Practice Schedule (每日时间表)</h2>
+
+  <p style="margin-bottom:12px;font-size:9.5pt;color:#444;">This schedule fits into a normal working day. Total active practice: <strong>45 minutes</strong>. Passive listening adds 15–30 min.</p>
+
+  <table class="schedule-table">
+    <tr><th>Time</th><th>Activity</th><th>Duration</th><th>Notes</th></tr>
+    <tr>
+      <td class="time-col">Morning commute / shower</td>
+      <td><span class="act-badge badge-shadow">SHADOW</span> Play one script audio (use text-to-speech or recorded audio) and shadow along</td>
+      <td>10 min</td>
+      <td>No phone needed — do it from memory after day 3</td>
+    </tr>
+    <tr>
+      <td class="time-col">Before starting work (7:50–8:05 AM)</td>
+      <td><span class="act-badge badge-phrase">PHRASE</span> Open phrase-bank.html — drill today's 5 new phrases aloud. Say each 5×.</td>
+      <td>10 min</td>
+      <td>Focus on the section relevant to your meeting today</td>
+    </tr>
+    <tr>
+      <td class="time-col">10 min before each client meeting</td>
+      <td><span class="act-badge badge-phrase">RITUAL</span> Say your opening aloud 3×. Review the 3 most relevant phrases for today's topic.</td>
+      <td>5–10 min</td>
+      <td>Do this every single time — non-negotiable</td>
+    </tr>
+    <tr>
+      <td class="time-col">Lunch break (2 days / week)</td>
+      <td><span class="act-badge badge-ai">AI ROLE-PLAY</span> ChatGPT/Claude client meeting simulation. Type your spoken responses.</td>
+      <td>15–20 min</td>
+      <td>Mon &amp; Thu recommended</td>
+    </tr>
+    <tr>
+      <td class="time-col">Evening (3 days / week)</td>
+      <td><span class="act-badge badge-record">RECORD</span> Record yourself on a topic. Listen back. Re-record with one specific improvement.</td>
+      <td>10 min</td>
+      <td>Tue, Thu, Sat recommended. Keep all recordings.</td>
+    </tr>
+    <tr>
+      <td class="time-col">Evening (daily)</td>
+      <td><span class="act-badge badge-ngsl">NGSL</span> Study today's NGSL vocabulary page — 50 words, read all examples aloud</td>
+      <td>15 min</td>
+      <td>Read the examples aloud — this is also pronunciation practice</td>
+    </tr>
+    <tr>
+      <td class="time-col">Commute home / gym / walk</td>
+      <td><span class="act-badge badge-ai">LISTEN</span> Podcast or YouTube: tech content in English at normal speed</td>
+      <td>15–30 min</td>
+      <td>Passive — no need to concentrate 100%</td>
+    </tr>
+  </table>
+
+  <!-- ═══════════════════════════════ TOOLS ════════════════════════════════ -->
+  <h2>Part 4 — Recommended Tools (推荐工具)</h2>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="t-name">ChatGPT / Claude</div>
+      <div class="t-type">AI Role-Play Partner</div>
+      <div class="t-desc">Use for unlimited client meeting simulations. Give it a specific scenario and ask it to play a realistic client. Ask for grammar corrections after each response.</div>
+      <div class="t-free">✅ Free tier available</div>
+    </div>
+    <div class="tool-card">
+      <div class="t-name">ELSA Speak</div>
+      <div class="t-type">Pronunciation Coach App</div>
+      <div class="t-desc">Uses AI to analyze your pronunciation and score individual sounds. Excellent for identifying specific sounds you mispronounce (e.g., "th", "v/w", "r/l").</div>
+      <div class="t-free">💰 Freemium — core features free</div>
+    </div>
+    <div class="tool-card">
+      <div class="t-name">Voice Memos (iPhone) / Recorder (Android)</div>
+      <div class="t-type">Self-Recording</div>
+      <div class="t-desc">Already on your phone. Record your practice sessions and real meeting preparations. The act of listening to yourself is powerful and free.</div>
+      <div class="t-free">✅ Free — already installed</div>
+    </div>
+    <div class="tool-card">
+      <div class="t-name">Software Engineering Daily</div>
+      <div class="t-type">Podcast — Extensive Listening</div>
+      <div class="t-desc">Daily 45-min episodes on software engineering topics. Native-speed English. High vocabulary relevance to your work. Available on all podcast apps.</div>
+      <div class="t-free">✅ Free</div>
+    </div>
+    <div class="tool-card">
+      <div class="t-name">YouTube: Google Tech Talks / WWDC</div>
+      <div class="t-type">Video — Shadowing Source</div>
+      <div class="t-desc">Professional tech presentations with subtitles. Watch once normally, then shadow the presenter. Great for learning "presentation English" in a tech context.</div>
+      <div class="t-free">✅ Free</div>
+    </div>
+    <div class="tool-card">
+      <div class="t-name">macOS Text-to-Speech</div>
+      <div class="t-type">Audio for Scripts</div>
+      <div class="t-desc">Select any text → right-click → Speech → Start Speaking. Use to generate audio for the shadowing scripts. Set to "Samantha" voice at 90% speed for shadowing.</div>
+      <div class="t-free">✅ Free — built into macOS</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ PROGRESS ═════════════════════════════ -->
+  <h2>Part 5 — Progress Tracking (进度追踪)</h2>
+
+  <div class="progress-section">
+    <h3 style="margin-bottom:12px; color:#1e3a5f;">30-Day Milestones Checklist</h3>
+    <div class="check-grid">
+      <div class="check-item"><div class="check-box"></div><span>Day 1: First self-recording completed and saved</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 3: Script #1 shadowed at full volume with sync</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 5: Phrase Bank Sections 1–2 drilled</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 7: Week 1 review recording — notice any improvement?</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 9: First AI role-play completed</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 12: All 5 scripts read and shadowed once</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 14: Week 2 full mock meeting recorded</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 15: Pre-meeting ritual applied to real meeting</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 17: 5-minute mock meeting recorded without stopping</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 19: Custom meeting script written for real project</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 21: NGSL Days 1–10 reviewed as spaced repetition</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 22: Pre-meeting ritual used before every meeting this week</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 25: Personal phrase list of 20 custom phrases created</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 28: All phrase bank sections drilled at least twice</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 30: Final 7-minute mock meeting recorded</span></div>
+      <div class="check-item"><div class="check-box"></div><span>Day 30: Compare Day 1 vs Day 30 recordings — celebrate progress!</span></div>
+    </div>
+
+    <h3 style="margin:20px 0 10px; color:#1e3a5f;">Self-Assessment Rubric (after each mock meeting recording)</h3>
+    <table class="schedule-table" style="margin-bottom:0">
+      <tr><th>Dimension</th><th>1 — Needs Work</th><th>3 — Developing</th><th>5 — Confident</th></tr>
+      <tr><td><strong>Fluency</strong></td><td>Many pauses &gt;3 sec</td><td>Occasional pauses</td><td>Smooth, natural pacing</td></tr>
+      <tr><td><strong>Vocabulary</strong></td><td>Reaching for words, code-switching</td><td>Mostly finds words</td><td>Uses precise, professional vocabulary</td></tr>
+      <tr><td><strong>Phrase use</strong></td><td>Constructs every sentence from scratch</td><td>Uses some set phrases</td><td>Natural use of meeting phrases</td></tr>
+      <tr><td><strong>Clarity</strong></td><td>Client would struggle to follow</td><td>Mostly clear</td><td>Crystal clear, structured</td></tr>
+      <tr><td><strong>Confidence</strong></td><td>Apologetic tone, trailing off</td><td>Mostly confident</td><td>Leading, assertive, professional</td></tr>
+    </table>
+  </div>
+
+  <div class="nav-links">
+    <a class="print-btn" href="phrase-bank.html">📋 Open Phrase Bank →</a>
+    <a class="print-btn" href="shadowing-scripts.html">🎙 Open Shadowing Scripts →</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print This Plan</button>
+  </div>
+
+  <p style="margin-top:16px; font-size:8pt; color:#bbb; font-family:Arial,sans-serif; text-align:right;">
+    English Speaking Improvement Plan · Software Development Client Meetings · 30-Day Program
+  </p>
+</div>
+</body>
+</html>

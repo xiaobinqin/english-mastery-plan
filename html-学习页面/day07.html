@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day 7: Common Adverbs — How & How Much — NGSL 20-Day Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><span class="nav-title">📚 NGSL 20-Day Plan</span> <a href="index.html">Home</a> <a href="day01.html">D1</a> <a href="day02.html">D2</a> <a href="day03.html">D3</a> <a href="day04.html">D4</a> <a href="day05.html">D5</a> <a href="day06.html">D6</a> <a href="day07.html" class="active">D7</a> <a href="day08.html">D8</a> <a href="day09.html">D9</a> <a href="day10.html">D10</a> <a href="day11.html">D11</a> <a href="day12.html">D12</a> <a href="day13.html">D13</a> <a href="day14.html">D14</a> <a href="day15.html">D15</a> <a href="day16.html">D16</a> <a href="day17.html">D17</a> <a href="day18.html">D18</a> <a href="day19.html">D19</a> <a href="day20.html">D20</a></nav>
+<div class="day-section">
+  <div class="day-header">
+    <span class="day-number">Day 7</span>
+    <span class="day-theme">Common Adverbs — How & How Much</span>
+    <span class="day-stats">Words 301–349 · 49 words</span>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">also</span>
+        <span class="phonetic">/ˈɔːlsoʊ/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In addition; too; as well.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love hiking and I also enjoy kayaking.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd also like to address the resource allocation issue before we close.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">well</span>
+        <span class="phonetic">/wel/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a good way; to a high standard; thoroughly.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She handles pressure extremely well.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The project is going well — we're on schedule and within budget.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">just</span>
+        <span class="phonetic">/dʒʌst/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">A very short time ago; exactly; only; simply.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I just got back from a wonderful trip to Portugal.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I just wanted to clarify the timeline before the call ends.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">now</span>
+        <span class="phonetic">/naʊ/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At this moment; immediately; given the current situation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I need to leave now or I'll miss my train.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to make a decision now before the window closes.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">still</span>
+        <span class="phonetic">/stɪl/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Continuing until now or a specified time; even.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Are you still enjoying that new podcast I recommended?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are still waiting for the legal team's approval on the contract.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">even</span>
+        <span class="phonetic">/ˈiːvən/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Used to emphasize something surprising.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Even the pickiest eaters loved the meal I prepared.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Even with the additional resources, we may still miss the deadline.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">then</span>
+        <span class="phonetic">/ðen/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At that time; after that; therefore; in that case.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I finished the book, then made a pot of tea.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> If we agree on the scope today, then we can kick off development next Monday.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">actually</span>
+        <span class="phonetic">/ˈæktʃuəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In reality; used to correct or emphasize a fact.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I actually prefer cooking at home to eating out.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Actually, the numbers I showed earlier need a small correction.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">often</span>
+        <span class="phonetic">/ˈɒfən/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Many times; frequently; in many circumstances.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I often visit the library on weekend afternoons.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We often face this type of scope creep on similar projects.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">again</span>
+        <span class="phonetic">/əˈɡen/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">One more time; returning to a previous state.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'd love to visit that restaurant again — the food was incredible.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Could you share that slide again so everyone can see the figures?</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">back</span>
+        <span class="phonetic">/bæk/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Toward or at a previous place or position.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'll be back by 7 PM — please start dinner without me.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Let's take a step back and reassess our overall approach.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">always</span>
+        <span class="phonetic">/ˈɔːlweɪz/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At all times; on every occasion; forever.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She always brings homemade biscuits to the office on Fridays.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We should always document lessons learned at the end of a project.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">already</span>
+        <span class="phonetic">/ɔːlˈredi/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Before the time expected; by this time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I already finished reading that novel — it was incredible.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The client has already signed off on the design. We can proceed.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">really</span>
+        <span class="phonetic">/ˈriːli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Very; truly; used to emphasize a statement.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This coffee is really good — where did you get it?</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I really appreciate everyone making time for this call at short notice.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">very</span>
+        <span class="phonetic">/ˈveri/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">To a great degree; extremely.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The weather is very warm today — perfect for a walk outside.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'm very pleased with the team's performance this quarter.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">quite</span>
+        <span class="phonetic">/kwaɪt/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">To a considerable degree; completely.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The new café in the neighborhood is quite popular already.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'm quite confident we can deliver phase one by the end of next month.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">only</span>
+        <span class="phonetic">/ˈoʊnli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Nothing more than; merely; no one else or nothing else.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I only have ten minutes before my next appointment.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This feature is currently available only to premium subscribers.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">never</span>
+        <span class="phonetic">/ˈnevər/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Not at any time; not in any situation.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I've never been to New Zealand, but I'd love to go.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We should never underestimate the importance of stakeholder communication.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">soon</span>
+        <span class="phonetic">/suːn/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a short time from now; quickly.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Dinner will be ready very soon — just another ten minutes.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'll send over the revised proposal very soon — by end of day today.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">simply</span>
+        <span class="phonetic">/ˈsɪmpli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a plain way; easily; just; absolutely.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Simply add milk, stir, and you're done.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We simply cannot move forward without senior leadership approval.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">finally</span>
+        <span class="phonetic">/ˈfaɪnəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At last; in the end; as the last point.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> After months of searching, I finally found my dream apartment.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Finally, I'd like to thank everyone for their hard work this quarter.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">directly</span>
+        <span class="phonetic">/dɪˈrektli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a straight line; without intermediaries; immediately.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> You can walk directly to the beach from the hotel.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Please send your questions directly to me before the meeting.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">clearly</span>
+        <span class="phonetic">/ˈklɪrli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a clear manner; obviously; without doubt.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Please speak more clearly — the connection isn't great.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Clearly, we need to rethink our approach to customer retention.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">quickly</span>
+        <span class="phonetic">/ˈkwɪkli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At a fast speed; with little delay.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She quickly packed her bag and ran out the door.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to resolve this issue quickly before it affects the client.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">easily</span>
+        <span class="phonetic">/ˈiːzɪli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Without difficulty; very probably.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> This dish can easily be made in under twenty minutes.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We can easily accommodate this change within the current sprint.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">highly</span>
+        <span class="phonetic">/ˈhaɪli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Very much; to a high degree; with great praise.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She came highly recommended by three different colleagues.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I highly recommend we review the contract terms one more time.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">strongly</span>
+        <span class="phonetic">/ˈstrɒŋli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">With great force or feeling; very much.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I strongly disagree with the direction this conversation is taking.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I strongly recommend we bring in an external consultant for this audit.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">largely</span>
+        <span class="phonetic">/ˈlɑːrdʒli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">To a great extent; mostly.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The success of this recipe is largely due to using fresh ingredients.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The delay is largely due to dependency on the third-party API.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">generally</span>
+        <span class="phonetic">/ˈdʒenərəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In most cases; as a whole; usually.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I generally prefer to cycle to work when the weather allows.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Generally speaking, the project is progressing well.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">usually</span>
+        <span class="phonetic">/ˈjuːʒuəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Under normal conditions; most of the time.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I usually wake up at 6:30 without setting an alarm.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We usually review the project status at the Monday morning standup.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">certainly</span>
+        <span class="phonetic">/ˈsɜːrtənli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Without doubt; definitely; used to agree.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'll certainly try that new restaurant you recommended.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> That is certainly a valid concern and worth discussing further.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">particularly</span>
+        <span class="phonetic">/pərˈtɪkjələrli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Especially; more than usual.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm particularly fond of the dim sum at that restaurant.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'm particularly concerned about the risks in the third phase.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">specifically</span>
+        <span class="phonetic">/spɪˈsɪfɪkli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a precise way; for a particular purpose.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I went to that shop specifically to find that book.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'd like to address the budget concern specifically in this section.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">recently</span>
+        <span class="phonetic">/ˈriːsəntli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Not long ago; lately.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I recently started learning watercolor painting — it's so relaxing.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We recently completed a full audit of our procurement processes.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">currently</span>
+        <span class="phonetic">/ˈkɜːrəntli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At the present time; now.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I'm currently reading a fascinating book on behavioral economics.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We are currently evaluating three vendors for this contract.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">previously</span>
+        <span class="phonetic">/ˈpriːvɪəsli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At an earlier time; before the present.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I've previously visited that city and loved it.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> As discussed previously, the go-live date remains the 15th of next month.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">initially</span>
+        <span class="phonetic">/ɪˈnɪʃəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At the beginning; at first.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I was initially nervous about the job interview, but it went well.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The project was initially scoped for three months but has now expanded.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">eventually</span>
+        <span class="phonetic">/ɪˈventʃuəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">At some later time; in the end.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> It was a long hike, but we eventually reached the summit.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> If we keep delaying, we will eventually lose this client entirely.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">approximately</span>
+        <span class="phonetic">/əˈprɒksɪmətli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Close to but not exactly; roughly.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> The journey takes approximately forty minutes by train.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This will require approximately 200 hours of development time.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">significantly</span>
+        <span class="phonetic">/sɪɡˈnɪfɪkəntli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">To a noticeably large degree.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> My energy levels improved significantly after I started exercising.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> User engagement has increased significantly since the last update.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">effectively</span>
+        <span class="phonetic">/ɪˈfektɪvli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a way that produces the desired result.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> You can effectively reduce stress by taking regular breaks.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to communicate this change effectively to all teams.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">successfully</span>
+        <span class="phonetic">/səkˈsesfəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a way that achieves the desired result.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> She successfully completed a full triathlon last weekend.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The team successfully deployed the new feature with zero downtime.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">immediately</span>
+        <span class="phonetic">/ɪˈmiːdɪətli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Without any delay; at once.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> Please call me immediately if anything goes wrong.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to escalate this immediately — the client is waiting.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">completely</span>
+        <span class="phonetic">/kəmˈpliːtli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">Totally; in every way; absolutely.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I completely forgot we had plans for Sunday evening!</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This approach is completely different from what we agreed in the brief.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">especially</span>
+        <span class="phonetic">/ɪˈspeʃəli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">More than usual; in particular.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I love autumn especially for the colors and the crisp air.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> I'm especially concerned about the data security implications here.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">mostly</span>
+        <span class="phonetic">/ˈmoʊstli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">More than half; mainly.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I mostly drink herbal tea in the evenings.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> The feedback has been mostly positive, with a few minor concerns.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">together</span>
+        <span class="phonetic">/təˈɡeðər/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">With each other; in combination.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> We do everything together as a family.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> We need to work together across departments to solve this.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">increasingly</span>
+        <span class="phonetic">/ɪnˈkriːsɪŋli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">More and more; to a greater and greater degree.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I am increasingly interested in learning about sustainable living.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> Customers are increasingly demanding faster and more personalized service.</p>
+      </div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-text">truly</span>
+        <span class="phonetic">/ˈtruːli/</span>
+        <span class="pos-badge">adv.</span>
+      </div>
+      <div class="definition">In a truthful way; genuinely; absolutely.</div>
+      <div class="examples">
+        <p class="ex daily"><span class="ex-label">Daily:</span> I am truly grateful for all the support I received.</p>
+        <p class="ex meeting"><span class="ex-label">Meeting:</span> This has been a truly exceptional quarter for our organization.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; text-align:right;">
+    NGSL 20-Day Vocabulary Plan · Day 7 / 20 · Printed with ❤
+  </p>
+</div>
+<div style="text-align:center; padding: 12px; font-family:Arial,sans-serif;">
+  <button class="print-btn" onclick="window.print()">🖨 Print Day 7</button>
+  <a class="print-btn" href="day06.html">← Day 6</a>
+  <a class="print-btn" href="day08.html">Day 8 →</a>
+</div>
+</body>
+</html>

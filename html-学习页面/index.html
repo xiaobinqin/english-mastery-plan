@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NGSL Top 1000 — 20-Day Vocabulary Study Plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ── Navigation bar (screen only) ── */
+@media screen {
+    .top-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: #1e3a5f; color: #fff;
+        padding: 10px 20px;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        font-family: Arial, sans-serif; font-size: 9pt;
+    }
+    .top-nav .nav-title { font-weight: bold; font-size: 11pt; margin-right: 10px; }
+    .top-nav a {
+        color: #a8d0f7; text-decoration: none;
+        padding: 3px 7px; border-radius: 3px;
+        white-space: nowrap;
+    }
+    .top-nav a:hover { background: #2e5a8f; color: #fff; }
+    .top-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .top-nav { display: none; } }
+
+/* ── Day section ── */
+.day-section {
+    padding: 18px 20px 12px;
+    max-width: 1100px; margin: 0 auto;
+}
+
+/* ── Day header ── */
+.day-header {
+    border-bottom: 3px solid #1e3a5f;
+    margin-bottom: 16px; padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.day-number {
+    font-family: Arial, sans-serif;
+    font-size: 22pt; font-weight: bold;
+    color: #1e3a5f; letter-spacing: -1px;
+}
+.day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 12pt; color: #444;
+    font-style: italic;
+}
+.day-stats {
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt; color: #888;
+    margin-left: auto;
+}
+
+/* ── Word grid (2 columns) ── */
+.word-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+@media (max-width: 700px) {
+    .word-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Word card ── */
+.word-card {
+    border: 1px solid #d0d8e8;
+    border-radius: 5px;
+    padding: 9px 11px;
+    background: #fafcff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.word-card:nth-child(odd) { background: #f7faff; }
+.word-card:nth-child(even) { background: #fff; }
+
+.word-top {
+    display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: 5px;
+    margin-bottom: 4px;
+}
+.word-text {
+    font-family: Arial, sans-serif;
+    font-size: 13pt; font-weight: bold;
+    color: #0d2b52;
+    letter-spacing: 0.3px;
+}
+.phonetic {
+    font-family: Arial, sans-serif;
+    font-size: 9pt; color: #5a7ab0;
+    font-style: italic;
+}
+.pos-badge {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; color: #fff;
+    background: #3a6ea5;
+    padding: 1px 5px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 9.5pt;
+    color: #222;
+    margin-bottom: 5px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.examples { border-top: 1px dashed #ccd8ec; padding-top: 5px; }
+
+.ex {
+    font-size: 9pt;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    color: #333;
+}
+.ex::before {
+    position: absolute; left: 0;
+    font-weight: bold; font-size: 9pt;
+}
+.ex.daily { color: #1a3a1a; }
+.ex.daily::before { content: "①"; color: #2d7a2d; }
+.ex.meeting { color: #1a1a3a; }
+.ex.meeting::before { content: "②"; color: #2d2d9a; }
+
+.ex-label {
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt; font-weight: bold;
+    color: #888; margin-right: 3px;
+}
+
+/* ── Print-specific ── */
+@media print {
+    body { font-size: 9pt; }
+    .day-section { padding: 8mm 10mm; max-width: 100%; }
+    .day-section + .day-section { page-break-before: always; }
+    .word-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+    }
+    .word-card { border: 0.5pt solid #bbb; padding: 6px 8px; }
+    .word-text { font-size: 11pt; }
+    .definition { font-size: 8.5pt; }
+    .ex { font-size: 8pt; }
+    .day-number { font-size: 18pt; }
+    .day-theme { font-size: 11pt; }
+}
+
+/* ── Index page ── */
+.index-page {
+    max-width: 900px; margin: 30px auto; padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.index-title {
+    font-size: 24pt; color: #1e3a5f; text-align: center;
+    margin-bottom: 6px; font-weight: bold;
+}
+.index-subtitle {
+    text-align: center; color: #555; font-size: 11pt;
+    margin-bottom: 30px;
+}
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+@media (max-width: 700px) { .plan-grid { grid-template-columns: repeat(2,1fr); } }
+.plan-card {
+    border: 1px solid #c0d0e8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+}
+.plan-card:hover { background: #ddeeff; }
+.plan-card .pc-day { font-size: 10pt; color: #3a6ea5; font-weight: bold; }
+.plan-card .pc-range { font-size: 9pt; color: #888; margin: 2px 0; }
+.plan-card .pc-theme { font-size: 9pt; color: #333; line-height: 1.3; }
+
+.tips-box {
+    background: #fffbe6;
+    border: 1px solid #e0c840;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 11pt; }
+.tips-box ul { padding-left: 20px; }
+.tips-box li { margin-bottom: 5px; font-size: 9.5pt; color: #444; line-height: 1.5; }
+
+.print-btn {
+    display: inline-block;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 10pt;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn, .btn-row { display: none; } }
+</style>
+</head>
+<body>
+<div class="index-page">
+  <h1 class="index-title">📚 NGSL Top 1000</h1>
+  <p class="index-subtitle">20-Day Vocabulary Study Plan · 50 words/day · English Definition + 2 Example Sentences</p>
+
+  <div class="tips-box">
+    <h3>💡 Study Tips for Maximum Retention</h3>
+    <ul>
+      <li><strong>Active recall:</strong> Cover the definition and try to recall it from the word alone.</li>
+      <li><strong>Spaced repetition:</strong> Review Day 1 again on Day 3, and Day 2 on Day 4, etc.</li>
+      <li><strong>Context matters:</strong> Notice when each word appears in real-life situations.</li>
+      <li><strong>Use it immediately:</strong> Try using 3–5 new words in writing or speech every day.</li>
+      <li><strong>Mark unfamiliar words:</strong> Highlight words you find difficult and revisit them daily.</li>
+    </ul>
+  </div>
+
+  <div class="btn-row" style="text-align:center; margin-bottom:20px;">
+    <button class="print-btn" onclick="window.print()">🖨 Print This Overview</button>
+    <a class="print-btn" href="day01.html">▶ Start Day 1</a>
+  </div>
+
+  <div class="plan-grid">
+    <a class="plan-card" href="day01.html">
+      <div class="pc-day">Day 1</div>
+      <div class="pc-range">Words 1–50</div>
+      <div class="pc-theme">Core Verbs I — Fundamental Action Words</div>
+    </a>
+    <a class="plan-card" href="day02.html">
+      <div class="pc-day">Day 2</div>
+      <div class="pc-range">Words 51–100</div>
+      <div class="pc-theme">Core Verbs II — More Essential Verbs</div>
+    </a>
+    <a class="plan-card" href="day03.html">
+      <div class="pc-day">Day 3</div>
+      <div class="pc-range">Words 101–150</div>
+      <div class="pc-theme">Core Nouns I — People, Time & Place</div>
+    </a>
+    <a class="plan-card" href="day04.html">
+      <div class="pc-day">Day 4</div>
+      <div class="pc-range">Words 151–200</div>
+      <div class="pc-theme">Core Nouns II — Organization & Work</div>
+    </a>
+    <a class="plan-card" href="day05.html">
+      <div class="pc-day">Day 5</div>
+      <div class="pc-range">Words 201–250</div>
+      <div class="pc-theme">Core Adjectives I — Describing the World</div>
+    </a>
+    <a class="plan-card" href="day06.html">
+      <div class="pc-day">Day 6</div>
+      <div class="pc-range">Words 251–300</div>
+      <div class="pc-theme">Core Adjectives II — More Key Descriptors</div>
+    </a>
+    <a class="plan-card" href="day07.html">
+      <div class="pc-day">Day 7</div>
+      <div class="pc-range">Words 301–350</div>
+      <div class="pc-theme">Common Adverbs — How & How Much</div>
+    </a>
+    <a class="plan-card" href="day08.html">
+      <div class="pc-day">Day 8</div>
+      <div class="pc-range">Words 351–400</div>
+      <div class="pc-theme">Business & Work Verbs — Professional Actions</div>
+    </a>
+    <a class="plan-card" href="day09.html">
+      <div class="pc-day">Day 9</div>
+      <div class="pc-range">Words 401–450</div>
+      <div class="pc-theme">Communication Verbs — Talking & Listening</div>
+    </a>
+    <a class="plan-card" href="day10.html">
+      <div class="pc-day">Day 10</div>
+      <div class="pc-range">Words 451–500</div>
+      <div class="pc-theme">Change & Process Verbs — Getting Things Done</div>
+    </a>
+    <a class="plan-card" href="day11.html">
+      <div class="pc-day">Day 11</div>
+      <div class="pc-range">Words 501–550</div>
+      <div class="pc-theme">Business & Market Nouns</div>
+    </a>
+    <a class="plan-card" href="day12.html">
+      <div class="pc-day">Day 12</div>
+      <div class="pc-range">Words 551–600</div>
+      <div class="pc-theme">Technology & Project Nouns</div>
+    </a>
+    <a class="plan-card" href="day13.html">
+      <div class="pc-day">Day 13</div>
+      <div class="pc-range">Words 601–650</div>
+      <div class="pc-theme">Meeting & Project Management Nouns</div>
+    </a>
+    <a class="plan-card" href="day14.html">
+      <div class="pc-day">Day 14</div>
+      <div class="pc-range">Words 651–700</div>
+      <div class="pc-theme">Quantity, Measurement & Data Words</div>
+    </a>
+    <a class="plan-card" href="day15.html">
+      <div class="pc-day">Day 15</div>
+      <div class="pc-range">Words 701–750</div>
+      <div class="pc-theme">Society, Culture & Human Nouns</div>
+    </a>
+    <a class="plan-card" href="day16.html">
+      <div class="pc-day">Day 16</div>
+      <div class="pc-range">Words 751–800</div>
+      <div class="pc-theme">Nature, Science & Environment Nouns</div>
+    </a>
+    <a class="plan-card" href="day17.html">
+      <div class="pc-day">Day 17</div>
+      <div class="pc-range">Words 801–850</div>
+      <div class="pc-theme">Health, Body & Wellbeing Nouns</div>
+    </a>
+    <a class="plan-card" href="day18.html">
+      <div class="pc-day">Day 18</div>
+      <div class="pc-range">Words 851–900</div>
+      <div class="pc-theme">Describing Properties & States</div>
+    </a>
+    <a class="plan-card" href="day19.html">
+      <div class="pc-day">Day 19</div>
+      <div class="pc-range">Words 901–950</div>
+      <div class="pc-theme">Advanced Professional & Action Verbs</div>
+    </a>
+    <a class="plan-card" href="day20.html">
+      <div class="pc-day">Day 20</div>
+      <div class="pc-range">Words 951–1000</div>
+      <div class="pc-theme">Key Abstract & Leadership Nouns</div>
+    </a>
+  </div>
+
+  <p style="text-align:center; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; margin-top:20px;">
+    Based on NGSL (New General Service List) · 1,000 most frequent English words
+  </p>
+</div>
+</body>
+</html>

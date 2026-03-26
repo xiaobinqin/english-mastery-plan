@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>60-Day English Mastery Plan — Daily + Team + Client Communication</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.65}
+@media screen{
+ .top-nav{position:sticky;top:0;z-index:100;background:#0d2040;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:8.5pt}
+ .top-nav a{color:#a8d0f7;text-decoration:none;padding:3px 7px;border-radius:3px;white-space:nowrap}
+ .top-nav a:hover{background:#1e3a5f}
+ .nav-title{font-weight:bold;font-size:10.5pt;margin-right:6px}
+}
+@media print{.top-nav,.print-btn,.no-print{display:none} .phase-block{page-break-inside:avoid}}
+.container{max-width:1060px;margin:0 auto;padding:20px 18px}
+h1{font-size:21pt;color:#0d2040;margin-bottom:4px;font-family:Arial,sans-serif}
+h2{font-size:13pt;color:#fff;font-family:Arial,sans-serif;padding:9px 14px;border-radius:5px 5px 0 0}
+h3{font-size:11pt;color:#1e3a5f;font-family:Arial,sans-serif;margin:14px 0 7px}
+h4{font-size:10pt;color:#333;font-family:Arial,sans-serif;margin:10px 0 5px}
+.subtitle{color:#555;font-size:9.5pt;margin-bottom:16px;font-style:italic}
+.intro-banner{background:linear-gradient(135deg,#0d2040,#1e5f6a);color:#fff;border-radius:8px;padding:18px 22px;margin-bottom:22px}
+.intro-banner h2{background:none;padding:0;font-size:16pt;margin-bottom:6px}
+.intro-banner p{font-size:9.5pt;opacity:.9;line-height:1.6;margin-top:6px}
+.intro-banner .tag{display:inline-block;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:3px;font-size:8pt;font-family:Arial,sans-serif;margin:3px 2px}
+/* Scope comparison */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.compare-card{border-radius:7px;padding:14px 16px}
+.old-card{background:#fef8f0;border:1px solid #e0b870}
+.new-card{background:#f0f8f0;border:1px solid #70b870}
+.compare-card h3{font-size:10.5pt;margin-bottom:8px}
+.compare-card ul{padding-left:16px;font-size:9pt;line-height:1.7}
+.compare-card li.gap{color:#a05000}
+.compare-card li.ok{color:#2d7a2d}
+/* Rhythm */
+.rhythm-box{background:#f5f9ff;border:1px solid #b0c8e8;border-radius:6px;padding:14px 18px;margin-bottom:20px}
+.rhythm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+@media(max-width:700px){.rhythm-grid{grid-template-columns:1fr 1fr}}
+.day-type{border-radius:5px;padding:8px 10px;text-align:center;font-size:8pt;font-family:Arial,sans-serif}
+.dt-vocab{background:#e8f0ff;border:1px solid #a0b8e8}
+.dt-shadow{background:#e8f8e8;border:1px solid #80c080}
+.dt-phrase{background:#fff8e0;border:1px solid #d0b040}
+.dt-record{background:#ffe8e8;border:1px solid #c08080}
+.dt-ai{background:#f0e8ff;border:1px solid #a080c0}
+.day-type .dt-name{font-weight:bold;font-size:9pt;margin-bottom:2px}
+/* Phase blocks */
+.phase-block{border:1px solid #c8d8f0;border-radius:8px;margin-bottom:20px;overflow:hidden}
+.ph1 h2{background:#1e5f3a}
+.ph2 h2{background:#1e3a7a}
+.ph3 h2{background:#5a1e5f}
+.ph4 h2{background:#7a3a10}
+.ph5 h2{background:#1e5f5f}
+.ph6 h2{background:#0d2040}
+.phase-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.ph-week{color:rgba(255,255,255,.7);font-family:Arial,sans-serif;font-size:9pt}
+.ph-skill{color:rgba(255,255,255,.85);font-family:Arial,sans-serif;font-size:9pt;font-style:italic}
+.phase-body{padding:14px 16px}
+/* Week rows */
+.week-row{margin-bottom:14px}
+.week-label{font-family:Arial,sans-serif;font-size:10pt;font-weight:bold;color:#1e3a5f;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.week-tag{font-size:8pt;background:#1e3a5f;color:#fff;padding:1px 7px;border-radius:3px;font-weight:normal}
+.day-schedule{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+@media(max-width:700px){.day-schedule{grid-template-columns:repeat(3,1fr)}}
+.day-cell{border-radius:4px;padding:7px 8px;font-size:7.5pt;font-family:Arial,sans-serif;border:1px solid #d0d8ea;background:#f8fbff}
+.day-cell .dc-day{font-weight:bold;color:#1e3a5f;margin-bottom:3px}
+.day-cell .dc-main{color:#333;line-height:1.4}
+.day-cell .dc-badge{display:inline-block;font-size:7pt;padding:1px 4px;border-radius:2px;margin-top:3px;font-weight:bold}
+.b-vocab{background:#c8d8ff;color:#0a1860}
+.b-shadow{background:#c8e8c8;color:#0a3010}
+.b-phrase{background:#ffe8a0;color:#604000}
+.b-record{background:#ffc8c8;color:#600000}
+.b-ai{background:#e0c8ff;color:#300060}
+.b-email{background:#ffd8a0;color:#602000}
+.b-pronun{background:#d0f0f0;color:#004040}
+.b-review{background:#f0f0f0;color:#404040}
+.day-cell.rest{background:#fafafa;border-color:#e0e0e0}
+.day-cell.rest .dc-day{color:#aaa}
+.phase-tip{background:#fffbe6;border-left:3px solid #e0a820;padding:8px 12px;font-size:9pt;color:#555;border-radius:0 4px 4px 0;margin-top:10px}
+/* Daily routine table */
+.routine-table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:12px 0 20px}
+.routine-table th{background:#0d2040;color:#fff;padding:7px 10px;font-family:Arial,sans-serif;font-size:8.5pt;text-align:left}
+.routine-table td{padding:7px 10px;border-bottom:1px solid #e0e8f0;vertical-align:top;font-size:9pt}
+.routine-table tr:nth-child(even) td{background:#f5f9ff}
+.t-time{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;white-space:nowrap;width:130px}
+.t-act{font-weight:bold;font-family:Arial,sans-serif;color:#333}
+/* Module summary */
+.module-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:700px){.module-grid{grid-template-columns:1fr}}
+.module-card{border:1px solid #c8d8f0;border-radius:6px;padding:12px 14px;background:#fafcff}
+.module-card .mc-icon{font-size:20pt;margin-bottom:4px}
+.module-card .mc-title{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;font-size:10.5pt;margin-bottom:4px}
+.module-card .mc-files{font-size:8.5pt;color:#555;margin-bottom:5px;font-style:italic}
+.module-card .mc-desc{font-size:9pt;color:#333;line-height:1.5}
+.badge-new{display:inline-block;background:#e0f0e0;color:#1a6a1a;font-size:7.5pt;padding:1px 5px;border-radius:3px;font-family:Arial,sans-serif;font-weight:bold;margin-left:5px}
+.badge-exist{display:inline-block;background:#e0e8f8;color:#1a3a8a;font-size:7.5pt;padding:1px 5px;border-radius:3px;font-family:Arial,sans-serif;margin-left:5px}
+/* Milestone */
+.milestone-list{list-style:none;padding:0}
+.milestone-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:8px;font-size:9pt}
+.ms-day{font-family:Arial,sans-serif;font-weight:bold;color:#fff;background:#1e3a5f;padding:2px 8px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.print-btn{display:inline-block;background:#0d2040;color:#fff;padding:8px 18px;border-radius:5px;text-decoration:none;font-size:9pt;cursor:pointer;border:none;font-family:Arial,sans-serif;margin:4px}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">🗓 60-Day Master Plan</span>
+  <a href="phrase-bank.html">📋 Phrase Bank (Client)</a>
+  <a href="phrase-bank-team.html">👥 Phrase Bank (Team)</a>
+  <a href="shadowing-scripts.html">🎙 Scripts</a>
+  <a href="pronunciation-guide.html">🔊 Pronunciation</a>
+  <a href="email-templates.html">✉️ Email Templates</a>
+  <a href="../html-学习页面/index.html">📚 NGSL</a>
+</nav>
+
+<div class="container">
+  <h1>60-Day English Mastery Plan</h1>
+  <p class="subtitle">Upgraded from 30-Day · Full Coverage: Daily · Team · Client · Pronunciation · Email</p>
+
+  <div class="intro-banner">
+    <h2>Your Upgraded Learning System</h2>
+    <p>This plan is redesigned for your real communication needs: <strong>daily conversation</strong>, <strong>internal team meetings</strong> (standup, code review, technical discussion), and <strong>client-facing meetings</strong> — all in a software development context. It integrates vocabulary, speaking, pronunciation, and writing into a single coherent program.</p>
+    <div style="margin-top:10px">
+      <span class="tag">📅 60 Days</span>
+      <span class="tag">⏱ 45 min/day</span>
+      <span class="tag">🎯 3 Communication Contexts</span>
+      <span class="tag">📖 NGSL Top 1,000 Words</span>
+      <span class="tag">🔊 Pronunciation Training</span>
+      <span class="tag">✉️ Email & Chat Templates</span>
+      <span class="tag">🎙 8 Shadowing Scripts</span>
+      <span class="tag">📋 500+ Phrases</span>
+    </div>
+  </div>
+
+  <!-- What changed -->
+  <h3>What Changed from the 30-Day Plan</h3>
+  <div class="compare-grid">
+    <div class="compare-card old-card">
+      <h3 style="color:#7a4000">⚠️ 30-Day Plan — Gaps</h3>
+      <ul>
+        <li class="gap">Only covered formal client meetings</li>
+        <li class="gap">No daily conversation practice</li>
+        <li class="gap">No internal team communication</li>
+        <li class="gap">No pronunciation training content</li>
+        <li class="gap">NGSL and speaking were disconnected</li>
+        <li class="gap">No email / Slack / Teams writing</li>
+        <li class="gap">No self-assessment starting point</li>
+      </ul>
+    </div>
+    <div class="compare-card new-card">
+      <h3 style="color:#1a6a1a">✅ 60-Day Plan — Improvements</h3>
+      <ul>
+        <li class="ok">Phase 1 dedicates 2 full weeks to daily English</li>
+        <li class="ok">Phase 2 adds standup, code review, technical discussion</li>
+        <li class="ok">Client meetings now in Phase 3–4 (built on solid base)</li>
+        <li class="ok">Pronunciation guide with Chinese-speaker specific drills</li>
+        <li class="ok">NGSL words directly fed into same-day speaking practice</li>
+        <li class="ok">Email &amp; Slack templates for all software dev scenarios</li>
+        <li class="ok">Day 0 self-assessment to calibrate priorities</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Core Modules -->
+  <h3>Your Complete Study Material Library</h3>
+  <div class="module-grid">
+    <div class="module-card">
+      <div class="mc-icon">📚</div>
+      <div class="mc-title">NGSL Vocabulary (1,000 words)<span class="badge-exist">existing</span></div>
+      <div class="mc-files">html-学习页面/ → day01–day20.html</div>
+      <div class="mc-desc">20 days × 50 words. Each word: English definition + daily example + meeting example. Study 1 day = 50 words. Use throughout Phase 1–3.</div>
+    </div>
+    <div class="module-card">
+      <div class="mc-icon">📋</div>
+      <div class="mc-title">Client Meeting Phrase Bank<span class="badge-exist">existing</span></div>
+      <div class="mc-files">口语提升计划/phrase-bank.html</div>
+      <div class="mc-desc">320+ phrases across 10 client meeting scenarios. Opening, status updates, demos, bug discussions, timeline negotiation, closing.</div>
+    </div>
+    <div class="module-card">
+      <div class="mc-icon">👥</div>
+      <div class="mc-title">Team Communication Phrase Bank<span class="badge-new">NEW</span></div>
+      <div class="mc-files">口语提升计划/phrase-bank-team.html</div>
+      <div class="mc-desc">200+ phrases for internal team use. Daily standup, code review, sprint planning, technical debates, asking for help, casual team chat, praising colleagues.</div>
+    </div>
+    <div class="module-card">
+      <div class="mc-icon">🎙</div>
+      <div class="mc-title">Shadowing Scripts (8 dialogues)<span class="badge-new">+3 NEW</span></div>
+      <div class="mc-files">口语提升计划/shadowing-scripts.html + phrase-bank-team.html</div>
+      <div class="mc-desc">5 client meeting scripts (existing) + 3 new team communication scripts: daily standup, code review discussion, technical architecture debate.</div>
+    </div>
+    <div class="module-card">
+      <div class="mc-icon">🔊</div>
+      <div class="mc-title">Pronunciation Training Guide<span class="badge-new">NEW</span></div>
+      <div class="mc-files">口语提升计划/pronunciation-guide.html</div>
+      <div class="mc-desc">6 most common errors for Chinese-English speakers. Minimal pair drills, connected speech patterns, stress &amp; intonation exercises — all in software context.</div>
+    </div>
+    <div class="module-card">
+      <div class="mc-icon">✉️</div>
+      <div class="mc-title">Email &amp; Slack Templates<span class="badge-new">NEW</span></div>
+      <div class="mc-files">口语提升计划/email-templates.html</div>
+      <div class="mc-desc">50+ templates for software dev written communication: project updates, bug reports, timeline emails, meeting follow-ups, code review comments, Slack messages.</div>
+    </div>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Print This Plan</button>
+
+  <!-- Revised Daily Routine -->
+  <h3 style="margin-top:20px">Revised Daily Practice Routine (45 min/day)</h3>
+  <table class="routine-table">
+    <tr><th>Time</th><th>Activity</th><th>Duration</th><th>Material</th></tr>
+    <tr>
+      <td class="t-time">Morning (commute/shower)</td>
+      <td><span class="t-act">🔊 Pronunciation warm-up</span> — say today's target sounds 20× each. Or shadow one script section from memory.</td>
+      <td>10 min</td>
+      <td>pronunciation-guide.html (Phase 1–2)<br>shadowing scripts (Phase 3–6)</td>
+    </tr>
+    <tr>
+      <td class="t-time">Before work (8:00–8:15)</td>
+      <td><span class="t-act">📚 NGSL + Speaking link</span> — study 5 NGSL words. For each: say it aloud, then make one sentence relevant to today's work. Write it down.</td>
+      <td>10 min</td>
+      <td>NGSL day files (rotate through 20 days twice over 60 days)</td>
+    </tr>
+    <tr>
+      <td class="t-time">Before each real meeting</td>
+      <td><span class="t-act">📋 Pre-meeting ritual</span> — say opening aloud 3×. Review 3 phrases relevant to today's topic. Write your first key point in one English sentence.</td>
+      <td>5 min</td>
+      <td>Relevant phrase bank section</td>
+    </tr>
+    <tr>
+      <td class="t-time">Lunch (Mon/Thu)</td>
+      <td><span class="t-act">🤖 AI role-play</span> — simulate a meeting or team conversation. Speak aloud, then type. Ask for corrections.</td>
+      <td>15 min</td>
+      <td>AI prompts in script files</td>
+    </tr>
+    <tr>
+      <td class="t-time">Evening (Tue/Thu/Sat)</td>
+      <td><span class="t-act">🎙 Self-recording</span> — pick a topic, record 2–3 min, listen back, note one improvement, re-record.</td>
+      <td>10 min</td>
+      <td>Voice Memos app</td>
+    </tr>
+    <tr>
+      <td class="t-time">After real meetings (same day)</td>
+      <td><span class="t-act">✉️ Written practice</span> — write the follow-up email or Slack summary in English using a template. This reinforces spoken vocabulary.</td>
+      <td>10 min</td>
+      <td>email-templates.html</td>
+    </tr>
+  </table>
+
+  <!-- ═══ PHASES ══════════════════════════════════════════════════════════ -->
+  <h3>The 6 Phases (60 Days)</h3>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block ph1">
+    <div style="padding:10px 16px;background:#1e5f3a;color:#fff">
+      <div class="phase-head">
+        <h2 style="background:none;padding:0;font-size:13pt">Phase 1 — Foundation: Self-Assessment + Daily English</h2>
+        <span class="ph-week">Days 1–10 · Week 1–2</span>
+        <span class="ph-skill">Build the everyday communication base</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <h4>Phase Goal: Be able to hold a casual English conversation comfortably before tackling meeting language.</h4>
+      <div class="week-row">
+        <div class="week-label">Days 1–5 <span class="week-tag">Self-Assessment + Daily Conversation Basics</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 1</div><div class="dc-main">Self-assessment: record 3 min talking about your job. Identify 3 weaknesses.</div><span class="dc-badge b-record">ASSESS</span></div>
+          <div class="day-cell"><div class="dc-day">Day 2</div><div class="dc-main">NGSL Days 1–2 (core verbs). Read every example aloud. Pronunciation: /th/ sound drill.</div><span class="dc-badge b-vocab">VOCAB</span><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 3</div><div class="dc-main">Team Phrase Bank: Section 1 (Greetings &amp; Small Talk). Shadow Script A (Standup).</div><span class="dc-badge b-phrase">PHRASE</span><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 4</div><div class="dc-main">NGSL Days 3–4 (nouns I&amp;II). AI role-play: introduce yourself to a new team member.</div><span class="dc-badge b-vocab">VOCAB</span><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 5</div><div class="dc-main">Record: "Describe your current project to a new colleague." Review pronunciation: word endings.</div><span class="dc-badge b-record">RECORD</span><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 6</div><div class="dc-main">Team Phrase Bank: Section 2 (Expressing Opinions). Shadow Script A again from memory.</div><span class="dc-badge b-phrase">PHRASE</span><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell rest"><div class="dc-day">Day 7</div><div class="dc-main">Rest / 30 min podcast listening only</div></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 8–10 <span class="week-tag">Daily Communication Consolidation</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 8</div><div class="dc-main">NGSL Days 5–6 (adjectives I&amp;II). Pronunciation: /v/ vs /w/, /r/ vs /l/ drill.</div><span class="dc-badge b-vocab">VOCAB</span><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 9</div><div class="dc-main">Team Phrase Bank: Section 3 (Asking for Help &amp; Clarification). Record: ask a colleague for help (2 min).</div><span class="dc-badge b-phrase">PHRASE</span><span class="dc-badge b-record">RECORD</span></div>
+          <div class="day-cell"><div class="dc-day">Day 10</div><div class="dc-main">Phase 1 review: re-record Day 1 topic. Compare. Write self-assessment update.</div><span class="dc-badge b-review">REVIEW</span></div>
+        </div>
+      </div>
+      <div class="phase-tip">🎯 <strong>Phase 1 Exit Goal:</strong> You can introduce yourself, describe your job, ask for help, and hold a casual 2-minute English conversation without code-switching to Chinese.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block ph2">
+    <div style="padding:10px 16px;background:#1e3a7a;color:#fff">
+      <div class="phase-head">
+        <h2 style="background:none;padding:0;font-size:13pt">Phase 2 — Team Communication: Standup, Code Review, Technical Debate</h2>
+        <span class="ph-week">Days 11–22 · Week 2–4</span>
+        <span class="ph-skill">Master the English of internal software team communication</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <h4>Phase Goal: Lead or participate fully in any internal engineering team meeting in English.</h4>
+      <div class="week-row">
+        <div class="week-label">Days 11–14 <span class="week-tag">Daily Standup &amp; Task Communication</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 11</div><div class="dc-main">NGSL Days 7–8 (adverbs + business verbs). Team Phrase Bank: Section 4 (Daily Standup).</div><span class="dc-badge b-vocab">VOCAB</span><span class="dc-badge b-phrase">PHRASE</span></div>
+          <div class="day-cell"><div class="dc-day">Day 12</div><div class="dc-main">Shadow Script A (Daily Standup) all 4 steps. Record your own standup update in English.</div><span class="dc-badge b-shadow">SHADOW</span><span class="dc-badge b-record">RECORD</span></div>
+          <div class="day-cell"><div class="dc-day">Day 13</div><div class="dc-main">AI role-play: run a full standup. You are the team lead facilitating.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 14</div><div class="dc-main">Email template: write a sprint summary email in English using email-templates.html.</div><span class="dc-badge b-email">EMAIL</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 15–18 <span class="week-tag">Code Review &amp; Technical Discussion</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 15</div><div class="dc-main">NGSL Days 9–10 (communication + process verbs). Team Phrase Bank: Section 5 (Code Review).</div><span class="dc-badge b-vocab">VOCAB</span><span class="dc-badge b-phrase">PHRASE</span></div>
+          <div class="day-cell"><div class="dc-day">Day 16</div><div class="dc-main">Shadow Script B (Code Review). Focus: giving constructive feedback professionally.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 17</div><div class="dc-main">AI role-play: review a PR. Give 3 pieces of feedback — 1 positive, 2 improvement suggestions.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 18</div><div class="dc-main">Record: explain a design decision you made recently (why you chose one approach over another).</div><span class="dc-badge b-record">RECORD</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 19–22 <span class="week-tag">Technical Architecture &amp; Sprint Planning</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 19</div><div class="dc-main">Team Phrase Bank: Section 6 (Technical Proposals). NGSL Days 11–12 (business + tech nouns).</div><span class="dc-badge b-phrase">PHRASE</span><span class="dc-badge b-vocab">VOCAB</span></div>
+          <div class="day-cell"><div class="dc-day">Day 20</div><div class="dc-main">Shadow Script C (Architecture Debate). Focus: proposing ideas and responding to counterarguments.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 21</div><div class="dc-main">AI role-play: propose a technical architecture to a skeptical senior colleague.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 22</div><div class="dc-main">Phase 2 review: record a full 3-min mock standup + code review feedback. Compare to Day 12.</div><span class="dc-badge b-review">REVIEW</span></div>
+        </div>
+      </div>
+      <div class="phase-tip">🎯 <strong>Phase 2 Exit Goal:</strong> Participate fully in standup, give clear code review feedback, and propose/defend a technical approach — all in English without hesitation.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block ph3">
+    <div style="padding:10px 16px;background:#5a1e5f;color:#fff">
+      <div class="phase-head">
+        <h2 style="background:none;padding:0;font-size:13pt">Phase 3 — Client Meetings Part I: Foundation Scenarios</h2>
+        <span class="ph-week">Days 23–34 · Week 4–5</span>
+        <span class="ph-skill">Status updates, requirements, demos — the most common client interactions</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <h4>Phase Goal: Confidently lead a client status update call and present a product demo.</h4>
+      <div class="week-row">
+        <div class="week-label">Days 23–26 <span class="week-tag">Opening, Agenda, Status Updates</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 23</div><div class="dc-main">Client Phrase Bank: Section 1 (Opening) + Section 2 (Status). NGSL Days 13–14.</div><span class="dc-badge b-phrase">PHRASE</span><span class="dc-badge b-vocab">VOCAB</span></div>
+          <div class="day-cell"><div class="dc-day">Day 24</div><div class="dc-main">Shadow Script 1 (Weekly Status Update) — all 4 steps.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 25</div><div class="dc-main">AI: run a 10-min status update call. Project is 5 days late. Be transparent.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 26</div><div class="dc-main">Email template: write a project status update email. Then write the Slack version (shorter).</div><span class="dc-badge b-email">EMAIL</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 27–30 <span class="week-tag">Requirements Discussion + Demo</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 27</div><div class="dc-main">Client Phrase Bank: Section 3 (Requirements) + Section 4 (Demo). NGSL Days 15–16.</div><span class="dc-badge b-phrase">PHRASE</span><span class="dc-badge b-vocab">VOCAB</span></div>
+          <div class="day-cell"><div class="dc-day">Day 28</div><div class="dc-main">Shadow Script 2 (Requirements) + Script 3 (Demo) — whisper step only for both.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 29</div><div class="dc-main">AI: demo your current project to a curious but non-technical client. Answer 3 questions.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 30</div><div class="dc-main">Record: 5-min mock client call — opening + status + mini demo. Note improvements.</div><span class="dc-badge b-record">RECORD</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 31–34 <span class="week-tag">Questions, Pushback, Technical Explanations</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 31</div><div class="dc-main">Client Phrase Bank: Section 5 (Pushback) + Section 10 (Technical Explanation). NGSL Day 17.</div><span class="dc-badge b-phrase">PHRASE</span></div>
+          <div class="day-cell"><div class="dc-day">Day 32</div><div class="dc-main">Shadow Script 2 (Requirements Negotiation) full volume. Focus on diplomatic pushback phrases.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 33</div><div class="dc-main">AI: client asks 5 difficult questions about your technical approach. Stay calm and clear.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 34</div><div class="dc-main">Phase 3 review: compare Day 30 recording to Day 14 recording. Celebrate improvement!</div><span class="dc-badge b-review">REVIEW</span></div>
+        </div>
+      </div>
+      <div class="phase-tip">🎯 <strong>Phase 3 Exit Goal:</strong> Open any client meeting confidently, deliver a status update, walk through a demo, and handle questions — all without reaching for Chinese.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase-block ph4">
+    <div style="padding:10px 16px;background:#7a3a10;color:#fff">
+      <div class="phase-head">
+        <h2 style="background:none;padding:0;font-size:13pt">Phase 4 — Client Meetings Part II: Advanced Scenarios</h2>
+        <span class="ph-week">Days 35–44 · Week 6–7</span>
+        <span class="ph-skill">Bug incidents, timeline negotiation, risk communication</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <h4>Phase Goal: Handle the most challenging, high-stakes client conversations with professionalism.</h4>
+      <div class="week-row">
+        <div class="week-label">Days 35–38 <span class="week-tag">Bug Discussion + Incident Response</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 35</div><div class="dc-main">Client Phrase Bank: Section 6 (Bugs) + Section 8 (Risk). NGSL Days 18–19.</div><span class="dc-badge b-phrase">PHRASE</span></div>
+          <div class="day-cell"><div class="dc-day">Day 36</div><div class="dc-main">Shadow Script 4 (Critical Bug). Focus: taking responsibility confidently without panic.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 37</div><div class="dc-main">AI: production outage call. You must explain, apologize, present action plan, handle anger.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 38</div><div class="dc-main">Email: write a post-incident report email in English. Use template, customize with real details.</div><span class="dc-badge b-email">EMAIL</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 39–42 <span class="week-tag">Timeline Negotiation + Closing</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 39</div><div class="dc-main">Client Phrase Bank: Section 7 (Timeline) + Section 9 (Closing). NGSL Day 20 (final batch).</div><span class="dc-badge b-phrase">PHRASE</span><span class="dc-badge b-vocab">VOCAB</span></div>
+          <div class="day-cell"><div class="dc-day">Day 40</div><div class="dc-main">Shadow Script 5 (Timeline Negotiation) — the most complete script. Shadow the PM role in full.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+          <div class="day-cell"><div class="dc-day">Day 41</div><div class="dc-main">AI: request a 2-week extension. Client has a hard external deadline. Find a creative solution.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 42</div><div class="dc-main">Write a timeline extension request email + meeting follow-up summary. Review with templates.</div><span class="dc-badge b-email">EMAIL</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 43–44 <span class="week-tag">Phase 4 Integration</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 43</div><div class="dc-main">Record a 7-min full mock client meeting: opening → status → issue → timeline → close.</div><span class="dc-badge b-record">RECORD</span></div>
+          <div class="day-cell"><div class="dc-day">Day 44</div><div class="dc-main">Phase 4 review: score yourself on the rubric in speaking-plan.html. Set Phase 5 focus areas.</div><span class="dc-badge b-review">REVIEW</span></div>
+        </div>
+      </div>
+      <div class="phase-tip">🎯 <strong>Phase 4 Exit Goal:</strong> Handle a bug incident call, negotiate a deadline change, and close a meeting with clear action items — all with genuine professionalism and no hesitation.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase-block ph5">
+    <div style="padding:10px 16px;background:#1e5f5f;color:#fff">
+      <div class="phase-head">
+        <h2 style="background:none;padding:0;font-size:13pt">Phase 5 — Pronunciation &amp; Advanced Fluency</h2>
+        <span class="ph-week">Days 45–52 · Week 7–8</span>
+        <span class="ph-skill">Polish your sounds, rhythm, and natural-sounding speech</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <h4>Phase Goal: Sound more natural and be understood effortlessly. Reduce the most common pronunciation errors.</h4>
+      <div class="week-row">
+        <div class="week-label">Days 45–48 <span class="week-tag">Segmental Sounds (Individual Sounds)</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 45</div><div class="dc-main">Pronunciation Guide: Unit 1 (/th/ sounds). Minimal pair drills. Shadow Script 1 focusing only on /th/.</div><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 46</div><div class="dc-main">Pronunciation Guide: Unit 2 (/v/ vs /w/, /r/ vs /l/). Record yourself — identify your worst sound.</div><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 47</div><div class="dc-main">Pronunciation Guide: Unit 3 (word-final consonants — dropping endings is a major issue).</div><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 48</div><div class="dc-main">Shadow all 3 client scripts in one session, focusing on clear consonants. Record and compare.</div><span class="dc-badge b-shadow">SHADOW</span><span class="dc-badge b-record">RECORD</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 49–52 <span class="week-tag">Stress, Rhythm &amp; Connected Speech</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 49</div><div class="dc-main">Pronunciation Guide: Unit 4 (word stress — wrong stress = misunderstanding). Tech word stress drill.</div><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 50</div><div class="dc-main">Pronunciation Guide: Unit 5 (sentence stress — which words to emphasize in a meeting).</div><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 51</div><div class="dc-main">Pronunciation Guide: Unit 6 (connected speech — how words link together in natural speech).</div><span class="dc-badge b-pronun">PRONUN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 52</div><div class="dc-main">Shadow Script 5 (Timeline Negotiation) with 100% focus on natural rhythm and connected speech.</div><span class="dc-badge b-shadow">SHADOW</span></div>
+        </div>
+      </div>
+      <div class="phase-tip">🎯 <strong>Phase 5 Exit Goal:</strong> A native English speaker can follow you easily and without asking for repetition. Your stress and rhythm feel natural, not word-by-word robotic.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase-block ph6">
+    <div style="padding:10px 16px;background:#0d2040;color:#fff">
+      <div class="phase-head">
+        <h2 style="background:none;padding:0;font-size:13pt">Phase 6 — Real Application, Integration &amp; Maintenance System</h2>
+        <span class="ph-week">Days 53–60 · Week 8–9</span>
+        <span class="ph-skill">Apply everything in real situations. Build a system for life-long improvement.</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <h4>Phase Goal: English becomes a tool you use naturally, not a skill you have to actively manage.</h4>
+      <div class="week-row">
+        <div class="week-label">Days 53–56 <span class="week-tag">Real-World Application Sprint</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 53</div><div class="dc-main">Apply pre-meeting ritual to every meeting this week. Debrief in writing after each one.</div><span class="dc-badge b-phrase">RITUAL</span></div>
+          <div class="day-cell"><div class="dc-day">Day 54</div><div class="dc-main">Advanced AI role-play: combine team communication + client escalation in one scenario.</div><span class="dc-badge b-ai">AI</span></div>
+          <div class="day-cell"><div class="dc-day">Day 55</div><div class="dc-main">Build your Personal Phrase List: 30 phrases that are specifically useful for YOUR meetings.</div><span class="dc-badge b-phrase">PERSONAL</span></div>
+          <div class="day-cell"><div class="dc-day">Day 56</div><div class="dc-main">NGSL spaced repetition: re-study Days 1–5 words. Test yourself — cover definitions, recall from word.</div><span class="dc-badge b-vocab">REVIEW</span></div>
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-label">Days 57–60 <span class="week-tag">Final Assessment + Maintenance System</span></div>
+        <div class="day-schedule">
+          <div class="day-cell"><div class="dc-day">Day 57</div><div class="dc-main">Final recording: 10-min complete mock meeting. Use your personal phrase list. No script.</div><span class="dc-badge b-record">FINAL</span></div>
+          <div class="day-cell"><div class="dc-day">Day 58</div><div class="dc-main">Compare Day 1 → Day 30 → Day 57 recordings. Write a 1-page reflection on your progress.</div><span class="dc-badge b-review">REFLECT</span></div>
+          <div class="day-cell"><div class="dc-day">Day 59</div><div class="dc-main">Set up your maintenance routine: what to do each week after Day 60 to keep improving.</div><span class="dc-badge b-review">PLAN</span></div>
+          <div class="day-cell"><div class="dc-day">Day 60</div><div class="dc-main">Celebrate 🎉 Share your Day 60 recording with a trusted colleague for honest feedback.</div><span class="dc-badge b-review">DONE</span></div>
+        </div>
+      </div>
+      <div class="phase-tip">🎯 <strong>Final Goal:</strong> You lead English meetings with confidence. Team members and clients understand you clearly and completely. You write professional English emails without translating from Chinese. English is a strength, not a limitation.</div>
+    </div>
+  </div>
+
+  <!-- After Day 60 -->
+  <h3>After Day 60 — Maintenance Routine (20 min/day forever)</h3>
+  <table class="routine-table">
+    <tr><th>Frequency</th><th>Activity</th><th>Time</th></tr>
+    <tr><td class="t-time">Daily</td><td>Shadow one script (rotate through all 8) during commute or morning routine</td><td>10 min</td></tr>
+    <tr><td class="t-time">3× per week</td><td>Learn 3–5 new phrases from any section and use them the same day</td><td>5 min</td></tr>
+    <tr><td class="t-time">Weekly</td><td>Record yourself on one topic. Listen. Note one thing to improve next week.</td><td>10 min</td></tr>
+    <tr><td class="t-time">Monthly</td><td>Review your Personal Phrase List. Update it based on real meeting experiences.</td><td>15 min</td></tr>
+    <tr><td class="t-time">Quarterly</td><td>Do a full NGSL review pass (read all 20 days, say all examples aloud)</td><td>5 hours (split over one week)</td></tr>
+  </table>
+
+  <!-- Milestones -->
+  <h3>Key Milestones to Track</h3>
+  <ul class="milestone-list">
+    <li><span class="ms-day">Day 1</span> First self-assessment recording saved. 3 specific weaknesses identified.</li>
+    <li><span class="ms-day">Day 7</span> Can hold a 2-minute casual English conversation without pausing more than 2 seconds.</li>
+    <li><span class="ms-day">Day 14</span> Can give your standup update in English naturally and clearly.</li>
+    <li><span class="ms-day">Day 22</span> Can give code review feedback in English — constructive, specific, professional.</li>
+    <li><span class="ms-day">Day 30</span> Can lead a client status update call in English with zero code-switching.</li>
+    <li><span class="ms-day">Day 40</span> Can negotiate a timeline change with a resistant client — professionally and confidently.</li>
+    <li><span class="ms-day">Day 48</span> /th/, word endings, and key consonants are consistently correct.</li>
+    <li><span class="ms-day">Day 55</span> Have a personal phrase list of 30 phrases tailored to your specific meetings.</li>
+    <li><span class="ms-day">Day 60</span> 10-minute mock meeting recorded with no significant hesitation or code-switching.</li>
+  </ul>
+
+  <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px">
+    <a class="print-btn" href="phrase-bank-team.html">👥 Team Phrase Bank →</a>
+    <a class="print-btn" href="pronunciation-guide.html">🔊 Pronunciation Guide →</a>
+    <a class="print-btn" href="email-templates.html">✉️ Email Templates →</a>
+    <a class="print-btn" href="phrase-bank.html">📋 Client Phrase Bank →</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print This Plan</button>
+  </div>
+
+  <p style="margin-top:14px;font-size:8pt;color:#bbb;font-family:Arial,sans-serif;text-align:right">60-Day English Mastery Plan · Daily + Team + Client Communication · Software Development Focus</p>
+</div>
+</body>
+</html>
