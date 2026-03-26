@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Mastery — 软件开发者英语提升系统</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-dark:#0d2040;
+  --blue-mid:#1e3a7a;
+  --blue-light:#4a8fd0;
+  --accent:#f0a820;
+  --green:#1e5f3a;
+  --teal:#1e5f5f;
+  --purple:#5a1e5f;
+  --brown:#7a3a10;
+  --text:#1a1a1a;
+  --muted:#666;
+  --bg:#fff;
+  --card-bg:#f8fbff;
+  --border:#d0dae8;
+  --radius:8px;
+}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:var(--text);background:#f0f4fb;line-height:1.65}
+
+/* ── Top Bar ─────────────────────────────────────────────────────────── */
+.top-bar{background:var(--blue-dark);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:100;font-family:Arial,sans-serif}
+.top-bar-brand{display:flex;align-items:center;gap:10px}
+.top-bar-brand .logo{font-size:16pt;font-weight:bold;color:#fff;text-decoration:none;letter-spacing:-.5px}
+.top-bar-brand .tagline{font-size:8pt;color:rgba(255,255,255,.6);font-style:italic}
+.top-bar-links{display:flex;gap:6px;flex-wrap:wrap}
+.top-bar-links a{color:#a8d0f7;text-decoration:none;padding:3px 9px;border-radius:3px;font-size:8.5pt;white-space:nowrap}
+.top-bar-links a:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* ── Hero ────────────────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--blue-dark) 0%,#1a3a6a 50%,#1e5f5f 100%);color:#fff;padding:50px 24px 44px;text-align:center}
+.hero h1{font-size:26pt;font-family:Arial,sans-serif;font-weight:bold;margin-bottom:10px;letter-spacing:-.5px}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:11pt;opacity:.85;max-width:680px;margin:0 auto 22px;line-height:1.7}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 12px;border-radius:20px;font-size:8.5pt;font-family:Arial,sans-serif}
+.hero-stats{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.hero-stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:12px 20px;min-width:110px;text-align:center}
+.hero-stat-num{font-size:20pt;font-weight:bold;font-family:Arial,sans-serif;color:var(--accent);line-height:1}
+.hero-stat-label{font-size:8pt;opacity:.8;margin-top:4px;font-family:Arial,sans-serif}
+
+/* ── Container ───────────────────────────────────────────────────────── */
+.container{max-width:1120px;margin:0 auto;padding:32px 18px}
+.section-title{font-size:14pt;font-family:Arial,sans-serif;font-weight:bold;color:var(--blue-dark);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.section-desc{font-size:9.5pt;color:var(--muted);margin-bottom:18px}
+
+/* ── Learning Path ───────────────────────────────────────────────────── */
+.path-container{background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);padding:22px 24px;margin-bottom:32px;overflow:hidden}
+.path-steps{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:4px}
+.path-step{flex:1;min-width:130px;display:flex;flex-direction:column;align-items:center;position:relative;padding:0 8px}
+.path-step:not(:last-child)::after{content:'';position:absolute;right:-12px;top:22px;width:24px;height:2px;background:var(--border);z-index:1}
+.path-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18pt;margin-bottom:8px;flex-shrink:0;border:2px solid transparent}
+.path-num{position:absolute;top:-4px;right:calc(50% - 30px);background:var(--blue-mid);color:#fff;font-size:7.5pt;font-weight:bold;font-family:Arial,sans-serif;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.path-step-title{font-size:8.5pt;font-weight:bold;font-family:Arial,sans-serif;color:var(--blue-dark);text-align:center;margin-bottom:3px}
+.path-step-days{font-size:7.5pt;color:var(--muted);font-family:Arial,sans-serif;text-align:center}
+.path-step a{text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center}
+.path-step a:hover .path-icon{transform:scale(1.1);transition:transform .2s}
+.pi-1{background:#e8f5e8;border-color:#80c080}
+.pi-2{background:#e8eeff;border-color:#80a0e0}
+.pi-3{background:#fff0e8;border-color:#e0a080}
+.pi-4{background:#e8f8ff;border-color:#80c8e8}
+.pi-5{background:#f5e8ff;border-color:#c080e0}
+.pi-6{background:#fff8e0;border-color:#e0c060}
+.pi-7{background:#f0fff0;border-color:#80e080}
+
+/* ── Module Cards Grid ───────────────────────────────────────────────── */
+.modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+@media(max-width:900px){.modules-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.modules-grid{grid-template-columns:1fr}}
+.module-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .15s;display:flex;flex-direction:column}
+.module-card:hover{box-shadow:0 6px 24px rgba(13,32,64,.12);transform:translateY(-2px)}
+.mc-header{padding:16px 18px 12px;display:flex;align-items:flex-start;gap:12px}
+.mc-emoji{font-size:22pt;flex-shrink:0;line-height:1}
+.mc-header-text{flex:1}
+.mc-title{font-size:11pt;font-weight:bold;font-family:Arial,sans-serif;color:var(--blue-dark);margin-bottom:3px;line-height:1.3}
+.mc-meta{font-size:8pt;color:var(--muted);font-family:Arial,sans-serif;display:flex;flex-wrap:wrap;gap:6px}
+.mc-tag{background:#eef2fb;color:#1e3a7a;padding:1px 6px;border-radius:3px;font-size:7.5pt;font-weight:bold;font-family:Arial,sans-serif}
+.mc-tag.new{background:#e0f4e0;color:#1a6a1a}
+.mc-tag.core{background:#fff0d0;color:#6a4000}
+.mc-body{padding:0 18px 14px;flex:1}
+.mc-desc{font-size:9.5pt;color:#444;line-height:1.6;margin-bottom:10px}
+.mc-links{display:flex;flex-direction:column;gap:5px}
+.mc-link{display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:5px;text-decoration:none;font-size:9pt;font-family:Arial,sans-serif;border:1px solid var(--border);color:var(--blue-dark);background:#f8fbff;transition:background .15s}
+.mc-link:hover{background:#dde8f8;border-color:#a0b8d8}
+.mc-link .link-icon{font-size:11pt;flex-shrink:0}
+.mc-link .link-text{flex:1;font-weight:500}
+.mc-link .link-arrow{color:var(--muted);font-size:9pt}
+.mc-footer{border-top:1px solid #eef2f8;padding:8px 18px;background:#f8fbff;font-size:8pt;color:var(--muted);font-family:Arial,sans-serif;display:flex;justify-content:space-between;align-items:center}
+/* Card accent borders */
+.card-ngsl{border-top:3px solid var(--green)}
+.card-plan{border-top:3px solid var(--blue-mid)}
+.card-phrases{border-top:3px solid var(--brown)}
+.card-team{border-top:3px solid var(--teal)}
+.card-scripts{border-top:3px solid #5a5a1e}
+.card-pronun{border-top:3px solid #1e5f5f}
+.card-email{border-top:3px solid #7a3a10}
+.card-sent{border-top:3px solid #3a1e5f}
+.card-speaking{border-top:3px solid #888}
+
+/* ── Quick Start Section ─────────────────────────────────────────────── */
+.quickstart{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:32px}
+.qs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+@media(max-width:700px){.qs-grid{grid-template-columns:1fr}}
+.qs-card{border:1px solid var(--border);border-radius:6px;padding:14px 16px;background:#fafcff}
+.qs-card h4{font-family:Arial,sans-serif;font-size:10pt;color:var(--blue-dark);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.qs-card ol{padding-left:18px;font-size:9pt;color:#444;line-height:1.8}
+.qs-card ol li a{color:var(--blue-light);text-decoration:none}
+.qs-card ol li a:hover{text-decoration:underline}
+
+/* ── Tips Banner ─────────────────────────────────────────────────────── */
+.tips-banner{background:linear-gradient(135deg,#f5f9ff,#e8f0ff);border:1px solid #b0c8e8;border-radius:var(--radius);padding:18px 22px;margin-bottom:32px}
+.tips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+@media(max-width:700px){.tips-grid{grid-template-columns:repeat(2,1fr)}}
+.tip-item{display:flex;gap:10px;align-items:flex-start}
+.tip-num{background:var(--blue-dark);color:#fff;font-family:Arial,sans-serif;font-weight:bold;font-size:9pt;min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.tip-text{font-size:9pt;color:#333;line-height:1.5}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.footer{background:var(--blue-dark);color:rgba(255,255,255,.6);text-align:center;padding:18px;font-size:8.5pt;font-family:Arial,sans-serif}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none}
+
+@media print{.top-bar{display:none}.hero{padding:20px}}
+</style>
+</head>
+<body>
+
+<!-- ── Top Bar ─────────────────────────────────────────────────────── -->
+<div class="top-bar">
+  <div class="top-bar-brand">
+    <a href="index.html" class="logo">📚 English Mastery</a>
+    <span class="tagline">Software Developer · 60-Day System</span>
+  </div>
+  <div class="top-bar-links">
+    <a href="口语提升计划/60day-master-plan.html">🗓 60-Day Plan</a>
+    <a href="html-学习页面/index.html">📖 NGSL Vocab</a>
+    <a href="口语提升计划/sentence-patterns.html">💬 500 Sentences</a>
+    <a href="口语提升计划/phrase-bank.html">📋 Client Phrases</a>
+    <a href="口语提升计划/phrase-bank-team.html">👥 Team Phrases</a>
+    <a href="口语提升计划/pronunciation-guide.html">🔊 Pronunciation</a>
+    <a href="口语提升计划/email-templates.html">✉️ Email</a>
+  </div>
+</div>
+
+<!-- ── Hero ─────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <h1>English Mastery for <span>Software Developers</span></h1>
+  <p class="hero-sub">A complete, self-study English improvement system covering daily conversation, internal team communication, client meetings — and everything in between.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">📅 60-Day Structured Plan</span>
+    <span class="hero-tag">🎯 3 Communication Contexts</span>
+    <span class="hero-tag">📖 NGSL Top 1,000 Words</span>
+    <span class="hero-tag">💬 500 Sentence Patterns</span>
+    <span class="hero-tag">🖨 Fully Printable</span>
+    <span class="hero-tag">🔍 Live Search</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">1,000</div><div class="hero-stat-label">NGSL Vocabulary<br>Words</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">500</div><div class="hero-stat-label">Bilingual Sentence<br>Patterns</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">520+</div><div class="hero-stat-label">Meeting &amp; Team<br>Phrases</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Shadowing<br>Scripts</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-label">Email &amp; Slack<br>Templates</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">60</div><div class="hero-stat-label">Structured<br>Study Days</div></div>
+  </div>
+</div>
+
+<!-- ── Main Content ──────────────────────────────────────────────────── -->
+<div class="container">
+
+  <!-- Learning Path -->
+  <div class="section-title">🗺 Recommended Learning Path　推荐学习路径</div>
+  <p class="section-desc">Follow this 7-step path for the best learning experience. Each step builds on the previous one.</p>
+  <div class="path-container">
+    <div class="path-steps">
+      <div class="path-step">
+        <a href="口语提升计划/60day-master-plan.html">
+          <div style="position:relative">
+            <div class="path-icon pi-1">🗓</div>
+            <div class="path-num">1</div>
+          </div>
+          <div class="path-step-title">Start Here<br>60-Day Plan</div>
+          <div class="path-step-days">Read first</div>
+        </a>
+      </div>
+      <div class="path-step">
+        <a href="html-学习页面/index.html">
+          <div style="position:relative">
+            <div class="path-icon pi-2">📖</div>
+            <div class="path-num">2</div>
+          </div>
+          <div class="path-step-title">NGSL<br>Vocabulary</div>
+          <div class="path-step-days">Day 1–20</div>
+        </a>
+      </div>
+      <div class="path-step">
+        <a href="口语提升计划/sentence-patterns.html">
+          <div style="position:relative">
+            <div class="path-icon pi-3">💬</div>
+            <div class="path-num">3</div>
+          </div>
+          <div class="path-step-title">Sentence<br>Patterns</div>
+          <div class="path-step-days">Day 1–30</div>
+        </a>
+      </div>
+      <div class="path-step">
+        <a href="口语提升计划/phrase-bank-team.html">
+          <div style="position:relative">
+            <div class="path-icon pi-4">👥</div>
+            <div class="path-num">4</div>
+          </div>
+          <div class="path-step-title">Team<br>Communication</div>
+          <div class="path-step-days">Day 11–22</div>
+        </a>
+      </div>
+      <div class="path-step">
+        <a href="口语提升计划/phrase-bank.html">
+          <div style="position:relative">
+            <div class="path-icon pi-3">📋</div>
+            <div class="path-num">5</div>
+          </div>
+          <div class="path-step-title">Client<br>Meeting Phrases</div>
+          <div class="path-step-days">Day 23–44</div>
+        </a>
+      </div>
+      <div class="path-step">
+        <a href="口语提升计划/pronunciation-guide.html">
+          <div style="position:relative">
+            <div class="path-icon pi-5">🔊</div>
+            <div class="path-num">6</div>
+          </div>
+          <div class="path-step-title">Pronunciation<br>Training</div>
+          <div class="path-step-days">Day 45–52</div>
+        </a>
+      </div>
+      <div class="path-step">
+        <a href="口语提升计划/email-templates.html">
+          <div style="position:relative">
+            <div class="path-icon pi-6">✉️</div>
+            <div class="path-num">7</div>
+          </div>
+          <div class="path-step-title">Email &amp;<br>Slack Writing</div>
+          <div class="path-step-days">Throughout</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module Cards -->
+  <div class="section-title">📦 All Study Materials　全部学习模块</div>
+  <p class="section-desc">Click any card to open the module. All pages are printable and work offline.</p>
+  <div class="modules-grid">
+
+    <!-- 60-Day Plan -->
+    <div class="module-card card-plan">
+      <div class="mc-header">
+        <div class="mc-emoji">🗓</div>
+        <div class="mc-header-text">
+          <div class="mc-title">60-Day Master Plan</div>
+          <div class="mc-meta"><span class="mc-tag core">⭐ Start Here</span><span class="mc-tag">45 min/day</span><span class="mc-tag">6 Phases</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">Your complete 60-day roadmap. Daily routines, weekly goals, phase-by-phase breakdown, and milestones. The hub that connects all other modules.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/60day-master-plan.html"><span class="link-icon">🗓</span><span class="link-text">Open 60-Day Plan</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>Phase 1→6 · Days 1–60</span><span>📄 1 file</span></div>
+    </div>
+
+    <!-- NGSL Vocabulary -->
+    <div class="module-card card-ngsl">
+      <div class="mc-header">
+        <div class="mc-emoji">📖</div>
+        <div class="mc-header-text">
+          <div class="mc-title">NGSL Vocabulary Plan</div>
+          <div class="mc-meta"><span class="mc-tag core">Core</span><span class="mc-tag">1,000 words</span><span class="mc-tag">20 days</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">NGSL Top 1,000 words. 50 words/day × 20 days. Each word: phonetics + definition + daily example + meeting example. Print-optimized dual-column layout.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="html-学习页面/index.html"><span class="link-icon">📋</span><span class="link-text">Overview &amp; All 20 Days</span><span class="link-arrow">→</span></a>
+          <a class="mc-link" href="html-学习页面/day01.html"><span class="link-icon">▶</span><span class="link-text">Start with Day 1</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>Day 1–20 · 50 words/day</span><span>📄 21 files</span></div>
+    </div>
+
+    <!-- Sentence Patterns -->
+    <div class="module-card card-sent">
+      <div class="mc-header">
+        <div class="mc-emoji">💬</div>
+        <div class="mc-header-text">
+          <div class="mc-title">500 Sentence Patterns</div>
+          <div class="mc-meta"><span class="mc-tag new">New</span><span class="mc-tag">500 sentences</span><span class="mc-tag">Bilingual</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">500 bilingual sentence patterns across 10 scenarios. English + Chinese. 3 difficulty levels. Live search. Covers greetings → negotiation → technical discussions.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/sentence-patterns.html"><span class="link-icon">💬</span><span class="link-text">Open 500 Sentences</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>10 scenarios · ★ ★★ ★★★</span><span>📄 1 file</span></div>
+    </div>
+
+    <!-- Team Phrases -->
+    <div class="module-card card-team">
+      <div class="mc-header">
+        <div class="mc-emoji">👥</div>
+        <div class="mc-header-text">
+          <div class="mc-title">Team Communication</div>
+          <div class="mc-meta"><span class="mc-tag new">New</span><span class="mc-tag">200+ phrases</span><span class="mc-tag">3 scripts</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">Internal team English. 7 scenarios: standup, code review, technical debate, asking for help, giving feedback. 3 shadowing scripts with AI prompts.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/phrase-bank-team.html"><span class="link-icon">👥</span><span class="link-text">Team Phrase Bank</span><span class="link-arrow">→</span></a>
+          <a class="mc-link" href="口语提升计划/phrase-bank-team.html#scripts"><span class="link-icon">🎙</span><span class="link-text">Shadowing Scripts (A/B/C)</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>Day 11–22 · Phase 2</span><span>📄 1 file</span></div>
+    </div>
+
+    <!-- Client Phrases -->
+    <div class="module-card card-phrases">
+      <div class="mc-header">
+        <div class="mc-emoji">📋</div>
+        <div class="mc-header-text">
+          <div class="mc-title">Client Meeting Phrases</div>
+          <div class="mc-meta"><span class="mc-tag">320+ phrases</span><span class="mc-tag">10 scenarios</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">10 client meeting scenarios: opening, status updates, requirements, demos, pushback, bugs, timelines, closing. Each phrase has Chinese translation + usage example.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/phrase-bank.html"><span class="link-icon">📋</span><span class="link-text">Client Phrase Bank</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>Day 23–44 · Phase 3–4</span><span>📄 1 file</span></div>
+    </div>
+
+    <!-- Shadowing Scripts -->
+    <div class="module-card card-scripts">
+      <div class="mc-header">
+        <div class="mc-emoji">🎙</div>
+        <div class="mc-header-text">
+          <div class="mc-title">Shadowing Scripts</div>
+          <div class="mc-meta"><span class="mc-tag">5 client scripts</span><span class="mc-tag">AI prompts</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">5 realistic client meeting dialogues: status update, requirements, demo, bug crisis, timeline negotiation. Annotated, with shadowing steps and AI practice prompts.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/shadowing-scripts.html"><span class="link-icon">🎙</span><span class="link-text">Client Meeting Scripts</span><span class="link-arrow">→</span></a>
+          <a class="mc-link" href="口语提升计划/phrase-bank-team.html#scripts"><span class="link-icon">👥</span><span class="link-text">Team Scripts (A/B/C)</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>8 scripts total · All levels</span><span>📄 2 files</span></div>
+    </div>
+
+    <!-- Pronunciation -->
+    <div class="module-card card-pronun">
+      <div class="mc-header">
+        <div class="mc-emoji">🔊</div>
+        <div class="mc-header-text">
+          <div class="mc-title">Pronunciation Guide</div>
+          <div class="mc-meta"><span class="mc-tag new">New</span><span class="mc-tag">6 units</span><span class="mc-tag">CN-speaker</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">6 units targeting Chinese-speaker errors: /th/ sounds, /v/w/r/l/, word endings, word stress, sentence stress, connected speech. All examples in tech context.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/pronunciation-guide.html"><span class="link-icon">🔊</span><span class="link-text">Pronunciation Training</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>Day 45–52 · Phase 5</span><span>📄 1 file</span></div>
+    </div>
+
+    <!-- Email Templates -->
+    <div class="module-card card-email">
+      <div class="mc-header">
+        <div class="mc-emoji">✉️</div>
+        <div class="mc-header-text">
+          <div class="mc-title">Email &amp; Slack Templates</div>
+          <div class="mc-meta"><span class="mc-tag new">New</span><span class="mc-tag">50+ templates</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">50+ fill-in-the-blank templates: status updates, meeting follow-ups, incident reports, timeline changes, requirements, Slack messages, writing tips.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/email-templates.html"><span class="link-icon">✉️</span><span class="link-text">Email &amp; Slack Templates</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>Use throughout all phases</span><span>📄 1 file</span></div>
+    </div>
+
+    <!-- Speaking Plan (Original) -->
+    <div class="module-card card-speaking">
+      <div class="mc-header">
+        <div class="mc-emoji">🗣</div>
+        <div class="mc-header-text">
+          <div class="mc-title">Speaking Methodology</div>
+          <div class="mc-meta"><span class="mc-tag">5 methods</span><span class="mc-tag">Reference</span></div>
+        </div>
+      </div>
+      <div class="mc-body">
+        <div class="mc-desc">The 5 core speaking methods: Shadowing, Phrase Drilling, Self-Recording, AI Role-Play, Pre-Meeting Ritual. Theory + daily schedule + self-assessment rubric.</div>
+        <div class="mc-links">
+          <a class="mc-link" href="口语提升计划/speaking-plan.html"><span class="link-icon">🗣</span><span class="link-text">Speaking Method Guide</span><span class="link-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="mc-footer"><span>Methodology reference</span><span>📄 1 file</span></div>
+    </div>
+
+  </div>
+
+  <!-- Quick Start -->
+  <div class="section-title">⚡ Quick Start Guide　快速上手指南</div>
+  <p class="section-desc">Choose your starting point based on your current situation.</p>
+  <div class="quickstart">
+    <div class="qs-grid">
+      <div class="qs-card">
+        <h4>🆕 I'm just getting started</h4>
+        <ol>
+          <li>Read the <a href="口语提升计划/60day-master-plan.html">60-Day Plan overview</a></li>
+          <li>Record yourself for Day 1 self-assessment</li>
+          <li>Open <a href="html-学习页面/day01.html">NGSL Day 1</a> and read aloud</li>
+          <li>Skim <a href="口语提升计划/sentence-patterns.html">500 Sentences</a> Section 1 &amp; 2</li>
+          <li>Use one new phrase in conversation today</li>
+        </ol>
+      </div>
+      <div class="qs-card">
+        <h4>📅 I have a client meeting soon</h4>
+        <ol>
+          <li>Open <a href="口语提升计划/phrase-bank.html">Client Phrase Bank</a> → your scenario</li>
+          <li>Read opening phrases aloud 3× each</li>
+          <li>Review <a href="口语提升计划/shadowing-scripts.html">Shadowing Script 1</a> (status)</li>
+          <li>Write your 3 key points in English</li>
+          <li>Say your opening line 5× before the call</li>
+        </ol>
+      </div>
+      <div class="qs-card">
+        <h4>👥 I need to improve team English</h4>
+        <ol>
+          <li>Open <a href="口语提升计划/phrase-bank-team.html">Team Phrase Bank</a></li>
+          <li>Study Section 4 (Standup) today</li>
+          <li>Shadow <a href="口语提升计划/phrase-bank-team.html#scripts">Script A</a> (Standup) twice</li>
+          <li>Give tomorrow's standup update in English</li>
+          <li>Review <a href="口语提升计划/phrase-bank-team.html#s5">Code Review phrases</a> this week</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="section-title">💡 Daily Practice Tips　每日练习建议</div>
+  <p class="section-desc">Consistent daily habits — even just 45 minutes — beat occasional marathon sessions every time.</p>
+  <div class="tips-banner">
+    <div class="tips-grid">
+      <div class="tip-item"><span class="tip-num">1</span><p class="tip-text"><strong>Morning (10 min):</strong> Read 5 NGSL words aloud. Make one sentence about today's work for each.</p></div>
+      <div class="tip-item"><span class="tip-num">2</span><p class="tip-text"><strong>Before meetings (5 min):</strong> Say your opening phrase 3×. Review 3 key phrases for the topic.</p></div>
+      <div class="tip-item"><span class="tip-num">3</span><p class="tip-text"><strong>Lunch Mon/Thu (15 min):</strong> AI role-play using prompts in the shadowing scripts.</p></div>
+      <div class="tip-item"><span class="tip-num">4</span><p class="tip-text"><strong>Evening Tue/Thu (10 min):</strong> Record yourself on one topic. Listen. Note one thing to improve.</p></div>
+      <div class="tip-item"><span class="tip-num">5</span><p class="tip-text"><strong>After real meetings (10 min):</strong> Write the follow-up email in English using a template.</p></div>
+      <div class="tip-item"><span class="tip-num">6</span><p class="tip-text"><strong>Use the search:</strong> On the 500 Sentences page, search in Chinese or English to find phrases instantly.</p></div>
+      <div class="tip-item"><span class="tip-num">7</span><p class="tip-text"><strong>Print what you need:</strong> Every page has a Print button. Keep today's materials on your desk.</p></div>
+      <div class="tip-item"><span class="tip-num">8</span><p class="tip-text"><strong>Track milestones:</strong> Use the checklist in the 60-Day Plan to see how far you've come.</p></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <p>📚 English Mastery System · Software Development Professionals · 60-Day Program</p>
+  <p style="margin-top:4px"><a href="https://github.com/xiaobinqin/english-mastery-plan">GitHub: xiaobinqin/english-mastery-plan</a> · Private Repository</p>
+</div>
+
+</body>
+</html>

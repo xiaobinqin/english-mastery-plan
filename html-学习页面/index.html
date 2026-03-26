@@ -222,8 +222,28 @@ body {
 .print-btn:hover { background: #2e5a8f; }
 @media print { .print-btn, .btn-row { display: none; } }
 </style>
+<style>
+@media screen{
+ .site-nav{position:sticky;top:0;z-index:100;background:#1e3a5f;color:#fff;padding:9px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:8.5pt}
+ .site-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px;white-space:nowrap}
+ .site-nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+ .site-nav .nav-home{font-weight:bold;font-size:10pt;margin-right:4px}
+}
+@media print{.site-nav{display:none}}
+</style>
 </head>
 <body>
+<nav class="site-nav">
+  <a class="nav-home" href="../index.html">🏠 Home</a>
+  <a href="index.html" style="background:rgba(255,255,255,.18);color:#fff">📖 NGSL Overview</a>
+  <a href="day01.html">Day 1</a>
+  <a href="day05.html">Day 5</a>
+  <a href="day10.html">Day 10</a>
+  <a href="day15.html">Day 15</a>
+  <a href="day20.html">Day 20</a>
+  <a href="../口语提升计划/60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="../口语提升计划/sentence-patterns.html">💬 500 Sentences</a>
+</nav>
 <div class="index-page">
   <h1 class="index-title">📚 NGSL Top 1000</h1>
   <p class="index-subtitle">20-Day Vocabulary Study Plan · 50 words/day · English Definition + 2 Example Sentences</p>

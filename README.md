@@ -3,6 +3,10 @@
 > **A comprehensive, self-study English improvement system designed for software development professionals.**  
 > Target scenarios: daily conversation, internal team communication (standup, code review, technical discussion), and client-facing meetings.
 
+**🏠 [Home Page — System Entry Point](index.html)** · Start here for easy access to all modules.
+
+![Home Page](docs/screenshots/00_home.png)
+
 ---
 
 ## 🎯 Purpose
