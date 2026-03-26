@@ -126,6 +126,35 @@ Each unit includes: explanation · mouth position guide · minimal pairs drill �
 
 ---
 
+---
+
+## 💬 500 Essential Sentence Patterns
+
+The newest module adds 500 bilingual sentence patterns organized into 10 real-world communication scenarios:
+
+| # | Scenario | Sentences |
+|---|----------|-----------|
+| 1 | Daily Greetings & Small Talk | 50 |
+| 2 | Expressing Opinions & Agreement | 50 |
+| 3 | Questions & Clarification | 50 |
+| 4 | Meeting Management | 50 |
+| 5 | Presenting & Reporting | 50 |
+| 6 | Problem Solving & Decision Making | 50 |
+| 7 | Negotiation & Persuasion | 50 |
+| 8 | Technical Communication | 50 |
+| 9 | Handling Difficult Situations | 50 |
+| 10 | Closing, Follow-up & Relationship Building | 50 |
+
+Features:
+- Each sentence has **English + Chinese translation**
+- **Difficulty levels**: ★ Basic · ★★ Intermediate · ★★★ Advanced
+- **Live search**: type to filter all 500 sentences instantly
+- Print-friendly layout
+
+![500 Sentence Patterns](docs/screenshots/07_sentence_patterns.png)
+
+---
+
 ## 🚀 How to Use This Repository
 
 ### Option 1: Open HTML files directly
@@ -153,13 +182,14 @@ This regenerates all 21 HTML files in `html-学习页面/`.
 | Material | Count | Format |
 |----------|-------|--------|
 | NGSL vocabulary words | 1,000 | HTML (20 files) |
+| Sentence patterns (bilingual) | **500** | HTML |
 | Client meeting phrases | 320+ | HTML |
 | Team communication phrases | 200+ | HTML |
 | Shadowing scripts (client) | 5 dialogues | HTML |
 | Shadowing scripts (team) | 3 dialogues | HTML |
 | Pronunciation drill units | 6 | HTML |
 | Email & Slack templates | 50+ | HTML |
-| Total HTML pages | 29 | — |
+| Total HTML pages | 30 | — |
 
 ---
 

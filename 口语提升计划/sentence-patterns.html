@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>500 Essential Sentence Patterns — Daily & Meeting English</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#fff;line-height:1.65}
+@media screen{
+ .top-nav{position:sticky;top:0;z-index:100;background:#0d2040;color:#fff;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:8.5pt}
+ .top-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px}
+ .top-nav a:hover{background:#1e3a5f;color:#fff}
+ .nav-title{font-weight:bold;font-size:10.5pt;margin-right:8px;white-space:nowrap}
+}
+@media print{
+ .top-nav,.no-print{display:none}
+ .section-block{page-break-inside:avoid}
+ body{font-size:9.5pt}
+}
+.container{max-width:1100px;margin:0 auto;padding:20px 18px}
+h1{font-size:21pt;color:#0d2040;margin-bottom:4px;font-family:Arial,sans-serif}
+.subtitle{color:#555;font-size:9.5pt;margin-bottom:18px;font-style:italic}
+h2{font-size:13pt;font-family:Arial,sans-serif;padding:10px 16px;color:#fff;border-radius:5px 5px 0 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sec-count{font-size:8.5pt;opacity:.8;font-weight:normal}
+h3{font-size:10.5pt;color:#1e3a5f;font-family:Arial,sans-serif;margin:12px 0 6px;padding-left:6px;border-left:3px solid #4a8fd0}
+
+/* Section colors */
+.s1 h2{background:#1e5f3a}   /* Daily Greetings */
+.s2 h2{background:#1e3a7a}   /* Opinions */
+.s3 h2{background:#5a1e5f}   /* Questions */
+.s4 h2{background:#7a3a10}   /* Meeting Management */
+.s5 h2{background:#1e5f5f}   /* Presenting */
+.s6 h2{background:#5f4a1e}   /* Problem Solving */
+.s7 h2{background:#3a5f1e}   /* Negotiation */
+.s8 h2{background:#0d2040}   /* Technical */
+.s9 h2{background:#5f1e3a}   /* Difficult Situations */
+.s10 h2{background:#2a5a6a}  /* Closing */
+
+.section-block{border:1px solid #d0dae8;border-radius:7px;margin-bottom:20px;overflow:hidden}
+.section-body{padding:12px 14px}
+
+/* Sentence grid */
+.sent-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:750px){.sent-grid{grid-template-columns:1fr}}
+.sent-item{padding:8px 12px;border-bottom:1px solid #eef2f8;border-right:1px solid #eef2f8;background:#fff;display:flex;gap:8px;align-items:flex-start}
+.sent-item:nth-child(even){background:#f8fbff;border-right:none}
+.sent-item:nth-last-child(-n+2){border-bottom:none}
+@media(max-width:750px){
+ .sent-item:nth-child(even){background:#f8fbff;border-right:1px solid #eef2f8}
+ .sent-item:nth-last-child(1){border-bottom:none}
+ .sent-item:nth-last-child(2){border-bottom:1px solid #eef2f8}
+}
+.sent-num{font-family:Arial,sans-serif;font-size:8pt;color:#aaa;flex-shrink:0;min-width:26px;padding-top:2px;font-weight:bold}
+.sent-content{flex:1}
+.sent-en{font-size:10pt;color:#0d2040;line-height:1.5;font-weight:500;margin-bottom:3px}
+.sent-cn{font-size:8.5pt;color:#666;font-style:italic;line-height:1.4}
+.diff-badge{display:inline-block;font-size:7pt;padding:1px 5px;border-radius:3px;font-family:Arial,sans-serif;font-weight:bold;margin-left:5px;vertical-align:middle}
+.d1{background:#d4f0d4;color:#1a6a1a}  /* Basic */
+.d2{background:#d4e4f8;color:#0a2870}  /* Intermediate */
+.d3{background:#f0d4f0;color:#4a0a6a}  /* Advanced */
+
+/* Search box */
+.search-box{background:#f0f4fb;border:1px solid #c0d0e8;border-radius:7px;padding:14px 18px;margin-bottom:18px}
+.search-box input{width:100%;padding:9px 14px;border:1px solid #a0b8d8;border-radius:5px;font-size:10.5pt;font-family:Arial,sans-serif;outline:none}
+.search-box input:focus{border-color:#4a8fd0;box-shadow:0 0 0 2px rgba(74,143,208,.2)}
+.search-info{font-size:8.5pt;color:#777;margin-top:6px;font-family:Arial,sans-serif}
+#search-count{font-weight:bold;color:#1e3a7a}
+
+/* Section nav */
+.section-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.section-nav a{display:flex;align-items:center;gap:4px;background:#f0f4fb;border:1px solid #c0d0e8;border-radius:4px;padding:5px 10px;text-decoration:none;color:#1e3a5f;font-size:8.5pt;font-family:Arial,sans-serif}
+.section-nav a:hover{background:#dde8f8}
+.nav-dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex-shrink:0}
+
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
+@media(max-width:700px){.stats-bar{grid-template-columns:repeat(3,1fr)}}
+.stat-card{background:#f5f9ff;border:1px solid #c0d0e8;border-radius:6px;padding:8px 12px;text-align:center}
+.stat-num{font-size:18pt;font-weight:bold;color:#0d2040;font-family:Arial,sans-serif;line-height:1.2}
+.stat-label{font-size:8pt;color:#666;font-family:Arial,sans-serif}
+
+/* Print btn */
+.print-btn{display:inline-block;background:#0d2040;color:#fff;padding:7px 16px;border-radius:5px;text-decoration:none;font-size:9pt;cursor:pointer;border:none;font-family:Arial,sans-serif;margin:3px}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="nav-title">💬 500 Sentence Patterns</span>
+  <a href="60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="phrase-bank-team.html">👥 Team Phrases</a>
+  <a href="phrase-bank.html">📋 Client Phrases</a>
+  <a href="pronunciation-guide.html">🔊 Pronunciation</a>
+  <a href="email-templates.html">✉️ Email</a>
+  <a href="../html-学习页面/index.html">📚 NGSL</a>
+</nav>
+
+<div class="container">
+  <h1>500 Essential Sentence Patterns</h1>
+  <p class="subtitle">Daily Conversation & Meeting English · 10 Scenarios · Bilingual (English + 中文) · Difficulty Levels Marked</p>
+
+  <div class="stats-bar">
+    <div class="stat-card"><div class="stat-num">500</div><div class="stat-label">Total Sentences</div></div>
+    <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">Scenarios</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:#1a6a1a">★</div><div class="stat-label">Basic (入门)</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:#0a2870">★★</div><div class="stat-label">Intermediate (进阶)</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:#4a0a6a">★★★</div><div class="stat-label">Advanced (高阶)</div></div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box no-print">
+    <input type="text" id="search-input" placeholder="🔍  Search sentences in English or Chinese... / 输入英文或中文搜索句型..." oninput="filterSentences()">
+    <div class="search-info">Showing <span id="search-count">500</span> sentences. Click any section link below to jump directly.</div>
+  </div>
+
+  <!-- Section nav -->
+  <div class="section-nav no-print">
+    <a href="#s1"><span class="nav-dot" style="background:#1e5f3a"></span>1. Daily Greetings</a>
+    <a href="#s2"><span class="nav-dot" style="background:#1e3a7a"></span>2. Opinions & Agreement</a>
+    <a href="#s3"><span class="nav-dot" style="background:#5a1e5f"></span>3. Questions & Clarification</a>
+    <a href="#s4"><span class="nav-dot" style="background:#7a3a10"></span>4. Meeting Management</a>
+    <a href="#s5"><span class="nav-dot" style="background:#1e5f5f"></span>5. Presenting & Reporting</a>
+    <a href="#s6"><span class="nav-dot" style="background:#5f4a1e"></span>6. Problem Solving</a>
+    <a href="#s7"><span class="nav-dot" style="background:#3a5f1e"></span>7. Negotiation & Persuasion</a>
+    <a href="#s8"><span class="nav-dot" style="background:#0d2040"></span>8. Technical Communication</a>
+    <a href="#s9"><span class="nav-dot" style="background:#5f1e3a"></span>9. Handling Difficulties</a>
+    <a href="#s10"><span class="nav-dot" style="background:#2a5a6a"></span>10. Closing & Follow-up</a>
+  </div>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨 Print All 500</button>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION 1 — DAILY GREETINGS & SMALL TALK (50 sentences)
+════════════════════════════════════════════════════════════════════ -->
+<div id="s1" class="section-block s1">
+  <h2>1 — Daily Greetings &amp; Small Talk　日常问候与闲聊 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Opening Greetings 打招呼</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">1</span><div class="sent-content"><div class="sent-en">Good morning! How are you today?<span class="diff-badge d1">★</span></div><div class="sent-cn">早上好！你今天怎么样？</div></div></div>
+    <div class="sent-item"><span class="sent-num">2</span><div class="sent-content"><div class="sent-en">Hey, how's it going?<span class="diff-badge d1">★</span></div><div class="sent-cn">嘿，最近怎么样？</div></div></div>
+    <div class="sent-item"><span class="sent-num">3</span><div class="sent-content"><div class="sent-en">Not bad, thanks for asking. And you?<span class="diff-badge d1">★</span></div><div class="sent-cn">还不错，谢谢关心。你呢？</div></div></div>
+    <div class="sent-item"><span class="sent-num">4</span><div class="sent-content"><div class="sent-en">Pretty good! I've been keeping busy.<span class="diff-badge d1">★</span></div><div class="sent-cn">挺好的！一直很忙。</div></div></div>
+    <div class="sent-item"><span class="sent-num">5</span><div class="sent-content"><div class="sent-en">Long time no see — how have you been?<span class="diff-badge d1">★</span></div><div class="sent-cn">好久不见——你最近怎么样？</div></div></div>
+    <div class="sent-item"><span class="sent-num">6</span><div class="sent-content"><div class="sent-en">Welcome back! Hope you had a good break.<span class="diff-badge d1">★</span></div><div class="sent-cn">欢迎回来！希望你休假愉快。</div></div></div>
+    <div class="sent-item"><span class="sent-num">7</span><div class="sent-content"><div class="sent-en">It's great to finally meet you in person!<span class="diff-badge d1">★</span></div><div class="sent-cn">终于见到本人了，太棒了！</div></div></div>
+    <div class="sent-item"><span class="sent-num">8</span><div class="sent-content"><div class="sent-en">I've heard so much about you from the team.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我从团队那里听说了很多关于你的事。</div></div></div>
+  </div>
+  <h3>Small Talk 闲聊话题</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">9</span><div class="sent-content"><div class="sent-en">How was your weekend?<span class="diff-badge d1">★</span></div><div class="sent-cn">你周末过得怎么样？</div></div></div>
+    <div class="sent-item"><span class="sent-num">10</span><div class="sent-content"><div class="sent-en">Did you do anything fun over the holiday?<span class="diff-badge d1">★</span></div><div class="sent-cn">节假日你有做什么有趣的事吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">11</span><div class="sent-content"><div class="sent-en">It was quiet — I mostly stayed home and rested.<span class="diff-badge d1">★</span></div><div class="sent-cn">很安静——我大多数时间待在家里休息。</div></div></div>
+    <div class="sent-item"><span class="sent-num">12</span><div class="sent-content"><div class="sent-en">It's been a really hectic week for everyone.<span class="diff-badge d1">★</span></div><div class="sent-cn">这周对大家来说都很忙碌。</div></div></div>
+    <div class="sent-item"><span class="sent-num">13</span><div class="sent-content"><div class="sent-en">Is it just me, or has this sprint felt especially intense?<span class="diff-badge d2">★★</span></div><div class="sent-cn">是只有我这么感觉，还是这次冲刺特别紧张？</div></div></div>
+    <div class="sent-item"><span class="sent-num">14</span><div class="sent-content"><div class="sent-en">The weather has been really [nice / terrible] lately.<span class="diff-badge d1">★</span></div><div class="sent-cn">最近天气真的很[好/糟糕]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">15</span><div class="sent-content"><div class="sent-en">Are you heading to lunch? I was about to grab something too.<span class="diff-badge d1">★</span></div><div class="sent-cn">你要去吃午饭吗？我也正准备去吃点东西。</div></div></div>
+    <div class="sent-item"><span class="sent-num">16</span><div class="sent-content"><div class="sent-en">I can't believe how fast this month has gone by.<span class="diff-badge d1">★</span></div><div class="sent-cn">真不敢相信这个月过得这么快。</div></div></div>
+  </div>
+  <h3>Asking About Work 关心工作状态</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">17</span><div class="sent-content"><div class="sent-en">How are things going on your end?<span class="diff-badge d1">★</span></div><div class="sent-cn">你那边情况怎么样？</div></div></div>
+    <div class="sent-item"><span class="sent-num">18</span><div class="sent-content"><div class="sent-en">Are you keeping up with everything okay?<span class="diff-badge d1">★</span></div><div class="sent-cn">你能应付得来所有事情吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">19</span><div class="sent-content"><div class="sent-en">How are you settling in?<span class="diff-badge d1">★</span></div><div class="sent-cn">你适应得怎么样？（对新人）</div></div></div>
+    <div class="sent-item"><span class="sent-num">20</span><div class="sent-content"><div class="sent-en">It looks like you've been really heads-down lately.<span class="diff-badge d2">★★</span></div><div class="sent-cn">看起来你最近一直在埋头苦干。</div></div></div>
+    <div class="sent-item"><span class="sent-num">21</span><div class="sent-content"><div class="sent-en">I wanted to check in and see how you're doing.<span class="diff-badge d1">★</span></div><div class="sent-cn">我想来看看你最近怎么样。</div></div></div>
+    <div class="sent-item"><span class="sent-num">22</span><div class="sent-content"><div class="sent-en">Don't hesitate to reach out if you need anything.<span class="diff-badge d1">★</span></div><div class="sent-cn">如果你需要任何帮助，随时联系我。</div></div></div>
+    <div class="sent-item"><span class="sent-num">23</span><div class="sent-content"><div class="sent-en">Let me know if there's anything I can help with.<span class="diff-badge d1">★</span></div><div class="sent-cn">如果有我能帮到你的，请告诉我。</div></div></div>
+    <div class="sent-item"><span class="sent-num">24</span><div class="sent-content"><div class="sent-en">Is this a good time to talk, or are you in the middle of something?<span class="diff-badge d1">★</span></div><div class="sent-cn">现在方便说话吗，还是你在忙着什么事？</div></div></div>
+  </div>
+  <h3>Expressing Feelings 表达状态</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">25</span><div class="sent-content"><div class="sent-en">I'm a bit swamped today, but I should be free tomorrow.<span class="diff-badge d1">★</span></div><div class="sent-cn">我今天有点忙，但明天应该有空。</div></div></div>
+    <div class="sent-item"><span class="sent-num">26</span><div class="sent-content"><div class="sent-en">I'm feeling a bit under the weather today.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我今天感觉有点不舒服。</div></div></div>
+    <div class="sent-item"><span class="sent-num">27</span><div class="sent-content"><div class="sent-en">I'm really looking forward to the long weekend!<span class="diff-badge d1">★</span></div><div class="sent-cn">我真的很期待这个长周末！</div></div></div>
+    <div class="sent-item"><span class="sent-num">28</span><div class="sent-content"><div class="sent-en">It's been one of those weeks — but we're almost there.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是那种糟糕的一周——但我们快撑过去了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">29</span><div class="sent-content"><div class="sent-en">I finally feel like things are starting to click.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我终于感觉事情开始理顺了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">30</span><div class="sent-content"><div class="sent-en">I've been burning the midnight oil this week.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这周我一直工作到深夜。</div></div></div>
+  </div>
+  <h3>Farewells & Transitions 告别与过渡</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">31</span><div class="sent-content"><div class="sent-en">I'd better get back to it — talk later!<span class="diff-badge d1">★</span></div><div class="sent-cn">我得回去继续干了——之后再聊！</div></div></div>
+    <div class="sent-item"><span class="sent-num">32</span><div class="sent-content"><div class="sent-en">Let's catch up properly sometime this week.<span class="diff-badge d1">★</span></div><div class="sent-cn">这周找个时间好好叙叙旧吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">33</span><div class="sent-content"><div class="sent-en">Have a good one! See you around.<span class="diff-badge d1">★</span></div><div class="sent-cn">祝你愉快！再见。</div></div></div>
+    <div class="sent-item"><span class="sent-num">34</span><div class="sent-content"><div class="sent-en">Take care — have a great rest of your day.<span class="diff-badge d1">★</span></div><div class="sent-cn">保重——祝你今天余下的时间愉快。</div></div></div>
+    <div class="sent-item"><span class="sent-num">35</span><div class="sent-content"><div class="sent-en">Enjoy your evening — you've earned it!<span class="diff-badge d1">★</span></div><div class="sent-cn">好好享受你的夜晚——你应得的！</div></div></div>
+    <div class="sent-item"><span class="sent-num">36</span><div class="sent-content"><div class="sent-en">I'll follow up with you on that — have a good one!<span class="diff-badge d1">★</span></div><div class="sent-cn">我会跟你跟进那件事——祝你愉快！</div></div></div>
+    <div class="sent-item"><span class="sent-num">37</span><div class="sent-content"><div class="sent-en">Safe travels! Let us know when you land.<span class="diff-badge d1">★</span></div><div class="sent-cn">一路平安！到了告诉我们一声。</div></div></div>
+    <div class="sent-item"><span class="sent-num">38</span><div class="sent-content"><div class="sent-en">Good luck with the presentation — you've got this!<span class="diff-badge d1">★</span></div><div class="sent-cn">祝你的汇报顺利——你一定可以的！</div></div></div>
+  </div>
+  <h3>Polite Expressions 礼貌用语</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">39</span><div class="sent-content"><div class="sent-en">After you, please.<span class="diff-badge d1">★</span></div><div class="sent-cn">您先请。</div></div></div>
+    <div class="sent-item"><span class="sent-num">40</span><div class="sent-content"><div class="sent-en">Sorry to interrupt — do you have a quick moment?<span class="diff-badge d1">★</span></div><div class="sent-cn">抱歉打断一下——你有一两分钟吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">41</span><div class="sent-content"><div class="sent-en">No worries at all — it happens to everyone.<span class="diff-badge d1">★</span></div><div class="sent-cn">完全没关系——这种事谁都会遇到。</div></div></div>
+    <div class="sent-item"><span class="sent-num">42</span><div class="sent-content"><div class="sent-en">That's perfectly fine — don't worry about it.<span class="diff-badge d1">★</span></div><div class="sent-cn">完全没问题——不用担心。</div></div></div>
+    <div class="sent-item"><span class="sent-num">43</span><div class="sent-content"><div class="sent-en">Thank you so much — that really means a lot.<span class="diff-badge d1">★</span></div><div class="sent-cn">非常感谢——这对我意义重大。</div></div></div>
+    <div class="sent-item"><span class="sent-num">44</span><div class="sent-content"><div class="sent-en">I appreciate you taking the time to help.<span class="diff-badge d1">★</span></div><div class="sent-cn">感谢你抽时间帮忙。</div></div></div>
+    <div class="sent-item"><span class="sent-num">45</span><div class="sent-content"><div class="sent-en">Please feel free to reach out anytime.<span class="diff-badge d1">★</span></div><div class="sent-cn">随时都可以联系我。</div></div></div>
+    <div class="sent-item"><span class="sent-num">46</span><div class="sent-content"><div class="sent-en">My door is always open — don't hesitate.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我随时欢迎你来——不要犹豫。</div></div></div>
+    <div class="sent-item"><span class="sent-num">47</span><div class="sent-content"><div class="sent-en">I'll leave that decision entirely up to you.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我把那个决定完全交给你。</div></div></div>
+    <div class="sent-item"><span class="sent-num">48</span><div class="sent-content"><div class="sent-en">Let's grab coffee and chat about it properly.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们去喝杯咖啡好好聊聊吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">49</span><div class="sent-content"><div class="sent-en">I owe you one — thanks for covering for me.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我欠你一个人情——谢谢你帮我顶上。</div></div></div>
+    <div class="sent-item"><span class="sent-num">50</span><div class="sent-content"><div class="sent-en">You're a lifesaver — seriously, thank you.<span class="diff-badge d1">★</span></div><div class="sent-cn">你真是救星——说真的，谢谢你。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2 — OPINIONS & AGREEMENT (50 sentences) ══════════════ -->
+<div id="s2" class="section-block s2">
+  <h2>2 — Expressing Opinions &amp; Agreement　表达观点与认同 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Stating Your Opinion 表达自己的观点</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">51</span><div class="sent-content"><div class="sent-en">In my opinion, we should prioritize the user experience.<span class="diff-badge d1">★</span></div><div class="sent-cn">我认为，我们应该优先考虑用户体验。</div></div></div>
+    <div class="sent-item"><span class="sent-num">52</span><div class="sent-content"><div class="sent-en">From my perspective, the risk is manageable.<span class="diff-badge d2">★★</span></div><div class="sent-cn">从我的角度来看，风险是可以控制的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">53</span><div class="sent-content"><div class="sent-en">The way I see it, we have two options here.<span class="diff-badge d1">★</span></div><div class="sent-cn">依我来看，我们在这里有两个选择。</div></div></div>
+    <div class="sent-item"><span class="sent-num">54</span><div class="sent-content"><div class="sent-en">I strongly believe that this approach will work.<span class="diff-badge d1">★</span></div><div class="sent-cn">我坚信这个方法会奏效。</div></div></div>
+    <div class="sent-item"><span class="sent-num">55</span><div class="sent-content"><div class="sent-en">My feeling is that we're moving too fast on this.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我的感觉是我们在这件事上推进得太快了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">56</span><div class="sent-content"><div class="sent-en">If you ask me, we should take more time to test this.<span class="diff-badge d1">★</span></div><div class="sent-cn">如果你问我，我们应该花更多时间来测试这个。</div></div></div>
+    <div class="sent-item"><span class="sent-num">57</span><div class="sent-content"><div class="sent-en">I'd argue that the long-term benefits outweigh the short-term costs.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我认为长期利益超过了短期成本。</div></div></div>
+    <div class="sent-item"><span class="sent-num">58</span><div class="sent-content"><div class="sent-en">Personally, I think we need to reconsider this decision.<span class="diff-badge d2">★★</span></div><div class="sent-cn">就我个人而言，我认为我们需要重新考虑这个决定。</div></div></div>
+  </div>
+  <h3>Agreeing 表示同意</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">59</span><div class="sent-content"><div class="sent-en">I completely agree with you on that.<span class="diff-badge d1">★</span></div><div class="sent-cn">我完全同意你说的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">60</span><div class="sent-content"><div class="sent-en">That's exactly what I was thinking.<span class="diff-badge d1">★</span></div><div class="sent-cn">这正是我在想的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">61</span><div class="sent-content"><div class="sent-en">You make a very valid point.<span class="diff-badge d1">★</span></div><div class="sent-cn">你说的很有道理。</div></div></div>
+    <div class="sent-item"><span class="sent-num">62</span><div class="sent-content"><div class="sent-en">I think we're on the same page here.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我认为我们在这件事上意见一致。</div></div></div>
+    <div class="sent-item"><span class="sent-num">63</span><div class="sent-content"><div class="sent-en">That aligns perfectly with what we discussed earlier.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这与我们之前讨论的完全吻合。</div></div></div>
+    <div class="sent-item"><span class="sent-num">64</span><div class="sent-content"><div class="sent-en">Absolutely — that's the right call.<span class="diff-badge d1">★</span></div><div class="sent-cn">绝对没错——那是正确的决定。</div></div></div>
+    <div class="sent-item"><span class="sent-num">65</span><div class="sent-content"><div class="sent-en">I couldn't agree more — let's go with that approach.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我非常同意——就用那个方法吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">66</span><div class="sent-content"><div class="sent-en">You've convinced me — I'm on board.<span class="diff-badge d2">★★</span></div><div class="sent-cn">你说服我了——我支持。</div></div></div>
+  </div>
+  <h3>Partially Agreeing 部分同意</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">67</span><div class="sent-content"><div class="sent-en">I see your point, but I have some reservations.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我理解你的观点，但我有一些保留意见。</div></div></div>
+    <div class="sent-item"><span class="sent-num">68</span><div class="sent-content"><div class="sent-en">That's fair — though I think we also need to consider [X].<span class="diff-badge d2">★★</span></div><div class="sent-cn">这说得有道理——不过我认为我们还需要考虑X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">69</span><div class="sent-content"><div class="sent-en">You're right in principle, but the execution may be tricky.<span class="diff-badge d2">★★</span></div><div class="sent-cn">原则上你是对的，但执行起来可能会比较棘手。</div></div></div>
+    <div class="sent-item"><span class="sent-num">70</span><div class="sent-content"><div class="sent-en">I agree with the direction, but not necessarily the timeline.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我同意方向，但不一定认同时间表。</div></div></div>
+    <div class="sent-item"><span class="sent-num">71</span><div class="sent-content"><div class="sent-en">That's a good point — I just want to flag a potential issue.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是个好观点——我只是想提出一个潜在问题。</div></div></div>
+    <div class="sent-item"><span class="sent-num">72</span><div class="sent-content"><div class="sent-en">To some extent, yes — but it really depends on [X].<span class="diff-badge d2">★★</span></div><div class="sent-cn">在某种程度上，是的——但这真的取决于X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">73</span><div class="sent-content"><div class="sent-en">I'm with you on the bigger picture, but the details need more thought.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">从大局来看我支持你，但细节需要更多思考。</div></div></div>
+    <div class="sent-item"><span class="sent-num">74</span><div class="sent-content"><div class="sent-en">Agreed on the what — I'm not fully sure about the how yet.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">在"做什么"上我同意——在"怎么做"上我还不太确定。</div></div></div>
+  </div>
+  <h3>Disagreeing Diplomatically 礼貌地表示不同意</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">75</span><div class="sent-content"><div class="sent-en">I'm not sure I fully agree with that assessment.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我不确定我完全同意那个评估。</div></div></div>
+    <div class="sent-item"><span class="sent-num">76</span><div class="sent-content"><div class="sent-en">I hear what you're saying, but I see it differently.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我听到你说的了，但我的看法不同。</div></div></div>
+    <div class="sent-item"><span class="sent-num">77</span><div class="sent-content"><div class="sent-en">With respect, I'd push back on that a little.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">恕我冒昧，我对此有些异议。</div></div></div>
+    <div class="sent-item"><span class="sent-num">78</span><div class="sent-content"><div class="sent-en">I'm not fully convinced — can you walk me through your reasoning?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我还没有完全信服——能跟我讲解一下你的推理吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">79</span><div class="sent-content"><div class="sent-en">Have we fully considered the alternative approaches?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们有充分考虑过其他替代方案吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">80</span><div class="sent-content"><div class="sent-en">I'd like to offer a different perspective, if I may.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">如果可以的话，我想提供一个不同的视角。</div></div></div>
+    <div class="sent-item"><span class="sent-num">81</span><div class="sent-content"><div class="sent-en">I think we might be overlooking some important factors here.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我认为我们可能忽视了一些重要因素。</div></div></div>
+    <div class="sent-item"><span class="sent-num">82</span><div class="sent-content"><div class="sent-en">I understand the appeal, but I worry about the downstream effects.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我理解其吸引力，但我担心它的下游影响。</div></div></div>
+    <div class="sent-item"><span class="sent-num">83</span><div class="sent-content"><div class="sent-en">That may work in the short term, but it could cause issues later.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这在短期内可能有效，但以后可能会出现问题。</div></div></div>
+    <div class="sent-item"><span class="sent-num">84</span><div class="sent-content"><div class="sent-en">I'd feel more comfortable if we got a second opinion on this.<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果能就此听取第二意见，我会更放心。</div></div></div>
+    <div class="sent-item"><span class="sent-num">85</span><div class="sent-content"><div class="sent-en">Could we table this discussion and revisit it with more data?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们能先搁置这个讨论，等有更多数据再重新审视吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">86</span><div class="sent-content"><div class="sent-en">I respect your view, but I'd like us to explore this further before deciding.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我尊重你的看法，但在决定之前我希望我们能进一步探讨。</div></div></div>
+    <div class="sent-item"><span class="sent-num">87</span><div class="sent-content"><div class="sent-en">Let's agree to disagree on this one for now.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这件事我们暂时就各持己见吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">88</span><div class="sent-content"><div class="sent-en">I'm open to it — but I'd want to see some evidence first.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我愿意考虑——但我希望先看到一些证据。</div></div></div>
+    <div class="sent-item"><span class="sent-num">89</span><div class="sent-content"><div class="sent-en">That's not necessarily wrong — it's just not how I'd approach it.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">这不一定是错的——只是跟我的处理方式不同。</div></div></div>
+    <div class="sent-item"><span class="sent-num">90</span><div class="sent-content"><div class="sent-en">I'm willing to try it, but let's define clear success criteria first.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我愿意尝试，但我们先来定义明确的成功标准。</div></div></div>
+    <div class="sent-item"><span class="sent-num">91</span><div class="sent-content"><div class="sent-en">I'm not saying no — I'm saying not yet.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我不是说不行——我是说时机还不到。</div></div></div>
+    <div class="sent-item"><span class="sent-num">92</span><div class="sent-content"><div class="sent-en">That's an interesting idea — let's stress-test it a bit.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">这是个有趣的想法——让我们稍微压力测试一下它。</div></div></div>
+    <div class="sent-item"><span class="sent-num">93</span><div class="sent-content"><div class="sent-en">What are the risks if this doesn't work out as planned?<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果这没有按计划进行，风险是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">94</span><div class="sent-content"><div class="sent-en">I'd just like to put it on record that I have concerns about this direction.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我只是想郑重声明，我对这个方向有顾虑。</div></div></div>
+    <div class="sent-item"><span class="sent-num">95</span><div class="sent-content"><div class="sent-en">Can we revisit this if the initial results aren't what we expected?<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果初步结果与预期不符，我们能重新审视吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">96</span><div class="sent-content"><div class="sent-en">I want to make sure we're solving the right problem here.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想确保我们在这里解决的是正确的问题。</div></div></div>
+    <div class="sent-item"><span class="sent-num">97</span><div class="sent-content"><div class="sent-en">I'd hate for us to invest heavily in something without validating the assumption first.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我不希望我们在没有先验证假设的情况下大量投入。</div></div></div>
+    <div class="sent-item"><span class="sent-num">98</span><div class="sent-content"><div class="sent-en">My concern is that we're solving a symptom rather than the root cause.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我的顾虑是我们在解决症状而不是根本原因。</div></div></div>
+    <div class="sent-item"><span class="sent-num">99</span><div class="sent-content"><div class="sent-en">I appreciate the input — let me think about it and come back to you.<span class="diff-badge d2">★★</span></div><div class="sent-cn">感谢你的意见——让我考虑一下，再回复你。</div></div></div>
+    <div class="sent-item"><span class="sent-num">100</span><div class="sent-content"><div class="sent-en">That gives me a lot to think about — very helpful, thank you.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这给了我很多思考的素材——非常有帮助，谢谢。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3 — QUESTIONS & CLARIFICATION (50 sentences) ══════════ -->
+<div id="s3" class="section-block s3">
+  <h2>3 — Questions &amp; Clarification　提问与澄清 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Asking for Clarification 请求澄清</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">101</span><div class="sent-content"><div class="sent-en">Could you clarify what you mean by [X]?<span class="diff-badge d1">★</span></div><div class="sent-cn">你能解释一下你所说的X是什么意思吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">102</span><div class="sent-content"><div class="sent-en">I'm not sure I follow — could you say that again?<span class="diff-badge d1">★</span></div><div class="sent-cn">我不太明白——你能再说一遍吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">103</span><div class="sent-content"><div class="sent-en">Just to make sure I understand correctly — you're saying [X], right?<span class="diff-badge d1">★</span></div><div class="sent-cn">确保我理解正确——你是说X，对吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">104</span><div class="sent-content"><div class="sent-en">Sorry, I missed that — could you repeat it?<span class="diff-badge d1">★</span></div><div class="sent-cn">抱歉，我没听清——你能重复一遍吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">105</span><div class="sent-content"><div class="sent-en">Can you be a bit more specific about [X]?<span class="diff-badge d1">★</span></div><div class="sent-cn">你能对X说得更具体一些吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">106</span><div class="sent-content"><div class="sent-en">What exactly do you mean when you say [X]?<span class="diff-badge d1">★</span></div><div class="sent-cn">当你说X的时候，具体是什么意思？</div></div></div>
+    <div class="sent-item"><span class="sent-num">107</span><div class="sent-content"><div class="sent-en">I want to make sure I have the full picture — can you give me more context?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想确保我有完整的认识——你能给我更多背景吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">108</span><div class="sent-content"><div class="sent-en">Could you walk me through that step by step?<span class="diff-badge d1">★</span></div><div class="sent-cn">你能一步一步带我了解一下吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">109</span><div class="sent-content"><div class="sent-en">When you say [X], do you mean [A] or [B]?<span class="diff-badge d1">★</span></div><div class="sent-cn">当你说X的时候，你是指A还是B？</div></div></div>
+    <div class="sent-item"><span class="sent-num">110</span><div class="sent-content"><div class="sent-en">I want to check my understanding — is the goal [X] or [Y]?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想确认一下我的理解——目标是X还是Y？</div></div></div>
+  </div>
+  <h3>Asking for More Information 请求更多信息</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">111</span><div class="sent-content"><div class="sent-en">Can you give me an example of what that would look like?<span class="diff-badge d1">★</span></div><div class="sent-cn">你能给我举一个那会是什么样子的例子吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">112</span><div class="sent-content"><div class="sent-en">What would the expected outcome be in that scenario?<span class="diff-badge d2">★★</span></div><div class="sent-cn">在那种情况下，预期的结果是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">113</span><div class="sent-content"><div class="sent-en">How would you define success for this project?<span class="diff-badge d2">★★</span></div><div class="sent-cn">你如何定义这个项目的成功？</div></div></div>
+    <div class="sent-item"><span class="sent-num">114</span><div class="sent-content"><div class="sent-en">Who is the key decision-maker on this?<span class="diff-badge d1">★</span></div><div class="sent-cn">谁是这件事的关键决策者？</div></div></div>
+    <div class="sent-item"><span class="sent-num">115</span><div class="sent-content"><div class="sent-en">What's the deadline we're working toward?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们的截止日期是什么时候？</div></div></div>
+    <div class="sent-item"><span class="sent-num">116</span><div class="sent-content"><div class="sent-en">What's driving this requirement?<span class="diff-badge d2">★★</span></div><div class="sent-cn">是什么推动了这个需求？</div></div></div>
+    <div class="sent-item"><span class="sent-num">117</span><div class="sent-content"><div class="sent-en">Is this a hard requirement or a nice-to-have?<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是硬性要求还是锦上添花的功能？</div></div></div>
+    <div class="sent-item"><span class="sent-num">118</span><div class="sent-content"><div class="sent-en">What's the priority of this relative to the other items on our plate?<span class="diff-badge d2">★★</span></div><div class="sent-cn">相对于我们手头其他任务，这个的优先级如何？</div></div></div>
+    <div class="sent-item"><span class="sent-num">119</span><div class="sent-content"><div class="sent-en">Can you share any existing documentation or context on this?<span class="diff-badge d1">★</span></div><div class="sent-cn">你能分享一些关于这个的现有文档或背景吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">120</span><div class="sent-content"><div class="sent-en">What constraints are we working within?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们在什么限制条件下工作？</div></div></div>
+  </div>
+  <h3>Checking Understanding 确认理解</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">121</span><div class="sent-content"><div class="sent-en">Let me make sure I've understood correctly...<span class="diff-badge d1">★</span></div><div class="sent-cn">让我确认一下我理解正确......</div></div></div>
+    <div class="sent-item"><span class="sent-num">122</span><div class="sent-content"><div class="sent-en">So if I understand you correctly, you're saying [X] — is that right?<span class="diff-badge d1">★</span></div><div class="sent-cn">所以如果我理解正确，你是说X——对吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">123</span><div class="sent-content"><div class="sent-en">Let me paraphrase that to make sure I've got it right.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我用自己的话复述一遍，确保我理解对了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">124</span><div class="sent-content"><div class="sent-en">So the bottom line is [X] — have I got that right?<span class="diff-badge d2">★★</span></div><div class="sent-cn">所以最核心的是X——我说对了吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">125</span><div class="sent-content"><div class="sent-en">Am I reading the situation correctly?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我对情况的理解正确吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">126</span><div class="sent-content"><div class="sent-en">Does that match your understanding as well?<span class="diff-badge d1">★</span></div><div class="sent-cn">这也符合你的理解吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">127</span><div class="sent-content"><div class="sent-en">Are we all on the same page about what needs to be done?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们对需要做的事情都有共同认识吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">128</span><div class="sent-content"><div class="sent-en">Is there anything I might have missed or misunderstood?<span class="diff-badge d2">★★</span></div><div class="sent-cn">有什么我可能遗漏或误解的吗？</div></div></div>
+  </div>
+  <h3>Probing Questions 深入探究</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">129</span><div class="sent-content"><div class="sent-en">What happens if we don't address this now?<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果我们现在不解决这个问题，会发生什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">130</span><div class="sent-content"><div class="sent-en">What's the worst-case scenario if this goes wrong?<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果出错，最坏的情况是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">131</span><div class="sent-content"><div class="sent-en">What's been tried before, and why didn't it work?<span class="diff-badge d2">★★</span></div><div class="sent-cn">以前尝试过什么，为什么没有奏效？</div></div></div>
+    <div class="sent-item"><span class="sent-num">132</span><div class="sent-content"><div class="sent-en">Have we validated this assumption with real data?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们有用真实数据来验证这个假设吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">133</span><div class="sent-content"><div class="sent-en">What are the dependencies for this work?<span class="diff-badge d2">★★</span></div><div class="sent-cn">这项工作的依赖项是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">134</span><div class="sent-content"><div class="sent-en">Is anyone else affected by this decision that we should loop in?<span class="diff-badge d2">★★</span></div><div class="sent-cn">还有其他受这个决定影响、应该纳入讨论的人吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">135</span><div class="sent-content"><div class="sent-en">What would change your mind on this?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">什么能让你改变对这件事的看法？</div></div></div>
+    <div class="sent-item"><span class="sent-num">136</span><div class="sent-content"><div class="sent-en">Can you help me understand the reasoning behind this decision?<span class="diff-badge d2">★★</span></div><div class="sent-cn">你能帮我理解这个决定背后的推理吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">137</span><div class="sent-content"><div class="sent-en">What problem are we ultimately trying to solve here?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们最终要解决的问题是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">138</span><div class="sent-content"><div class="sent-en">Is this a symptom of a deeper issue?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">这是更深层问题的症状吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">139</span><div class="sent-content"><div class="sent-en">Are we solving the right problem, or just the most visible one?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们是在解决正确的问题，还是只是最明显的那个？</div></div></div>
+    <div class="sent-item"><span class="sent-num">140</span><div class="sent-content"><div class="sent-en">What trade-offs are we accepting with this approach?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们用这种方法接受了哪些权衡？</div></div></div>
+    <div class="sent-item"><span class="sent-num">141</span><div class="sent-content"><div class="sent-en">How confident are you in that estimate?<span class="diff-badge d2">★★</span></div><div class="sent-cn">你对这个估算有多大把握？</div></div></div>
+    <div class="sent-item"><span class="sent-num">142</span><div class="sent-content"><div class="sent-en">What assumptions are we making that we haven't explicitly stated?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们有哪些没有明确说明的假设？</div></div></div>
+    <div class="sent-item"><span class="sent-num">143</span><div class="sent-content"><div class="sent-en">What's the simplest way to test this hypothesis before we invest more?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">在我们进一步投入之前，测试这个假设最简单的方式是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">144</span><div class="sent-content"><div class="sent-en">What's not being said here that we should probably discuss?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">有什么没有被说出来但我们应该讨论的吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">145</span><div class="sent-content"><div class="sent-en">Are there any edge cases we haven't thought about yet?<span class="diff-badge d2">★★</span></div><div class="sent-cn">有我们还没考虑到的边界情况吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">146</span><div class="sent-content"><div class="sent-en">How would this look from the end user's perspective?<span class="diff-badge d2">★★</span></div><div class="sent-cn">从终端用户的角度来看，这会是什么样的？</div></div></div>
+    <div class="sent-item"><span class="sent-num">147</span><div class="sent-content"><div class="sent-en">What would need to be true for this to succeed?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">要让这个成功，需要具备什么条件？</div></div></div>
+    <div class="sent-item"><span class="sent-num">148</span><div class="sent-content"><div class="sent-en">Is there a version of this that's lower risk but delivers most of the value?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">有没有一个风险更低但能提供大部分价值的版本？</div></div></div>
+    <div class="sent-item"><span class="sent-num">149</span><div class="sent-content"><div class="sent-en">What do we know, and what are we still unclear about?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们知道什么，我们还有什么不清楚的？</div></div></div>
+    <div class="sent-item"><span class="sent-num">150</span><div class="sent-content"><div class="sent-en">Can we do a quick sanity check on this before we proceed?<span class="diff-badge d2">★★</span></div><div class="sent-cn">在继续之前，我们能对此做个快速的理智检查吗？</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 4 — MEETING MANAGEMENT (50 sentences) ════════════════ -->
+<div id="s4" class="section-block s4">
+  <h2>4 — Meeting Management　会议管理 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Opening a Meeting 开会</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">151</span><div class="sent-content"><div class="sent-en">Thanks everyone for joining — let's get started.<span class="diff-badge d1">★</span></div><div class="sent-cn">感谢大家参加——我们开始吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">152</span><div class="sent-content"><div class="sent-en">Before we dive in, let me quickly run through today's agenda.<span class="diff-badge d1">★</span></div><div class="sent-cn">在我们深入讨论之前，让我快速过一遍今天的议程。</div></div></div>
+    <div class="sent-item"><span class="sent-num">153</span><div class="sent-content"><div class="sent-en">We have about [45] minutes today, so let's use the time well.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们今天大约有45分钟，让我们好好利用时间。</div></div></div>
+    <div class="sent-item"><span class="sent-num">154</span><div class="sent-content"><div class="sent-en">The goal of today's meeting is to [reach a decision on X / review X].<span class="diff-badge d1">★</span></div><div class="sent-cn">今天会议的目标是[就X做出决定/审查X]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">155</span><div class="sent-content"><div class="sent-en">Let's start with a quick round of introductions for those who don't know each other.<span class="diff-badge d1">★</span></div><div class="sent-cn">对于不认识的人，我们先做个简短的自我介绍轮次。</div></div></div>
+    <div class="sent-item"><span class="sent-num">156</span><div class="sent-content"><div class="sent-en">We'll cover three main topics today and leave time for Q&amp;A at the end.<span class="diff-badge d2">★★</span></div><div class="sent-cn">今天我们将讨论三个主要话题，最后留出问答时间。</div></div></div>
+    <div class="sent-item"><span class="sent-num">157</span><div class="sent-content"><div class="sent-en">Does anyone have anything urgent to add to the agenda before we start?<span class="diff-badge d2">★★</span></div><div class="sent-cn">在开始之前，有人有什么紧急事项要加入议程吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">158</span><div class="sent-content"><div class="sent-en">By the end of this meeting, I'd like us to have a clear decision on [X].<span class="diff-badge d2">★★</span></div><div class="sent-cn">会议结束时，我希望我们能就X有一个明确的决定。</div></div></div>
+  </div>
+  <h3>Facilitating Discussion 引导讨论</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">159</span><div class="sent-content"><div class="sent-en">Let's open the floor — who'd like to go first?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们开放发言——谁想先说？</div></div></div>
+    <div class="sent-item"><span class="sent-num">160</span><div class="sent-content"><div class="sent-en">I'd love to hear from [Name] on this.<span class="diff-badge d1">★</span></div><div class="sent-cn">我很想听听[姓名]对这件事的看法。</div></div></div>
+    <div class="sent-item"><span class="sent-num">161</span><div class="sent-content"><div class="sent-en">Has anyone not yet had a chance to share their view?<span class="diff-badge d1">★</span></div><div class="sent-cn">有没有人还没有机会分享他们的看法？</div></div></div>
+    <div class="sent-item"><span class="sent-num">162</span><div class="sent-content"><div class="sent-en">Let's make sure we hear from everyone before we move on.<span class="diff-badge d2">★★</span></div><div class="sent-cn">在继续之前，让我们确保听到每个人的意见。</div></div></div>
+    <div class="sent-item"><span class="sent-num">163</span><div class="sent-content"><div class="sent-en">That's a great point — does anyone want to add to that?<span class="diff-badge d1">★</span></div><div class="sent-cn">这是个好观点——有人想补充吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">164</span><div class="sent-content"><div class="sent-en">I'd like to give everyone a chance to react before we go further.<span class="diff-badge d2">★★</span></div><div class="sent-cn">在我们继续之前，我想让每个人都有机会表态。</div></div></div>
+    <div class="sent-item"><span class="sent-num">165</span><div class="sent-content"><div class="sent-en">Let's hear the counterargument — is there anyone who disagrees?<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们听听反对意见——有人不同意吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">166</span><div class="sent-content"><div class="sent-en">Let's take a step back and look at the big picture.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们退一步，看看大局。</div></div></div>
+  </div>
+  <h3>Keeping the Meeting on Track 控制会议进程</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">167</span><div class="sent-content"><div class="sent-en">Let's keep that in the parking lot and come back to it later.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们先把它放到待议区，稍后再回来讨论。</div></div></div>
+    <div class="sent-item"><span class="sent-num">168</span><div class="sent-content"><div class="sent-en">That's a great discussion, but let's get back on track.<span class="diff-badge d1">★</span></div><div class="sent-cn">这是个很好的讨论，但我们还是回到正轨上来吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">169</span><div class="sent-content"><div class="sent-en">We're running a bit short on time — let's move to the next item.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们时间有点紧——我们进入下一项吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">170</span><div class="sent-content"><div class="sent-en">Can we time-box this to 10 minutes?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们能把这个话题限制在10分钟内吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">171</span><div class="sent-content"><div class="sent-en">I think we're getting into the weeds — let's zoom out a bit.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我觉得我们陷入细节了——让我们稍微拉远一点视角。</div></div></div>
+    <div class="sent-item"><span class="sent-num">172</span><div class="sent-content"><div class="sent-en">Let's take this offline and circle back with a proposal.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们线下处理这个，然后带着方案回来讨论。</div></div></div>
+    <div class="sent-item"><span class="sent-num">173</span><div class="sent-content"><div class="sent-en">We seem to be going around in circles — let me try to summarize where we are.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们似乎在兜圈子——让我试着总结一下我们现在的状态。</div></div></div>
+    <div class="sent-item"><span class="sent-num">174</span><div class="sent-content"><div class="sent-en">Let me capture that as an action item for after the call.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我把它记录为通话结束后的行动项。</div></div></div>
+    <div class="sent-item"><span class="sent-num">175</span><div class="sent-content"><div class="sent-en">I think we need a separate meeting to go deeper on this topic.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我认为我们需要另开一个会议来深入讨论这个话题。</div></div></div>
+    <div class="sent-item"><span class="sent-num">176</span><div class="sent-content"><div class="sent-en">Can we table the detailed discussion and just agree on the direction for now?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们能先搁置详细讨论，目前只就方向达成一致吗？</div></div></div>
+  </div>
+  <h3>Making Decisions 推动决策</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">177</span><div class="sent-content"><div class="sent-en">We need to make a call on this today — what's the consensus?<span class="diff-badge d2">★★</span></div><div class="sent-cn">今天我们需要对此做个决定——大家的共识是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">178</span><div class="sent-content"><div class="sent-en">It sounds like we're leaning toward [Option A] — is everyone comfortable with that?<span class="diff-badge d2">★★</span></div><div class="sent-cn">听起来我们倾向于选项A——大家对此都满意吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">179</span><div class="sent-content"><div class="sent-en">Let's do a quick poll — who's in favor of Option A? Option B?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们快速投个票——谁支持选项A？选项B？</div></div></div>
+    <div class="sent-item"><span class="sent-num">180</span><div class="sent-content"><div class="sent-en">Can we reach a decision on this, or do we need more information first?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们能就此做出决定，还是需要先获取更多信息？</div></div></div>
+    <div class="sent-item"><span class="sent-num">181</span><div class="sent-content"><div class="sent-en">I'm going to make a decision here — we'll go with [X]. We can revisit if needed.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我来做这个决定——我们选X。如有需要可以再来审视。</div></div></div>
+    <div class="sent-item"><span class="sent-num">182</span><div class="sent-content"><div class="sent-en">Even if it's not perfect, let's pick a direction and commit.<span class="diff-badge d2">★★</span></div><div class="sent-cn">即使不完美，我们也来选一个方向并坚定执行。</div></div></div>
+    <div class="sent-item"><span class="sent-num">183</span><div class="sent-content"><div class="sent-en">A good decision today beats a perfect decision next week.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">今天一个好的决定胜过下周一个完美的决定。</div></div></div>
+    <div class="sent-item"><span class="sent-num">184</span><div class="sent-content"><div class="sent-en">Okay — we've decided on [X]. Let's make sure everyone is aligned before we move on.<span class="diff-badge d2">★★</span></div><div class="sent-cn">好——我们决定了X。在继续之前，让我们确保每个人都一致。</div></div></div>
+  </div>
+  <h3>Closing the Meeting 结束会议</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">185</span><div class="sent-content"><div class="sent-en">Let me quickly summarize what we've agreed on today.<span class="diff-badge d1">★</span></div><div class="sent-cn">让我快速总结一下我们今天达成的共识。</div></div></div>
+    <div class="sent-item"><span class="sent-num">186</span><div class="sent-content"><div class="sent-en">Before we close, let's confirm the action items and who owns each one.<span class="diff-badge d1">★</span></div><div class="sent-cn">在结束之前，让我们确认行动项以及每项的负责人。</div></div></div>
+    <div class="sent-item"><span class="sent-num">187</span><div class="sent-content"><div class="sent-en">I'll send out a meeting summary within 24 hours.<span class="diff-badge d1">★</span></div><div class="sent-cn">我将在24小时内发出会议摘要。</div></div></div>
+    <div class="sent-item"><span class="sent-num">188</span><div class="sent-content"><div class="sent-en">Our next meeting is scheduled for [date/time].<span class="diff-badge d1">★</span></div><div class="sent-cn">我们的下次会议定于[日期/时间]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">189</span><div class="sent-content"><div class="sent-en">Thanks everyone for a productive discussion — great work.<span class="diff-badge d1">★</span></div><div class="sent-cn">感谢大家进行了富有成效的讨论——做得很好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">190</span><div class="sent-content"><div class="sent-en">Is there anything else before we wrap up?<span class="diff-badge d1">★</span></div><div class="sent-cn">在我们结束之前还有什么要说的吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">191</span><div class="sent-content"><div class="sent-en">We're right on time — great pacing everyone.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们正好准时——大家节奏掌握得很好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">192</span><div class="sent-content"><div class="sent-en">Any final questions before I let everyone go?<span class="diff-badge d1">★</span></div><div class="sent-cn">在大家离开之前有任何最后的问题吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">193</span><div class="sent-content"><div class="sent-en">I'll calendar the next touchpoint and send the invite.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会安排下一次会面并发送邀请。</div></div></div>
+    <div class="sent-item"><span class="sent-num">194</span><div class="sent-content"><div class="sent-en">Let's give everyone five minutes back — we finished early.<span class="diff-badge d1">★</span></div><div class="sent-cn">还给大家五分钟——我们提前结束了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">195</span><div class="sent-content"><div class="sent-en">Great session — thanks to everyone who came prepared.<span class="diff-badge d1">★</span></div><div class="sent-cn">很好的会议——感谢每一位做了准备来参会的人。</div></div></div>
+    <div class="sent-item"><span class="sent-num">196</span><div class="sent-content"><div class="sent-en">I'll make sure the parking lot items get addressed in the follow-up email.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会确保在后续邮件中处理待议区的事项。</div></div></div>
+    <div class="sent-item"><span class="sent-num">197</span><div class="sent-content"><div class="sent-en">Let's all keep each other accountable to those action items.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们互相监督，确保那些行动项被执行。</div></div></div>
+    <div class="sent-item"><span class="sent-num">198</span><div class="sent-content"><div class="sent-en">I'll update the project board to reflect the decisions we made today.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会更新项目看板，以反映我们今天做出的决定。</div></div></div>
+    <div class="sent-item"><span class="sent-num">199</span><div class="sent-content"><div class="sent-en">Thanks for your time — it was a very valuable conversation.<span class="diff-badge d1">★</span></div><div class="sent-cn">感谢您的时间——这是一次非常有价值的对话。</div></div></div>
+    <div class="sent-item"><span class="sent-num">200</span><div class="sent-content"><div class="sent-en">That's a wrap — great work everyone. Talk soon.<span class="diff-badge d1">★</span></div><div class="sent-cn">大功告成——大家做得很好。下次再聊。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5 — PRESENTING & REPORTING (50 sentences) ════════════ -->
+<div id="s5" class="section-block s5">
+  <h2>5 — Presenting &amp; Reporting　呈现信息与汇报 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Structuring a Presentation 组织汇报</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">201</span><div class="sent-content"><div class="sent-en">I'll be covering three key areas today: [A], [B], and [C].<span class="diff-badge d1">★</span></div><div class="sent-cn">今天我将涵盖三个关键领域：A、B和C。</div></div></div>
+    <div class="sent-item"><span class="sent-num">202</span><div class="sent-content"><div class="sent-en">Let me start with the background, then move to the findings.<span class="diff-badge d1">★</span></div><div class="sent-cn">让我先从背景开始，然后过渡到发现。</div></div></div>
+    <div class="sent-item"><span class="sent-num">203</span><div class="sent-content"><div class="sent-en">I'd like to start with a quick summary before diving into the details.<span class="diff-badge d1">★</span></div><div class="sent-cn">在深入细节之前，我想先做一个快速总结。</div></div></div>
+    <div class="sent-item"><span class="sent-num">204</span><div class="sent-content"><div class="sent-en">The headline here is [X] — let me explain what I mean.<span class="diff-badge d2">★★</span></div><div class="sent-cn">核心要点是X——让我解释一下我的意思。</div></div></div>
+    <div class="sent-item"><span class="sent-num">205</span><div class="sent-content"><div class="sent-en">Please feel free to ask questions as we go — I want this to be interactive.<span class="diff-badge d2">★★</span></div><div class="sent-cn">进行过程中随时可以提问——我希望这是互动式的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">206</span><div class="sent-content"><div class="sent-en">I'll hold questions to the end, but please note them down as we go.<span class="diff-badge d1">★</span></div><div class="sent-cn">我会在最后留时间提问，但请在过程中记录下来。</div></div></div>
+    <div class="sent-item"><span class="sent-num">207</span><div class="sent-content"><div class="sent-en">Before I go into the details, let me set some context.<span class="diff-badge d1">★</span></div><div class="sent-cn">在深入细节之前，让我先设定一些背景。</div></div></div>
+    <div class="sent-item"><span class="sent-num">208</span><div class="sent-content"><div class="sent-en">To give you a quick sense of scale — this affects about [X] users.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让你快速了解一下规模——这大约影响了X个用户。</div></div></div>
+  </div>
+  <h3>Transitioning Between Points 过渡表达</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">209</span><div class="sent-content"><div class="sent-en">Moving on to the next point...<span class="diff-badge d1">★</span></div><div class="sent-cn">接下来进入下一点……</div></div></div>
+    <div class="sent-item"><span class="sent-num">210</span><div class="sent-content"><div class="sent-en">With that in mind, let's look at the data.<span class="diff-badge d2">★★</span></div><div class="sent-cn">考虑到这一点，让我们来看看数据。</div></div></div>
+    <div class="sent-item"><span class="sent-num">211</span><div class="sent-content"><div class="sent-en">Building on that last point, I'd like to highlight...<span class="diff-badge d2">★★</span></div><div class="sent-cn">在上一点的基础上，我想重点强调……</div></div></div>
+    <div class="sent-item"><span class="sent-num">212</span><div class="sent-content"><div class="sent-en">Now, turning to [the second topic / the results / the recommendations]...<span class="diff-badge d1">★</span></div><div class="sent-cn">现在，转向[第二个话题/结果/建议]……</div></div></div>
+    <div class="sent-item"><span class="sent-num">213</span><div class="sent-content"><div class="sent-en">This brings me to my main point...<span class="diff-badge d1">★</span></div><div class="sent-cn">这引出了我的主要观点……</div></div></div>
+    <div class="sent-item"><span class="sent-num">214</span><div class="sent-content"><div class="sent-en">Let me take a moment to highlight something important here.<span class="diff-badge d1">★</span></div><div class="sent-cn">让我花一点时间强调这里一件重要的事情。</div></div></div>
+    <div class="sent-item"><span class="sent-num">215</span><div class="sent-content"><div class="sent-en">To summarize what we've covered so far...<span class="diff-badge d1">★</span></div><div class="sent-cn">总结一下我们目前已经涵盖的内容……</div></div></div>
+    <div class="sent-item"><span class="sent-num">216</span><div class="sent-content"><div class="sent-en">So what does this mean in practice? Let me give you a concrete example.<span class="diff-badge d2">★★</span></div><div class="sent-cn">那么这在实践中意味着什么？让我给你一个具体的例子。</div></div></div>
+  </div>
+  <h3>Highlighting Key Information 强调重要信息</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">217</span><div class="sent-content"><div class="sent-en">The key takeaway here is [X].<span class="diff-badge d1">★</span></div><div class="sent-cn">这里的关键要点是X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">218</span><div class="sent-content"><div class="sent-en">I want to draw your attention to [X] — this is the most important part.<span class="diff-badge d1">★</span></div><div class="sent-cn">我想让你注意X——这是最重要的部分。</div></div></div>
+    <div class="sent-item"><span class="sent-num">219</span><div class="sent-content"><div class="sent-en">The bottom line is: we're [on track / at risk / behind schedule].<span class="diff-badge d1">★</span></div><div class="sent-cn">结论是：我们[按计划/有风险/落后于计划]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">220</span><div class="sent-content"><div class="sent-en">This number is worth pausing on — [X]% is significantly [higher/lower] than expected.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这个数字值得停下来关注——X%比预期要[高/低]得多。</div></div></div>
+    <div class="sent-item"><span class="sent-num">221</span><div class="sent-content"><div class="sent-en">If there's one thing I want you to remember from today, it's this...<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果今天有一件事我希望你记住，那就是……</div></div></div>
+    <div class="sent-item"><span class="sent-num">222</span><div class="sent-content"><div class="sent-en">The risk I want to flag is [X] — it's significant and needs immediate attention.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想提出的风险是X——它很重要，需要立即关注。</div></div></div>
+    <div class="sent-item"><span class="sent-num">223</span><div class="sent-content"><div class="sent-en">This is a particularly encouraging result because [reason].<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是一个特别令人鼓舞的结果，因为[原因]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">224</span><div class="sent-content"><div class="sent-en">I want to be transparent about a challenge we're facing.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想坦诚地说说我们面临的一个挑战。</div></div></div>
+  </div>
+  <h3>Handling Questions 处理问题</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">225</span><div class="sent-content"><div class="sent-en">That's a great question — let me address that directly.<span class="diff-badge d1">★</span></div><div class="sent-cn">这是个好问题——让我直接回答。</div></div></div>
+    <div class="sent-item"><span class="sent-num">226</span><div class="sent-content"><div class="sent-en">I'm glad you raised that — it's something I want to cover.<span class="diff-badge d2">★★</span></div><div class="sent-cn">很高兴你提出了这个——这是我想说的内容。</div></div></div>
+    <div class="sent-item"><span class="sent-num">227</span><div class="sent-content"><div class="sent-en">I don't have that data on hand right now — I'll follow up after this call.<span class="diff-badge d1">★</span></div><div class="sent-cn">我现在手头没有那个数据——我会在通话结束后跟进。</div></div></div>
+    <div class="sent-item"><span class="sent-num">228</span><div class="sent-content"><div class="sent-en">That's slightly outside the scope of today's presentation — can I take it offline?<span class="diff-badge d2">★★</span></div><div class="sent-cn">那稍微超出了今天演示的范围——我能线下跟你讨论吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">229</span><div class="sent-content"><div class="sent-en">I want to make sure I'm answering the right question — are you asking about [A] or [B]?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想确保我在回答正确的问题——你在问的是A还是B？</div></div></div>
+    <div class="sent-item"><span class="sent-num">230</span><div class="sent-content"><div class="sent-en">That's a fair challenge — here's how I'd respond to that.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是个合理的质疑——以下是我的回应。</div></div></div>
+    <div class="sent-item"><span class="sent-num">231</span><div class="sent-content"><div class="sent-en">I honestly don't know the answer to that — I'll find out and get back to you.<span class="diff-badge d1">★</span></div><div class="sent-cn">老实说，我不知道那个答案——我会查明后回复你。</div></div></div>
+    <div class="sent-item"><span class="sent-num">232</span><div class="sent-content"><div class="sent-en">I think [Name] would be better placed to answer that — [Name], do you want to take it?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我认为[姓名]更适合回答那个问题——[姓名]，你想回应吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">233</span><div class="sent-content"><div class="sent-en">I was actually going to cover that in the next slide.<span class="diff-badge d1">★</span></div><div class="sent-cn">我实际上要在下一张幻灯片上讲到这个。</div></div></div>
+    <div class="sent-item"><span class="sent-num">234</span><div class="sent-content"><div class="sent-en">Good catch — I should have been clearer about that. Let me re-explain.<span class="diff-badge d2">★★</span></div><div class="sent-cn">说得对——我本应该说得更清楚。让我重新解释一下。</div></div></div>
+    <div class="sent-item"><span class="sent-num">235</span><div class="sent-content"><div class="sent-en">We actually looked into that — here's what we found.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们实际上调查了那个——以下是我们发现的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">236</span><div class="sent-content"><div class="sent-en">That's an important nuance — let me address it carefully.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">这是一个重要的细微差别——让我仔细回应。</div></div></div>
+    <div class="sent-item"><span class="sent-num">237</span><div class="sent-content"><div class="sent-en">I want to be careful not to overstate the findings — they're promising, but preliminary.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我不想夸大研究结果——它们很有希望，但还只是初步的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">238</span><div class="sent-content"><div class="sent-en">I'll add that to the follow-up document so you have it in writing.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会把那个加入跟进文档，这样你就有书面记录了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">239</span><div class="sent-content"><div class="sent-en">Any other questions before I move on?<span class="diff-badge d1">★</span></div><div class="sent-cn">在我继续之前还有其他问题吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">240</span><div class="sent-content"><div class="sent-en">I'll send the slides after the meeting so you can reference them.<span class="diff-badge d1">★</span></div><div class="sent-cn">我会在会后发送幻灯片，这样你可以参考。</div></div></div>
+    <div class="sent-item"><span class="sent-num">241</span><div class="sent-content"><div class="sent-en">We have about five minutes for questions — what's on your mind?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们大约有五分钟的提问时间——你有什么问题？</div></div></div>
+    <div class="sent-item"><span class="sent-num">242</span><div class="sent-content"><div class="sent-en">I encourage you to challenge my analysis if you see gaps.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">如果你发现不足之处，我鼓励你质疑我的分析。</div></div></div>
+    <div class="sent-item"><span class="sent-num">243</span><div class="sent-content"><div class="sent-en">Let me check the numbers on that and confirm before giving you a definitive answer.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我核查那个数字，在给你一个确定答案之前先确认一下。</div></div></div>
+    <div class="sent-item"><span class="sent-num">244</span><div class="sent-content"><div class="sent-en">My recommendation, based on what we know today, is [X].<span class="diff-badge d2">★★</span></div><div class="sent-cn">根据我们今天所知道的，我的建议是X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">245</span><div class="sent-content"><div class="sent-en">The next step I'd like to propose is [X] — does that make sense to everyone?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想提议的下一步是X——大家觉得合理吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">246</span><div class="sent-content"><div class="sent-en">Thank you for your attention — I'm happy to go deeper on any of these points.<span class="diff-badge d2">★★</span></div><div class="sent-cn">感谢大家的关注——我很乐意深入探讨这些要点中的任何一个。</div></div></div>
+    <div class="sent-item"><span class="sent-num">247</span><div class="sent-content"><div class="sent-en">I'd be happy to share the raw data with anyone who's interested.<span class="diff-badge d1">★</span></div><div class="sent-cn">我很乐意与任何感兴趣的人分享原始数据。</div></div></div>
+    <div class="sent-item"><span class="sent-num">248</span><div class="sent-content"><div class="sent-en">That was a really insightful question — it made me think about [X].<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是个非常有洞见的问题——它让我思考了X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">249</span><div class="sent-content"><div class="sent-en">I'll flag this as a risk in the project plan to make sure it stays visible.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会在项目计划中将此标记为风险，确保它持续可见。</div></div></div>
+    <div class="sent-item"><span class="sent-num">250</span><div class="sent-content"><div class="sent-en">Thank you all for your time and engagement today — very helpful.<span class="diff-badge d1">★</span></div><div class="sent-cn">感谢大家今天的时间和参与——非常有帮助。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 6 — PROBLEM SOLVING (50 sentences) ════════════════════ -->
+<div id="s6" class="section-block s6">
+  <h2>6 — Problem Solving &amp; Decision Making　问题解决与决策 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Identifying the Problem 识别问题</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">251</span><div class="sent-content"><div class="sent-en">We have an issue that needs immediate attention.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们有一个需要立即关注的问题。</div></div></div>
+    <div class="sent-item"><span class="sent-num">252</span><div class="sent-content"><div class="sent-en">I want to flag a concern before it becomes a bigger problem.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想在问题变得更大之前提出一个顾虑。</div></div></div>
+    <div class="sent-item"><span class="sent-num">253</span><div class="sent-content"><div class="sent-en">We're seeing some unexpected behavior in [X] — let me describe what's happening.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们在X中看到了一些意外行为——让我描述一下发生了什么。</div></div></div>
+    <div class="sent-item"><span class="sent-num">254</span><div class="sent-content"><div class="sent-en">The symptom is [X], but I suspect the root cause is [Y].<span class="diff-badge d2">★★</span></div><div class="sent-cn">症状是X，但我怀疑根本原因是Y。</div></div></div>
+    <div class="sent-item"><span class="sent-num">255</span><div class="sent-content"><div class="sent-en">Let me run you through what we know and what we still need to find out.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我跟你说说我们知道什么，还有什么需要查清楚。</div></div></div>
+    <div class="sent-item"><span class="sent-num">256</span><div class="sent-content"><div class="sent-en">This is affecting [X] users / [Y%] of traffic as of right now.<span class="diff-badge d2">★★</span></div><div class="sent-cn">截至目前，这影响了X个用户/Y%的流量。</div></div></div>
+    <div class="sent-item"><span class="sent-num">257</span><div class="sent-content"><div class="sent-en">We first noticed this at [time] — it's been ongoing for [X] hours.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们在[时间]首次发现了这个——已经持续了X小时。</div></div></div>
+    <div class="sent-item"><span class="sent-num">258</span><div class="sent-content"><div class="sent-en">This needs to be our top priority right now.<span class="diff-badge d1">★</span></div><div class="sent-cn">这需要是我们现在的首要任务。</div></div></div>
+  </div>
+  <h3>Analyzing & Proposing Solutions 分析与提出解决方案</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">259</span><div class="sent-content"><div class="sent-en">Let's work through this systematically — what do we know for certain?<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们系统地处理这个——我们确定知道什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">260</span><div class="sent-content"><div class="sent-en">I've isolated the problem to [X] — here's my reasoning.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我已将问题缩小到X——这是我的推理。</div></div></div>
+    <div class="sent-item"><span class="sent-num">261</span><div class="sent-content"><div class="sent-en">I see three potential solutions — let me walk you through the pros and cons of each.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我看到三个可能的解决方案——让我逐一讲解各自的优缺点。</div></div></div>
+    <div class="sent-item"><span class="sent-num">262</span><div class="sent-content"><div class="sent-en">The fastest fix would be [X], but the right long-term solution is [Y].<span class="diff-badge d2">★★</span></div><div class="sent-cn">最快的解决方法是X，但正确的长期解决方案是Y。</div></div></div>
+    <div class="sent-item"><span class="sent-num">263</span><div class="sent-content"><div class="sent-en">My recommendation is to implement a hotfix now and address the root cause in the next sprint.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我的建议是现在实施热修复，在下次冲刺中解决根本原因。</div></div></div>
+    <div class="sent-item"><span class="sent-num">264</span><div class="sent-content"><div class="sent-en">Before we commit to a solution, let's make sure we understand the tradeoffs.<span class="diff-badge d2">★★</span></div><div class="sent-cn">在确定解决方案之前，让我们确保我们理解其中的权衡。</div></div></div>
+    <div class="sent-item"><span class="sent-num">265</span><div class="sent-content"><div class="sent-en">I'd suggest we start with the simplest possible fix and iterate from there.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我建议从最简单的修复开始，然后从那里迭代。</div></div></div>
+    <div class="sent-item"><span class="sent-num">266</span><div class="sent-content"><div class="sent-en">We need to decide: do we fix this now or do we accept the risk and move on?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们需要决定：现在修复这个，还是接受风险继续推进？</div></div></div>
+    <div class="sent-item"><span class="sent-num">267</span><div class="sent-content"><div class="sent-en">Is this a people problem, a process problem, or a technology problem?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">这是人的问题、流程问题，还是技术问题？</div></div></div>
+    <div class="sent-item"><span class="sent-num">268</span><div class="sent-content"><div class="sent-en">Let's define clear success criteria before we start working on this.<span class="diff-badge d2">★★</span></div><div class="sent-cn">在开始处理这个问题之前，让我们定义明确的成功标准。</div></div></div>
+  </div>
+  <h3>Assigning and Tracking Action 分配与跟踪行动</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">269</span><div class="sent-content"><div class="sent-en">Who's best placed to own this action item?<span class="diff-badge d1">★</span></div><div class="sent-cn">谁最适合负责这个行动项？</div></div></div>
+    <div class="sent-item"><span class="sent-num">270</span><div class="sent-content"><div class="sent-en">I'll take ownership of this and keep you all updated.<span class="diff-badge d1">★</span></div><div class="sent-cn">我来负责这件事，并随时更新大家。</div></div></div>
+    <div class="sent-item"><span class="sent-num">271</span><div class="sent-content"><div class="sent-en">Can you commit to having an update on this by [time]?<span class="diff-badge d1">★</span></div><div class="sent-cn">你能承诺在[时间]前对此有个更新吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">272</span><div class="sent-content"><div class="sent-en">Let's put a check-in on the calendar for tomorrow morning.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们在日历上安排明天早上的检查吧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">273</span><div class="sent-content"><div class="sent-en">I want to make sure this doesn't slip through the cracks.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想确保这不会被遗漏。</div></div></div>
+    <div class="sent-item"><span class="sent-num">274</span><div class="sent-content"><div class="sent-en">Let's create a RACI for this so everyone knows their role.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">让我们为此创建一个RACI，这样每个人都知道自己的角色。</div></div></div>
+    <div class="sent-item"><span class="sent-num">275</span><div class="sent-content"><div class="sent-en">I'll track this in [Jira / the project board] and flag if it gets stuck.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会在[Jira/项目看板]中跟踪这个，如果卡住了会发出提示。</div></div></div>
+    <div class="sent-item"><span class="sent-num">276</span><div class="sent-content"><div class="sent-en">What do you need from me or the team to unblock yourself?<span class="diff-badge d1">★</span></div><div class="sent-cn">你需要我或团队提供什么来解除你的阻碍？</div></div></div>
+    <div class="sent-item"><span class="sent-num">277</span><div class="sent-content"><div class="sent-en">Let's agree on a hard deadline — what date can you commit to?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们来定一个硬截止日期——你能承诺哪个日期？</div></div></div>
+    <div class="sent-item"><span class="sent-num">278</span><div class="sent-content"><div class="sent-en">I'll escalate this if we don't have a resolution by [time].<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果到[时间]还没有解决方案，我会升级处理这件事。</div></div></div>
+    <div class="sent-item"><span class="sent-num">279</span><div class="sent-content"><div class="sent-en">We need to loop in [Name] — they have context we don't have.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们需要把[姓名]拉进来——他们有我们没有的背景信息。</div></div></div>
+    <div class="sent-item"><span class="sent-num">280</span><div class="sent-content"><div class="sent-en">This is resolved — let me document the solution for future reference.<span class="diff-badge d1">★</span></div><div class="sent-cn">这个问题解决了——让我记录下解决方案以备将来参考。</div></div></div>
+    <div class="sent-item"><span class="sent-num">281</span><div class="sent-content"><div class="sent-en">Good work pulling this together so quickly under pressure.<span class="diff-badge d1">★</span></div><div class="sent-cn">在压力下这么快解决这个问题，干得好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">282</span><div class="sent-content"><div class="sent-en">We should write up a post-mortem to learn from this.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们应该写一份事后总结来从中学习。</div></div></div>
+    <div class="sent-item"><span class="sent-num">283</span><div class="sent-content"><div class="sent-en">What process change would prevent this from happening again?<span class="diff-badge d2">★★</span></div><div class="sent-cn">什么流程变更能防止这种情况再次发生？</div></div></div>
+    <div class="sent-item"><span class="sent-num">284</span><div class="sent-content"><div class="sent-en">Let's add a monitoring alert so we catch this earlier next time.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们添加一个监控警报，下次能更早发现这类问题。</div></div></div>
+    <div class="sent-item"><span class="sent-num">285</span><div class="sent-content"><div class="sent-en">The lesson here is [X] — let's build that into our process going forward.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">这里的教训是X——让我们把它融入我们今后的流程中。</div></div></div>
+    <div class="sent-item"><span class="sent-num">286</span><div class="sent-content"><div class="sent-en">This is a good opportunity to review our [testing / deployment / review] process.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是一个审查我们[测试/部署/审查]流程的好机会。</div></div></div>
+    <div class="sent-item"><span class="sent-num">287</span><div class="sent-content"><div class="sent-en">Let's be proactive about preventing similar issues rather than reactive.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">让我们主动预防类似问题，而不是被动应对。</div></div></div>
+    <div class="sent-item"><span class="sent-num">288</span><div class="sent-content"><div class="sent-en">I'll share the post-mortem report with the team once it's done.<span class="diff-badge d2">★★</span></div><div class="sent-cn">事后总结报告完成后，我会与团队分享。</div></div></div>
+    <div class="sent-item"><span class="sent-num">289</span><div class="sent-content"><div class="sent-en">Blameless post-mortems help us learn without people feeling defensive.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">无责备的事后总结帮助我们学习，同时不让人感到防御。</div></div></div>
+    <div class="sent-item"><span class="sent-num">290</span><div class="sent-content"><div class="sent-en">Great problem-solving today, everyone — this is how we get better over time.<span class="diff-badge d2">★★</span></div><div class="sent-cn">今天大家的问题解决能力很棒——这就是我们随着时间不断进步的方式。</div></div></div>
+    <div class="sent-item"><span class="sent-num">291</span><div class="sent-content"><div class="sent-en">Let's make sure [X] is thoroughly tested before the next release.<span class="diff-badge d1">★</span></div><div class="sent-cn">在下次发布之前，让我们确保X经过了彻底测试。</div></div></div>
+    <div class="sent-item"><span class="sent-num">292</span><div class="sent-content"><div class="sent-en">I'll set up a code freeze until we're confident the fix is stable.<span class="diff-badge d2">★★</span></div><div class="sent-cn">在我们确信修复稳定之前，我会设置代码冻结。</div></div></div>
+    <div class="sent-item"><span class="sent-num">293</span><div class="sent-content"><div class="sent-en">Let's roll back the last deployment as a precaution while we investigate.<span class="diff-badge d2">★★</span></div><div class="sent-cn">作为预防措施，在我们调查期间回滚最后一次部署。</div></div></div>
+    <div class="sent-item"><span class="sent-num">294</span><div class="sent-content"><div class="sent-en">Can we get a hotfix out within the next [X] hours?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们能在接下来X小时内发布热修复吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">295</span><div class="sent-content"><div class="sent-en">I need a quick status update — where are we on the fix?<span class="diff-badge d1">★</span></div><div class="sent-cn">我需要一个快速状态更新——修复进展到哪里了？</div></div></div>
+    <div class="sent-item"><span class="sent-num">296</span><div class="sent-content"><div class="sent-en">We're making progress — ETA for the fix is approximately [time].<span class="diff-badge d1">★</span></div><div class="sent-cn">我们在取得进展——修复的预计时间大约是[时间]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">297</span><div class="sent-content"><div class="sent-en">Crisis averted — let's debrief once everything is stable.<span class="diff-badge d2">★★</span></div><div class="sent-cn">危机已化解——一旦一切稳定下来，我们来复盘总结。</div></div></div>
+    <div class="sent-item"><span class="sent-num">298</span><div class="sent-content"><div class="sent-en">The issue is fully resolved — all systems are back to normal.<span class="diff-badge d1">★</span></div><div class="sent-cn">问题已完全解决——所有系统恢复正常。</div></div></div>
+    <div class="sent-item"><span class="sent-num">299</span><div class="sent-content"><div class="sent-en">Thanks team for the quick response — that was excellent work under pressure.<span class="diff-badge d1">★</span></div><div class="sent-cn">感谢团队的快速响应——在压力下表现出色。</div></div></div>
+    <div class="sent-item"><span class="sent-num">300</span><div class="sent-content"><div class="sent-en">Let's channel this energy into building something so this never happens again.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">让我们把这种能量转化为构建一些东西，使这种情况永远不再发生。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 7 — NEGOTIATION & PERSUASION (50 sentences) ════════════ -->
+<div id="s7" class="section-block s7">
+  <h2>7 — Negotiation &amp; Persuasion　协商与说服 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Making a Case 论证你的立场</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">301</span><div class="sent-content"><div class="sent-en">I'd like to make the case for [X] — here's why I think it's the right approach.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想为X据理力争——以下是我认为它是正确方法的原因。</div></div></div>
+    <div class="sent-item"><span class="sent-num">302</span><div class="sent-content"><div class="sent-en">The evidence strongly supports [X] — let me show you the data.<span class="diff-badge d2">★★</span></div><div class="sent-cn">证据强烈支持X——让我给你看数据。</div></div></div>
+    <div class="sent-item"><span class="sent-num">303</span><div class="sent-content"><div class="sent-en">If we invest in [X] now, the payback period is approximately [Y] months.<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果我们现在投资X，回报期大约是Y个月。</div></div></div>
+    <div class="sent-item"><span class="sent-num">304</span><div class="sent-content"><div class="sent-en">Consider the alternative — if we don't act now, the cost will be [X].<span class="diff-badge d2">★★</span></div><div class="sent-cn">考虑一下另一种情况——如果我们现在不行动，成本将是X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">305</span><div class="sent-content"><div class="sent-en">Similar companies have achieved [X] by taking this approach.<span class="diff-badge d2">★★</span></div><div class="sent-cn">类似的公司通过采用这种方法取得了X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">306</span><div class="sent-content"><div class="sent-en">The risk of inaction is actually greater than the risk of moving forward.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">不行动的风险实际上比前进的风险更大。</div></div></div>
+    <div class="sent-item"><span class="sent-num">307</span><div class="sent-content"><div class="sent-en">This aligns directly with [our strategy / the client's goals / what we agreed in Q1].<span class="diff-badge d2">★★</span></div><div class="sent-cn">这与[我们的战略/客户的目标/我们在Q1达成的共识]直接吻合。</div></div></div>
+    <div class="sent-item"><span class="sent-num">308</span><div class="sent-content"><div class="sent-en">I've thought about the objections, and here's how I'd address each one.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我考虑了各种反对意见，以下是我如何回应每一个的方案。</div></div></div>
+  </div>
+  <h3>Managing Expectations 管理期望</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">309</span><div class="sent-content"><div class="sent-en">I want to be transparent about what's realistic and what isn't.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想对什么是现实可行的、什么不是，保持透明。</div></div></div>
+    <div class="sent-item"><span class="sent-num">310</span><div class="sent-content"><div class="sent-en">To set realistic expectations — this will take approximately [X] weeks.<span class="diff-badge d1">★</span></div><div class="sent-cn">为了设定现实的期望——这大约需要X周。</div></div></div>
+    <div class="sent-item"><span class="sent-num">311</span><div class="sent-content"><div class="sent-en">I want to push back on that timeline — it's not achievable without more resources.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想对那个时间表提出异议——没有更多资源是无法实现的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">312</span><div class="sent-content"><div class="sent-en">I understand the urgency, but rushing this will create more problems down the line.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我理解紧迫性，但仓促行事会在以后造成更多问题。</div></div></div>
+    <div class="sent-item"><span class="sent-num">313</span><div class="sent-content"><div class="sent-en">If we need to hit that date, we'll need to reduce scope — let's discuss which features are non-negotiable.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">如果需要达到那个日期，我们需要减少范围——让我们讨论哪些功能是不可协商的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">314</span><div class="sent-content"><div class="sent-en">I can commit to [X] by [date], but not [Y] — that would need more time.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我能承诺在[日期]前完成X，但不能是Y——那需要更多时间。</div></div></div>
+    <div class="sent-item"><span class="sent-num">315</span><div class="sent-content"><div class="sent-en">I'd rather under-promise and over-deliver than the other way around.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我宁愿承诺少、交付多，而不是相反。</div></div></div>
+    <div class="sent-item"><span class="sent-num">316</span><div class="sent-content"><div class="sent-en">Let's agree on what "done" looks like before we start — that way we avoid surprises.<span class="diff-badge d2">★★</span></div><div class="sent-cn">在开始之前我们来定义"完成"是什么样子——这样我们可以避免意外。</div></div></div>
+  </div>
+  <h3>Finding Common Ground 寻找共同点</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">317</span><div class="sent-content"><div class="sent-en">I think we both want the same outcome — we just disagree on the path.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我认为我们都希望达到同样的结果——只是在路径上存在分歧。</div></div></div>
+    <div class="sent-item"><span class="sent-num">318</span><div class="sent-content"><div class="sent-en">What would it take to get you comfortable with this approach?<span class="diff-badge d2">★★</span></div><div class="sent-cn">要让你接受这种方法，需要什么条件？</div></div></div>
+    <div class="sent-item"><span class="sent-num">319</span><div class="sent-content"><div class="sent-en">What matters most to you in this negotiation?<span class="diff-badge d2">★★</span></div><div class="sent-cn">在这次协商中，对你来说最重要的是什么？</div></div></div>
+    <div class="sent-item"><span class="sent-num">320</span><div class="sent-content"><div class="sent-en">Let's focus on what we agree on, and work out from there.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们专注于我们同意的部分，从那里出发寻找共识。</div></div></div>
+    <div class="sent-item"><span class="sent-num">321</span><div class="sent-content"><div class="sent-en">Could we try a pilot first to see if this actually works?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们能先试行一下，看看这是否真的有效？</div></div></div>
+    <div class="sent-item"><span class="sent-num">322</span><div class="sent-content"><div class="sent-en">What if we split the difference — [compromise proposal]?<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果我们各退一步呢——[折中方案]？</div></div></div>
+    <div class="sent-item"><span class="sent-num">323</span><div class="sent-content"><div class="sent-en">I'm willing to be flexible on [X] if you can meet us on [Y].<span class="diff-badge d3">★★★</span></div><div class="sent-cn">如果你们能在Y上与我们会面，我愿意在X上灵活处理。</div></div></div>
+    <div class="sent-item"><span class="sent-num">324</span><div class="sent-content"><div class="sent-en">Let's see if there's a version of this that works for both sides.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们看看是否有一个对双方都有效的版本。</div></div></div>
+    <div class="sent-item"><span class="sent-num">325</span><div class="sent-content"><div class="sent-en">I think this can be a win-win if we approach it the right way.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我认为如果以正确的方式处理，这可以是双赢的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">326</span><div class="sent-content"><div class="sent-en">We want to be a good partner in this — not just drive a hard bargain.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们希望成为这方面的好合作伙伴——不只是强硬讨价还价。</div></div></div>
+    <div class="sent-item"><span class="sent-num">327</span><div class="sent-content"><div class="sent-en">I respect your constraints — let me think about what I can offer within that.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我尊重你的限制——让我想想在那个范围内我能提供什么。</div></div></div>
+    <div class="sent-item"><span class="sent-num">328</span><div class="sent-content"><div class="sent-en">We'd like to preserve the relationship beyond just this contract.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们希望在这份合同之外也保持良好的关系。</div></div></div>
+    <div class="sent-item"><span class="sent-num">329</span><div class="sent-content"><div class="sent-en">What's your bottom line here — what absolutely cannot move?<span class="diff-badge d3">★★★</span></div><div class="sent-cn">你的底线是什么——什么是绝对不能改变的？</div></div></div>
+    <div class="sent-item"><span class="sent-num">330</span><div class="sent-content"><div class="sent-en">This feels like a fair deal for both sides — shall we shake on it?<span class="diff-badge d2">★★</span></div><div class="sent-cn">这感觉对双方来说都是公平的交易——我们就这么定了吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">331</span><div class="sent-content"><div class="sent-en">I'll take this back to my team and come back with a formal response.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会把这个带回给我的团队，正式回复你。</div></div></div>
+    <div class="sent-item"><span class="sent-num">332</span><div class="sent-content"><div class="sent-en">Can we get that agreement in writing?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们能把那个协议落实成文字吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">333</span><div class="sent-content"><div class="sent-en">I want to make sure we document this so there are no misunderstandings later.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想确保我们记录这一点，以免日后产生误解。</div></div></div>
+    <div class="sent-item"><span class="sent-num">334</span><div class="sent-content"><div class="sent-en">I'm glad we could find a solution that works for everyone.<span class="diff-badge d1">★</span></div><div class="sent-cn">很高兴我们能找到一个对所有人都有效的解决方案。</div></div></div>
+    <div class="sent-item"><span class="sent-num">335</span><div class="sent-content"><div class="sent-en">Let's revisit this in [30 days] to make sure it's working as intended.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们在[30天]后重新审视，确保它按预期运行。</div></div></div>
+    <div class="sent-item"><span class="sent-num">336</span><div class="sent-content"><div class="sent-en">I appreciate your flexibility on this — it makes a real difference.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我感激你在这件事上的灵活性——这真的很重要。</div></div></div>
+    <div class="sent-item"><span class="sent-num">337</span><div class="sent-content"><div class="sent-en">I'll send over the updated terms for your review.<span class="diff-badge d1">★</span></div><div class="sent-cn">我会发送更新后的条款供你审阅。</div></div></div>
+    <div class="sent-item"><span class="sent-num">338</span><div class="sent-content"><div class="sent-en">We're aligned — let's move forward.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们达成一致了——让我们继续推进。</div></div></div>
+    <div class="sent-item"><span class="sent-num">339</span><div class="sent-content"><div class="sent-en">I want to make sure we're both setting each other up for success here.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我想确保我们都在为彼此的成功创造条件。</div></div></div>
+    <div class="sent-item"><span class="sent-num">340</span><div class="sent-content"><div class="sent-en">This is just the beginning — I look forward to a long and productive partnership.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这只是开始——我期待一段长久而富有成效的合作关系。</div></div></div>
+    <div class="sent-item"><span class="sent-num">341</span><div class="sent-content"><div class="sent-en">We've come a long way from where we started — good negotiating on both sides.<span class="diff-badge d2">★★</span></div><div class="sent-cn">与我们最初的立场相比，我们已经取得了很大进展——双方都谈判得很好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">342</span><div class="sent-content"><div class="sent-en">I'm confident this is the right path forward for both of us.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我相信这对我们双方来说都是正确的前进路径。</div></div></div>
+    <div class="sent-item"><span class="sent-num">343</span><div class="sent-content"><div class="sent-en">Thank you for your time — I look forward to working together.<span class="diff-badge d1">★</span></div><div class="sent-cn">感谢你的时间——我期待我们的合作。</div></div></div>
+    <div class="sent-item"><span class="sent-num">344</span><div class="sent-content"><div class="sent-en">Let's make this official and get the paperwork sorted.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们把这个正式化，把文件整理好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">345</span><div class="sent-content"><div class="sent-en">I'll have a formal proposal ready for you by [date].<span class="diff-badge d1">★</span></div><div class="sent-cn">我会在[日期]前为你准备好正式的方案。</div></div></div>
+    <div class="sent-item"><span class="sent-num">346</span><div class="sent-content"><div class="sent-en">We'll honor our commitments — you have my word.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们会履行我们的承诺——我向你保证。</div></div></div>
+    <div class="sent-item"><span class="sent-num">347</span><div class="sent-content"><div class="sent-en">Let's both commit to checking in monthly to make sure this stays on track.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们双方都承诺每月检查，以确保这保持正轨。</div></div></div>
+    <div class="sent-item"><span class="sent-num">348</span><div class="sent-content"><div class="sent-en">I hope we can continue to build on this trust going forward.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我希望我们能在未来继续在这种信任的基础上建立更深的关系。</div></div></div>
+    <div class="sent-item"><span class="sent-num">349</span><div class="sent-content"><div class="sent-en">We're delighted to have you as a partner.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们很高兴有你作为合作伙伴。</div></div></div>
+    <div class="sent-item"><span class="sent-num">350</span><div class="sent-content"><div class="sent-en">Here's to a successful collaboration — let's make it happen.<span class="diff-badge d2">★★</span></div><div class="sent-cn">为成功的合作干杯——让我们实现它。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 8 — TECHNICAL COMMUNICATION (50 sentences) ════════════ -->
+<div id="s8" class="section-block s8">
+  <h2>8 — Technical Communication　技术沟通 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Explaining Technical Concepts 解释技术概念</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">351</span><div class="sent-content"><div class="sent-en">Let me explain this in non-technical terms.<span class="diff-badge d1">★</span></div><div class="sent-cn">让我用非技术术语来解释这个。</div></div></div>
+    <div class="sent-item"><span class="sent-num">352</span><div class="sent-content"><div class="sent-en">Think of it like [familiar analogy] — it works in a similar way.<span class="diff-badge d1">★</span></div><div class="sent-cn">把它想象成[熟悉的类比]——工作原理类似。</div></div></div>
+    <div class="sent-item"><span class="sent-num">353</span><div class="sent-content"><div class="sent-en">The short version is: [simple explanation]. Want me to go deeper?<span class="diff-badge d1">★</span></div><div class="sent-cn">简短版本是：[简单解释]。你想要我深入解释吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">354</span><div class="sent-content"><div class="sent-en">Technically speaking, what's happening is [X] — but what that means for users is [Y].<span class="diff-badge d2">★★</span></div><div class="sent-cn">从技术角度说，发生的是X——但对用户来说意味着Y。</div></div></div>
+    <div class="sent-item"><span class="sent-num">355</span><div class="sent-content"><div class="sent-en">The architecture is built around [microservices / a monolith / event-driven design].<span class="diff-badge d2">★★</span></div><div class="sent-cn">架构是围绕[微服务/单体应用/事件驱动设计]构建的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">356</span><div class="sent-content"><div class="sent-en">At a high level, the system works like this: [X] receives [input], processes it, and returns [output].<span class="diff-badge d2">★★</span></div><div class="sent-cn">从高层次来看，系统是这样工作的：X接收[输入]，处理它，并返回[输出]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">357</span><div class="sent-content"><div class="sent-en">The key constraint here is [latency / memory / throughput / consistency].<span class="diff-badge d2">★★</span></div><div class="sent-cn">这里的关键约束是[延迟/内存/吞吐量/一致性]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">358</span><div class="sent-content"><div class="sent-en">This is a trade-off between [performance] and [simplicity] — there's no perfect answer.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是[性能]和[简单性]之间的权衡——没有完美的答案。</div></div></div>
+  </div>
+  <h3>Technical Decisions & Reviews 技术决策与评审</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">359</span><div class="sent-content"><div class="sent-en">We went with [approach] because [reason] — though we considered [alternative] too.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们选择了[方法]，因为[原因]——尽管我们也考虑了[替代方案]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">360</span><div class="sent-content"><div class="sent-en">The rationale behind this design decision was [X].<span class="diff-badge d2">★★</span></div><div class="sent-cn">这个设计决策背后的理由是X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">361</span><div class="sent-content"><div class="sent-en">This is technically sound, but I'd like a second opinion before we commit.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这从技术上来说是合理的，但在我们确定之前我想听第二意见。</div></div></div>
+    <div class="sent-item"><span class="sent-num">362</span><div class="sent-content"><div class="sent-en">We have some technical debt here that we should plan to address in the next quarter.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这里有一些技术债，我们应该计划在下个季度解决。</div></div></div>
+    <div class="sent-item"><span class="sent-num">363</span><div class="sent-content"><div class="sent-en">This solution will scale to [X] users / [Y] requests per second.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这个解决方案可以扩展到X个用户/每秒Y个请求。</div></div></div>
+    <div class="sent-item"><span class="sent-num">364</span><div class="sent-content"><div class="sent-en">I'd recommend we write unit tests for this edge case.<span class="diff-badge d1">★</span></div><div class="sent-cn">我建议我们为这个边缘情况编写单元测试。</div></div></div>
+    <div class="sent-item"><span class="sent-num">365</span><div class="sent-content"><div class="sent-en">The current implementation is O(n²) — we should optimize to O(n log n).<span class="diff-badge d3">★★★</span></div><div class="sent-cn">当前实现是O(n²)——我们应该优化到O(n log n)。</div></div></div>
+    <div class="sent-item"><span class="sent-num">366</span><div class="sent-content"><div class="sent-en">This is a synchronous call — it might be better as async to avoid blocking.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是一个同步调用——为了避免阻塞，改为异步可能更好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">367</span><div class="sent-content"><div class="sent-en">I'd suggest adding retry logic in case the external API is unavailable.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我建议添加重试逻辑，以防外部API不可用。</div></div></div>
+    <div class="sent-item"><span class="sent-num">368</span><div class="sent-content"><div class="sent-en">The database query is performing a full table scan — let's add an index.<span class="diff-badge d2">★★</span></div><div class="sent-cn">数据库查询正在执行全表扫描——让我们添加一个索引。</div></div></div>
+    <div class="sent-item"><span class="sent-num">369</span><div class="sent-content"><div class="sent-en">Let's follow the principle of least privilege when setting up permissions.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">在设置权限时，让我们遵循最小权限原则。</div></div></div>
+    <div class="sent-item"><span class="sent-num">370</span><div class="sent-content"><div class="sent-en">I'd like to propose we adopt [design pattern] for this module.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想提议我们为这个模块采用[设计模式]。</div></div></div>
+  </div>
+  <h3>Status Updates on Technical Work 技术工作状态汇报</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">371</span><div class="sent-content"><div class="sent-en">The feature is complete and all unit tests are passing.<span class="diff-badge d1">★</span></div><div class="sent-cn">该功能已完成，所有单元测试均通过。</div></div></div>
+    <div class="sent-item"><span class="sent-num">372</span><div class="sent-content"><div class="sent-en">I've submitted the PR for review — would appreciate a look when you get a chance.<span class="diff-badge d1">★</span></div><div class="sent-cn">我已提交PR待审查——有空的时候请看一下。</div></div></div>
+    <div class="sent-item"><span class="sent-num">373</span><div class="sent-content"><div class="sent-en">The deployment to staging went smoothly — QA can start testing now.<span class="diff-badge d1">★</span></div><div class="sent-cn">部署到预发布环境顺利完成——QA现在可以开始测试了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">374</span><div class="sent-content"><div class="sent-en">I've hit a blocker — I'm getting [error message] and I'm not sure why.<span class="diff-badge d1">★</span></div><div class="sent-cn">我遇到了阻碍——我收到了[错误信息]，不确定是为什么。</div></div></div>
+    <div class="sent-item"><span class="sent-num">375</span><div class="sent-content"><div class="sent-en">The bug has been identified — root cause is [X]. Working on a fix now.<span class="diff-badge d1">★</span></div><div class="sent-cn">已识别出该缺陷——根本原因是X。现在正在修复中。</div></div></div>
+    <div class="sent-item"><span class="sent-num">376</span><div class="sent-content"><div class="sent-en">We've completed the load testing — the results look [promising / concerning].<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们已完成负载测试——结果看起来[有希望/令人担忧]。</div></div></div>
+    <div class="sent-item"><span class="sent-num">377</span><div class="sent-content"><div class="sent-en">The API documentation is ready — here's the link.<span class="diff-badge d1">★</span></div><div class="sent-cn">API文档已准备好——这是链接。</div></div></div>
+    <div class="sent-item"><span class="sent-num">378</span><div class="sent-content"><div class="sent-en">I estimate this will take [X] days — based on similar work I've done before.<span class="diff-badge d1">★</span></div><div class="sent-cn">我估计这需要X天——基于我之前做过的类似工作。</div></div></div>
+    <div class="sent-item"><span class="sent-num">379</span><div class="sent-content"><div class="sent-en">This is taking longer than expected because [X] — I'll provide a revised ETA by [time].<span class="diff-badge d2">★★</span></div><div class="sent-cn">这花的时间比预期长，因为X——我会在[时间]前提供修订后的预计完成时间。</div></div></div>
+    <div class="sent-item"><span class="sent-num">380</span><div class="sent-content"><div class="sent-en">Everything is green — we're good to go for the production release.<span class="diff-badge d1">★</span></div><div class="sent-cn">一切正常——我们可以进行生产发布了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">381</span><div class="sent-content"><div class="sent-en">I need to spike on this — give me a day to understand the scope before I commit to an estimate.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我需要调研一下这个——给我一天时间了解范围，然后再给出估算。</div></div></div>
+    <div class="sent-item"><span class="sent-num">382</span><div class="sent-content"><div class="sent-en">I've added inline comments to explain the complex logic in this section.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我在这一节添加了内联注释来解释复杂的逻辑。</div></div></div>
+    <div class="sent-item"><span class="sent-num">383</span><div class="sent-content"><div class="sent-en">Let's write this in a way that's easy for the next developer to understand and maintain.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们以下一个开发者容易理解和维护的方式来写这个。</div></div></div>
+    <div class="sent-item"><span class="sent-num">384</span><div class="sent-content"><div class="sent-en">I'm going to need a code review before I merge — this is a high-risk change.<span class="diff-badge d2">★★</span></div><div class="sent-cn">在合并之前，我需要一次代码审查——这是一个高风险的更改。</div></div></div>
+    <div class="sent-item"><span class="sent-num">385</span><div class="sent-content"><div class="sent-en">Let's follow the existing patterns in the codebase for consistency.<span class="diff-badge d2">★★</span></div><div class="sent-cn">为了一致性，让我们遵循代码库中现有的模式。</div></div></div>
+    <div class="sent-item"><span class="sent-num">386</span><div class="sent-content"><div class="sent-en">This is a breaking change — we'll need to version the API and communicate to all consumers.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">这是一个破坏性变更——我们需要对API进行版本控制并通知所有使用方。</div></div></div>
+    <div class="sent-item"><span class="sent-num">387</span><div class="sent-content"><div class="sent-en">I'll put this behind a feature flag so we can enable it gradually.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我会将此置于功能标志之后，这样我们可以逐步启用它。</div></div></div>
+    <div class="sent-item"><span class="sent-num">388</span><div class="sent-content"><div class="sent-en">The coverage report shows we're at [X]% — we should aim for at least 80%.<span class="diff-badge d2">★★</span></div><div class="sent-cn">覆盖率报告显示我们在X%——我们应该目标至少80%。</div></div></div>
+    <div class="sent-item"><span class="sent-num">389</span><div class="sent-content"><div class="sent-en">I recommend we set up automated alerts for when this metric drops below [threshold].<span class="diff-badge d2">★★</span></div><div class="sent-cn">我建议当这个指标低于[阈值]时设置自动警报。</div></div></div>
+    <div class="sent-item"><span class="sent-num">390</span><div class="sent-content"><div class="sent-en">This refactoring will make the codebase significantly easier to work with going forward.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这次重构将使代码库在未来的工作中更容易操作。</div></div></div>
+    <div class="sent-item"><span class="sent-num">391</span><div class="sent-content"><div class="sent-en">The CI pipeline is failing on [step] — let me investigate.<span class="diff-badge d1">★</span></div><div class="sent-cn">CI流水线在[步骤]失败了——让我来调查。</div></div></div>
+    <div class="sent-item"><span class="sent-num">392</span><div class="sent-content"><div class="sent-en">Can you reproduce the issue in a clean environment?<span class="diff-badge d2">★★</span></div><div class="sent-cn">你能在干净的环境中重现这个问题吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">393</span><div class="sent-content"><div class="sent-en">Let's pair on this — two sets of eyes will help us move faster.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们配对处理这个——两双眼睛会帮助我们更快推进。</div></div></div>
+    <div class="sent-item"><span class="sent-num">394</span><div class="sent-content"><div class="sent-en">I'll share my screen — it'll be easier to walk you through it that way.<span class="diff-badge d1">★</span></div><div class="sent-cn">我会共享屏幕——那样带你了解会更容易。</div></div></div>
+    <div class="sent-item"><span class="sent-num">395</span><div class="sent-content"><div class="sent-en">The fix is in review — if it passes, we should be able to deploy by end of day.<span class="diff-badge d1">★</span></div><div class="sent-cn">修复正在审查中——如果通过，我们应该能在今天下班前部署。</div></div></div>
+    <div class="sent-item"><span class="sent-num">396</span><div class="sent-content"><div class="sent-en">I've run the benchmarks — performance improved by [X]% after the optimization.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我已运行基准测试——优化后性能提升了X%。</div></div></div>
+    <div class="sent-item"><span class="sent-num">397</span><div class="sent-content"><div class="sent-en">This is now fully documented in the wiki — link in the PR description.<span class="diff-badge d1">★</span></div><div class="sent-cn">这已经在wiki中完整记录——链接在PR描述中。</div></div></div>
+    <div class="sent-item"><span class="sent-num">398</span><div class="sent-content"><div class="sent-en">The migration script ran successfully — no data loss detected.<span class="diff-badge d1">★</span></div><div class="sent-cn">迁移脚本成功运行——未检测到数据丢失。</div></div></div>
+    <div class="sent-item"><span class="sent-num">399</span><div class="sent-content"><div class="sent-en">We've hit our performance targets — [X] ms average response time under load.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们已达到性能目标——负载下平均响应时间为X毫秒。</div></div></div>
+    <div class="sent-item"><span class="sent-num">400</span><div class="sent-content"><div class="sent-en">Ship it! The code is clean, tests are passing, and the feature is ready for users.<span class="diff-badge d1">★</span></div><div class="sent-cn">发布吧！代码干净，测试通过，功能已准备好面向用户。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 9 — HANDLING DIFFICULT SITUATIONS (50 sentences) ══════ -->
+<div id="s9" class="section-block s9">
+  <h2>9 — Handling Difficult Situations　处理困难情况 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Delivering Bad News 传达坏消息</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">401</span><div class="sent-content"><div class="sent-en">I have some difficult news to share — I want to be upfront with you.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我有一些困难的消息要分享——我想对你坦诚。</div></div></div>
+    <div class="sent-item"><span class="sent-num">402</span><div class="sent-content"><div class="sent-en">I'm sorry to have to tell you this, but [X].<span class="diff-badge d1">★</span></div><div class="sent-cn">我很遗憾告诉你这件事，但是X。</div></div></div>
+    <div class="sent-item"><span class="sent-num">403</span><div class="sent-content"><div class="sent-en">We've encountered a setback — let me explain what happened and what we're doing about it.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们遇到了挫折——让我解释发生了什么以及我们正在做什么。</div></div></div>
+    <div class="sent-item"><span class="sent-num">404</span><div class="sent-content"><div class="sent-en">We missed the deadline — and I want to take full responsibility for that.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们错过了截止日期——我想为此承担全部责任。</div></div></div>
+    <div class="sent-item"><span class="sent-num">405</span><div class="sent-content"><div class="sent-en">We made a mistake, and here's what we're doing to fix it and prevent it from happening again.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们犯了一个错误，以下是我们正在做的来修复它并防止它再次发生。</div></div></div>
+    <div class="sent-item"><span class="sent-num">406</span><div class="sent-content"><div class="sent-en">I want to be honest with you — we're not going to hit the original target.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想对你坦诚——我们无法达到原来的目标。</div></div></div>
+    <div class="sent-item"><span class="sent-num">407</span><div class="sent-content"><div class="sent-en">I should have flagged this earlier — I apologize for not doing so.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我应该更早提出这个问题——我为没有这样做而道歉。</div></div></div>
+    <div class="sent-item"><span class="sent-num">408</span><div class="sent-content"><div class="sent-en">This is on us — we own this problem and we will fix it.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是我们的责任——我们承担这个问题，我们会解决它。</div></div></div>
+  </div>
+  <h3>Handling Conflict & Tension 处理冲突与紧张局势</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">409</span><div class="sent-content"><div class="sent-en">I can tell there's some frustration here — let's take a moment to address it.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我能感受到这里有些沮丧——让我们花点时间来解决它。</div></div></div>
+    <div class="sent-item"><span class="sent-num">410</span><div class="sent-content"><div class="sent-en">I understand your frustration, and I want you to know we take this seriously.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我理解你的沮丧，我想让你知道我们认真对待这件事。</div></div></div>
+    <div class="sent-item"><span class="sent-num">411</span><div class="sent-content"><div class="sent-en">Let's not let this become personal — let's focus on the issue, not the individual.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们不要让这变成个人问题——让我们专注于问题本身，而不是个人。</div></div></div>
+    <div class="sent-item"><span class="sent-num">412</span><div class="sent-content"><div class="sent-en">I hear you — and I want to understand your perspective better.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我听到你说的了——我想更好地理解你的立场。</div></div></div>
+    <div class="sent-item"><span class="sent-num">413</span><div class="sent-content"><div class="sent-en">Can we take this offline? I think a one-on-one would be more productive.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们能私下讨论吗？我认为一对一会更有成效。</div></div></div>
+    <div class="sent-item"><span class="sent-num">414</span><div class="sent-content"><div class="sent-en">I want to be clear that this feedback is about the work, not about you personally.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我想说清楚，这个反馈是针对工作的，不是针对你个人的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">415</span><div class="sent-content"><div class="sent-en">I may have been unclear earlier — let me try to explain my thinking again.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我之前可能说不清楚——让我再次尝试解释我的想法。</div></div></div>
+    <div class="sent-item"><span class="sent-num">416</span><div class="sent-content"><div class="sent-en">I think there's been a misunderstanding — let me try to clear that up.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我认为有一个误解——让我来澄清一下。</div></div></div>
+    <div class="sent-item"><span class="sent-num">417</span><div class="sent-content"><div class="sent-en">Let's pause and reset — I don't think this conversation is going anywhere productive right now.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">让我们暂停和重置——我认为这个对话目前没有向任何富有成效的方向发展。</div></div></div>
+    <div class="sent-item"><span class="sent-num">418</span><div class="sent-content"><div class="sent-en">I completely understand why you're frustrated — that would have frustrated me too.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我完全理解你为什么沮丧——那也会让我沮丧。</div></div></div>
+  </div>
+  <h3>Dealing with Pressure & Pushback 应对压力与反对</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">419</span><div class="sent-content"><div class="sent-en">I understand the pressure you're under, and I want to help find a solution.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我理解你所承受的压力，我想帮助找到解决方案。</div></div></div>
+    <div class="sent-item"><span class="sent-num">420</span><div class="sent-content"><div class="sent-en">I want to be honest with you — committing to that timeline isn't realistic.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想对你坦诚——承诺那个时间表是不现实的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">421</span><div class="sent-content"><div class="sent-en">If we rush this, we risk [X] — and that would ultimately cost us more time.<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果我们急于求成，我们有X的风险——这最终会让我们花更多时间。</div></div></div>
+    <div class="sent-item"><span class="sent-num">422</span><div class="sent-content"><div class="sent-en">I'd rather disappoint you now than surprise you later with a bigger problem.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我宁愿现在让你失望，也不愿以后给你一个更大的惊喜。</div></div></div>
+    <div class="sent-item"><span class="sent-num">423</span><div class="sent-content"><div class="sent-en">I know this isn't what you wanted to hear — but I think it's what you need to know.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我知道这不是你想听到的——但我认为这是你需要了解的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">424</span><div class="sent-content"><div class="sent-en">My team is working as hard as they can — adding more pressure won't make them faster.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我的团队已经尽力了——增加更多压力不会让他们更快。</div></div></div>
+    <div class="sent-item"><span class="sent-num">425</span><div class="sent-content"><div class="sent-en">I'm not trying to be difficult — I'm trying to protect the quality of what we deliver.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我不是想为难你——我是在保护我们交付的质量。</div></div></div>
+    <div class="sent-item"><span class="sent-num">426</span><div class="sent-content"><div class="sent-en">Let me escalate this to my manager so we can get it resolved at the right level.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我把这个上升到我的经理那里，这样我们可以在适当的层面上解决它。</div></div></div>
+    <div class="sent-item"><span class="sent-num">427</span><div class="sent-content"><div class="sent-en">I want to flag this as a risk in writing — so we have a clear record of the concern.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我想以书面形式记录这是一个风险——这样我们对顾虑有明确的记录。</div></div></div>
+    <div class="sent-item"><span class="sent-num">428</span><div class="sent-content"><div class="sent-en">I need to push back on this — it's not something I can agree to.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我需要对此表示反对——这不是我能同意的事情。</div></div></div>
+    <div class="sent-item"><span class="sent-num">429</span><div class="sent-content"><div class="sent-en">With respect, I think we're approaching this problem from the wrong angle.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">恕我冒昧，我认为我们是从错误的角度来处理这个问题的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">430</span><div class="sent-content"><div class="sent-en">I can see we have different views on this — but the decision ultimately rests with [Name/team].<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我可以看到我们在这件事上有不同的看法——但最终决定权在[姓名/团队]。</div></div></div>
+  </div>
+  <h3>Apologizing & Recovering 道歉与挽回</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">431</span><div class="sent-content"><div class="sent-en">I sincerely apologize for the inconvenience this has caused.<span class="diff-badge d1">★</span></div><div class="sent-cn">我真诚地为此带来的不便道歉。</div></div></div>
+    <div class="sent-item"><span class="sent-num">432</span><div class="sent-content"><div class="sent-en">I take full responsibility for this — it was my oversight.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我对此承担全部责任——这是我的疏忽。</div></div></div>
+    <div class="sent-item"><span class="sent-num">433</span><div class="sent-content"><div class="sent-en">We let you down, and I'm sorry — but here's what we're going to do to make it right.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们让你失望了，我很抱歉——但以下是我们要做的来弥补这一点。</div></div></div>
+    <div class="sent-item"><span class="sent-num">434</span><div class="sent-content"><div class="sent-en">I appreciate your patience while we worked through this issue.<span class="diff-badge d2">★★</span></div><div class="sent-cn">感谢您在我们处理这个问题时的耐心。</div></div></div>
+    <div class="sent-item"><span class="sent-num">435</span><div class="sent-content"><div class="sent-en">We have learned from this, and we've put measures in place to ensure it doesn't happen again.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们已经从这件事中吸取教训，并采取了措施确保它不再发生。</div></div></div>
+    <div class="sent-item"><span class="sent-num">436</span><div class="sent-content"><div class="sent-en">I should have communicated this sooner — I'll be more proactive in future.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我应该更早沟通这件事——将来我会更主动。</div></div></div>
+    <div class="sent-item"><span class="sent-num">437</span><div class="sent-content"><div class="sent-en">I understand this has impacted your business, and we're committed to making this right.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我理解这已经影响了你的业务，我们致力于把这件事做好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">438</span><div class="sent-content"><div class="sent-en">Thank you for your understanding — we won't take that for granted.<span class="diff-badge d2">★★</span></div><div class="sent-cn">感谢您的理解——我们不会将其视为理所当然。</div></div></div>
+    <div class="sent-item"><span class="sent-num">439</span><div class="sent-content"><div class="sent-en">I appreciate you holding us accountable — it helps us improve.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">感谢你让我们承担责任——这有助于我们改进。</div></div></div>
+    <div class="sent-item"><span class="sent-num">440</span><div class="sent-content"><div class="sent-en">Let's put this behind us and move forward constructively.<span class="diff-badge d2">★★</span></div><div class="sent-cn">让我们把这件事放在身后，建设性地向前推进。</div></div></div>
+    <div class="sent-item"><span class="sent-num">441</span><div class="sent-content"><div class="sent-en">I want to restore your confidence in us — here's our plan.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想恢复你对我们的信心——这是我们的计划。</div></div></div>
+    <div class="sent-item"><span class="sent-num">442</span><div class="sent-content"><div class="sent-en">You have every right to be frustrated — this is not the standard we hold ourselves to.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">你完全有权利感到沮丧——这不是我们对自己的标准。</div></div></div>
+    <div class="sent-item"><span class="sent-num">443</span><div class="sent-content"><div class="sent-en">We value this partnership too much to let something like this damage it.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们太重视这段合作关系，不会让这样的事情损害它。</div></div></div>
+    <div class="sent-item"><span class="sent-num">444</span><div class="sent-content"><div class="sent-en">Actions speak louder than words — watch what we do next.<span class="diff-badge d2">★★</span></div><div class="sent-cn">行动胜于言辞——请关注我们接下来的行动。</div></div></div>
+    <div class="sent-item"><span class="sent-num">445</span><div class="sent-content"><div class="sent-en">We've put safeguards in place — this type of error won't reach production again.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们已经设置了保障措施——这种类型的错误不会再进入生产环境。</div></div></div>
+    <div class="sent-item"><span class="sent-num">446</span><div class="sent-content"><div class="sent-en">I genuinely appreciate the direct feedback — it helps us get better.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我真诚地感谢直接的反馈——它帮助我们做得更好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">447</span><div class="sent-content"><div class="sent-en">I want to earn back your trust — and I'm committed to doing that.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想重新赢得你的信任——我致力于做到这一点。</div></div></div>
+    <div class="sent-item"><span class="sent-num">448</span><div class="sent-content"><div class="sent-en">Thank you for giving us the chance to fix this — we won't waste it.<span class="diff-badge d2">★★</span></div><div class="sent-cn">感谢你给我们修复这件事的机会——我们不会浪费它。</div></div></div>
+    <div class="sent-item"><span class="sent-num">449</span><div class="sent-content"><div class="sent-en">I'm confident that once you see the results of our improvements, you'll feel better about this.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我相信一旦你看到我们改进的成果，你会对此感到更好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">450</span><div class="sent-content"><div class="sent-en">We're stronger for having gone through this challenge together.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">经历了这个挑战，我们共同变得更强大了。</div></div></div>
+  </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 10 — CLOSING & FOLLOW-UP (50 sentences) ══════════════ -->
+<div id="s10" class="section-block s10">
+  <h2>10 — Closing, Follow-up &amp; Building Relationships　结束、跟进与关系维护 <span class="sec-count">50 sentences</span></h2>
+  <div class="section-body">
+  <h3>Wrapping Up a Conversation 结束一段对话</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">451</span><div class="sent-content"><div class="sent-en">Let me make sure I've captured everything before we finish.<span class="diff-badge d1">★</span></div><div class="sent-cn">在我们结束之前，让我确认我已记录了所有内容。</div></div></div>
+    <div class="sent-item"><span class="sent-num">452</span><div class="sent-content"><div class="sent-en">To summarize the key points we agreed on today...<span class="diff-badge d1">★</span></div><div class="sent-cn">总结一下我们今天达成共识的关键要点……</div></div></div>
+    <div class="sent-item"><span class="sent-num">453</span><div class="sent-content"><div class="sent-en">Before we go, let's confirm who's doing what and by when.<span class="diff-badge d1">★</span></div><div class="sent-cn">在我们离开之前，让我们确认谁在做什么，什么时候完成。</div></div></div>
+    <div class="sent-item"><span class="sent-num">454</span><div class="sent-content"><div class="sent-en">Is there anything we need to decide or address before our next call?<span class="diff-badge d2">★★</span></div><div class="sent-cn">在我们下次通话之前，有什么我们需要决定或解决的吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">455</span><div class="sent-content"><div class="sent-en">This has been a very productive conversation — thank you for your time.<span class="diff-badge d1">★</span></div><div class="sent-cn">这是一次非常富有成效的对话——感谢你的时间。</div></div></div>
+    <div class="sent-item"><span class="sent-num">456</span><div class="sent-content"><div class="sent-en">I feel like we've made real progress today — good work everyone.<span class="diff-badge d1">★</span></div><div class="sent-cn">我感觉我们今天取得了实质性进展——大家做得很好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">457</span><div class="sent-content"><div class="sent-en">I'll send a recap email with the agreed action items within the hour.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会在一小时内发送包含已同意行动项的摘要邮件。</div></div></div>
+    <div class="sent-item"><span class="sent-num">458</span><div class="sent-content"><div class="sent-en">Shall we schedule the next session now while we're all together?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们趁大家都在的时候安排下次会议好吗？</div></div></div>
+  </div>
+  <h3>Follow-up Phrases 跟进用语</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">459</span><div class="sent-content"><div class="sent-en">I'm following up on our conversation from [date / last week].<span class="diff-badge d1">★</span></div><div class="sent-cn">我在跟进我们[日期/上周]的对话。</div></div></div>
+    <div class="sent-item"><span class="sent-num">460</span><div class="sent-content"><div class="sent-en">Just checking in — how is [task / issue] progressing?<span class="diff-badge d1">★</span></div><div class="sent-cn">只是来看看——[任务/问题]进展如何？</div></div></div>
+    <div class="sent-item"><span class="sent-num">461</span><div class="sent-content"><div class="sent-en">I wanted to touch base on the [X] we discussed — do you have an update?<span class="diff-badge d2">★★</span></div><div class="sent-cn">我想联系一下关于我们讨论的X——你有什么更新吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">462</span><div class="sent-content"><div class="sent-en">As agreed in our last meeting, here's my update on [X].<span class="diff-badge d1">★</span></div><div class="sent-cn">按照我们上次会议的约定，这是我关于X的更新。</div></div></div>
+    <div class="sent-item"><span class="sent-num">463</span><div class="sent-content"><div class="sent-en">This is a gentle reminder about the [deadline / deliverable / action item] coming up.<span class="diff-badge d1">★</span></div><div class="sent-cn">这是关于即将到来的[截止日期/可交付成果/行动项]的温馨提醒。</div></div></div>
+    <div class="sent-item"><span class="sent-num">464</span><div class="sent-content"><div class="sent-en">I hadn't heard back — just wanted to make sure this didn't fall through the cracks.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我还没有收到回复——只是想确认这没有被遗漏。</div></div></div>
+    <div class="sent-item"><span class="sent-num">465</span><div class="sent-content"><div class="sent-en">Do you still need anything from me to complete [X]?<span class="diff-badge d1">★</span></div><div class="sent-cn">你还需要我提供什么来完成X吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">466</span><div class="sent-content"><div class="sent-en">Happy to extend the deadline if you need more time — just let me know.<span class="diff-badge d1">★</span></div><div class="sent-cn">如果你需要更多时间，我很乐意延长截止日期——告诉我就行。</div></div></div>
+    <div class="sent-item"><span class="sent-num">467</span><div class="sent-content"><div class="sent-en">I've completed my action item — here's what I produced.<span class="diff-badge d1">★</span></div><div class="sent-cn">我已完成我的行动项——这是我产出的内容。</div></div></div>
+    <div class="sent-item"><span class="sent-num">468</span><div class="sent-content"><div class="sent-en">Closing the loop on [X] — it's been resolved / completed / delivered.<span class="diff-badge d2">★★</span></div><div class="sent-cn">就X做个收尾——它已经解决/完成/交付了。</div></div></div>
+    <div class="sent-item"><span class="sent-num">469</span><div class="sent-content"><div class="sent-en">Can we schedule a 15-minute sync to catch up on the outstanding items?<span class="diff-badge d1">★</span></div><div class="sent-cn">我们能安排一个15分钟的同步会议，跟进未解决的事项吗？</div></div></div>
+    <div class="sent-item"><span class="sent-num">470</span><div class="sent-content"><div class="sent-en">I'll flag this again in next week's status update if it's still unresolved.<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果仍未解决，我会在下周的状态更新中再次提出这件事。</div></div></div>
+  </div>
+  <h3>Building Long-Term Relationships 建立长期关系</h3>
+  <div class="sent-grid">
+    <div class="sent-item"><span class="sent-num">471</span><div class="sent-content"><div class="sent-en">It's been a real pleasure working with you on this.<span class="diff-badge d1">★</span></div><div class="sent-cn">与你合作这件事真的很愉快。</div></div></div>
+    <div class="sent-item"><span class="sent-num">472</span><div class="sent-content"><div class="sent-en">I've learned a lot working alongside you — thank you.<span class="diff-badge d1">★</span></div><div class="sent-cn">与你共事，我学到了很多——谢谢你。</div></div></div>
+    <div class="sent-item"><span class="sent-num">473</span><div class="sent-content"><div class="sent-en">I hope this is just the beginning of a long partnership.<span class="diff-badge d1">★</span></div><div class="sent-cn">我希望这只是长期合作的开始。</div></div></div>
+    <div class="sent-item"><span class="sent-num">474</span><div class="sent-content"><div class="sent-en">Let's stay in touch — I'd love to hear how things develop on your end.<span class="diff-badge d1">★</span></div><div class="sent-cn">我们保持联系——我很想听听你那边的进展。</div></div></div>
+    <div class="sent-item"><span class="sent-num">475</span><div class="sent-content"><div class="sent-en">It's always a pleasure when we get the chance to work together.<span class="diff-badge d1">★</span></div><div class="sent-cn">每次有机会合作都很愉快。</div></div></div>
+    <div class="sent-item"><span class="sent-num">476</span><div class="sent-content"><div class="sent-en">Your team has been outstanding — it's clear why you have such a strong reputation.<span class="diff-badge d2">★★</span></div><div class="sent-cn">你的团队表现出色——这很清楚地说明了为什么你们有如此强大的声誉。</div></div></div>
+    <div class="sent-item"><span class="sent-num">477</span><div class="sent-content"><div class="sent-en">I'd love to get your feedback on how we could improve our collaboration.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我很想听听你对我们如何改善合作的反馈。</div></div></div>
+    <div class="sent-item"><span class="sent-num">478</span><div class="sent-content"><div class="sent-en">Please feel free to reach out whenever I can be of help — seriously.<span class="diff-badge d1">★</span></div><div class="sent-cn">任何时候我能帮上忙，随时联系——真心的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">479</span><div class="sent-content"><div class="sent-en">I'll send you my contact details so we can stay connected beyond this project.<span class="diff-badge d1">★</span></div><div class="sent-cn">我会发给你我的联系方式，这样在这个项目之外我们也能保持联系。</div></div></div>
+    <div class="sent-item"><span class="sent-num">480</span><div class="sent-content"><div class="sent-en">You're always welcome to reach out if you need a sounding board.<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果你需要一个倾听和讨论的对象，随时欢迎联系我。</div></div></div>
+    <div class="sent-item"><span class="sent-num">481</span><div class="sent-content"><div class="sent-en">It's been a challenging project, but I'm proud of what we've accomplished together.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这是一个有挑战性的项目，但我为我们共同完成的事情感到自豪。</div></div></div>
+    <div class="sent-item"><span class="sent-num">482</span><div class="sent-content"><div class="sent-en">I'll be cheering you on from afar — all the best with [next project / upcoming launch].<span class="diff-badge d2">★★</span></div><div class="sent-cn">我会在远处为你加油——祝[下一个项目/即将到来的发布]一切顺利。</div></div></div>
+    <div class="sent-item"><span class="sent-num">483</span><div class="sent-content"><div class="sent-en">The trust we've built over this project is something I really value.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我们在这个项目中建立的信任是我非常珍视的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">484</span><div class="sent-content"><div class="sent-en">Open and honest communication like this is what makes for great partnerships.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">像这样公开诚实的沟通使合作关系变得出色。</div></div></div>
+    <div class="sent-item"><span class="sent-num">485</span><div class="sent-content"><div class="sent-en">I'd be happy to provide a reference if you ever need one.<span class="diff-badge d2">★★</span></div><div class="sent-cn">如果你需要的话，我很乐意提供一封推荐信。</div></div></div>
+    <div class="sent-item"><span class="sent-num">486</span><div class="sent-content"><div class="sent-en">Would love to reconnect at [a conference / the next industry event].<span class="diff-badge d2">★★</span></div><div class="sent-cn">很想在[会议/下一次行业活动]上重新联系。</div></div></div>
+    <div class="sent-item"><span class="sent-num">487</span><div class="sent-content"><div class="sent-en">Your feedback has been incredibly valuable in helping us grow.<span class="diff-badge d2">★★</span></div><div class="sent-cn">你的反馈在帮助我们成长方面具有极大的价值。</div></div></div>
+    <div class="sent-item"><span class="sent-num">488</span><div class="sent-content"><div class="sent-en">I'm looking forward to seeing what we can achieve together in the next chapter.<span class="diff-badge d2">★★</span></div><div class="sent-cn">我期待看到我们在下一阶段能共同实现什么。</div></div></div>
+    <div class="sent-item"><span class="sent-num">489</span><div class="sent-content"><div class="sent-en">We genuinely care about your success — not just about delivering what's in scope.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">我们真心关心你的成功——不仅仅是交付范围内的东西。</div></div></div>
+    <div class="sent-item"><span class="sent-num">490</span><div class="sent-content"><div class="sent-en">The best partnerships are built on mutual respect and honest communication — and we have that.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">最好的合作关系建立在相互尊重和诚实沟通的基础上——我们就拥有这些。</div></div></div>
+    <div class="sent-item"><span class="sent-num">491</span><div class="sent-content"><div class="sent-en">Thank you for being such a great partner through both the easy and the tough times.<span class="diff-badge d2">★★</span></div><div class="sent-cn">感谢你在顺境和逆境中都是这么好的合作伙伴。</div></div></div>
+    <div class="sent-item"><span class="sent-num">492</span><div class="sent-content"><div class="sent-en">On behalf of the whole team — thank you for everything.<span class="diff-badge d1">★</span></div><div class="sent-cn">代表整个团队——感谢您的一切。</div></div></div>
+    <div class="sent-item"><span class="sent-num">493</span><div class="sent-content"><div class="sent-en">I'll keep you posted on our progress — you'll be the first to know.<span class="diff-badge d1">★</span></div><div class="sent-cn">我会随时告知你我们的进展——你会是第一个知道的。</div></div></div>
+    <div class="sent-item"><span class="sent-num">494</span><div class="sent-content"><div class="sent-en">Here's to the next project — I hope it's even better than this one.<span class="diff-badge d2">★★</span></div><div class="sent-cn">为下一个项目干杯——我希望它比这个更好。</div></div></div>
+    <div class="sent-item"><span class="sent-num">495</span><div class="sent-content"><div class="sent-en">It's the people we work with that make this job worthwhile — and you're a great example.<span class="diff-badge d3">★★★</span></div><div class="sent-cn">是与我们共事的人让这份工作变得有意义——而你就是一个很好的例子。</div></div></div>
+    <div class="sent-item"><span class="sent-num">496</span><div class="sent-content"><div class="sent-en">Good luck with everything — you've got a great team around you.<span class="diff-badge d1">★</span></div><div class="sent-cn">祝一切顺利——你身边有一支很好的团队。</div></div></div>
+    <div class="sent-item"><span class="sent-num">497</span><div class="sent-content"><div class="sent-en">Thank you for the trust you've placed in our team — we don't take it lightly.<span class="diff-badge d2">★★</span></div><div class="sent-cn">感谢你对我们团队的信任——我们不会轻视它。</div></div></div>
+    <div class="sent-item"><span class="sent-num">498</span><div class="sent-content"><div class="sent-en">Until next time — it's always a pleasure.<span class="diff-badge d1">★</span></div><div class="sent-cn">下次再见——总是很愉快。</div></div></div>
+    <div class="sent-item"><span class="sent-num">499</span><div class="sent-content"><div class="sent-en">This has been everything I hoped for from this collaboration — and more.<span class="diff-badge d2">★★</span></div><div class="sent-cn">这次合作达到了我所期望的一切——甚至更多。</div></div></div>
+    <div class="sent-item"><span class="sent-num">500</span><div class="sent-content"><div class="sent-en">Here's to many more projects together — onward!<span class="diff-badge d2">★★</span></div><div class="sent-cn">为更多的合作项目干杯——继续前进！</div></div></div>
+  </div>
+  </div>
+</div>
+
+  <div style="text-align:center;margin:20px 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+    <a class="print-btn" href="60day-master-plan.html">🗓 60-Day Plan</a>
+    <a class="print-btn" href="phrase-bank-team.html">👥 Team Phrases</a>
+    <a class="print-btn" href="phrase-bank.html">📋 Client Phrases</a>
+    <button class="print-btn" onclick="window.print()">🖨 Print All 500</button>
+  </div>
+  <p style="text-align:right;font-size:8pt;color:#bbb;font-family:Arial,sans-serif;margin-top:10px">500 Essential Sentence Patterns · 10 Scenarios · Bilingual EN+中文 · Software Development Context</p>
+</div>
+
+<script>
+function filterSentences() {
+  const q = document.getElementById('search-input').value.toLowerCase().trim();
+  const items = document.querySelectorAll('.sent-item');
+  let count = 0;
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const match = !q || text.includes(q);
+    item.style.display = match ? '' : 'none';
+    if (match) count++;
+  });
+  document.getElementById('search-count').textContent = count;
+  // Show/hide section headers based on visible items
+  document.querySelectorAll('.section-block').forEach(sec => {
+    const visible = [...sec.querySelectorAll('.sent-item')].some(i => i.style.display !== 'none');
+    sec.style.display = visible ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
