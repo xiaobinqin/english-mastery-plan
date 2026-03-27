@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>20 Stories — NGSL Reading & Speaking Practice</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #f0f4fb;
+    line-height: 1.7;
+}
+
+/* ── Navigation ── */
+@media screen {
+  .site-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: #1e3a5f; color: #fff;
+    padding: 9px 18px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    font-family: Arial, sans-serif; font-size: 8.5pt;
+  }
+  .site-nav a {
+    color: #a8d0f7; text-decoration: none;
+    padding: 3px 8px; border-radius: 3px; white-space: nowrap;
+  }
+  .site-nav a:hover { background: rgba(255,255,255,.15); color: #fff; }
+  .site-nav .nav-home { font-weight: bold; font-size: 10pt; margin-right: 4px; }
+  .site-nav a.active { background: #e8a020; color: #fff; }
+}
+@media print { .site-nav { display: none; } }
+
+/* ── Page header ── */
+.page-header {
+  max-width: 900px; margin: 30px auto 24px;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: 22pt; color: #1e3a5f; margin-bottom: 8px;
+}
+.page-header p {
+  font-size: 10pt; color: #555; line-height: 1.6;
+}
+
+/* ── Tips box ── */
+.tips-box {
+  max-width: 900px; margin: 0 auto 28px;
+  padding: 14px 22px;
+  background: #fffbe6;
+  border: 1px solid #e0c840;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+.tips-box h3 { color: #7a5a00; margin-bottom: 8px; font-size: 10pt; }
+.tips-box ul { padding-left: 18px; }
+.tips-box li { font-size: 9pt; color: #444; margin-bottom: 4px; line-height: 1.5; }
+
+/* ── Story index grid ── */
+.story-index {
+  max-width: 900px; margin: 0 auto 32px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+@media (max-width: 700px) { .story-index { grid-template-columns: repeat(2, 1fr); } }
+.si-card {
+  background: #f5f9ff;
+  border: 1px solid #c0d0e8;
+  border-radius: 6px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: background .2s;
+  font-family: Arial, sans-serif;
+}
+.si-card:hover { background: #ddeeff; }
+.si-card .si-num { font-size: 9pt; color: #3a6ea5; font-weight: bold; }
+.si-card .si-title { font-size: 8.5pt; color: #333; margin-top: 2px; line-height: 1.3; }
+.si-card .si-tags { font-size: 7.5pt; color: #888; margin-top: 3px; }
+
+/* ── Story section ── */
+.story-section {
+  max-width: 900px; margin: 0 auto 28px;
+  padding: 0 20px;
+}
+
+/* ── Story card ── */
+.story-card {
+  background: #fff;
+  border: 1px solid #ccd8ec;
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin-bottom: 24px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  box-shadow: 0 2px 6px rgba(30,58,95,.07);
+}
+
+.story-header {
+  display: flex; align-items: baseline;
+  gap: 14px; flex-wrap: wrap;
+  border-bottom: 2px solid #1e3a5f;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+.story-num {
+  font-family: Arial, sans-serif;
+  font-size: 18pt; font-weight: bold;
+  color: #1e3a5f; letter-spacing: -1px;
+  flex-shrink: 0;
+}
+.story-title {
+  font-family: Arial, sans-serif;
+  font-size: 13pt; font-weight: bold;
+  color: #222;
+}
+.story-meta {
+  margin-left: auto;
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+}
+.tag {
+  font-family: Arial, sans-serif;
+  font-size: 7.5pt;
+  padding: 2px 7px; border-radius: 10px;
+  font-weight: bold; text-transform: uppercase; letter-spacing: .3px;
+}
+.tag-humor  { background: #fff3cd; color: #856404; }
+.tag-office { background: #d1ecf1; color: #0c5460; }
+.tag-tech   { background: #d4edda; color: #155724; }
+.tag-daily  { background: #fce4ec; color: #880e4f; }
+.tag-work   { background: #e8eaf6; color: #283593; }
+.word-count { font-family: Arial, sans-serif; font-size: 8pt; color: #999; }
+
+/* ── Story body ── */
+.story-body {
+  font-size: 10.5pt;
+  line-height: 1.85;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+}
+.story-body p {
+  margin-bottom: 10px;
+}
+.story-body p:last-child { margin-bottom: 0; }
+
+/* ── Highlighted NGSL words ── */
+.story-body mark {
+  background: #e8f0fb;
+  color: #1e3a5f;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* ── Key words footer ── */
+.key-words {
+  border-top: 1px dashed #ccd8ec;
+  padding-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 8.5pt;
+  color: #555;
+  line-height: 1.6;
+}
+.key-words strong {
+  color: #1e3a5f;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-right: 6px;
+}
+
+/* ── Print ── */
+@media print {
+  body { background: #fff; font-size: 9pt; }
+  .story-section { padding: 0 8mm; }
+  .story-card { box-shadow: none; border: .5pt solid #bbb; padding: 14px 16px; margin-bottom: 14px; }
+  .story-num { font-size: 15pt; }
+  .story-title { font-size: 11pt; }
+  .story-body { font-size: 9pt; line-height: 1.7; }
+  .key-words { font-size: 7.5pt; }
+  .story-card + .story-card { page-break-before: always; }
+  .print-btn, .story-index, .tips-box { display: none; }
+}
+
+.print-btn {
+  display: inline-block;
+  background: #1e3a5f; color: #fff;
+  padding: 9px 20px; border-radius: 5px;
+  text-decoration: none; font-size: 9.5pt;
+  font-family: Arial, sans-serif;
+  border: none; cursor: pointer;
+  margin: 4px;
+}
+.print-btn:hover { background: #2e5a8f; }
+@media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-home" href="../index.html">🏠 Home</a>
+  <a href="index.html">📖 NGSL Overview</a>
+  <a href="day01.html">Day 1</a>
+  <a href="day10.html">Day 10</a>
+  <a href="day20.html">Day 20</a>
+  <a href="stories.html" class="active">📖 20 Stories</a>
+  <a href="../口语提升计划/60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="../口语提升计划/sentence-patterns.html">💬 500 Sentences</a>
+</nav>
+
+<div class="page-header">
+  <h1>📖 20 Stories for Reading &amp; Speaking</h1>
+  <p>Short, fun stories built on NGSL Top 1000 · Each story ~120 words · Key words highlighted in <mark style="background:#e8f0fb;color:#1e3a5f;border-radius:3px;padding:0 3px;font-weight:bold;">blue</mark></p>
+  <div style="margin-top:12px;">
+    <button class="print-btn" onclick="window.print()">🖨 Print All Stories</button>
+  </div>
+</div>
+
+<div class="tips-box" style="max-width:900px;margin:0 auto 24px;padding:14px 22px;">
+  <h3>💡 How to Use These Stories</h3>
+  <ul>
+    <li><strong>Read aloud</strong> — Read each story out loud, clearly and naturally. Aim for fluency, not speed.</li>
+    <li><strong>Shadow the key sentences</strong> — Pick 2–3 sentences per story that feel useful. Repeat them until they feel natural.</li>
+    <li><strong>Cover and recall</strong> — Read once, then cover the text and try to retell the story in your own words.</li>
+    <li><strong>Spot the highlight words</strong> — The blue-highlighted words are key NGSL vocabulary. Notice how they are used in context.</li>
+    <li><strong>Use it today</strong> — Find one sentence from each story that you can use in real life this week.</li>
+  </ul>
+</div>
+
+<!-- Story Index -->
+<div class="story-index">
+  <a class="si-card" href="#s01"><div class="si-num">Story 1</div><div class="si-title">The Missing Laptop</div><div class="si-tags">Office · Humor</div></a>
+  <a class="si-card" href="#s02"><div class="si-num">Story 2</div><div class="si-title">The Perfect Update</div><div class="si-tags">Tech · Humor</div></a>
+  <a class="si-card" href="#s03"><div class="si-num">Story 3</div><div class="si-title">The Early Bird</div><div class="si-tags">Daily Life · Humor</div></a>
+  <a class="si-card" href="#s04"><div class="si-num">Story 4</div><div class="si-title">Lost in the Meeting</div><div class="si-tags">Office · Humor</div></a>
+  <a class="si-card" href="#s05"><div class="si-num">Story 5</div><div class="si-title">My Smart Phone</div><div class="si-tags">Tech · Humor</div></a>
+  <a class="si-card" href="#s06"><div class="si-num">Story 6</div><div class="si-title">The Coffee Crisis</div><div class="si-tags">Daily Life · Humor</div></a>
+  <a class="si-card" href="#s07"><div class="si-num">Story 7</div><div class="si-title">The Job Interview</div><div class="si-tags">Work · Humor</div></a>
+  <a class="si-card" href="#s08"><div class="si-num">Story 8</div><div class="si-title">The Team Lunch</div><div class="si-tags">Office · Daily Life</div></a>
+  <a class="si-card" href="#s09"><div class="si-num">Story 9</div><div class="si-title">The Broken Printer</div><div class="si-tags">Office · Humor</div></a>
+  <a class="si-card" href="#s10"><div class="si-num">Story 10</div><div class="si-title">The Power Outage</div><div class="si-tags">Tech · Office</div></a>
+  <a class="si-card" href="#s11"><div class="si-num">Story 11</div><div class="si-title">The Perfect Plan</div><div class="si-tags">Daily Life · Humor</div></a>
+  <a class="si-card" href="#s12"><div class="si-num">Story 12</div><div class="si-title">My Neighbor</div><div class="si-tags">Daily Life · Humor</div></a>
+  <a class="si-card" href="#s13"><div class="si-num">Story 13</div><div class="si-title">Online Shopping</div><div class="si-tags">Tech · Daily Life</div></a>
+  <a class="si-card" href="#s14"><div class="si-num">Story 14</div><div class="si-title">The Morning Run</div><div class="si-tags">Daily Life · Humor</div></a>
+  <a class="si-card" href="#s15"><div class="si-num">Story 15</div><div class="si-title">The Big Presentation</div><div class="si-tags">Work · Humor</div></a>
+  <a class="si-card" href="#s16"><div class="si-num">Story 16</div><div class="si-title">The International Call</div><div class="si-tags">Work · Humor</div></a>
+  <a class="si-card" href="#s17"><div class="si-num">Story 17</div><div class="si-title">The New System</div><div class="si-tags">Tech · Work</div></a>
+  <a class="si-card" href="#s18"><div class="si-num">Story 18</div><div class="si-title">The Free Day</div><div class="si-tags">Work · Daily Life</div></a>
+  <a class="si-card" href="#s19"><div class="si-num">Story 19</div><div class="si-title">Weekend Warrior</div><div class="si-tags">Daily Life · Humor</div></a>
+  <a class="si-card" href="#s20"><div class="si-num">Story 20</div><div class="si-title">The Last Email</div><div class="si-tags">Work · Humor</div></a>
+</div>
+
+<!-- ═══════════════════════════════════════════ STORIES ════════════════════════════════════════════ -->
+<div class="story-section">
+
+  <!-- Story 1 -->
+  <div class="story-card" id="s01">
+    <div class="story-header">
+      <div class="story-num">01</div>
+      <div class="story-title">The Missing Laptop</div>
+      <div class="story-meta">
+        <span class="tag tag-office">Office</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~130 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Marcus <mark>arrived</mark> at the <mark>office</mark> early. He <mark>looked</mark> at his desk and <mark>felt</mark> a sudden fear. His laptop was gone. He <mark>called</mark> his <mark>manager</mark>, <mark>reported</mark> the <mark>problem</mark>, and waited.</p>
+      <p>Twenty minutes later, his <mark>manager</mark> <mark>came</mark> in carrying the laptop. "I <mark>found</mark> it," she <mark>said</mark>. "It was in the <mark>meeting</mark> room."</p>
+      <p>Marcus <mark>felt</mark> confused. "How did it <mark>get</mark> there?"</p>
+      <p>His <mark>manager</mark> smiled. "You <mark>left</mark> it there yesterday, during your three-hour <mark>meeting</mark> about improving <mark>team</mark> <mark>communication</mark>."</p>
+      <p>Marcus <mark>looked</mark> down. He had <mark>spent</mark> three hours talking about paying <mark>attention</mark>, and he still forgot his own laptop.</p>
+      <p>"Well," <mark>said</mark> Marcus, "at least I <mark>remember</mark> the key <mark>points</mark> from the <mark>meeting</mark>."</p>
+      <p>"Good," <mark>said</mark> his <mark>manager</mark>. "The first <mark>point</mark> was: write important <mark>things</mark> down."</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      arrived · office · manager · reported · problem · meeting · communication · remember · team · attention · points
+    </div>
+  </div>
+
+  <!-- Story 2 -->
+  <div class="story-card" id="s02">
+    <div class="story-header">
+      <div class="story-num">02</div>
+      <div class="story-title">The Perfect Update</div>
+      <div class="story-meta">
+        <span class="tag tag-tech">Tech</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Sarah <mark>worked</mark> as a software developer. One <mark>day</mark>, her <mark>team</mark> <mark>decided</mark> to <mark>update</mark> the company <mark>system</mark>. The <mark>plan</mark> was simple: <mark>start</mark> at nine, <mark>finish</mark> by noon, and <mark>go</mark> home early.</p>
+      <p>At nine, they <mark>began</mark> the <mark>process</mark>. The <mark>system</mark> did not <mark>respond</mark>. They waited. They <mark>tried</mark> again. They <mark>called</mark> for <mark>help</mark>. They <mark>read</mark> the instructions carefully. Nothing <mark>worked</mark>.</p>
+      <p>At three in the afternoon, a junior developer named Tom walked in. He <mark>looked</mark> at the screen, pressed one button, and the <mark>system</mark> <mark>started</mark> immediately.</p>
+      <p>Everyone stared at him. "What did you <mark>do</mark>?" asked Sarah.</p>
+      <p>"I turned it off and turned it on again," <mark>said</mark> Tom.</p>
+      <p>Sarah <mark>looked</mark> at her <mark>team</mark>. They had <mark>spent</mark> six hours <mark>solving</mark> a <mark>problem</mark> that <mark>needed</mark> five seconds.</p>
+      <p>"Let's <mark>go</mark> get coffee," she <mark>said</mark>.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      update · system · plan · process · respond · help · solve · problem · team · start · finish · decide
+    </div>
+  </div>
+
+  <!-- Story 3 -->
+  <div class="story-card" id="s03">
+    <div class="story-header">
+      <div class="story-num">03</div>
+      <div class="story-title">The Early Bird</div>
+      <div class="story-meta">
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~135 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>James always <mark>tried</mark> to <mark>arrive</mark> early. "Early <mark>people</mark> win," he <mark>told</mark> everyone. One morning, he woke up at five, <mark>prepared</mark> his bag, and <mark>left</mark> home at six. He <mark>arrived</mark> at the <mark>office</mark> at seven — two hours before anyone else.</p>
+      <p>He <mark>sat</mark> at his desk, <mark>feeling</mark> proud. He opened his computer and <mark>began</mark> to <mark>work</mark>. Then he noticed something strange. The building was very quiet. Too quiet.</p>
+      <p>He walked to the window and <mark>looked</mark> outside. The street was empty. No one was moving.</p>
+      <p>Then he <mark>remembered</mark>. It was Sunday.</p>
+      <p>He <mark>sat</mark> back in his chair, <mark>looked</mark> at his computer screen, and <mark>thought</mark> for a long <mark>time</mark>. Finally, he opened his bag, <mark>took</mark> out a <mark>book</mark>, and <mark>started</mark> to <mark>read</mark>.</p>
+      <p>"Well," he <mark>said</mark> to himself, "at least I'm being <mark>productive</mark>."</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      arrive · people · prepare · leave · office · feel · begin · work · remember · book · read · productive
+    </div>
+  </div>
+
+  <!-- Story 4 -->
+  <div class="story-card" id="s04">
+    <div class="story-header">
+      <div class="story-num">04</div>
+      <div class="story-title">Lost in the Meeting</div>
+      <div class="story-meta">
+        <span class="tag tag-office">Office</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~145 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Every Monday, the <mark>team</mark> held a <mark>meeting</mark>. The meetings were supposed to last thirty minutes. They always lasted two hours.</p>
+      <p>One Monday, David <mark>decided</mark> to <mark>change</mark> things. He <mark>prepared</mark> a clear <mark>plan</mark>. He set a timer. He <mark>told</mark> everyone to speak quickly.</p>
+      <p>The <mark>meeting</mark> <mark>began</mark> well. After fifteen minutes, half the topics were done. David <mark>felt</mark> successful. Then one person asked a simple <mark>question</mark> about the <mark>project</mark> timeline.</p>
+      <p>An hour later, the <mark>team</mark> was still talking about timelines, deadlines, and <mark>resources</mark>. Nobody <mark>remembered</mark> the original <mark>question</mark>. Nobody could <mark>find</mark> the <mark>decision</mark> they needed to <mark>make</mark>.</p>
+      <p>David <mark>looked</mark> at his <mark>plan</mark>. He <mark>looked</mark> at the timer. He closed his <mark>eyes</mark>.</p>
+      <p>"Let's <mark>continue</mark> this discussion next week," he <mark>said</mark>.</p>
+      <p>Everyone agreed immediately. The <mark>meeting</mark> ended in two minutes. David realized the only <mark>way</mark> to end a <mark>meeting</mark> was to <mark>plan</mark> another one.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      team · meeting · decide · change · plan · prepare · question · project · resource · decision · continue
+    </div>
+  </div>
+
+  <!-- Story 5 -->
+  <div class="story-card" id="s05">
+    <div class="story-header">
+      <div class="story-num">05</div>
+      <div class="story-title">My Smart Phone</div>
+      <div class="story-meta">
+        <span class="tag tag-tech">Tech</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>My phone is very smart. In fact, I <mark>think</mark> it is smarter than me.</p>
+      <p>Last week, I <mark>asked</mark> it for directions to a restaurant. It <mark>took</mark> me to a parking lot three kilometres away. When I <mark>arrived</mark>, I found a very good parking space but no restaurant.</p>
+      <p>I <mark>told</mark> the phone I was in the wrong <mark>place</mark>. It apologised and <mark>gave</mark> me new directions. I <mark>followed</mark> them. I <mark>arrived</mark> at a flower shop.</p>
+      <p>I <mark>called</mark> the restaurant directly. The man there <mark>gave</mark> me simple instructions: "Walk past the big bank, turn right at the old tree, and <mark>look</mark> for the red door."</p>
+      <p>I <mark>found</mark> it in five minutes.</p>
+      <p>When I got <mark>home</mark>, I <mark>told</mark> my phone about the red door. It <mark>said</mark> it would <mark>remember</mark>. The next <mark>day</mark>, it <mark>sent</mark> me a message suggesting a flower shop near a parking lot.</p>
+      <p>I <mark>think</mark> my phone <mark>needs</mark> more training.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      think · ask · arrive · tell · place · follow · call · find · home · remember · send · need
+    </div>
+  </div>
+
+  <!-- Story 6 -->
+  <div class="story-card" id="s06">
+    <div class="story-header">
+      <div class="story-num">06</div>
+      <div class="story-title">The Coffee Crisis</div>
+      <div class="story-meta">
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~135 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Emma could not <mark>start</mark> her <mark>day</mark> without coffee. Every morning, she <mark>made</mark> a strong cup, <mark>sat</mark> at her kitchen table, and <mark>felt</mark> ready for <mark>life</mark>.</p>
+      <p>One Tuesday, her coffee machine stopped <mark>working</mark>. She pressed the button. Nothing happened. She checked the power. She <mark>read</mark> the instructions. She <mark>tried</mark> everything.</p>
+      <p>She <mark>decided</mark> to <mark>go</mark> to a café near her <mark>office</mark>. The line was long. She waited twenty minutes. When she finally <mark>reached</mark> the front, the person behind the counter <mark>said</mark>: "Sorry, our coffee machine is also broken today."</p>
+      <p>Emma <mark>looked</mark> at the person carefully. "Is this a joke?"</p>
+      <p>"No," <mark>said</mark> the person. "But we <mark>have</mark> very good tea."</p>
+      <p>Emma <mark>bought</mark> the tea. She <mark>sat</mark> down, took a sip, and <mark>decided</mark> that tea was actually quite nice.</p>
+      <p>She still <mark>bought</mark> a new coffee machine that evening.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      start · day · make · sit · feel · life · work · read · try · decide · reach · buy · office
+    </div>
+  </div>
+
+  <!-- Story 7 -->
+  <div class="story-card" id="s07">
+    <div class="story-header">
+      <div class="story-num">07</div>
+      <div class="story-title">The Job Interview</div>
+      <div class="story-meta">
+        <span class="tag tag-work">Work</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Tom was nervous about his job interview. He <mark>prepared</mark> for three weeks. He <mark>studied</mark> the company, <mark>practised</mark> his answers, and <mark>bought</mark> a new shirt.</p>
+      <p>On the <mark>day</mark> of the interview, he <mark>arrived</mark> fifteen minutes early. He <mark>sat</mark> in the waiting room and reviewed his notes one last <mark>time</mark>.</p>
+      <p>The interviewer <mark>came</mark> out and <mark>welcomed</mark> him. They walked into a small <mark>office</mark> and <mark>sat</mark> down. The interviewer smiled and <mark>asked</mark> the first <mark>question</mark>: "Tell me about yourself."</p>
+      <p>Tom had <mark>practised</mark> this answer many <mark>times</mark>. He opened his mouth. His <mark>mind</mark> went completely empty.</p>
+      <p>He <mark>looked</mark> at the interviewer. The interviewer <mark>looked</mark> at him. The silence lasted a long <mark>time</mark>.</p>
+      <p>Finally, Tom <mark>said</mark>: "I am a person who is very good under pressure."</p>
+      <p>He did not <mark>get</mark> the job. But the interviewer <mark>said</mark> it was the most honest answer she had heard all week.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      prepare · study · buy · arrive · sit · time · question · mind · office · welcome · person · honest
+    </div>
+  </div>
+
+  <!-- Story 8 -->
+  <div class="story-card" id="s08">
+    <div class="story-header">
+      <div class="story-num">08</div>
+      <div class="story-title">The Team Lunch</div>
+      <div class="story-meta">
+        <span class="tag tag-office">Office</span>
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="word-count">~145 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Every Friday, the development <mark>team</mark> went to lunch together. It was a simple tradition, but everyone <mark>looked</mark> forward to it.</p>
+      <p>One Friday, the <mark>team</mark> could not <mark>agree</mark> on a restaurant. Anna wanted Indian food. Ben wanted noodles. Carol <mark>said</mark> she was on a special diet and needed a salad place. David <mark>said</mark> he was fine with anything, but then immediately rejected every suggestion.</p>
+      <p>They discussed for forty minutes. During this <mark>time</mark>, they could have walked to three different restaurants and finished eating.</p>
+      <p>Finally, their <mark>manager</mark> spoke. "We're going to the <mark>place</mark> across the street. They <mark>have</mark> everything."</p>
+      <p>Nobody was completely happy. But nobody complained. They <mark>sat</mark> together, talked about <mark>work</mark>, laughed at old stories, and ate whatever they ordered.</p>
+      <p>On the walk back, Anna <mark>said</mark>: "That was actually really nice."</p>
+      <p>Everyone agreed.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      team · agree · time · manage · place · work · together · suggest · discuss · tradition · order
+    </div>
+  </div>
+
+  <!-- Story 9 -->
+  <div class="story-card" id="s09">
+    <div class="story-header">
+      <div class="story-num">09</div>
+      <div class="story-title">The Broken Printer</div>
+      <div class="story-meta">
+        <span class="tag tag-office">Office</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~130 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>The <mark>office</mark> printer was old. Everyone <mark>knew</mark> it was old. Everyone <mark>knew</mark> it broke regularly. But nobody replaced it.</p>
+      <p>One <mark>day</mark>, the printer stopped completely. It made a loud noise and showed an error message that nobody <mark>understood</mark>.</p>
+      <p>Mike, the newest <mark>member</mark> of the <mark>team</mark>, offered to fix it. He <mark>read</mark> the error message carefully. He searched online for a solution. He <mark>spent</mark> two hours <mark>working</mark> on the machine.</p>
+      <p>At four o'clock, he <mark>called</mark> everyone to the printer room. "I've fixed it," he <mark>said</mark> proudly.</p>
+      <p>He pressed the button. The printer made the same loud noise and showed the same error message.</p>
+      <p>His <mark>manager</mark> <mark>looked</mark> at the printer, then at Mike, then back at the printer.</p>
+      <p>"Good <mark>work</mark>," <mark>said</mark> his <mark>manager</mark>. "Now at least we <mark>know</mark> for certain it cannot be fixed."</p>
+      <p>They ordered a new printer that afternoon.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      office · know · day · team · read · spend · work · call · manager · solution · member · certain
+    </div>
+  </div>
+
+  <!-- Story 10 -->
+  <div class="story-card" id="s10">
+    <div class="story-header">
+      <div class="story-num">10</div>
+      <div class="story-title">The Power Outage</div>
+      <div class="story-meta">
+        <span class="tag tag-tech">Tech</span>
+        <span class="tag tag-office">Office</span>
+        <span class="word-count">~145 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>It was a busy Wednesday when the power went out. The whole building lost electricity for three hours.</p>
+      <p>At first, everyone was frustrated. They could not <mark>use</mark> their computers. They could not <mark>access</mark> their files. They could not even <mark>make</mark> coffee.</p>
+      <p>But then, something <mark>interesting</mark> happened. <mark>People</mark> started talking to each other. Really talking. Without phones and screens, they <mark>sat</mark> together in the <mark>meeting</mark> room, <mark>shared</mark> stories, and <mark>learned</mark> things about each other that they had never <mark>known</mark>.</p>
+      <p>Ben discovered that his <mark>manager</mark> had once been a professional cook. Maria <mark>learned</mark> that the quiet developer in the corner was actually very funny. Tom finally <mark>understood</mark> what the marketing <mark>team</mark> actually did.</p>
+      <p>When the power <mark>came</mark> back, nobody wanted to <mark>return</mark> to their desks immediately.</p>
+      <p>"We should do this more often," <mark>said</mark> Maria.</p>
+      <p>"The power outage?" <mark>asked</mark> Ben.</p>
+      <p>"The talking," <mark>said</mark> Maria.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      use · access · make · interesting · people · sit · meeting · share · learn · know · team · understand · return
+    </div>
+  </div>
+
+  <!-- Story 11 -->
+  <div class="story-card" id="s11">
+    <div class="story-header">
+      <div class="story-num">11</div>
+      <div class="story-title">The Perfect Plan</div>
+      <div class="story-meta">
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Lisa had a perfect <mark>plan</mark> for the weekend. On Saturday, she would clean the house, <mark>go</mark> shopping, cook a <mark>healthy</mark> meal, exercise, and <mark>read</mark> for two hours.</p>
+      <p>Saturday <mark>arrived</mark>. She woke up late. She <mark>spent</mark> an hour <mark>looking</mark> at her phone. She <mark>thought</mark> about cleaning the house and <mark>decided</mark> to <mark>start</mark> after lunch. After lunch, she <mark>thought</mark> about shopping and <mark>decided</mark> it was too hot outside. She <mark>made</mark> a simple meal from whatever was in the kitchen.</p>
+      <p>In the evening, she <mark>looked</mark> at her list. Nothing was done.</p>
+      <p>She opened her notebook and wrote a new <mark>plan</mark> for Sunday. It <mark>looked</mark> exactly the same as the Saturday <mark>plan</mark>, but with a different <mark>day</mark> at the top.</p>
+      <p>Sunday <mark>arrived</mark>. She woke up late. She <mark>spent</mark> an hour <mark>looking</mark> at her phone.</p>
+      <p>Some <mark>plans</mark>, it <mark>seems</mark>, are made to be planned again.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      plan · go · read · arrive · spend · think · decide · start · make · day · seem · healthy
+    </div>
+  </div>
+
+  <!-- Story 12 -->
+  <div class="story-card" id="s12">
+    <div class="story-header">
+      <div class="story-num">12</div>
+      <div class="story-title">My Neighbor</div>
+      <div class="story-meta">
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~130 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>My neighbour Frank <mark>knows</mark> everything about everything. He <mark>knows</mark> the best <mark>way</mark> to drive to <mark>work</mark>, the best <mark>time</mark> to <mark>go</mark> shopping, and the best <mark>method</mark> to fix any <mark>problem</mark>.</p>
+      <p>Last week, I was painting my front door. Frank walked over and watched me for a moment.</p>
+      <p>"You're doing that wrong," he <mark>said</mark>.</p>
+      <p>"Am I?" I <mark>said</mark>.</p>
+      <p>"Yes. You should <mark>use</mark> a smaller brush. Also, that colour is too dark. Also, you should paint in the morning, not the afternoon."</p>
+      <p>I thanked him and <mark>continued</mark> painting.</p>
+      <p>The next <mark>day</mark>, Frank painted his own front door. He <mark>used</mark> a large brush. The colour was very bright. He painted in the evening.</p>
+      <p>I watched him from my window and <mark>said</mark> nothing.</p>
+      <p>Sometimes the best advice is the advice you keep to yourself.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      know · way · work · time · problem · method · use · continue · day · advice · say
+    </div>
+  </div>
+
+  <!-- Story 13 -->
+  <div class="story-card" id="s13">
+    <div class="story-header">
+      <div class="story-num">13</div>
+      <div class="story-title">The Online Shopping Mistake</div>
+      <div class="story-meta">
+        <span class="tag tag-tech">Tech</span>
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>I ordered a new chair online. The picture <mark>showed</mark> a large, comfortable chair. Perfect for <mark>working</mark> at <mark>home</mark>.</p>
+      <p>Two weeks later, a small box <mark>arrived</mark>. I opened it carefully. Inside was the chair — all the parts. The instructions had forty steps.</p>
+      <p>I <mark>spent</mark> four hours building the chair. I <mark>followed</mark> every step. At the end, I had a chair. It was small. It was also missing one leg.</p>
+      <p>I <mark>looked</mark> at the instructions again. Step thirty-two <mark>said</mark>: "Check all parts before <mark>beginning</mark>." I had <mark>started</mark> at step one.</p>
+      <p>I checked the parts. One leg was still in the box, under the paper.</p>
+      <p>I fixed the chair. I <mark>sat</mark> in it. It was actually quite comfortable.</p>
+      <p>I <mark>gave</mark> it a five-star review. But I mentioned the forty-step instructions. The company replied: "Thank you for your <mark>feedback</mark>."</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      show · work · home · arrive · spend · follow · begin · start · sit · give · check · feedback · order
+    </div>
+  </div>
+
+  <!-- Story 14 -->
+  <div class="story-card" id="s14">
+    <div class="story-header">
+      <div class="story-num">14</div>
+      <div class="story-title">The Morning Run</div>
+      <div class="story-meta">
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~135 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Peter <mark>decided</mark> to <mark>start</mark> running every morning. He <mark>bought</mark> good shoes, downloaded a running app, and set his alarm for six.</p>
+      <p>On the first <mark>day</mark>, he woke up at six, put on his shoes, went outside, and ran for exactly four minutes before stopping. He walked the rest of the <mark>way</mark> home and <mark>told</mark> himself that four minutes was a strong <mark>start</mark>.</p>
+      <p>On <mark>day</mark> two, he ran for six minutes. On <mark>day</mark> three, it rained. He stayed home.</p>
+      <p>On <mark>day</mark> four, he ran for eight minutes.</p>
+      <p>On <mark>day</mark> five, he discovered a small café that he had never <mark>seen</mark> before. He stopped running and went inside. He had coffee and a sandwich and <mark>sat</mark> by the window for an hour.</p>
+      <p>He walked <mark>home</mark> <mark>feeling</mark> happy. He <mark>decided</mark> that <mark>finding</mark> new cafés was actually very good exercise for the <mark>mind</mark>.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      decide · start · buy · day · way · tell · see · sit · home · feel · find · mind
+    </div>
+  </div>
+
+  <!-- Story 15 -->
+  <div class="story-card" id="s15">
+    <div class="story-header">
+      <div class="story-num">15</div>
+      <div class="story-title">The Big Presentation</div>
+      <div class="story-meta">
+        <span class="tag tag-work">Work</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Helen had <mark>worked</mark> on her <mark>presentation</mark> for two weeks. She had checked every fact, organised every slide, and <mark>practised</mark> every sentence.</p>
+      <p>On the <mark>day</mark> of the <mark>presentation</mark>, she <mark>arrived</mark> early, <mark>connected</mark> her laptop to the screen, and opened her file. The screen <mark>showed</mark> nothing.</p>
+      <p>She <mark>tried</mark> again. Nothing. She <mark>called</mark> the technical <mark>team</mark>. They <mark>tried</mark> for fifteen minutes. The screen still <mark>showed</mark> nothing.</p>
+      <p>Her <mark>manager</mark> suggested she present without slides. Helen <mark>looked</mark> at him, took a deep breath, and <mark>started</mark> speaking.</p>
+      <p>She talked for twenty minutes from <mark>memory</mark>. She covered every key <mark>point</mark> clearly. She answered every <mark>question</mark> confidently.</p>
+      <p>After the <mark>meeting</mark>, her <mark>manager</mark> <mark>said</mark>: "That was the best <mark>presentation</mark> I've <mark>seen</mark> this year."</p>
+      <p>Helen smiled and thanked him. That evening, she discovered the <mark>problem</mark>. She had <mark>connected</mark> to the wrong screen.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      work · presentation · day · arrive · connect · show · try · call · team · manager · memory · point · question · meeting · problem
+    </div>
+  </div>
+
+  <!-- Story 16 -->
+  <div class="story-card" id="s16">
+    <div class="story-header">
+      <div class="story-num">16</div>
+      <div class="story-title">The International Call</div>
+      <div class="story-meta">
+        <span class="tag tag-work">Work</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~145 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Our <mark>team</mark> had a call with partners from three different countries. The <mark>meeting</mark> was <mark>scheduled</mark> for ten in the morning, our <mark>time</mark>.</p>
+      <p>The <mark>team</mark> from Europe joined at nine. They had checked the <mark>time</mark> difference incorrectly and <mark>arrived</mark> an hour early. They waited.</p>
+      <p>The <mark>team</mark> from Asia joined at eleven. They had also checked the <mark>time</mark> difference incorrectly, but in the other direction. They were surprised to <mark>find</mark> the <mark>meeting</mark> already happening.</p>
+      <p>Our <mark>team</mark> <mark>started</mark> at ten. We were on <mark>time</mark>, but we <mark>spent</mark> the first twenty minutes <mark>helping</mark> everyone <mark>understand</mark> what <mark>time</mark> it actually was in their location.</p>
+      <p>We finally <mark>began</mark> the real <mark>meeting</mark> at ten-thirty. The connection was poor. We could <mark>hear</mark> some <mark>people</mark> clearly and others not at all.</p>
+      <p>At the end, our <mark>manager</mark> <mark>said</mark>: "Good <mark>meeting</mark>. Let's <mark>try</mark> again next week."</p>
+      <p>Everyone agreed immediately.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      team · meeting · schedule · time · arrive · find · start · spend · help · understand · hear · people · manager
+    </div>
+  </div>
+
+  <!-- Story 17 -->
+  <div class="story-card" id="s17">
+    <div class="story-header">
+      <div class="story-num">17</div>
+      <div class="story-title">The New System</div>
+      <div class="story-meta">
+        <span class="tag tag-tech">Tech</span>
+        <span class="tag tag-work">Work</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>The company <mark>decided</mark> to replace its old <mark>system</mark> with a new one. The new <mark>system</mark> was modern, fast, and, according to the <mark>people</mark> who sold it, very easy to <mark>use</mark>.</p>
+      <p>The training session lasted three <mark>days</mark>. After the training, most <mark>people</mark> could <mark>perform</mark> basic tasks.</p>
+      <p>On the first <mark>day</mark> of real use, the new <mark>system</mark> showed an error message every <mark>time</mark> someone <mark>tried</mark> to save a document. The technical <mark>team</mark> <mark>worked</mark> all <mark>day</mark> to <mark>find</mark> the <mark>problem</mark>.</p>
+      <p>At five o'clock, a senior developer named Grace <mark>found</mark> the issue. The new <mark>system</mark> required users to press "Save" and then "Confirm Save" and then "Yes, I am sure."</p>
+      <p>"Why does it <mark>ask</mark> three <mark>times</mark>?" <mark>asked</mark> her <mark>manager</mark>.</p>
+      <p>"To <mark>make</mark> sure," <mark>said</mark> Grace.</p>
+      <p>"To <mark>make</mark> sure of what?"</p>
+      <p>"That you really want to save."</p>
+      <p>The <mark>team</mark> went <mark>home</mark> quietly.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      decide · system · people · use · perform · day · time · try · team · work · find · problem · ask · manager · home
+    </div>
+  </div>
+
+  <!-- Story 18 -->
+  <div class="story-card" id="s18">
+    <div class="story-header">
+      <div class="story-num">18</div>
+      <div class="story-title">The Free Day</div>
+      <div class="story-meta">
+        <span class="tag tag-work">Work</span>
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="word-count">~150 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Once a month, our company gave everyone a free <mark>day</mark>. No meetings. No deadlines. No requirements. Just <mark>time</mark> to <mark>work</mark> on personal <mark>projects</mark> or relax.</p>
+      <p>The <mark>idea</mark> was simple: give <mark>people</mark> freedom, and they will <mark>produce</mark> better <mark>work</mark>.</p>
+      <p>On the first free <mark>day</mark>, nobody <mark>knew</mark> what to do. <mark>People</mark> <mark>sat</mark> at their desks and <mark>looked</mark> at their screens. Some opened personal <mark>projects</mark> and closed them again. Others made coffee and had long conversations.</p>
+      <p>By noon, the <mark>office</mark> was louder than a normal workday. <mark>People</mark> were <mark>sharing</mark> <mark>ideas</mark>, drawing on boards, and laughing at things that had nothing to do with <mark>work</mark>.</p>
+      <p>By four, three <mark>teams</mark> had <mark>started</mark> new <mark>project</mark> <mark>ideas</mark> on their own.</p>
+      <p>The next month, when the free <mark>day</mark> <mark>arrived</mark>, everyone already had a <mark>plan</mark>.</p>
+      <p>The company kept the <mark>program</mark>. Output <mark>increased</mark> by twenty percent.</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      day · time · work · project · idea · people · produce · know · sit · office · share · team · start · plan · program · increase
+    </div>
+  </div>
+
+  <!-- Story 19 -->
+  <div class="story-card" id="s19">
+    <div class="story-header">
+      <div class="story-num">19</div>
+      <div class="story-title">Weekend Warrior</div>
+      <div class="story-meta">
+        <span class="tag tag-daily">Daily Life</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~140 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Every week, Kevin <mark>told</mark> his colleagues about his exciting weekend <mark>plans</mark>. He was going to hike a mountain, <mark>try</mark> a new restaurant, visit a museum, and <mark>learn</mark> to cook something new.</p>
+      <p>Every Monday, his colleagues <mark>asked</mark> how the weekend went.</p>
+      <p>"It was good," Kevin always <mark>said</mark>. "I relaxed at <mark>home</mark>."</p>
+      <p>This happened for months. Nobody <mark>said</mark> anything.</p>
+      <p>One Friday, his <mark>manager</mark> <mark>asked</mark> what Kevin was <mark>planning</mark> for the weekend.</p>
+      <p>"I'm going to hike a mountain, <mark>try</mark> a new restaurant—"</p>
+      <p>His <mark>manager</mark> raised a hand gently. "Kevin," she <mark>said</mark>, "we <mark>know</mark>. And we also <mark>know</mark> what actually happens."</p>
+      <p>Kevin <mark>looked</mark> surprised. "What actually happens?"</p>
+      <p>His <mark>manager</mark> smiled. "You stay <mark>home</mark>, watch something on TV, and order delivery food."</p>
+      <p>Kevin <mark>thought</mark> about it. "That <mark>sounds</mark> perfect," he <mark>said</mark>.</p>
+      <p>"It does," <mark>said</mark> his <mark>manager</mark>. "Have a good weekend."</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      tell · plan · try · learn · ask · home · manager · know · look · think · sound · colleague
+    </div>
+  </div>
+
+  <!-- Story 20 -->
+  <div class="story-card" id="s20">
+    <div class="story-header">
+      <div class="story-num">20</div>
+      <div class="story-title">The Last Email</div>
+      <div class="story-meta">
+        <span class="tag tag-work">Work</span>
+        <span class="tag tag-humor">Humor</span>
+        <span class="word-count">~145 words</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p>Mark <mark>worked</mark> in a large company. He <mark>received</mark> over a hundred emails every <mark>day</mark>. Most of them were not <mark>important</mark>. Many of them <mark>asked</mark> <mark>questions</mark> that could be answered by <mark>reading</mark> the previous email.</p>
+      <p>One Friday afternoon, Mark <mark>decided</mark> to solve the <mark>problem</mark>. He wrote a long, clear email <mark>explaining</mark> how to <mark>use</mark> the email <mark>system</mark> more effectively. He <mark>sent</mark> it to everyone in the company.</p>
+      <p>By Monday, he had <mark>received</mark> three hundred and forty new emails. Most of them <mark>said</mark> "Thank you for this helpful email." Others <mark>asked</mark> follow-up <mark>questions</mark>. A few <mark>asked</mark> if Mark could <mark>explain</mark> his email in a shorter email.</p>
+      <p>Mark <mark>looked</mark> at his inbox, closed his computer, and went to get coffee.</p>
+      <p>When he returned, there were twelve more emails.</p>
+      <p>He <mark>sat</mark> down, took a long drink of coffee, and wrote one short reply to all of them:</p>
+      <p>"You're welcome."</p>
+    </div>
+    <div class="key-words">
+      <strong>Key Words:</strong>
+      work · receive · day · important · ask · question · read · decide · problem · use · system · send · explain · say · sit
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <p style="text-align:center; font-size:8.5pt; color:#aaa; font-family:Arial,sans-serif; margin-top:10px; padding-bottom:30px;">
+    Based on NGSL (New General Service List) Top 1000 · 20 stories for reading &amp; speaking practice
+  </p>
+
+</div><!-- /story-section -->
+</body>
+</html>
