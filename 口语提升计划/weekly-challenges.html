@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8-Week Speaking Challenges — Output Practice</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#f0f4fb;line-height:1.65}
+@media screen{
+ .site-nav{position:sticky;top:0;z-index:100;background:#1e3a5f;color:#fff;padding:9px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:8.5pt}
+ .site-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px;white-space:nowrap}
+ .site-nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+ .site-nav .nav-home{font-weight:bold;font-size:10pt;margin-right:4px}
+ .site-nav a.active{background:#e8a020;color:#fff}
+}
+@media print{.site-nav,.no-print{display:none}}
+
+.container{max-width:960px;margin:0 auto;padding:28px 20px}
+
+.page-header{text-align:center;margin-bottom:26px}
+.page-header h1{font-family:Arial,sans-serif;font-size:20pt;color:#1e3a5f;margin-bottom:8px}
+.page-header p{font-size:10pt;color:#555;max-width:680px;margin:0 auto;line-height:1.6}
+
+.principle-box{background:#fff;border:1px solid #c0d0e8;border-radius:8px;padding:16px 22px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:700px){.principle-box{grid-template-columns:1fr}}
+.principle-item{text-align:center;padding:12px}
+.principle-icon{font-size:22pt;margin-bottom:6px}
+.principle-title{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;font-size:10pt;margin-bottom:4px}
+.principle-desc{font-size:8.5pt;color:#555;line-height:1.5}
+
+/* Week progress overview */
+.week-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px}
+@media(max-width:700px){.week-overview{grid-template-columns:repeat(2,1fr)}}
+.wo-card{background:#fff;border:2px solid #d0dae8;border-radius:8px;padding:10px 12px;text-align:center;cursor:pointer;transition:all .2s;font-family:Arial,sans-serif}
+.wo-card:hover{border-color:#1e3a5f;background:#f0f5ff}
+.wo-card.done{border-color:#1e5f3a;background:#f0f8f0}
+.wo-card.current{border-color:#e8a020;background:#fffbe6}
+.wo-num{font-size:8pt;color:#888;margin-bottom:2px}
+.wo-title{font-size:8.5pt;font-weight:bold;color:#1e3a5f;line-height:1.3}
+.wo-status{font-size:8pt;margin-top:4px}
+.wo-card.done .wo-status{color:#1e5f3a}
+.wo-card.current .wo-status{color:#e8a020}
+
+/* Week card */
+.week-card{background:#fff;border:1px solid #c8d8f0;border-radius:10px;margin-bottom:22px;overflow:hidden;box-shadow:0 2px 6px rgba(30,58,95,.06)}
+.week-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;gap:14px;user-select:none}
+.week-header:hover{background:#f5f9ff}
+.week-number{font-family:Arial,sans-serif;font-size:18pt;font-weight:bold;color:#fff;background:#1e3a5f;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14pt}
+.week-meta{flex:1}
+.week-title{font-family:Arial,sans-serif;font-size:12pt;font-weight:bold;color:#1e3a5f}
+.week-sub{font-size:9pt;color:#777;margin-top:2px}
+.week-badge{font-family:Arial,sans-serif;font-size:8pt;padding:3px 10px;border-radius:10px;font-weight:bold}
+.badge-foundation{background:#e8f0ff;color:#1e3a7a}
+.badge-team{background:#e0f0e0;color:#1a5a1a}
+.badge-client{background:#fff3cd;color:#7a5a00}
+.badge-advanced{background:#ffe8e8;color:#7a1a1a}
+.week-toggle{font-size:12pt;color:#888;flex-shrink:0;transition:transform .2s}
+.week-toggle.open{transform:rotate(180deg)}
+.week-done-check{font-size:18pt;flex-shrink:0}
+
+.week-body{display:none;padding:0 20px 20px}
+.week-body.open{display:block}
+
+/* Sections inside week */
+.section-label{font-family:Arial,sans-serif;font-size:9pt;font-weight:bold;color:#1e3a5f;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px;border-bottom:1px solid #e0e8f0;padding-bottom:4px}
+
+.goal-box{background:#f0f8f0;border-left:4px solid #1e5f3a;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:12px;font-size:9.5pt;color:#333}
+.goal-box strong{color:#1e5f3a;font-family:Arial,sans-serif}
+
+.prompt-box{background:#f5f9ff;border:1px solid #b0c8e8;border-radius:6px;padding:14px 16px;margin-bottom:12px}
+.prompt-title{font-family:Arial,sans-serif;font-size:9.5pt;font-weight:bold;color:#1e3a5f;margin-bottom:8px}
+.prompt-text{font-size:9.5pt;color:#333;line-height:1.7}
+.prompt-text li{margin-left:18px;margin-bottom:4px}
+.prompt-text .highlight{background:#fff3cd;padding:1px 4px;border-radius:3px;font-style:italic}
+
+.record-box{background:#fff8e0;border:1px solid #d8b840;border-radius:6px;padding:12px 16px;margin-bottom:12px}
+.record-title{font-family:Arial,sans-serif;font-size:9pt;font-weight:bold;color:#7a5a00;margin-bottom:6px}
+.record-text{font-size:9pt;color:#555;line-height:1.6}
+
+/* Checklist */
+.checklist{list-style:none;margin-bottom:14px}
+.checklist li{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #f0f0f0;font-size:9pt;color:#333}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:1px;accent-color:#1e5f3a;cursor:pointer}
+.checklist label{cursor:pointer;line-height:1.4}
+
+/* Notes area */
+.notes-area{width:100%;border:1px solid #d0dae8;border-radius:5px;padding:8px 10px;font-family:'Georgia',serif;font-size:9pt;resize:vertical;min-height:60px;background:#fafcff;color:#1a1a1a;margin-bottom:8px}
+.notes-area:focus{outline:none;border-color:#1e3a5f}
+
+/* Mark done button */
+.btn-done{background:#1e5f3a;color:#fff;border:none;border-radius:5px;padding:8px 20px;font-family:Arial,sans-serif;font-size:9pt;font-weight:bold;cursor:pointer;margin-top:4px}
+.btn-done:hover{background:#166030}
+.btn-done.undone{background:#888}
+
+/* Tips at bottom */
+.meta-tip{background:#fffbe6;border:1px solid #e0c840;border-radius:8px;padding:14px 20px;margin-top:10px;font-family:Arial,sans-serif;font-size:9pt;color:#555;line-height:1.6}
+.meta-tip strong{color:#7a5a00}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-home" href="../index.html">🏠 Home</a>
+  <a href="../html-学习页面/index.html">📖 NGSL</a>
+  <a href="../html-学习页面/stories.html">📖 Stories</a>
+  <a href="60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="core-30-phrases.html">⚡ Core 30</a>
+  <a href="weekly-challenges.html" class="active">🎯 Weekly Challenges</a>
+  <a href="listening-guide.html">🎧 Listening</a>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>🎯 8-Week Speaking Challenges</h1>
+    <p>One speaking task per week. Record yourself, listen back, and compare to last week. This is the most direct path to real fluency — because fluency is built by speaking, not by studying.</p>
+  </div>
+
+  <div class="principle-box">
+    <div class="principle-item">
+      <div class="principle-icon">🎙</div>
+      <div class="principle-title">Record Every Time</div>
+      <div class="principle-desc">Use your phone's Voice Memo app. Recording creates accountability and lets you hear your actual progress.</div>
+    </div>
+    <div class="principle-item">
+      <div class="principle-icon">👂</div>
+      <div class="principle-title">Listen Back Critically</div>
+      <div class="principle-desc">Listen for: fluency, filler words (um, uh), grammar issues, and whether you sound natural. Pick one thing to improve.</div>
+    </div>
+    <div class="principle-item">
+      <div class="principle-icon">📈</div>
+      <div class="principle-title">Compare Week to Week</div>
+      <div class="principle-desc">Keep all your recordings. The difference between Week 1 and Week 8 will be your best motivation to keep going.</div>
+    </div>
+  </div>
+
+  <!-- Week Overview -->
+  <div class="week-overview" id="weekOverview">
+    <div class="wo-card current" onclick="scrollToWeek(1)"><div class="wo-num">Week 1</div><div class="wo-title">Self Introduction</div><div class="wo-status">▶ Start here</div></div>
+    <div class="wo-card" onclick="scrollToWeek(2)"><div class="wo-num">Week 2</div><div class="wo-title">Describe Your Work</div><div class="wo-status">🔒 Locked</div></div>
+    <div class="wo-card" onclick="scrollToWeek(3)"><div class="wo-num">Week 3</div><div class="wo-title">Daily Standup</div><div class="wo-status">🔒 Locked</div></div>
+    <div class="wo-card" onclick="scrollToWeek(4)"><div class="wo-num">Week 4</div><div class="wo-title">Explain a Concept</div><div class="wo-status">🔒 Locked</div></div>
+    <div class="wo-card" onclick="scrollToWeek(5)"><div class="wo-num">Week 5</div><div class="wo-title">Handle Tough Questions</div><div class="wo-status">🔒 Locked</div></div>
+    <div class="wo-card" onclick="scrollToWeek(6)"><div class="wo-num">Week 6</div><div class="wo-title">Disagree Politely</div><div class="wo-status">🔒 Locked</div></div>
+    <div class="wo-card" onclick="scrollToWeek(7)"><div class="wo-num">Week 7</div><div class="wo-title">Project Status Update</div><div class="wo-status">🔒 Locked</div></div>
+    <div class="wo-card" onclick="scrollToWeek(8)"><div class="wo-num">Week 8</div><div class="wo-title">Full Mock Meeting</div><div class="wo-status">🔒 Locked</div></div>
+  </div>
+
+  <!-- ── Week 1 ── -->
+  <div class="week-card" id="week-1">
+    <div class="week-header" onclick="toggleWeek(1)">
+      <div class="week-number">W1</div>
+      <div class="week-meta">
+        <div class="week-title">Self Introduction</div>
+        <div class="week-sub">Speak for 90 seconds about who you are and what you do</div>
+      </div>
+      <span class="week-badge badge-foundation">Foundation</span>
+      <span class="week-done-check" id="done-w1"></span>
+      <div class="week-toggle" id="toggle-1">▼</div>
+    </div>
+    <div class="week-body open" id="body-1">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Introduce yourself naturally in English for 90 seconds. Cover: name, role, what your team does, what you're working on, and one professional achievement or challenge you're proud of.</div>
+      <div class="section-label">Your Speaking Prompt</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 Say this out loud (record on your phone):</div>
+        <div class="prompt-text">Imagine you're joining a new international project and meeting the team for the first time. Introduce yourself covering:
+          <ul>
+            <li>Your name and current role</li>
+            <li>What your team or product does (in simple language)</li>
+            <li>What you're currently working on</li>
+            <li>One thing you're good at or proud of professionally</li>
+            <li>One thing you're looking forward to in this project</li>
+          </ul>
+          <span class="highlight">Target: 90 seconds. Don't script it word-for-word — speak naturally from notes.</span>
+        </div>
+      </div>
+      <div class="record-box">
+        <div class="record-title">📱 Recording Instructions</div>
+        <div class="record-text">1. Open Voice Memos (iOS) or Recorder (Android)<br>2. Say the prompt cold — don't prepare too much<br>3. Listen back immediately. Note one thing that was good, one to improve<br>4. Record a second version with that improvement<br>5. Save both. Label them "W1-take1" and "W1-take2"</div>
+      </div>
+      <div class="section-label">Self-Check — After Recording</div>
+      <ul class="checklist" id="cl-w1">
+        <li><input type="checkbox" id="w1c1" onchange="saveCheck('w1c1')"><label for="w1c1">I spoke for at least 60 seconds without stopping</label></li>
+        <li><input type="checkbox" id="w1c2" onchange="saveCheck('w1c2')"><label for="w1c2">I covered all 5 topics in the prompt</label></li>
+        <li><input type="checkbox" id="w1c3" onchange="saveCheck('w1c3')"><label for="w1c3">I didn't read from a script — I spoke from memory/notes</label></li>
+        <li><input type="checkbox" id="w1c4" onchange="saveCheck('w1c4')"><label for="w1c4">I identified one specific thing to improve for next time</label></li>
+      </ul>
+      <div class="section-label">Notes (what went well / what to improve)</div>
+      <textarea class="notes-area" id="notes-w1" onchange="saveNotes('w1')" placeholder="e.g. Good: I spoke without long pauses. Improve: I said 'um' too much — practice 'Let me think about that' instead."></textarea>
+      <button class="btn-done" id="btn-w1" onclick="markDone('w1')">✓ Mark Week 1 Complete</button>
+    </div>
+  </div>
+
+  <!-- ── Week 2 ── -->
+  <div class="week-card" id="week-2">
+    <div class="week-header" onclick="toggleWeek(2)">
+      <div class="week-number">W2</div>
+      <div class="week-meta">
+        <div class="week-title">Describe Your Work Day</div>
+        <div class="week-sub">Explain what you do in simple English for a non-technical listener</div>
+      </div>
+      <span class="week-badge badge-foundation">Foundation</span>
+      <span class="week-done-check" id="done-w2"></span>
+      <div class="week-toggle" id="toggle-2">▼</div>
+    </div>
+    <div class="week-body" id="body-2">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Describe a typical work day or work week in 2 minutes, using simple English that a non-technical friend would understand. Avoid jargon — if you must use a technical term, explain it briefly.</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 Say this out loud:</div>
+        <div class="prompt-text">Imagine your friend who doesn't work in tech asks: "So what exactly do you do at work?" Describe your typical day covering:
+          <ul>
+            <li>What your job is and what your team is responsible for</li>
+            <li>What a typical morning looks like</li>
+            <li>The types of problems you solve</li>
+            <li>What "a good day at work" looks and feels like for you</li>
+          </ul>
+          <span class="highlight">Key challenge: Explain one technical concept (API, sprint, deployment, etc.) in simple language. No jargon without explanation.</span>
+        </div>
+      </div>
+      <div class="record-box">
+        <div class="record-title">📱 Recording &amp; Review</div>
+        <div class="record-text">Record → Listen back → Compare to Week 1 recording. Are you more fluent? Fewer pauses? More natural vocabulary? Write one specific improvement you notice.</div>
+      </div>
+      <div class="section-label">Self-Check</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w2c1" onchange="saveCheck('w2c1')"><label for="w2c1">I spoke for at least 90 seconds</label></li>
+        <li><input type="checkbox" id="w2c2" onchange="saveCheck('w2c2')"><label for="w2c2">I explained at least one technical concept in simple language</label></li>
+        <li><input type="checkbox" id="w2c3" onchange="saveCheck('w2c3')"><label for="w2c3">I used at least 2 phrases from the Core 30 list</label></li>
+        <li><input type="checkbox" id="w2c4" onchange="saveCheck('w2c4')"><label for="w2c4">I listened back and noted one improvement from Week 1</label></li>
+      </ul>
+      <div class="section-label">Notes</div>
+      <textarea class="notes-area" id="notes-w2" onchange="saveNotes('w2')" placeholder="What improved compared to Week 1? What still needs work?"></textarea>
+      <button class="btn-done" id="btn-w2" onclick="markDone('w2')">✓ Mark Week 2 Complete</button>
+    </div>
+  </div>
+
+  <!-- ── Week 3 ── -->
+  <div class="week-card" id="week-3">
+    <div class="week-header" onclick="toggleWeek(3)">
+      <div class="week-number">W3</div>
+      <div class="week-meta">
+        <div class="week-title">The Daily Standup</div>
+        <div class="week-sub">Master Yesterday / Today / Blocker — the most used format in tech</div>
+      </div>
+      <span class="week-badge badge-team">Team</span>
+      <span class="week-done-check" id="done-w3"></span>
+      <div class="week-toggle" id="toggle-3">▼</div>
+    </div>
+    <div class="week-body" id="body-3">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Deliver a complete, natural standup update in under 90 seconds. No script — speak from real work. Then do it again three times this week in your actual standup meetings.</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 The Format — practice until automatic:</div>
+        <div class="prompt-text">
+          <ul>
+            <li><strong>Yesterday:</strong> "Yesterday I worked on / finished / was reviewing…"</li>
+            <li><strong>Today:</strong> "Today I'm planning to / going to focus on…"</li>
+            <li><strong>Blocker:</strong> "I don't have any blockers right now." / "I'm blocked on [issue] — I might need [name]'s help with that."</li>
+          </ul>
+          <br>
+          <strong>Practice variations — say each one aloud:</strong>
+          <ul>
+            <li>"Yesterday I finished the API integration. Today I'll start on the unit tests. No blockers."</li>
+            <li>"Yesterday I was in code review most of the day. Today I'm picking up the login bug — it should be done by end of day. I'm waiting on the design spec, so I might be blocked later."</li>
+            <li>"Yesterday I couldn't make much progress because of an environment issue. Today I'll pair with Tom to sort that out first. That's my main blocker right now."</li>
+          </ul>
+        </div>
+      </div>
+      <div class="record-box">
+        <div class="record-title">📱 This Week's Goal</div>
+        <div class="record-text">Speak your standup aloud before each real meeting — so you've already said the words before you have to say them in front of others. Record at least one real or practice standup this week.</div>
+      </div>
+      <div class="section-label">Self-Check</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w3c1" onchange="saveCheck('w3c1')"><label for="w3c1">I practiced the standup format 3+ times this week</label></li>
+        <li><input type="checkbox" id="w3c2" onchange="saveCheck('w3c2')"><label for="w3c2">I gave a standup update in English in a real meeting</label></li>
+        <li><input type="checkbox" id="w3c3" onchange="saveCheck('w3c3')"><label for="w3c3">I explained a blocker clearly (or said "no blockers" confidently)</label></li>
+        <li><input type="checkbox" id="w3c4" onchange="saveCheck('w3c4')"><label for="w3c4">I kept it under 90 seconds without rushing</label></li>
+      </ul>
+      <div class="section-label">Notes</div>
+      <textarea class="notes-area" id="notes-w3" onchange="saveNotes('w3')" placeholder="How did the real standup go? Did you feel more prepared after practicing aloud first?"></textarea>
+      <button class="btn-done" id="btn-w3" onclick="markDone('w3')">✓ Mark Week 3 Complete</button>
+    </div>
+  </div>
+
+  <!-- ── Week 4 ── -->
+  <div class="week-card" id="week-4">
+    <div class="week-header" onclick="toggleWeek(4)">
+      <div class="week-number">W4</div>
+      <div class="week-meta">
+        <div class="week-title">Explain a Technical Concept</div>
+        <div class="week-sub">Make complex ideas simple — a core skill for senior engineers</div>
+      </div>
+      <span class="week-badge badge-team">Team</span>
+      <span class="week-done-check" id="done-w4"></span>
+      <div class="week-toggle" id="toggle-4">▼</div>
+    </div>
+    <div class="week-body" id="body-4">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Choose one technical concept from your daily work. Explain it clearly in 2 minutes to an imaginary non-technical manager or client. No jargon without immediate explanation.</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 Choose one topic and explain it:</div>
+        <div class="prompt-text">Pick any concept you actually use: API, Git branches, unit testing, a sprint, a database, a deployment pipeline, microservices, a pull request, or load balancing.<br><br>
+          <strong>Structure your explanation:</strong>
+          <ul>
+            <li><strong>What it is:</strong> "So [concept] is basically…"</li>
+            <li><strong>Analogy:</strong> "Think of it like [everyday thing]…"</li>
+            <li><strong>Why it matters:</strong> "The reason we care about this is…"</li>
+            <li><strong>Simple example:</strong> "For instance, when we [real scenario]…"</li>
+          </ul>
+          <span class="highlight">The "analogy" step is the hardest and most important. If you can explain a technical concept using a real-world comparison, you've truly understood it.</span>
+        </div>
+      </div>
+      <div class="record-box">
+        <div class="record-title">📱 Bonus Challenge</div>
+        <div class="record-text">After recording, actually explain this concept to a real non-technical colleague, family member, or friend this week. Notice what they understand immediately and what needs more explanation.</div>
+      </div>
+      <div class="section-label">Self-Check</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w4c1" onchange="saveCheck('w4c1')"><label for="w4c1">I used at least one real-world analogy to explain the concept</label></li>
+        <li><input type="checkbox" id="w4c2" onchange="saveCheck('w4c2')"><label for="w4c2">I explained it without using unexplained jargon</label></li>
+        <li><input type="checkbox" id="w4c3" onchange="saveCheck('w4c3')"><label for="w4c3">I spoke for 2 minutes with clear structure (what / why / example)</label></li>
+        <li><input type="checkbox" id="w4c4" onchange="saveCheck('w4c4')"><label for="w4c4">I explained it to a real person this week (bonus)</label></li>
+      </ul>
+      <div class="section-label">Notes</div>
+      <textarea class="notes-area" id="notes-w4" onchange="saveNotes('w4')" placeholder="Which concept did you choose? What was the hardest part to explain simply?"></textarea>
+      <button class="btn-done" id="btn-w4" onclick="markDone('w4')">✓ Mark Week 4 Complete</button>
+    </div>
+  </div>
+
+  <!-- ── Week 5 ── -->
+  <div class="week-card" id="week-5">
+    <div class="week-header" onclick="toggleWeek(5)">
+      <div class="week-number">W5</div>
+      <div class="week-meta">
+        <div class="week-title">Handle an Unexpected Question</div>
+        <div class="week-sub">The skill that separates confident speakers from prepared ones</div>
+      </div>
+      <span class="week-badge badge-client">Client</span>
+      <span class="week-done-check" id="done-w5"></span>
+      <div class="week-toggle" id="toggle-5">▼</div>
+    </div>
+    <div class="week-body" id="body-5">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Practice responding to unexpected questions naturally — using buying-time phrases, structuring your answer, and not freezing under pressure.</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 Practice with these questions (answer each one — don't prepare):</div>
+        <div class="prompt-text">Ask a friend or colleague to read these to you, one at a time. Answer immediately. Or read each question, look away, and answer aloud.
+          <ul>
+            <li>"Why is this feature taking longer than expected?"</li>
+            <li>"Can you explain the architecture decision you made last week?"</li>
+            <li>"What would happen if we launched this without fully testing it?"</li>
+            <li>"How would you handle a situation where two teammates disagree?"</li>
+            <li>"What's the biggest technical risk in the current project?"</li>
+            <li>"If you had to recommend one improvement to our team's process, what would it be?"</li>
+          </ul>
+          <span class="highlight">Key skill: Start with a buying-time phrase. Then structure with "Well, there are a couple of things to consider here…"</span>
+        </div>
+      </div>
+      <div class="record-box">
+        <div class="record-title">🛠 Buying-Time Phrases to Practice</div>
+        <div class="record-text">• "That's a good question. Let me think about that for a second."<br>• "There are a few things to consider here…"<br>• "My initial reaction is… but let me also consider…"<br>• "I'd want to check the details on that — but off the top of my head…"</div>
+      </div>
+      <div class="section-label">Self-Check</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w5c1" onchange="saveCheck('w5c1')"><label for="w5c1">I answered at least 4 of the 6 questions without long pauses</label></li>
+        <li><input type="checkbox" id="w5c2" onchange="saveCheck('w5c2')"><label for="w5c2">I used at least one buying-time phrase naturally</label></li>
+        <li><input type="checkbox" id="w5c3" onchange="saveCheck('w5c3')"><label for="w5c3">I structured my answers (didn't just say the first thing that came to mind)</label></li>
+        <li><input type="checkbox" id="w5c4" onchange="saveCheck('w5c4')"><label for="w5c4">I recovered from one moment where I didn't know the answer</label></li>
+      </ul>
+      <div class="section-label">Notes</div>
+      <textarea class="notes-area" id="notes-w5" onchange="saveNotes('w5')" placeholder="Which question was hardest? What buying-time phrase felt most natural?"></textarea>
+      <button class="btn-done" id="btn-w5" onclick="markDone('w5')">✓ Mark Week 5 Complete</button>
+    </div>
+  </div>
+
+  <!-- ── Week 6 ── -->
+  <div class="week-card" id="week-6">
+    <div class="week-header" onclick="toggleWeek(6)">
+      <div class="week-number">W6</div>
+      <div class="week-meta">
+        <div class="week-title">Disagree Politely &amp; Persuade</div>
+        <div class="week-sub">Push back without damaging relationships — advanced professional skill</div>
+      </div>
+      <span class="week-badge badge-client">Client</span>
+      <span class="week-done-check" id="done-w6"></span>
+      <div class="week-toggle" id="toggle-6">▼</div>
+    </div>
+    <div class="week-body" id="body-6">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Practice saying the same disagreement 3 different ways — from very gentle to more direct. Real professional fluency means being able to calibrate your tone to the situation.</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 Scenario: Your manager suggests launching next week. You think it's too early.</div>
+        <div class="prompt-text">Practice saying your disagreement in 3 levels:
+          <ul>
+            <li><strong>Gentle (with a client or senior executive):</strong><br>"I completely understand the urgency, and I want to support that. I do want to flag one concern about the timeline — the testing isn't complete yet, and I'd hate for that to cause issues after launch. Could we explore a partial release, or a short delay on just one feature?"</li>
+            <li><strong>Direct (with your manager):</strong><br>"I'd push back on that timeline a bit. We still have outstanding bugs, and I think launching now carries real risk. My suggestion would be to delay by one week — it gives us time to fix the critical issues without significantly impacting the overall schedule."</li>
+            <li><strong>Firm (when it's a safety or quality issue):</strong><br>"I have to be honest — I don't think we're ready. The core feature has a bug that will affect 30% of users. I'd recommend we delay until that's resolved. I know that's not what we want to hear, but I think it's the right call."</li>
+          </ul>
+          <span class="highlight">Now create your own version for a real situation you've faced at work. Record all three levels.</span>
+        </div>
+      </div>
+      <div class="section-label">Self-Check</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w6c1" onchange="saveCheck('w6c1')"><label for="w6c1">I practiced all 3 versions (gentle / direct / firm)</label></li>
+        <li><input type="checkbox" id="w6c2" onchange="saveCheck('w6c2')"><label for="w6c2">I started with acknowledgment before disagreeing ("I understand… but…")</label></li>
+        <li><input type="checkbox" id="w6c3" onchange="saveCheck('w6c3')"><label for="w6c3">I offered an alternative, not just a problem</label></li>
+        <li><input type="checkbox" id="w6c4" onchange="saveCheck('w6c4')"><label for="w6c4">I used "I'd push back on that" or "just to push back a little" naturally</label></li>
+      </ul>
+      <div class="section-label">Notes</div>
+      <textarea class="notes-area" id="notes-w6" onchange="saveNotes('w6')" placeholder="Which version felt most natural? Which was hardest? Did you use it in a real conversation this week?"></textarea>
+      <button class="btn-done" id="btn-w6" onclick="markDone('w6')">✓ Mark Week 6 Complete</button>
+    </div>
+  </div>
+
+  <!-- ── Week 7 ── -->
+  <div class="week-card" id="week-7">
+    <div class="week-header" onclick="toggleWeek(7)">
+      <div class="week-number">W7</div>
+      <div class="week-meta">
+        <div class="week-title">Project Status Update</div>
+        <div class="week-sub">3-minute update for a client or senior stakeholder</div>
+      </div>
+      <span class="week-badge badge-client">Client</span>
+      <span class="week-done-check" id="done-w7"></span>
+      <div class="week-toggle" id="toggle-7">▼</div>
+    </div>
+    <div class="week-body" id="body-7">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Give a complete, confident 3-minute project status update to an imaginary client or executive — covering progress, risks, and next steps without needing prompts.</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 Structure your update (use a real project you're working on):</div>
+        <div class="prompt-text">
+          <ul>
+            <li><strong>Overall status:</strong> "The project is on track / slightly behind / ahead of schedule. Here's a quick summary…"</li>
+            <li><strong>What's been completed:</strong> "Since our last update, we've completed / delivered / finished…"</li>
+            <li><strong>What's in progress:</strong> "We're currently working on… which we expect to finish by…"</li>
+            <li><strong>Risks or concerns:</strong> "There is one thing I want to flag — [issue]. The potential impact is [X], and our plan to address it is [Y]."</li>
+            <li><strong>Next steps:</strong> "Over the next [timeframe], we'll be focusing on… The next milestone is [date]."</li>
+            <li><strong>Closing:</strong> "Happy to go deeper on any of these areas — what would be most useful?"</li>
+          </ul>
+          <span class="highlight">Practice this twice: once without timing, then once with a timer. 3 minutes is about 400 words spoken naturally.</span>
+        </div>
+      </div>
+      <div class="section-label">Self-Check</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w7c1" onchange="saveCheck('w7c1')"><label for="w7c1">I covered all 5 sections (status / done / in progress / risks / next steps)</label></li>
+        <li><input type="checkbox" id="w7c2" onchange="saveCheck('w7c2')"><label for="w7c2">I spoke for 2.5–3.5 minutes (not too short, not rambling)</label></li>
+        <li><input type="checkbox" id="w7c3" onchange="saveCheck('w7c3')"><label for="w7c3">I presented a risk proactively with a plan to address it</label></li>
+        <li><input type="checkbox" id="w7c4" onchange="saveCheck('w7c4')"><label for="w7c4">I ended with an invitation for questions or follow-up</label></li>
+      </ul>
+      <div class="section-label">Notes</div>
+      <textarea class="notes-area" id="notes-w7" onchange="saveNotes('w7')" placeholder="Did the structure feel natural? What would you change for a real client call?"></textarea>
+      <button class="btn-done" id="btn-w7" onclick="markDone('w7')">✓ Mark Week 7 Complete</button>
+    </div>
+  </div>
+
+  <!-- ── Week 8 ── -->
+  <div class="week-card" id="week-8">
+    <div class="week-header" onclick="toggleWeek(8)">
+      <div class="week-number">W8</div>
+      <div class="week-meta">
+        <div class="week-title">Full Mock Meeting</div>
+        <div class="week-sub">10-minute AI-simulated meeting — test everything you've learned</div>
+      </div>
+      <span class="week-badge badge-advanced">Advanced</span>
+      <span class="week-done-check" id="done-w8"></span>
+      <div class="week-toggle" id="toggle-8">▼</div>
+    </div>
+    <div class="week-body" id="body-8">
+      <div class="goal-box"><strong>🎯 Goal:</strong> Run a 10-minute mock meeting using all skills from the 8 weeks. Use an AI assistant to simulate the other participants. Record the full session.</div>
+      <div class="prompt-box">
+        <div class="prompt-title">🎙 Setup — copy this prompt into ChatGPT or Claude:</div>
+        <div class="prompt-text">"Please simulate a project update meeting. You play the role of a client (or manager) who wants a project update. Ask me about progress, raise one concern about the timeline, and ask one unexpected question. I'll play the developer giving the update. Let's go — start by opening the meeting."<br><br>
+          <strong>During the meeting, try to use:</strong>
+          <ul>
+            <li>An opening phrase from Core 30</li>
+            <li>At least one buying-time phrase</li>
+            <li>At least one polite pushback phrase</li>
+            <li>A clear summary at the end with next steps</li>
+          </ul>
+          <span class="highlight">After the meeting, listen to your recording and count how many Core 30 phrases you used naturally. This is your fluency benchmark.</span>
+        </div>
+      </div>
+      <div class="record-box">
+        <div class="record-title">📊 Compare to Week 1</div>
+        <div class="record-text">Listen to your Week 1 self-introduction recording. Then listen to this Week 8 mock meeting. The difference is your 8-week progress. Write down 3 specific improvements you can hear.</div>
+      </div>
+      <div class="section-label">Final Self-Assessment</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="w8c1" onchange="saveCheck('w8c1')"><label for="w8c1">I ran the full 10-minute mock meeting without stopping</label></li>
+        <li><input type="checkbox" id="w8c2" onchange="saveCheck('w8c2')"><label for="w8c2">I used at least 5 Core 30 phrases naturally during the meeting</label></li>
+        <li><input type="checkbox" id="w8c3" onchange="saveCheck('w8c3')"><label for="w8c3">I handled the unexpected question without freezing</label></li>
+        <li><input type="checkbox" id="w8c4" onchange="saveCheck('w8c4')"><label for="w8c4">I compared Week 1 and Week 8 recordings and noted 3 improvements</label></li>
+      </ul>
+      <div class="section-label">Final Reflection</div>
+      <textarea class="notes-area" id="notes-w8" onchange="saveNotes('w8')" placeholder="Write 3 specific improvements you heard comparing Week 1 to Week 8. What's your plan for the next 8 weeks?"></textarea>
+      <button class="btn-done" id="btn-w8" onclick="markDone('w8')">✓ Mark Week 8 Complete 🎉</button>
+    </div>
+  </div>
+
+  <div class="meta-tip">
+    <strong>🔁 After Week 8:</strong> Repeat the cycle. Choose more challenging topics. The standup becomes a real client meeting. The self-introduction becomes a conference talk intro. The project update becomes a board-level summary. Fluency is built through cycles of challenge → practice → reflection → new challenge — not through a single course.
+  </div>
+
+</div><!-- /container -->
+
+<script>
+const STORAGE_KEY = 'weekly_challenges';
+function getData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; } }
+function saveData(d) { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }
+
+function toggleWeek(n) {
+  const body = document.getElementById('body-' + n);
+  const toggle = document.getElementById('toggle-' + n);
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+function scrollToWeek(n) {
+  document.getElementById('week-' + n).scrollIntoView({behavior:'smooth', block:'start'});
+  const body = document.getElementById('body-' + n);
+  if (!body.classList.contains('open')) toggleWeek(n);
+}
+
+function saveCheck(id) {
+  const d = getData();
+  d[id] = document.getElementById(id).checked;
+  saveData(d);
+}
+
+function saveNotes(week) {
+  const d = getData();
+  d['notes_' + week] = document.getElementById('notes-' + week).value;
+  saveData(d);
+}
+
+function markDone(week) {
+  const d = getData();
+  d['done_' + week] = true;
+  saveData(d);
+  document.getElementById('done-' + week).textContent = '✅';
+  document.getElementById('btn-' + week).textContent = '✓ Completed!';
+  document.getElementById('btn-' + week).classList.add('undone');
+  updateOverview();
+}
+
+function updateOverview() {
+  const d = getData();
+  for (let i = 1; i <= 8; i++) {
+    const card = document.querySelector(`.wo-card:nth-child(${i})`);
+    if (!card) continue;
+    const status = card.querySelector('.wo-status');
+    if (d['done_w' + i]) {
+      card.classList.add('done');
+      card.classList.remove('current');
+      status.textContent = '✅ Done';
+    } else if (!d['done_w' + (i-1)] && i > 1) {
+      status.textContent = '🔒 Locked';
+    } else {
+      card.classList.add('current');
+      status.textContent = '▶ Current';
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const d = getData();
+  // Restore checkboxes
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    if (d[cb.id] === true) cb.checked = true;
+  });
+  // Restore notes
+  for (let i = 1; i <= 8; i++) {
+    const ta = document.getElementById('notes-w' + i);
+    if (ta && d['notes_w' + i]) ta.value = d['notes_w' + i];
+    if (d['done_w' + i]) {
+      document.getElementById('done-w' + i).textContent = '✅';
+      const btn = document.getElementById('btn-w' + i);
+      if (btn) { btn.textContent = '✓ Completed!'; btn.classList.add('undone'); }
+    }
+  }
+  updateOverview();
+});
+</script>
+</body>
+</html>

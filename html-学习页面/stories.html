@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>20 Stories — NGSL Reading & Speaking Practice</title>
+  <title>20 Stories + 20 Articles — NGSL Reading & Speaking Practice</title>
   <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -177,6 +177,37 @@ body {
   letter-spacing: .5px;
   margin-right: 6px;
 }
+
+/* ── Speaking Prompt (injected by JS) ── */
+.speak-prompt {
+  margin-top: 12px;
+  border-top: 1px dashed #a0c0e0;
+  padding-top: 10px;
+}
+.speak-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: Arial, sans-serif; font-size: 8.5pt;
+  color: #1e5f3a; cursor: pointer; border: 1px solid #80c080;
+  background: #f0f8f0; padding: 4px 12px; border-radius: 4px;
+  user-select: none;
+}
+.speak-toggle:hover { background: #d8efd8; }
+.speak-body { display: none; margin-top: 10px; }
+.speak-body.open { display: block; }
+.retell-box {
+  background: #e8f5e9; border-left: 4px solid #1e5f3a;
+  border-radius: 0 6px 6px 0; padding: 8px 12px;
+  font-family: Arial, sans-serif; font-size: 9pt; color: #1a3a1a;
+  margin-bottom: 8px; line-height: 1.5;
+}
+.speak-questions { list-style: none; margin-bottom: 0; }
+.speak-questions li {
+  font-family: Arial, sans-serif; font-size: 9pt; color: #333;
+  padding: 5px 0 5px 20px; position: relative; border-bottom: 1px solid #e8f0e8;
+  line-height: 1.45;
+}
+.speak-questions li:last-child { border-bottom: none; }
+.speak-questions li::before { content: "💬"; position: absolute; left: 0; font-size: 10pt; }
 
 /* ── Print ── */
 @media print {
@@ -1332,5 +1363,86 @@ body {
   </p>
 
 </div><!-- /article-section -->
+<script>
+// Speaking prompts for all 40 texts (20 stories + 20 articles)
+const prompts = {
+  's01': { retell: 'Marcus arrived early, found his laptop missing, called his manager — and learned where it was.', qs: ['Have you ever forgotten something important at work? What happened?', 'How would you tell your manager: "I left my laptop in the meeting room"?', 'What one habit could help you be more organized?'] },
+  's02': { retell: 'Sarah\'s team spent 6 hours trying to fix a system that Tom fixed in 5 seconds by restarting it.', qs: ['What\'s the most frustrating technical problem you\'ve had to solve recently?', 'How would you explain this story\'s lesson to a friend?', 'Have you ever found a "turn it off and on again" solution to a problem?'] },
+  's03': { retell: 'James arrived at the office two hours early — only to realize it was Sunday.', qs: ['Do you think arriving early is always a good habit? Why or why not?', 'What would you do if you arrived at the office and no one else was there?', 'How do you balance being early/prepared with being too rigid about routine?'] },
+  's04': { retell: 'David\'s 30-minute meeting stretched to 2 hours — and the only way to end it was to plan another one.', qs: ['What makes meetings run over time in your experience?', 'How would you describe a "good meeting" in English?', 'What\'s one rule you\'d introduce to make meetings more efficient?'] },
+  's05': { retell: 'A smart phone gave wrong directions twice — and a simple phone call to the restaurant solved it in 5 minutes.', qs: ['Do you prefer GPS directions or asking people? Why?', 'Describe a time when technology gave you wrong information. What did you do?', 'How would you say "I think my phone is smarter than me" as a joke to a friend?'] },
+  's06': { retell: 'Emma couldn\'t start her day without coffee. Her machine broke, the café machine also broke — and she discovered she quite liked tea.', qs: ['What\'s your morning routine? What can\'t you start the day without?', 'Describe a small thing going wrong that affected your whole morning.', 'How would you order a drink at a café — in English?'] },
+  's07': { retell: 'Tom prepared for 3 weeks for his interview. When asked "tell me about yourself," his mind went blank — but his honest answer was memorable.', qs: ['How do you prepare for an important presentation or meeting?', 'What would you say if someone asked "tell me about yourself" in English?', 'Describe a time you were more nervous than you expected to be.'] },
+  's08': { retell: 'The team couldn\'t agree on a restaurant for 40 minutes — then the manager chose one, nobody was happy, but everyone enjoyed the lunch.', qs: ['How does your team make decisions when nobody can agree?', 'Describe a good team lunch or team outing you\'ve had.', 'How would you suggest a restaurant to colleagues in English?'] },
+  's09': { retell: 'The office printer was old and always broke. Mike spent 2 hours trying to fix it — and failed. They ordered a new one.', qs: ['What\'s something at your workplace that\'s old and should be replaced?', 'How would you report a broken piece of equipment to your manager?', 'Describe a time you spent a lot of time on a problem that had a simple solution.'] },
+  's10': { retell: 'When the power went out for 3 hours, people stopped looking at screens and started talking — and learned surprising things about each other.', qs: ['How often do you have real conversations (not about work) with your colleagues?', 'What\'s something surprising you\'ve learned about a colleague?', 'Do you think offices should have "screen-free" time? Why or why not?'] },
+  's11': { retell: 'Lisa made a perfect weekend plan. She did nothing on Saturday, made the same plan for Sunday, and repeated the cycle.', qs: ['Describe your ideal weekend — and then describe what you actually do.', 'What\'s one thing you\'ve been meaning to do but keep putting off?', 'How would you tell a friend about your plans for the weekend in English?'] },
+  's12': { retell: 'Frank always gave advice about how others should do things — then did the opposite himself the next day.', qs: ['Do you have someone like Frank in your life? How do you handle unsolicited advice?', 'Is it better to give advice or stay quiet? Discuss.', 'How would you politely decline advice you didn\'t ask for, in English?'] },
+  's13': { retell: 'An online chair arrived with 40-step instructions. Step 32 said to check parts first. One leg was still in the box.', qs: ['Describe a time something you ordered online wasn\'t what you expected.', 'What do you check before buying something online?', 'How would you write a product review — in English — for something that had a minor issue?'] },
+  's14': { retell: 'Peter started running every day. On day 5, he found a new café and decided exploring cafés was also good exercise.', qs: ['What exercise habits have you tried to build? What worked and what didn\'t?', 'How do you motivate yourself to do something you know is good for you?', 'Describe your neighborhood in English — what interesting places are nearby?'] },
+  's15': { retell: 'Helen\'s slides wouldn\'t show on screen. She presented from memory for 20 minutes — and gave the best presentation of the year.', qs: ['Have you ever had to present without preparation or without your materials?', 'What\'s your biggest fear about presenting in English?', 'How would you handle it if your slides didn\'t work at the start of a meeting?'] },
+  's16': { retell: 'A three-country video call failed because each team checked the time zones incorrectly — in different directions.', qs: ['How do you handle scheduling across multiple time zones?', 'What\'s the most challenging international meeting situation you\'ve been in?', 'How would you say "I think there\'s a time zone confusion" politely in a meeting?'] },
+  's17': { retell: 'The company\'s new system required 3 confirmations to save a document. The reason: "to make sure you really want to save."', qs: ['What\'s the most frustrating software or system you use regularly?', 'Describe a "feature" that feels more like a problem to you.', 'How would you give feedback to a developer about a UX issue, in English?'] },
+  's18': { retell: 'The company\'s monthly free day turned out to be more productive than regular days — three teams started new projects on their own.', qs: ['If you had a completely free day at work, what would you work on?', 'Do you think companies should give employees more unstructured time? Why?', 'Describe the best work environment you\'ve experienced or can imagine.'] },
+  's19': { retell: 'Kevin always announced exciting weekend plans — and always spent the weekend at home. His manager knew, and approved.', qs: ['Do you prefer busy weekends or relaxed ones? What\'s your ideal?', 'How do you recharge after a demanding work week?', 'How would you tell someone about your weekend plans in natural English?'] },
+  's20': { retell: 'Mark sent a company-wide email about better email habits — and received 340 new emails in response, including requests to shorten his email.', qs: ['What\'s your approach to managing too many emails?', 'What makes an email effective? What makes it annoying?', 'How would you write a short, clear follow-up email in English — what would you include?'] },
+
+  'a01': { retell: 'Tokyo: 13 million people, precise trains, ancient temples beside tech towers, serious food culture, and a quiet social order that makes city life pleasant.', qs: ['Have you been to a city that changed your expectations about how a city can work?', 'What does "efficiency" mean to you — in work, in daily life?', 'How would you describe your own city to a foreign colleague in 3 sentences?'] },
+  'a02': { retell: 'New York was built on immigration and industry. Every neighborhood tells a different cultural story. Central Park shows what genuine public space looks like.', qs: ['What city do you most want to visit, and why? Explain in English.', 'What does your city do well? What could it do better?', 'How would you explain the concept of "a melting pot city" to someone unfamiliar with it?'] },
+  'a03': { retell: 'The internet started as a military research project in the 1960s. Tim Berners-Lee made it public in the 90s. It reshaped every industry — with both benefits and real costs.', qs: ['How has the internet most changed your daily life or work?', 'What\'s one negative effect of the internet that you think is underappreciated?', 'If you had to explain "the internet" to someone from 1985, what would you say?'] },
+  'a04': { retell: 'Sleep isn\'t rest — it\'s active brain processing. People who sleep enough perform better in almost every measurable way. Most modern people are chronically under-sleeping.', qs: ['How much sleep do you usually get? Do you think it\'s enough?', 'What habits help you sleep better? Have you tried any?', 'How would you explain to a colleague why staying up late to work is probably counterproductive?'] },
+  'a05': { retell: 'The best teams share three things: clarity about roles and objectives, psychological safety to speak up, and a regular culture of feedback.', qs: ['Describe the best team you\'ve worked in — what made it work?', 'What\'s psychological safety, in your own words?', 'How would you give critical feedback to a teammate in English — respectfully but clearly?'] },
+  'a06': { retell: 'London is two thousand years old but intensely modern. Its neighborhoods each have distinct identities. It attracts global talent in finance, tech, and creative industries.', qs: ['What city do you think is the best combination of history and modernity?', 'If a foreign colleague asked you to recommend a city to visit in China, what would you say?', 'Describe a historical site near you — in English, as if explaining it to a tourist.'] },
+  'a07': { retell: 'Exercise isn\'t just physical — it builds new brain cells, improves mood as effectively as medication, and boosts creative thinking. 30 minutes, 3–4 times a week is enough.', qs: ['What type of exercise do you do (or want to do)? Why that type?', 'How do you feel mentally after exercise, compared to days when you don\'t exercise?', 'How would you motivate a friend to start exercising — without sounding preachy?'] },
+  'a08': { retell: 'Starting a business: test before you build, manage cash flow carefully, build the right team first, and have a strategy that tells you exactly who your customer is.', qs: ['If you were going to start a business tomorrow, what would it be?', 'What do you think is the hardest part of starting a business?', 'How would you pitch a business idea to a friend in under 2 minutes — in English?'] },
+  'a09': { retell: 'Singapore transformed from a poor city-state in the 1960s into one of the world\'s most successful societies through disciplined, long-term government planning.', qs: ['What can your company or team learn from Singapore\'s approach to planning?', 'What does "long-term thinking" look like in your work?', 'How would you describe a country or organization that has a clear long-term vision?'] },
+  'a10': { retell: 'The biggest cause of project failure is almost never technical — it\'s communication. Define scope early, identify risks explicitly, balance flexibility with discipline, and celebrate milestones.', qs: ['Describe a project that went well. What made it successful?', 'What\'s the hardest part of managing a project in your experience?', 'How would you tell a project manager that a deadline isn\'t realistic — in English?'] },
+  'a11': { retell: 'Learning a language as an adult isn\'t just communication — it builds cognitive flexibility, teaches cultural values, and trains humility by making you a beginner again.', qs: ['Why did you start learning English? Has your motivation changed?', 'What\'s the hardest thing about learning English specifically?', 'How would you encourage a friend to start learning a new language?'] },
+  'a12': { retell: 'Large companies have hierarchical decisions, multiple stakeholders, and coordination challenges that slow things down — for good reasons. The best ones delegate authority to those closest to the problem.', qs: ['How are decisions made in your team or company? Is the process efficient?', 'What\'s the difference between a good and a bad decision-making process?', 'How would you explain to your manager why a decision needs to be made faster?'] },
+  'a13': { retell: 'Social media has real benefits (community, small business reach) and real costs (algorithm-driven anger, mental health impact). The key is intentional use.', qs: ['How much time do you spend on social media? Is it the right amount?', 'Has social media ever changed your opinion on something? How?', 'How would you describe your relationship with social media to a friend?'] },
+  'a14': { retell: 'Reading is active — it builds vocabulary, empathy, and cognitive resilience. Even 20–30 minutes a day produces measurable brain benefits. The time is the only variable you control.', qs: ['What was the last book you read that affected how you think?', 'Do you read in English? What do you read?', 'How would you recommend a book to a colleague in English — briefly, naturally?'] },
+  'a15': { retell: 'Remote work offers flexibility but requires intentional communication structures, clear expectations, and deliberate team culture maintenance. It\'s a different way of working, not just a location change.', qs: ['Do you work remotely, hybrid, or in-office? What do you prefer and why?', 'What\'s the hardest thing about communicating remotely with colleagues?', 'How would you explain to your manager what you need to work effectively from home?'] },
+  'a16': { retell: 'Apple was founded in 1976, nearly failed, came back with Jobs in 1997, and then launched iPod, iPhone, and App Store — reshaping multiple industries through design and user understanding.', qs: ['What product has most changed how you live or work?', 'What do you think Apple gets right that other tech companies miss?', 'How would you explain Apple\'s success to someone who\'s never used an Apple product?'] },
+  'a17': { retell: 'Your overall dietary pattern matters more than any single food. What you eat affects your brain, mood, sleep, and stress. Small consistent changes produce real long-term results.', qs: ['How would you describe your typical diet? Are you happy with it?', 'What\'s one food habit you\'d like to change or build?', 'How would you explain healthy eating advice to a friend, without being preachy?'] },
+  'a18': { retell: 'Good leaders are clear, genuinely interested in their people, and willing to make decisions and own them. Leadership is a form of service — creating conditions for others\' best work.', qs: ['Describe the best leader or manager you\'ve worked with. What made them good?', 'What\'s one leadership quality you want to develop in yourself?', 'How would you give feedback to your manager about something that could be improved — in English?'] },
+  'a19': { retell: 'More than half of humanity now lives in cities. Urban transport, the "15-minute city" concept, and smart city tech are reshaping how cities are designed and experienced.', qs: ['How would you improve the city or town where you live?', 'What does "a livable city" mean to you?', 'Describe your commute or neighborhood in English — what\'s good, what could be better?'] },
+  'a20': { retell: 'Working long hours produces diminishing returns. The best organizations measure output, not hours. A sustainable life — with rest, relationships, and personal time — is the foundation for long-term performance.', qs: ['How do you currently manage the boundary between work and personal time?', 'What does "a good work-life balance" look like for you specifically?', 'How would you explain to your manager that you need to protect your evenings — professionally and respectfully?'] }
+};
+
+function toggleSpeak(id) {
+  const body = document.getElementById('sb-' + id);
+  const label = document.getElementById('sl-' + id);
+  if (!body) return;
+  const open = body.classList.toggle('open');
+  label.textContent = open ? '▲ Hide speaking practice' : '▼ Speaking practice';
+}
+
+function injectPrompts() {
+  Object.keys(prompts).forEach(id => {
+    const card = document.getElementById(id);
+    if (!card) return;
+    const kw = card.querySelector('.key-words');
+    if (!kw) return;
+    const p = prompts[id];
+    const html = `<div class="speak-prompt">
+      <span class="speak-toggle" onclick="toggleSpeak('${id}')">
+        🗣 <span id="sl-${id}">▼ Speaking practice</span>
+      </span>
+      <div class="speak-body" id="sb-${id}">
+        <div class="retell-box">
+          <strong>⏱ 30-second retell:</strong> Close your eyes. Say this story in your own words — out loud, right now:<br>
+          <em>${p.retell}</em>
+        </div>
+        <ul class="speak-questions">
+          ${p.qs.map(q => `<li>${q}</li>`).join('')}
+        </ul>
+      </div>
+    </div>`;
+    kw.insertAdjacentHTML('afterend', html);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', injectPrompts);
+</script>
 </body>
 </html>

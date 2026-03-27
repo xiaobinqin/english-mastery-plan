@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Listening Guide — Build Real English Fluency</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#f0f4fb;line-height:1.65}
+@media screen{
+ .site-nav{position:sticky;top:0;z-index:100;background:#1e3a5f;color:#fff;padding:9px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:8.5pt}
+ .site-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px;white-space:nowrap}
+ .site-nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+ .site-nav .nav-home{font-weight:bold;font-size:10pt;margin-right:4px}
+ .site-nav a.active{background:#e8a020;color:#fff}
+}
+@media print{.site-nav{display:none}}
+.container{max-width:920px;margin:0 auto;padding:28px 20px}
+.page-header{text-align:center;margin-bottom:28px}
+.page-header h1{font-family:Arial,sans-serif;font-size:20pt;color:#1e3a5f;margin-bottom:8px}
+.page-header p{font-size:10pt;color:#555;max-width:680px;margin:0 auto;line-height:1.6}
+
+/* Why section */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr}}
+.why-card{background:#fff;border:1px solid #c8d8f0;border-radius:8px;padding:14px 18px}
+.why-icon{font-size:20pt;margin-bottom:6px}
+.why-title{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;font-size:10pt;margin-bottom:5px}
+.why-text{font-size:9pt;color:#444;line-height:1.55}
+
+/* Section headers */
+.section-h{font-family:Arial,sans-serif;font-size:13pt;font-weight:bold;color:#1e3a5f;margin:28px 0 14px;border-bottom:2px solid #1e3a5f;padding-bottom:6px;display:flex;align-items:center;gap:10px}
+
+/* Method steps */
+.method-steps{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #c8d8f0;border-radius:8px;padding:14px 16px}
+.step-num{font-family:Arial,sans-serif;font-size:18pt;font-weight:bold;color:#1e3a5f;background:#e8f0ff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14pt}
+.step-content{}
+.step-title{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;font-size:10.5pt;margin-bottom:4px}
+.step-text{font-size:9.5pt;color:#333;line-height:1.6}
+.step-tip{font-size:8.5pt;color:#777;font-style:italic;margin-top:4px}
+
+/* Level badges */
+.level{display:inline-block;font-family:Arial,sans-serif;font-size:7.5pt;font-weight:bold;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.3px}
+.lv-beginner{background:#d4edda;color:#155724}
+.lv-intermediate{background:#fff3cd;color:#856404}
+.lv-advanced{background:#f8d7da;color:#721c24}
+
+/* Podcast cards */
+.podcast-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.podcast-grid{grid-template-columns:1fr}}
+.podcast-card{background:#fff;border:1px solid #c8d8f0;border-radius:8px;padding:16px 18px}
+.pc-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+.pc-icon{font-size:22pt;flex-shrink:0}
+.pc-name{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;font-size:11pt;margin-bottom:3px}
+.pc-meta{font-size:8pt;color:#888}
+.pc-desc{font-size:9pt;color:#333;line-height:1.55;margin-bottom:10px}
+.pc-why{background:#f5f9ff;border-left:3px solid #a8c8e8;padding:6px 10px;font-size:8.5pt;color:#555;border-radius:0 4px 4px 0;font-style:italic}
+.pc-link{display:inline-block;margin-top:10px;font-family:Arial,sans-serif;font-size:8.5pt;color:#1e3a5f;text-decoration:none;border:1px solid #a8c8e8;padding:3px 10px;border-radius:4px}
+.pc-link:hover{background:#e8f0ff}
+
+/* Weekly schedule */
+.schedule-table{width:100%;border-collapse:collapse;margin-bottom:28px;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #c8d8f0}
+.schedule-table th{background:#1e3a5f;color:#fff;padding:9px 12px;font-family:Arial,sans-serif;font-size:8.5pt;text-align:left}
+.schedule-table td{padding:9px 12px;border-bottom:1px solid #e0e8f0;font-size:9pt;vertical-align:top}
+.schedule-table tr:last-child td{border-bottom:none}
+.schedule-table tr:nth-child(even) td{background:#f8fbff}
+.day-label{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;white-space:nowrap;width:90px}
+.time-label{color:#888;font-size:8.5pt;white-space:nowrap;width:70px}
+
+/* Technique box */
+.technique-box{background:#fff;border:1px solid #c8d8f0;border-radius:8px;padding:18px 22px;margin-bottom:28px}
+.technique-box h3{font-family:Arial,sans-serif;color:#1e3a5f;font-size:11pt;margin-bottom:12px}
+.technique-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e8f0f8}
+.technique-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.technique-name{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;font-size:10pt;margin-bottom:4px}
+.technique-text{font-size:9.5pt;color:#333;line-height:1.6}
+
+/* FAQ */
+.faq-item{background:#fff;border:1px solid #c8d8f0;border-radius:8px;padding:14px 18px;margin-bottom:10px}
+.faq-q{font-family:Arial,sans-serif;font-weight:bold;color:#1e3a5f;font-size:10pt;margin-bottom:6px}
+.faq-a{font-size:9.5pt;color:#333;line-height:1.6}
+
+/* Milestone tracker */
+.tracker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+@media(max-width:700px){.tracker-grid{grid-template-columns:1fr}}
+.tracker-card{background:#fff;border:2px solid #d0dae8;border-radius:8px;padding:12px 14px;text-align:center;font-family:Arial,sans-serif}
+.tracker-week{font-size:8pt;color:#888;margin-bottom:3px}
+.tracker-goal{font-size:9pt;font-weight:bold;color:#1e3a5f;line-height:1.4;margin-bottom:6px}
+.tracker-check{font-size:18pt}
+.tracker-card.achieved{border-color:#1e5f3a;background:#f0f8f0}
+.tracker-card.achieved .tracker-check::before{content:'✅'}
+.tracker-card .tracker-check::before{content:'○'}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-home" href="../index.html">🏠 Home</a>
+  <a href="../html-学习页面/index.html">📖 NGSL</a>
+  <a href="60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="core-30-phrases.html">⚡ Core 30</a>
+  <a href="weekly-challenges.html">🎯 Weekly Challenges</a>
+  <a href="listening-guide.html" class="active">🎧 Listening</a>
+  <a href="pronunciation-guide.html">🔊 Pronunciation</a>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>🎧 Daily Listening Guide</h1>
+    <p>Listening is the missing piece in most self-study plans. You can't speak naturally until you've heard enough natural English. This guide tells you what to listen to, how to listen, and how to turn listening into speaking ability.</p>
+  </div>
+
+  <!-- Why listening matters -->
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🧠</div>
+      <div class="why-title">Listening builds language intuition</div>
+      <div class="why-text">When you hear thousands of natural sentences, your brain starts to recognize patterns — what sounds right, what sounds wrong — without consciously thinking about grammar rules. This is how fluency actually works.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎵</div>
+      <div class="why-title">It fixes your pronunciation at the source</div>
+      <div class="why-text">You can only pronounce sounds you've heard. Extensive listening to real English tunes your ear to the actual sounds, rhythms, and intonations of the language — before you try to produce them.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📦</div>
+      <div class="why-title">It fills your vocabulary with real usage</div>
+      <div class="why-text">Words you've read in lists feel abstract. Words you've heard in real sentences feel natural. Listening gives vocabulary a sound, a context, and a feeling that makes it easier to recall when speaking.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">It's the easiest skill to practice daily</div>
+      <div class="why-text">You can listen while commuting, cooking, exercising, or doing chores. It requires no special setup. 10–15 minutes of focused listening per day — consistently — produces noticeable results within weeks.</div>
+    </div>
+  </div>
+
+  <!-- 3-Step Method -->
+  <div class="section-h">🔬 The 3-Step Listening Method</div>
+  <div class="method-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">First Listen — for meaning only</div>
+        <div class="step-text">Play the audio once without stopping. Don't worry about words you miss. Focus entirely on understanding the general message — what is being discussed, what happened, what the speaker thinks. If you understand 70% or more, the content is at the right level for you.</div>
+        <div class="step-tip">💡 If you understand less than 50%, the content is too difficult. Choose something easier — this is not failure, it's calibration.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Second Listen — for language</div>
+        <div class="step-text">Play the audio again. This time, pay attention to specific words and phrases — especially ones you didn't know, or phrases that sounded natural. If you have a transcript (BBC podcasts provide them), read it while listening. Notice how the words connect, shorten, and flow together in real speech.</div>
+        <div class="step-tip">💡 Pick one phrase per episode that you want to add to your vocabulary. Say it aloud immediately — three times. This is the most efficient method for absorbing real language.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Shadow — for speaking connection</div>
+        <div class="step-text">Choose one 30–60 second segment. Play it and speak along simultaneously — try to match the speaker's speed, rhythm, and intonation as closely as you can. This is called shadowing. It directly trains your mouth to produce English at real speed, not "study speed."</div>
+        <div class="step-tip">💡 You don't need to do this every day — even 3–4 times per week for 5 minutes produces real improvement in fluency and pronunciation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Podcast Recommendations -->
+  <div class="section-h">🎙 Recommended Resources</div>
+
+  <div style="margin-bottom:10px;font-family:Arial,sans-serif;font-size:9pt;color:#555;">Start at your current level. Move up as it gets easy. The goal is always to be slightly challenged — not overwhelmed and not bored.</div>
+
+  <div class="podcast-grid">
+    <div class="podcast-card">
+      <div class="pc-top">
+        <div class="pc-icon">📻</div>
+        <div>
+          <div class="pc-name">BBC 6 Minute English</div>
+          <div class="pc-meta"><span class="level lv-beginner">Beginner–Intermediate</span> · 6 min/episode · Free transcript</div>
+        </div>
+      </div>
+      <div class="pc-desc">Each episode covers one interesting topic (technology, science, work, society) in exactly 6 minutes. Clear pronunciation, controlled speed, and a free transcript available online. The transcript is a learning tool — read it after listening, not during.</div>
+      <div class="pc-why">Perfect starting point. The 6-minute length is ideal for a daily habit. Topics connect directly to the vocabulary in your study system.</div>
+      <a class="pc-link" href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank">→ BBC 6 Minute English</a>
+    </div>
+
+    <div class="podcast-card">
+      <div class="pc-top">
+        <div class="pc-icon">🗣</div>
+        <div>
+          <div class="pc-name">BBC The English We Speak</div>
+          <div class="pc-meta"><span class="level lv-beginner">Beginner–Intermediate</span> · 3 min/episode · Free transcript</div>
+        </div>
+      </div>
+      <div class="pc-desc">Very short episodes (3 minutes) focused entirely on real, natural expressions — idioms, phrasal verbs, and phrases that native speakers actually use in conversation. Each episode explains one expression with examples in context.</div>
+      <div class="pc-why">The best resource for learning how English is actually spoken — not how textbooks say it should be spoken. Great for the "small talk" gap.</div>
+      <a class="pc-link" href="https://www.bbc.co.uk/learningenglish/english/features/the-english-we-speak" target="_blank">→ BBC The English We Speak</a>
+    </div>
+
+    <div class="podcast-card">
+      <div class="pc-top">
+        <div class="pc-icon">🏢</div>
+        <div>
+          <div class="pc-name">How I Built This (NPR)</div>
+          <div class="pc-meta"><span class="level lv-intermediate">Intermediate</span> · 30–45 min/episode</div>
+        </div>
+      </div>
+      <div class="pc-desc">Stories of how well-known companies (Airbnb, Instagram, Spanx, Duolingo) were started — told by the founders themselves. Natural conversational American English, varied speaking styles, and genuinely interesting content about business, failure, and success.</div>
+      <div class="pc-why">Connects directly to your business/management vocabulary. The stories are engaging enough that you forget you're "studying." Ideal when BBC feels too easy.</div>
+      <a class="pc-link" href="https://www.npr.org/series/how-i-built-this" target="_blank">→ How I Built This</a>
+    </div>
+
+    <div class="podcast-card">
+      <div class="pc-top">
+        <div class="pc-icon">💡</div>
+        <div>
+          <div class="pc-name">TED Talks (with subtitles)</div>
+          <div class="pc-meta"><span class="level lv-intermediate">Intermediate</span> · 10–18 min/talk · Full transcript</div>
+        </div>
+      </div>
+      <div class="pc-desc">Prepared, clearly structured talks on technology, science, business, psychology, and society. Every talk has a full English transcript. The structured nature of TED talks makes them easier to follow than unscripted conversation.</div>
+      <div class="pc-why">Great for learning how to structure arguments in English — the same skill you need for presentations, status updates, and client calls. Also good for shadowing practice.</div>
+      <a class="pc-link" href="https://www.ted.com/talks" target="_blank">→ TED Talks</a>
+    </div>
+
+    <div class="podcast-card">
+      <div class="pc-top">
+        <div class="pc-icon">🎯</div>
+        <div>
+          <div class="pc-name">Stuff You Should Know</div>
+          <div class="pc-meta"><span class="level lv-intermediate">Intermediate–Advanced</span> · 30–50 min/episode</div>
+        </div>
+      </div>
+      <div class="pc-desc">Two American hosts explain interesting topics (history, science, technology, culture) in a conversational, sometimes humorous way. Natural, unscripted conversation — including interruptions, jokes, and informal language. Excellent for natural conversation modeling.</div>
+      <div class="pc-why">When you can follow 80%+ of this podcast comfortably, your listening comprehension is at a high intermediate level. The conversational style also models how real dialogue works.</div>
+      <a class="pc-link" href="https://www.iheart.com/podcast/105-stuff-you-should-know-26940277/" target="_blank">→ Stuff You Should Know</a>
+    </div>
+
+    <div class="podcast-card">
+      <div class="pc-top">
+        <div class="pc-icon">🔬</div>
+        <div>
+          <div class="pc-name">Lex Fridman Podcast</div>
+          <div class="pc-meta"><span class="level lv-advanced">Advanced</span> · 1–3 hrs/episode</div>
+        </div>
+      </div>
+      <div class="pc-desc">Long-form interviews with scientists, engineers, AI researchers, and tech founders. Dense, technical, and intellectual — very challenging. Don't start here. Come here when Stuff You Should Know feels easy.</div>
+      <div class="pc-why">Excellent for technical English at a high level — the language of advanced engineering and research discussions. Also a model for thoughtful, measured speech.</div>
+      <a class="pc-link" href="https://lexfridman.com/podcast/" target="_blank">→ Lex Fridman Podcast</a>
+    </div>
+  </div>
+
+  <!-- Weekly schedule -->
+  <div class="section-h">📅 Recommended Weekly Listening Schedule</div>
+  <div style="font-family:Arial,sans-serif;font-size:9pt;color:#555;margin-bottom:10px">Integrate into your existing 60-day plan. Total listening time: 10–15 minutes per day.</div>
+
+  <table class="schedule-table">
+    <tr><th>Day</th><th>Time</th><th>Activity</th><th>Notes</th></tr>
+    <tr>
+      <td class="day-label">Mon / Wed</td>
+      <td class="time-label">10 min</td>
+      <td><strong>BBC 6 Minute English</strong> — full 3-step method<br><span style="font-size:8.5pt;color:#777">Listen → listen with transcript → shadow one 30-sec section</span></td>
+      <td style="font-size:8.5pt;color:#555">Pick one phrase from the episode. Write it down. Use it this week.</td>
+    </tr>
+    <tr>
+      <td class="day-label">Tue / Thu</td>
+      <td class="time-label">5 min</td>
+      <td><strong>BBC The English We Speak</strong> — listen + repeat<br><span style="font-size:8.5pt;color:#777">3 minutes listening + 2 minutes saying the key phrase aloud</span></td>
+      <td style="font-size:8.5pt;color:#555">Focus on the informal expression. Say it in a natural sentence about your day.</td>
+    </tr>
+    <tr>
+      <td class="day-label">Fri</td>
+      <td class="time-label">15 min</td>
+      <td><strong>How I Built This / TED Talk</strong> — for enjoyment<br><span style="font-size:8.5pt;color:#777">Just listen. No note-taking. Focus on following the story.</span></td>
+      <td style="font-size:8.5pt;color:#555">If you enjoy it, that's the point. Enjoyable input is the most effective input.</td>
+    </tr>
+    <tr>
+      <td class="day-label">Sat</td>
+      <td class="time-label">15 min</td>
+      <td><strong>Shadowing session</strong> — active speaking practice<br><span style="font-size:8.5pt;color:#777">Any content from the week. Shadow 2–3 segments. Record one attempt.</span></td>
+      <td style="font-size:8.5pt;color:#555">This is the most important session. Translates listening into speaking.</td>
+    </tr>
+    <tr>
+      <td class="day-label">Sun</td>
+      <td class="time-label">Free</td>
+      <td><strong>Optional</strong> — passive listening during activities<br><span style="font-size:8.5pt;color:#777">Any English content while cooking, exercising, commuting</span></td>
+      <td style="font-size:8.5pt;color:#555">Any English audio counts. Don't force it — rest is also important.</td>
+    </tr>
+  </table>
+
+  <!-- Techniques -->
+  <div class="section-h">🛠 Three Core Listening Techniques</div>
+  <div class="technique-box">
+    <div class="technique-item">
+      <div class="technique-name">🔄 Shadowing</div>
+      <div class="technique-text">Play an audio segment and speak simultaneously — trying to match the speaker's speed, rhythm, stress, and intonation as closely as possible. You don't need to understand every word to shadow effectively. The goal is physical practice of real-speed English. Start with 15-second segments; build to 60 seconds. Do this for 5 minutes on 3–4 days per week and your pronunciation will change noticeably within a month.</div>
+    </div>
+    <div class="technique-item">
+      <div class="technique-name">📝 Phrase Capture</div>
+      <div class="technique-text">Keep a small notebook (or phone note) while listening. When you hear a phrase that sounds natural and useful — something you'd want to say — write it down immediately. At the end of the week, you'll have 5–10 new real expressions. Say each one aloud 5 times and try to use at least one in a real conversation. This is how native speakers build vocabulary — through repeated exposure and use in context, not through lists.</div>
+    </div>
+    <div class="technique-item">
+      <div class="technique-name">🔁 Intensive Replay</div>
+      <div class="technique-text">Choose one 2–3 minute segment from any episode and listen to it 5 times over the course of a week. By the third or fourth listen, you'll notice things you completely missed the first time — phrases, connections, intonation patterns. This technique trains your ear to process English at natural speed, which is essential for real conversations where you can't ask people to repeat themselves five times.</div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-h">❓ Common Questions</div>
+  <div class="faq-item">
+    <div class="faq-q">I understand very little when I listen. Is something wrong with me?</div>
+    <div class="faq-a">No — this is completely normal at the beginning. It means you're working at or slightly above your current level, which is exactly right. The solution is not to find easier content, but to be patient. Start with BBC 6 Minute English (designed for learners). Understanding will increase faster than you expect if you listen consistently.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Should I look up every word I don't understand?</div>
+    <div class="faq-a">No. Looking up every unknown word destroys the flow and trains you to depend on dictionaries, which you won't have in real conversations. Instead, try to infer meaning from context. Only look up words that appear multiple times and seem important to the meaning. This tolerance for ambiguity is itself an important fluency skill.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Is passive listening (while doing other things) effective?</div>
+    <div class="faq-a">Partially. Passive listening builds familiarity with the sounds and rhythms of English, which has real value. But active listening — where you're paying attention and engaged — is significantly more effective for learning. Think of passive listening as a supplement, not a substitute. Aim for at least 10 minutes of focused listening every day, even if you also have background listening during other activities.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How long until I notice a real improvement?</div>
+    <div class="faq-a">Most people who listen consistently (10+ minutes per day) notice improved comprehension within 3–4 weeks. You'll find that native speakers are easier to follow, that you catch more words, and that certain phrases start to "sound right" automatically. Speaking improvement from listening takes a bit longer — typically 6–8 weeks — because the listening has to be converted to speaking through shadowing and practice.</div>
+  </div>
+
+  <!-- Milestones -->
+  <div class="section-h">🏆 Listening Milestones</div>
+  <div class="tracker-grid">
+    <div class="tracker-card"><div class="tracker-week">Week 2</div><div class="tracker-goal">Listened to BBC 6 Minute English 4× this week</div><div class="tracker-check"></div></div>
+    <div class="tracker-card"><div class="tracker-week">Week 3</div><div class="tracker-goal">Shadowed a 30-second BBC segment</div><div class="tracker-check"></div></div>
+    <div class="tracker-card"><div class="tracker-week">Week 4</div><div class="tracker-goal">Captured and used 3 new phrases from listening</div><div class="tracker-check"></div></div>
+    <div class="tracker-card"><div class="tracker-week">Week 5</div><div class="tracker-goal">Listened to a TED Talk and understood 70%+</div><div class="tracker-check"></div></div>
+    <div class="tracker-card"><div class="tracker-week">Week 6</div><div class="tracker-goal">Started How I Built This — understood main story</div><div class="tracker-check"></div></div>
+    <div class="tracker-card"><div class="tracker-week">Week 8</div><div class="tracker-goal">Can shadow a 60-second segment in real time</div><div class="tracker-check"></div></div>
+  </div>
+
+  <div style="text-align:center;font-size:8.5pt;color:#aaa;font-family:Arial,sans-serif;padding-bottom:30px;">
+    Listening 10 minutes a day = 70 minutes/week = ~50 hours/year of real English input. That compounds.
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

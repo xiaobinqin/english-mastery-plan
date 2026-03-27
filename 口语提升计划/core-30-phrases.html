@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Core 30 Phrases — Your Speaking Starter Pack</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:10.5pt;color:#1a1a1a;background:#f0f4fb;line-height:1.65}
+@media screen{
+ .site-nav{position:sticky;top:0;z-index:100;background:#1e3a5f;color:#fff;padding:9px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:8.5pt}
+ .site-nav a{color:#a8d0f7;text-decoration:none;padding:3px 8px;border-radius:3px;white-space:nowrap}
+ .site-nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+ .site-nav .nav-home{font-weight:bold;font-size:10pt;margin-right:4px}
+ .site-nav a.active{background:#e8a020;color:#fff}
+}
+@media print{.site-nav,.no-print{display:none}}
+
+.container{max-width:960px;margin:0 auto;padding:28px 20px}
+
+.page-header{text-align:center;margin-bottom:28px}
+.page-header h1{font-family:Arial,sans-serif;font-size:20pt;color:#1e3a5f;margin-bottom:8px}
+.page-header p{font-size:10pt;color:#555;max-width:680px;margin:0 auto;line-height:1.6}
+
+.why-box{background:#fff3cd;border:1px solid #e0c840;border-radius:8px;padding:16px 22px;margin-bottom:28px}
+.why-box h3{font-family:Arial,sans-serif;color:#7a5a00;font-size:11pt;margin-bottom:8px}
+.why-box p{font-size:9.5pt;color:#555;line-height:1.6;margin-bottom:6px}
+.why-box strong{color:#1e3a5f}
+
+/* Controls */
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center;font-family:Arial,sans-serif}
+.btn{padding:8px 18px;border-radius:5px;border:none;cursor:pointer;font-size:9pt;font-family:Arial,sans-serif;font-weight:bold}
+.btn-primary{background:#1e3a5f;color:#fff}
+.btn-primary:hover{background:#2e5a8f}
+.btn-drill{background:#e8a020;color:#fff}
+.btn-drill:hover{background:#c08010}
+.btn-reset{background:#f5f5f5;color:#555;border:1px solid #ccc}
+.btn-reset:hover{background:#e8e8e8}
+.progress-bar-wrap{flex:1;min-width:160px}
+.progress-label{font-size:8.5pt;color:#666;margin-bottom:3px}
+.progress-bar{height:8px;background:#e0e8f0;border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:#1e5f3a;border-radius:4px;transition:width .4s}
+.progress-text{font-size:8pt;color:#1e5f3a;font-weight:bold;margin-top:2px}
+
+/* Drill mode overlay */
+.drill-banner{display:none;background:#e8a020;color:#fff;text-align:center;padding:10px 20px;font-family:Arial,sans-serif;font-size:9pt;font-weight:bold;border-radius:6px;margin-bottom:18px}
+.drill-banner.active{display:block}
+
+/* Category */
+.category{margin-bottom:32px}
+.cat-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;border-bottom:3px solid;padding-bottom:8px}
+.cat-icon{font-size:18pt}
+.cat-title{font-family:Arial,sans-serif;font-size:13pt;font-weight:bold}
+.cat-count{font-family:Arial,sans-serif;font-size:8.5pt;color:#888;margin-left:auto}
+
+.cat-open   .cat-header{border-color:#1e5f3a}
+.cat-meeting .cat-header{border-color:#1e3a7a}
+.cat-clarity .cat-header{border-color:#7a5a1e}
+.cat-flow   .cat-header{border-color:#5a1e7a}
+.cat-close  .cat-header{border-color:#1e5f5f}
+.cat-small  .cat-header{border-color:#7a1e3a}
+
+/* Phrase card */
+.phrase-card{background:#fff;border:1px solid #d0dae8;border-radius:8px;padding:14px 18px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;transition:box-shadow .2s}
+.phrase-card:hover{box-shadow:0 2px 8px rgba(30,58,95,.1)}
+.phrase-card.mastered{background:#f0f8f0;border-color:#80c080}
+
+.phrase-check{flex-shrink:0;margin-top:2px}
+.phrase-check input[type=checkbox]{width:18px;height:18px;cursor:pointer;accent-color:#1e5f3a}
+
+.phrase-content{flex:1}
+.phrase-text{font-family:Arial,sans-serif;font-size:11.5pt;font-weight:bold;color:#1e3a5f;margin-bottom:4px}
+.phrase-text .alt{font-weight:normal;color:#777;font-size:10pt} /* alternative */
+.phrase-hint{display:none;font-size:9pt;color:#555;font-style:italic;background:#f5f9ff;border-left:3px solid #a8c8e8;padding:5px 10px;border-radius:0 4px 4px 0;margin-top:5px;line-height:1.5}
+.phrase-hint.visible{display:block}
+.phrase-when{font-size:8.5pt;color:#888;margin-top:5px;font-family:Arial,sans-serif}
+
+.phrase-actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.btn-sm{padding:4px 10px;border-radius:4px;border:none;cursor:pointer;font-size:8pt;font-family:Arial,sans-serif}
+.btn-hint{background:#e8f0ff;color:#1e3a5f}
+.btn-hint:hover{background:#c8d8ff}
+.btn-master{background:#e0f0e0;color:#1a5a1a;font-weight:bold}
+.btn-master:hover{background:#c0e0c0}
+
+.mastered-badge{display:none;font-size:8pt;background:#1e5f3a;color:#fff;padding:2px 8px;border-radius:10px;font-family:Arial,sans-serif;font-weight:bold;flex-shrink:0;align-self:center}
+.phrase-card.mastered .mastered-badge{display:inline-block}
+
+/* Drill mode hides hints, keeps check state visible */
+.drill-mode .phrase-hint{display:none !important}
+.drill-mode .btn-hint{display:none}
+
+/* Footer tip */
+.tip-footer{background:#f5f9ff;border:1px solid #b0c8e8;border-radius:8px;padding:14px 20px;margin-top:32px;font-family:Arial,sans-serif;font-size:9pt;color:#444;line-height:1.6}
+.tip-footer strong{color:#1e3a5f}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-home" href="../index.html">🏠 Home</a>
+  <a href="../html-学习页面/index.html">📖 NGSL</a>
+  <a href="../html-学习页面/stories.html">📖 Stories</a>
+  <a href="60day-master-plan.html">🗓 60-Day Plan</a>
+  <a href="core-30-phrases.html" class="active">⚡ Core 30</a>
+  <a href="weekly-challenges.html">🎯 Weekly Challenges</a>
+  <a href="listening-guide.html">🎧 Listening</a>
+  <a href="phrase-bank.html">📋 Client Phrases</a>
+  <a href="phrase-bank-team.html">👥 Team Phrases</a>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>⚡ Core 30 Phrases</h1>
+    <p>Your speaking starter pack. Master these 30 phrases first — deeply, automatically, instantly. Knowing 30 phrases you can say in 2 seconds beats knowing 300 phrases you have to search for.</p>
+  </div>
+
+  <div class="why-box">
+    <h3>💡 How to Use This Page</h3>
+    <p><strong>Step 1 — Learn mode:</strong> Read each phrase aloud 3 times. Click "Show tip" to see when and how to use it. Check "Mastered" when you can say it without hesitation.</p>
+    <p><strong>Step 2 — Drill mode:</strong> Click the orange "2-Second Drill" button. Hints hide. Say each phrase out loud the moment you read the situation. This trains real-speed recall.</p>
+    <p><strong>Goal:</strong> All 30 phrases checked as mastered. Then use at least <strong>3 new phrases</strong> in real conversations this week.</p>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls no-print">
+    <button class="btn btn-drill" onclick="toggleDrill()">⚡ 2-Second Drill Mode</button>
+    <button class="btn btn-reset" onclick="resetAll()">↺ Reset Progress</button>
+    <div class="progress-bar-wrap">
+      <div class="progress-label">Mastered</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-text" id="progressText">0 / 30</div>
+    </div>
+  </div>
+
+  <div class="drill-banner" id="drillBanner">
+    ⚡ DRILL MODE — Read the situation, say the phrase aloud IMMEDIATELY without thinking. If you hesitate, say it 3 more times fast.
+  </div>
+
+  <div id="phraseContainer">
+
+  <!-- ── Category 1 ───────────────────────────── -->
+  <div class="category cat-open">
+    <div class="cat-header">
+      <span class="cat-icon">🚀</span>
+      <div>
+        <div class="cat-title" style="color:#1e5f3a">Opening &amp; Starting</div>
+        <div style="font-size:8.5pt;color:#555;font-family:Arial,sans-serif">Kick off meetings, calls, and conversations confidently</div>
+      </div>
+      <div class="cat-count" id="count-open">0/5 mastered</div>
+    </div>
+
+    <div class="phrase-card" data-cat="open" data-id="p01">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p01')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Let me kick things off by… <span class="alt">/ I'd like to start by…</span></div>
+        <div class="phrase-when">📍 Use: Opening any meeting or presentation — natural, confident</div>
+        <div class="phrase-hint" id="hint-p01">💬 "Let me kick things off by giving a quick status update." / "I'd like to start by reviewing what we finished last week."</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p01')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p01', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="open" data-id="p02">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p02')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Thanks for joining. Today we'll cover…</div>
+        <div class="phrase-when">📍 Use: Setting the agenda at the start of a meeting</div>
+        <div class="phrase-hint" id="hint-p02">💬 "Thanks for joining. Today we'll cover the sprint review and then discuss the API issue." — Clear, professional, sets expectations.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p02')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p02', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="open" data-id="p03">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p03')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Do you have a few minutes? I have a quick question.</div>
+        <div class="phrase-when">📍 Use: Approaching a colleague informally — respectful of their time</div>
+        <div class="phrase-hint" id="hint-p03">💬 This phrase shows respect for the other person's time. Much better than just starting to talk. The "quick" signals you won't take long.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p03')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p03', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="open" data-id="p04">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p04')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">I just wanted to quickly check in on…</div>
+        <div class="phrase-when">📍 Use: Following up on a task, project, or previous conversation</div>
+        <div class="phrase-hint" id="hint-p04">💬 "I just wanted to quickly check in on the deployment — are we still on track for Friday?" — Friendly, not aggressive.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p04')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p04', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="open" data-id="p05">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p05')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Before we get started, does anyone have anything urgent to add?</div>
+        <div class="phrase-when">📍 Use: Opening a structured meeting — shows leadership and inclusivity</div>
+        <div class="phrase-hint" id="hint-p05">💬 This one phrase makes you sound like a confident meeting facilitator. Practice it until it feels completely natural.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p05')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p05', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+  </div>
+
+  <!-- ── Category 2 ───────────────────────────── -->
+  <div class="category cat-meeting">
+    <div class="cat-header">
+      <span class="cat-icon">💬</span>
+      <div>
+        <div class="cat-title" style="color:#1e3a7a">Expressing Your Opinion</div>
+        <div style="font-size:8.5pt;color:#555;font-family:Arial,sans-serif">Share your view clearly — not too aggressive, not too passive</div>
+      </div>
+      <div class="cat-count" id="count-opinion">0/5 mastered</div>
+    </div>
+
+    <div class="phrase-card" data-cat="opinion" data-id="p06">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p06')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">My take on this is… <span class="alt">/ From my perspective…</span></div>
+        <div class="phrase-when">📍 Use: Sharing your opinion without sounding too absolute</div>
+        <div class="phrase-hint" id="hint-p06">💬 "My take on this is that we should fix the bug before releasing." — "My take" sounds natural and confident in English-speaking teams. Avoid "I think" alone, which can sound uncertain.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p06')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p06', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="opinion" data-id="p07">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p07')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">I'd lean towards [option], because…</div>
+        <div class="phrase-when">📍 Use: Recommending an option when there are multiple choices</div>
+        <div class="phrase-hint" id="hint-p07">💬 "I'd lean towards the microservices approach, because it gives us more flexibility down the road." — "lean towards" is a very natural native phrase that signals preference without being rigid.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p07')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p07', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="opinion" data-id="p08">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p08')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Just to push back a little — have we considered…?</div>
+        <div class="phrase-when">📍 Use: Politely disagreeing or raising an alternative — essential in tech teams</div>
+        <div class="phrase-hint" id="hint-p08">💬 "Just to push back a little — have we considered the performance impact of that approach?" — "push back" is a standard professional phrase. It signals healthy debate, not conflict.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p08')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p08', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="opinion" data-id="p09">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p09')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">I see your point, but I think we also need to consider…</div>
+        <div class="phrase-when">📍 Use: Acknowledging someone's idea before offering a different view</div>
+        <div class="phrase-hint" id="hint-p09">💬 Always acknowledge before disagreeing — this keeps the conversation collaborative. "I see your point, but I think we also need to consider the timeline risk."</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p09')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p09', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="opinion" data-id="p10">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p10')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">That's a good point. I hadn't thought of it that way.</div>
+        <div class="phrase-when">📍 Use: Genuinely accepting someone else's idea — builds trust and rapport</div>
+        <div class="phrase-hint" id="hint-p10">💬 Don't overuse this, but when it's genuine, it's very powerful for building team relationships. Native speakers say this a lot.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p10')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p10', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+  </div>
+
+  <!-- ── Category 3 ───────────────────────────── -->
+  <div class="category cat-clarity">
+    <div class="cat-header">
+      <span class="cat-icon">⏸</span>
+      <div>
+        <div class="cat-title" style="color:#7a5a1e">Buying Time &amp; Asking for Clarity</div>
+        <div style="font-size:8.5pt;color:#555;font-family:Arial,sans-serif">Never freeze — use these to control pace and get what you need</div>
+      </div>
+      <div class="cat-count" id="count-clarity">0/5 mastered</div>
+    </div>
+
+    <div class="phrase-card" data-cat="clarity" data-id="p11">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p11')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Sorry, could you say that again? <span class="alt">/ Could you repeat that?</span></div>
+        <div class="phrase-when">📍 Use: When you miss something — never pretend you understood</div>
+        <div class="phrase-hint" id="hint-p11">💬 This is one of the most important phrases to say naturally. Practice it until it comes out automatically. Many learners pretend they understood — this leads to bigger problems later.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p11')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p11', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="clarity" data-id="p12">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p12')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Just to make sure I understand — you're saying that…?</div>
+        <div class="phrase-when">📍 Use: Confirming your understanding, especially for complex requests</div>
+        <div class="phrase-hint" id="hint-p12">💬 This phrase does two things: confirms you understood, AND shows you were listening carefully. "Just to make sure I understand — you're saying the deadline moved to next Thursday?"</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p12')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p12', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="clarity" data-id="p13">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p13')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">That's a good question. Let me think about that for a second.</div>
+        <div class="phrase-when">📍 Use: Buying 3–5 seconds of thinking time without sounding lost</div>
+        <div class="phrase-hint" id="hint-p13">💬 This is your "pause button." Say it, then think. Never go silent for more than 2 seconds without saying something — silence reads as confusion. This phrase reads as thoughtfulness.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p13')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p13', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="clarity" data-id="p14">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p14')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">I'm not 100% sure on that. Let me get back to you.</div>
+        <div class="phrase-when">📍 Use: When you don't know the answer — far better than guessing wrong</div>
+        <div class="phrase-hint" id="hint-p14">💬 This builds trust. In a professional environment, saying "I don't know but I'll find out" is far more respected than guessing. Always follow up when you say this.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p14')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p14', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="clarity" data-id="p15">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p15')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Could you give me an example? <span class="alt">/ Can you walk me through that?</span></div>
+        <div class="phrase-when">📍 Use: When an explanation is too abstract — ask for concrete specifics</div>
+        <div class="phrase-hint" id="hint-p15">💬 Asking for examples is a sign of engagement, not weakness. "Can you walk me through that?" is especially useful for technical explanations.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p15')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p15', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+  </div>
+
+  <!-- ── Category 4 ───────────────────────────── -->
+  <div class="category cat-flow">
+    <div class="cat-header">
+      <span class="cat-icon">🔄</span>
+      <div>
+        <div class="cat-title" style="color:#5a1e7a">Keeping Conversation Going</div>
+        <div style="font-size:8.5pt;color:#555;font-family:Arial,sans-serif">Stay engaged, show interest, ask naturally</div>
+      </div>
+      <div class="cat-count" id="count-flow">0/5 mastered</div>
+    </div>
+
+    <div class="phrase-card" data-cat="flow" data-id="p16">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p16')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">What do you think about…? <span class="alt">/ How do you feel about…?</span></div>
+        <div class="phrase-when">📍 Use: Inviting someone's opinion — opens dialogue naturally</div>
+        <div class="phrase-hint" id="hint-p16">💬 "What do you think about moving the deployment to Monday?" — This is essential for inclusive meetings. Use it often with quieter team members.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p16')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p16', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="flow" data-id="p17">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p17')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">That's interesting — tell me more.</div>
+        <div class="phrase-when">📍 Use: Showing genuine interest and encouraging someone to continue</div>
+        <div class="phrase-hint" id="hint-p17">💬 Simple and powerful. This phrase signals that you're engaged and that what they said matters. Use in 1-on-1s, team check-ins, client calls.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p17')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p17', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="flow" data-id="p18">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p18')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">So what you're saying is… (rephrase their point)</div>
+        <div class="phrase-when">📍 Use: Active listening — paraphrase before responding to confirm understanding</div>
+        <div class="phrase-hint" id="hint-p18">💬 This is the single most powerful listening technique. "So what you're saying is the client wants the new feature before the bug fixes?" — It prevents misunderstandings and shows respect.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p18')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p18', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="flow" data-id="p19">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p19')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">I've actually had a similar experience. When I…</div>
+        <div class="phrase-when">📍 Use: Connecting your own experience to theirs — builds conversation naturally</div>
+        <div class="phrase-hint" id="hint-p19">💬 Sharing a relevant story is one of the best conversation techniques. Keep it short — 2–3 sentences max — then return to them: "Has it been similar for you?"</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p19')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p19', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="flow" data-id="p20">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p20')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Heads up — [important information coming]</div>
+        <div class="phrase-when">📍 Use: Warning someone about something upcoming — very natural in English teams</div>
+        <div class="phrase-hint" id="hint-p20">💬 "Heads up — I'll be out of office Friday, so can we move the review to Thursday?" — "Heads up" is casual and friendly. Use in Slack, email, or spoken. Very common in tech teams.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p20')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p20', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+  </div>
+
+  <!-- ── Category 5 ───────────────────────────── -->
+  <div class="category cat-close">
+    <div class="cat-header">
+      <span class="cat-icon">✅</span>
+      <div>
+        <div class="cat-title" style="color:#1e5f5f">Wrapping Up &amp; Summarizing</div>
+        <div style="font-size:8.5pt;color:#555;font-family:Arial,sans-serif">End meetings and conversations with clarity and professionalism</div>
+      </div>
+      <div class="cat-count" id="count-close">0/5 mastered</div>
+    </div>
+
+    <div class="phrase-card" data-cat="close" data-id="p21">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p21')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">So just to summarize what we agreed…</div>
+        <div class="phrase-when">📍 Use: End of any meeting — summarizing decisions and next steps</div>
+        <div class="phrase-hint" id="hint-p21">💬 Always summarize at the end of a meeting. This one habit will make you look extremely professional. "So just to summarize — we agreed to delay the launch by one week and Tom will update the client."</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p21')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p21', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="close" data-id="p22">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p22')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">The next step would be for [name] to… by [date].</div>
+        <div class="phrase-when">📍 Use: Assigning action items clearly at the end of a meeting</div>
+        <div class="phrase-hint" id="hint-p22">💬 "The next step would be for Sarah to share the updated spec by Wednesday." — This makes responsibilities clear without sounding pushy. Essential for project management.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p22')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p22', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="close" data-id="p23">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p23')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Is there anything else you'd like to cover?</div>
+        <div class="phrase-when">📍 Use: Before officially ending a meeting — shows thoroughness</div>
+        <div class="phrase-hint" id="hint-p23">💬 This small question prevents the "oh wait, one more thing" that happens after meetings. Say it before closing, not after you've said goodbye.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p23')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p23', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="close" data-id="p24">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p24')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Let's plan to follow up on this by [day].</div>
+        <div class="phrase-when">📍 Use: Keeping momentum — ensuring unresolved issues get addressed</div>
+        <div class="phrase-hint" id="hint-p24">💬 "Let's plan to follow up on this by Thursday — does that work for everyone?" Always set a specific day, not "soon" or "next week."</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p24')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p24', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="close" data-id="p25">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p25')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Thanks, this was really helpful. <span class="alt">/ Good meeting, everyone.</span></div>
+        <div class="phrase-when">📍 Use: Closing warmly — a small thing that makes a real difference to team culture</div>
+        <div class="phrase-hint" id="hint-p25">💬 Endings matter. "Thanks, this was really helpful" leaves people feeling the time was well spent. It's a small habit with a large impact on how others perceive you.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p25')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p25', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+  </div>
+
+  <!-- ── Category 6 ───────────────────────────── -->
+  <div class="category cat-small">
+    <div class="cat-header">
+      <span class="cat-icon">☀️</span>
+      <div>
+        <div class="cat-title" style="color:#7a1e3a">Daily Small Talk</div>
+        <div style="font-size:8.5pt;color:#555;font-family:Arial,sans-serif">Build rapport — fluency lives in informal conversation too</div>
+      </div>
+      <div class="cat-count" id="count-small">0/5 mastered</div>
+    </div>
+
+    <div class="phrase-card" data-cat="small" data-id="p26">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p26')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">How's your week going so far? <span class="alt">/ How are things on your end?</span></div>
+        <div class="phrase-when">📍 Use: Starting any casual conversation — more natural than "How are you?"</div>
+        <div class="phrase-hint" id="hint-p26">💬 "How are you?" can feel formal. "How's your week going?" is warmer and invites a real answer. "How are things on your end?" is great for remote team check-ins.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p26')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p26', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="small" data-id="p27">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p27')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Did you get a chance to look at [the PR / the doc / the issue]?</div>
+        <div class="phrase-when">📍 Use: Following up without sounding demanding — natural in tech teams</div>
+        <div class="phrase-hint" id="hint-p27">💬 "Did you get a chance to…" is softer than "Did you review…?" It acknowledges the other person is busy and gives them room to say not yet without feeling bad.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p27')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p27', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="small" data-id="p28">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p28')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">No worries, it happens. <span class="alt">/ Don't worry about it.</span></div>
+        <div class="phrase-when">📍 Use: When someone apologizes — responding with warmth, not just "ok"</div>
+        <div class="phrase-hint" id="hint-p28">💬 When someone says sorry, responding with "No worries, it happens" instead of just "ok" or silence makes you sound much warmer and more natural. Very common in English-speaking workplaces.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p28')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p28', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="small" data-id="p29">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p29')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Great work on [task/project], by the way.</div>
+        <div class="phrase-when">📍 Use: Giving informal praise — builds team culture and rapport</div>
+        <div class="phrase-hint" id="hint-p29">💬 "Great work on the demo yesterday, by the way — the client was really impressed." — Small, specific, genuine praise is one of the most powerful things you can say. "By the way" keeps it casual.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p29')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p29', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+
+    <div class="phrase-card" data-cat="small" data-id="p30">
+      <div class="phrase-check"><input type="checkbox" onchange="toggleMaster(this,'p30')"></div>
+      <div class="phrase-content">
+        <div class="phrase-text">Sounds good to me. <span class="alt">/ Works for me. / I'm on board.</span></div>
+        <div class="phrase-when">📍 Use: Agreeing — these are much more natural than "OK" or "Yes"</div>
+        <div class="phrase-hint" id="hint-p30">💬 Native speakers rarely say just "yes" or "ok" to agree. "Sounds good," "Works for me," and "I'm on board" are the natural alternatives. Pick one and make it your default.</div>
+        <div class="phrase-actions">
+          <button class="btn-sm btn-hint" onclick="toggleHint('p30')">Show tip</button>
+          <button class="btn-sm btn-master" onclick="setMaster('p30', true)">✓ Mastered</button>
+        </div>
+      </div>
+      <span class="mastered-badge">✓ Mastered</span>
+    </div>
+  </div>
+  </div><!-- /phraseContainer -->
+
+  <div class="tip-footer">
+    <strong>🎯 Weekly target:</strong> Once you've mastered all 30, use at least <strong>5 different phrases</strong> from this list in real conversations this week. After one month of consistent use, these will come out automatically — that's fluency.
+    <br><br>
+    <strong>📈 Next step:</strong> Once these feel natural, explore the full <a href="phrase-bank.html" style="color:#1e3a5f">Client Phrase Bank</a> (320+ phrases) and <a href="phrase-bank-team.html" style="color:#1e3a5f">Team Phrase Bank</a> (200+ phrases).
+  </div>
+
+</div><!-- /container -->
+
+<script>
+const STORAGE_KEY = 'core30_mastered';
+
+function getMastered() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; }
+}
+function saveMastered(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function toggleMaster(checkbox, id) {
+  const card = document.querySelector(`[data-id="${id}"]`);
+  const mastered = getMastered();
+  if (checkbox.checked) {
+    mastered[id] = true;
+    card.classList.add('mastered');
+  } else {
+    delete mastered[id];
+    card.classList.remove('mastered');
+  }
+  saveMastered(mastered);
+  updateProgress();
+}
+
+function setMaster(id, val) {
+  const card = document.querySelector(`[data-id="${id}"]`);
+  const cb = card.querySelector('input[type=checkbox]');
+  const mastered = getMastered();
+  if (val) {
+    mastered[id] = true;
+    card.classList.add('mastered');
+    cb.checked = true;
+  }
+  saveMastered(mastered);
+  updateProgress();
+}
+
+function toggleHint(id) {
+  const hint = document.getElementById('hint-' + id);
+  const btn = hint.previousElementSibling.querySelector('.btn-hint');
+  if (!hint) return;
+  hint.classList.toggle('visible');
+  if (btn) btn.textContent = hint.classList.contains('visible') ? 'Hide tip' : 'Show tip';
+}
+
+function updateProgress() {
+  const mastered = getMastered();
+  const total = 30;
+  const count = Object.keys(mastered).length;
+  const pct = Math.round(count / total * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = count + ' / ' + total;
+
+  // Update per-category counts
+  const cats = ['open','opinion','clarity','flow','close','small'];
+  cats.forEach(cat => {
+    const cards = document.querySelectorAll(`[data-cat="${cat}"]`);
+    let catCount = 0;
+    cards.forEach(c => { if (mastered[c.dataset.id]) catCount++; });
+    const el = document.getElementById('count-' + cat);
+    if (el) el.textContent = catCount + '/' + cards.length + ' mastered';
+  });
+}
+
+let drillMode = false;
+function toggleDrill() {
+  drillMode = !drillMode;
+  const container = document.getElementById('phraseContainer');
+  const banner = document.getElementById('drillBanner');
+  const btn = document.querySelector('.btn-drill');
+  if (drillMode) {
+    container.classList.add('drill-mode');
+    banner.classList.add('active');
+    btn.textContent = '✕ Exit Drill Mode';
+  } else {
+    container.classList.remove('drill-mode');
+    banner.classList.remove('active');
+    btn.textContent = '⚡ 2-Second Drill Mode';
+  }
+}
+
+function resetAll() {
+  if (!confirm('Reset all progress? This will uncheck all "Mastered" items.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  document.querySelectorAll('.phrase-card').forEach(c => c.classList.remove('mastered'));
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+  updateProgress();
+}
+
+// Load saved state on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const mastered = getMastered();
+  Object.keys(mastered).forEach(id => {
+    const card = document.querySelector(`[data-id="${id}"]`);
+    if (card) {
+      card.classList.add('mastered');
+      const cb = card.querySelector('input[type=checkbox]');
+      if (cb) cb.checked = true;
+    }
+  });
+  updateProgress();
+});
+</script>
+</body>
+</html>
